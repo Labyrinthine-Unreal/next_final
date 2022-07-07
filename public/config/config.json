@@ -1,0 +1,18 @@
+{
+  "CONTRACT_ADDRESS": "0x25cff20e9fb576b76768d4ce69c66578b7f7ac5d",
+  "SCAN_LINK": "https://rinkeby.etherscan.io/address/0x25cff20e9fb576b76768d4ce69c66578b7f7ac5d",
+  "NETWORK": {
+    "NAME": "rEthereum",
+    "SYMBOL": "rETH",
+    "ID": 4
+  },
+  "NFT_NAME": "TaurosDAO Estates",
+  "SYMBOL": "ESTATE",
+  "MAX_SUPPLY": 7110,
+  "WEI_COST": 0.00000000000000000,
+  "DISPLAY_COST": 0.00,
+  "GAS_LIMIT": 250000,
+  "MARKETPLACE": "Opensea",
+  "MARKETPLACE_LINK": "https://testnets.opensea.io/collection/lumask-hs4b6vnfpg",
+  "SHOW_BACKGROUND": true
+}
