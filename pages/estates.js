@@ -34,9 +34,9 @@ export default function TaurosPage() {
                             />
                         </Box>
                     </Box>
-                    {/* <Box display='flex' h={20} py={12} justifyContent='center'>
+                    <Box display='flex' h={20} py={12} justifyContent='center'>
                         <MintButtonEstates />
-                    </Box> */}
+                    </Box>
                 </Box>
                 </Box>
                 <Box maxW='400' pt={100} pl={10} align='left'>
