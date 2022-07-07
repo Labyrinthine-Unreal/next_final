@@ -4,7 +4,7 @@ import properties from "../components/data/properties"
 import MintAnimation from "../components/mintComp/MintAnimation"
 import MintTitle from "../components/mintComp/MintTitle"
 import MintPrice from "../components/mintComp/MintPrice"
-import MintButton from "../components/mintComp/MintButton"
+import MintButtonTauros from "../components/mintComp/MintButtonTauros"
 import Sidebar from "../components/navbars/Sidebar"
 import Footer from "../components/navbars/Footer"
 import HeaderSignIn from '../components/navbars/HeaderSignIn'
@@ -26,7 +26,7 @@ export default function TaurosPage() {
                 <Sidebar />
                 <Flex direction="column" alignItems="center" width="100%" pt={70}>
                     <SimpleGrid columns={{md: 2, sm: 1}} spacing={10} spacingY={10}>
-                        <Box maxW='260' h={490} borderWidth='1px' bg='#ffffffbb' borderRadius='lg' overflow="hidden">
+                        <Box maxW='260' h={490} borderWidth='1px' bg='#ffffffbb' borderRadius='lg' overflow="scroll">
                             <MintAnimation src={item.imageUrl} alt={item.imageAlt} />
                             <Box p='6' h={50} textAlign="left">
                                 <MintTitle title={item.title} />
@@ -35,7 +35,7 @@ export default function TaurosPage() {
                                 </Box>
                             </Box>
                             <Box display='flex' h={20} py={12} pl={4} justifyContent='center'>
-                                <MintButton />
+                                <MintButtonTauros />
                             </Box>
                         </Box>
 

@@ -53,7 +53,7 @@ export default function TaurosPage() {
                     </Box>
                 </Box>
             </SimpleGrid>
-            <MintButtonEstates />
+            {/* <MintButtonEstates /> */}
             <Footer />
         </>
     )
