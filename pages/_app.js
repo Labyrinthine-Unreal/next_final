@@ -1,13 +1,12 @@
 import { ChakraProvider, Box } from "@chakra-ui/react"
 import { MoralisProvider } from "react-moralis"
 import React from "react";
-import ReactDOM from "react-dom"
-import "../src/styles/reset.css"
-import store from "../src/redux/store";
+import "@/src/styles/reset.css"
+import store from "@/src/redux/store";
 import { Provider } from "react-redux";
-import HeaderSignIn from "../components/navbars/HeaderSignIn"
-import Sidebar from "../components/navbars/Sidebar"
-import Footer from "../components/Footer"
+import HeaderSignIn from "@/components/navbars/HeaderSignIn"
+import Sidebar from "@/components/navbars/Sidebar"
+import Footer from "@/components/Footer"
 
 function MyApp({ Component, pageProps }) {
   return(

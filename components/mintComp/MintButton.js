@@ -2,10 +2,10 @@ import { Divider, SimpleGrid, useToast, Flex, NumberInputStepper, NumberIncremen
 import { useEffect, useState, } from "react";
 import { useWeb3Transfer, useMoralisWeb3Api, useERC20Balances, useNFTBalances, useApiContract } from "react-moralis";
 import Moralis from "moralis";
-import ABI from "../data/InputsABI"
+import ABI from "@/components/data/InputsABI"
 
 
-export default function MintButtonEstates({ user }) {
+export default function MintButton({ user }) {
 
     const [amount, setAmount] = useState(0)
     const [receiver, setReceiver] = useState('')

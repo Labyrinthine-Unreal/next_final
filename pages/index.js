@@ -1,15 +1,13 @@
 import Head from "next/head"
 import { Flex, Box, Text } from "@chakra-ui/react"
 import MintCards from "../components/mintComp/MintCards"
-import TaurosPage from "./tauros"
 
-export default function Home() {
+export default function HomePage() {
     return(
       <Box bgGradient="linear(to-br, teal.400,purple.300)">
         <Head>
-          <title>
-            Login | Dashboard
-          </title>
+          <title>Login | Dashboard</title>
+          <meta name='description' content='Welcome to TaurosDAO, a community of artists and collectors by Labyrinthine Unreal' />
         </Head>
         
         <Flex direction="column" alignItems="center" width="100%" pt={70} p={20}>

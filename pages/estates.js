@@ -1,9 +1,9 @@
 import { Box, SimpleGrid } from "@chakra-ui/react"
-import properties from "../components/mintComp/properties"
-import MintAnimation from "../components/mintComp/MintAnimation"
-import MintTitle from "../components/mintComp/MintTitle"
-import MintPrice from "../components/mintComp/MintPrice"
-import MintButtonEstates from "../components/mintComp/MintButtonEstates"
+import properties from "@/components/data/properties"
+import MintAnimation from "@/components/mintComp/MintAnimation"
+import MintTitle from "@/components/mintComp/MintTitle"
+import MintPrice from "@/components/mintComp/MintPrice"
+import MintButtonEstates from "@/components/mintComp/MintButtonEstates"
 
 export default function EstatesPage() {
     const item = properties[1];
