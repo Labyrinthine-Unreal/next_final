@@ -1,7 +1,7 @@
 import { Box, Flex, SimpleGrid } from "@chakra-ui/react"
 import MintAnimation from "./MintAnimation"
 import MintTitle from "./MintTitle"
-import MintButtonEstates from "./MintButtonEstates"
+import MintButtonEstatesFront from "./MintButtonEstatesFront"
 import MintButton from "./MintButton"
 import MintPrice from "./MintPrice"
 import MoreInfo from "./MoreInfo"
@@ -29,7 +29,7 @@ export default function CardEntry(props) {
                 </SimpleGrid>
             </Box>
             <Box display='flex' h={20} py={12} pl={4} justifyContent='center'>
-                {props.title == "MERCA CITY ESTATES" ? <MintButtonEstates /> : <MintButtonTauros />}
+                {props.title == "MERCA CITY ESTATES" ? <MintButtonEstatesFront /> : <MintButtonTauros />}
             </Box>
         </Box>
     )
