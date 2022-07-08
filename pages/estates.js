@@ -51,7 +51,6 @@ export default function EstatesPage() {
                     </Box>
                 </Box>
             </SimpleGrid>
-            {/* <MintButtonEstates /> */}
         </>
     )
 }
