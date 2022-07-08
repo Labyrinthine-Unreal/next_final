@@ -24,27 +24,27 @@ export default function MintButton({ user }) {
             <form onSubmit={async e => {
                 e.preventDefault()
                 await Moralis.enableWeb3()
-                fetch({
-                    onSuccess: () => {
-                        toast({
-                            title: 'Eth Successfully sent',
-                            description:"NFT is now in your wallet",
-                            status: "Success",
-                            duration: 9000,
-                            isClosable: true
-                        })
-                        setReceiver(user.get('ethAddress'))
-                        },
-                    onError: (error) => {
-                        toast({
-                            title: 'Error',
-                            description:error,
-                            status: "error",
-                            duration: '9000',
-                            isClosable: true
-                        }) 
-                    }
-                })
+                // fetch({
+                //     onSuccess: () => {
+                //         toast({
+                //             title: 'Eth Successfully sent',
+                //             description:"NFT is now in your wallet",
+                //             status: "Success",
+                //             duration: 9000,
+                //             isClosable: true
+                //         })
+                //         setReceiver(user.get('ethAddress'))
+                //         },
+                //     onError: (error) => {
+                //         toast({
+                //             title: 'Error',
+                //             description:error,
+                //             status: "error",
+                //             duration: '9000',
+                //             isClosable: true
+                //         }) 
+                //     }
+                // })
             }}>
                 <FormControl mt="4">
                     <FormLabel htmlFor="amount">
