@@ -4,9 +4,8 @@ import MintAnimation from "../components/mintComp/MintAnimation"
 import MintTitle from "../components/mintComp/MintTitle"
 import MintPrice from "../components/mintComp/MintPrice"
 import MintButtonEstates from "../components/mintComp/MintButtonEstates"
-import Footer from "../components/Footer"
 
-export default function TaurosPage() {
+export default function EstatesPage() {
     const item = properties[1];
             
     return (
@@ -15,7 +14,6 @@ export default function TaurosPage() {
             columns={{md: 2, sm: 1}} 
                 width="100vw"
                 height="50vw"
-                bgGradient="linear(to-br, teal.400,purple.300)"
             >
                 <Box pt={100} align='right' pr={10}>
                     <Box maxW='260' borderWidth='1px' bg='white' borderRadius='lg' overflow="scroll">
@@ -54,7 +52,6 @@ export default function TaurosPage() {
                 </Box>
             </SimpleGrid>
             {/* <MintButtonEstates /> */}
-            <Footer />
         </>
     )
 }
