@@ -4,6 +4,7 @@ import MintCards from "../components/mintComp/MintCards"
 import Footer from "../components/navbars/Footer"
 import Sidebar from "../components/navbars/Sidebar"
 import HeaderSignIn from "../components/navbars/HeaderSignIn"
+import TaurosPage from "./tauros"
 
 export default function Home() {
     return(

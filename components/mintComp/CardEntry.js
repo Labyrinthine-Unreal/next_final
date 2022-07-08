@@ -5,10 +5,11 @@ import MintButtonEstates from "./MintButtonEstates"
 import MintButton from "./MintButton"
 import MintPrice from "./MintPrice"
 import MoreInfo from "./MoreInfo"
+import MintButtonTauros from "./MintButtonTauros"
 
 export default function CardEntry(props) {
     return (
-        <Box maxW='260' h={490} borderWidth='1px' bg='#ffffffbb' borderRadius='lg' overflow="hidden">
+        <Box maxW='260' h={490} borderWidth='1px' bg='#ffffffbb' borderRadius='lg' overflow="scroll">
             <MintAnimation 
                 src={props.image}
                 alt={props.alt}
@@ -28,7 +29,7 @@ export default function CardEntry(props) {
                 </SimpleGrid>
             </Box>
             <Box display='flex' h={20} py={12} pl={4} justifyContent='center'>
-                {props.title == "MERCA CITY ESTATES" ? <MintButtonEstates /> : <MintButton />}
+                {props.title == "MERCA CITY ESTATES" ? <MintButtonEstates /> : <MintButtonTauros />}
             </Box>
         </Box>
     )
