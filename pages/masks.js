@@ -4,9 +4,8 @@ import MintAnimation from "../components/mintComp/MintAnimation"
 import MintTitle from "../components/mintComp/MintTitle"
 import MintPrice from "../components/mintComp/MintPrice"
 import MintButton from "../components/mintComp/MintButton"
-import Footer from "../components/navbars/Footer"
 
-export default function TaurosPage() {
+export default function MasksPage() {
     const item = properties[2];
             
     return (
@@ -51,7 +50,6 @@ export default function TaurosPage() {
                     </Box>
                 </Box>
             </SimpleGrid>
-            <Footer />
         </Box>
     )
 }

@@ -3,9 +3,9 @@ import { useEffect, useState, } from "react";
 import { useWeb3Transfer, useMoralisWeb3Api, useERC20Balances, useNFTBalances, useApiContract } from "react-moralis";
 import Moralis from "moralis";
 import { useDispatch, useSelector } from "react-redux"
-import { connect } from "../../src/redux2/blockchain/blockchainActions"
-import { fetchData } from "../../src/redux2/data/dataActions"
-import * as s from "../../src/styles/globalStyles"
+import { connect } from "@/src/redux2/blockchain/blockchainActions"
+import { fetchData } from "@/src/redux2/data/dataActions"
+import * as s from "@/src/styles/globalStyles"
 import styled from "styled-components"
 
 const truncate = (input, len) =>
@@ -21,13 +21,13 @@ const truncate = (input, len) =>
   color: var(--secondary-text);
   width: 100px;
   cursor: pointer;
-//   box-shadow: 0px 6px 0px -2px rgba(250, 250, 250, 0.3);
-//   -webkit-box-shadow: 0px 6px 0px -2px rgba(250, 250, 250, 0.3);
-//   -moz-box-shadow: 0px 6px 0px -2px rgba(250, 250, 250, 0.3);
-//   :active {
-//     box-shadow: none;
-//     -webkit-box-shadow: none;
-//     -moz-box-shadow: none;
+  box-shadow: 0px 6px 0px -2px rgba(250, 250, 250, 0.3);
+  -webkit-box-shadow: 0px 6px 0px -2px rgba(250, 250, 250, 0.3);
+  -moz-box-shadow: 0px 6px 0px -2px rgba(250, 250, 250, 0.3);
+  :active {
+  box-shadow: none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
   }
 `;
 
