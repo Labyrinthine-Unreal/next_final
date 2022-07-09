@@ -8,6 +8,5 @@ export default function MoreInfo(props) {
           {props.info}
         </Link>
       </Tooltip>
-           
     )
 }
