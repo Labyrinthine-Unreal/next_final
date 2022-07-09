@@ -3,7 +3,7 @@ import { useEffect, useState, } from "react";
 import { useDispatch, useSelector } from "react-redux"
 import { connect } from "@/src/redux/blockchain/blockchainActions"
 import { fetchData } from "@/src/redux/data/dataActions"
-import * as s from "@/src/styles/globalStyles"
+import * as s from "@/styles/globalStyles"
 
 const truncate = (input, len) =>
   input.length > len ? `${input.substring(0, len)}...` : input;
