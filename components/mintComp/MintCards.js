@@ -1,6 +1,6 @@
 import { SimpleGrid } from "@chakra-ui/react"
 import CardEntry from "./CardEntry"
-import properties from "../data/properties"
+import properties from "@/components/data/properties"
 
 
 function CreateEntry(property) {

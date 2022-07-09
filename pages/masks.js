@@ -1,15 +1,15 @@
 import { Box, SimpleGrid } from "@chakra-ui/react"
-import properties from "../components/data/properties"
-import MintAnimation from "../components/mintComp/MintAnimation"
-import MintTitle from "../components/mintComp/MintTitle"
-import MintPrice from "../components/mintComp/MintPrice"
-import MintButton from "../components/mintComp/MintButton"
+import properties from "@/components/data/properties"
+import MintAnimation from "@/components/mintComp/MintAnimation"
+import MintTitle from "@/components/mintComp/MintTitle"
+import MintPrice from "@/components/mintComp/MintPrice"
+import MintButton from "@/components/mintComp/MintButton"
 
 export default function MasksPage() {
     const item = properties[2];
             
     return (
-        <Box bgGradient="linear(to-br, teal.400,purple.300)">
+        <Box>
             <SimpleGrid
             columns={{md: 2, sm: 1}} 
                 width="100vw"
