@@ -1,4 +1,5 @@
-import { Flex, Text, Icon, Link, Menu, MenuButton, MenuList } from '@chakra-ui/react'
+import { Flex, Text, Icon, Menu, MenuButton, MenuList } from '@chakra-ui/react'
+import Link from "next/link"
 
 export default function NavItem({ navSize, title, icon, href }) {
     return (
