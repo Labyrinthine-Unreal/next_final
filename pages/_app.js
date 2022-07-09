@@ -1,7 +1,7 @@
 import { ChakraProvider, Box } from "@chakra-ui/react"
 import { MoralisProvider } from "react-moralis"
 import React from "react";
-import "@/src/styles/reset.css"
+import "@/styles/reset.css"
 import store from "@/src/redux/store";
 import { Provider } from "react-redux";
 import HeaderSignIn from "@/components/navbars/HeaderSignIn"

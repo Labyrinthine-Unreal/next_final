@@ -25,7 +25,7 @@ export default function HeaderSignIn() {
   }
   return (
     <header>
-        <Flex direction="column" width="100vw" height="100vh">
+        <Flex px="10" py="6" justifyContent="flex-end" color="white">
             <Header user={user} logout={logout} isLoggingOut={isLoggingOut}/>
         </Flex>
     </header>
