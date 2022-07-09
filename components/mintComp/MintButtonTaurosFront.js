@@ -1,7 +1,5 @@
-import { Divider, SimpleGrid, useToast, Flex, NumberInputStepper, NumberIncrementStepper, NumberDecrementStepper, NumberInputField, Text, NumberInput, Link, Button, Box, Tabs, TabPanel, TabList, Tab, TabPanels, FormControl, FormLabel, Input } from "@chakra-ui/react"
+import { Flex, Link, Button } from "@chakra-ui/react"
 import { useEffect, useState, } from "react";
-import { useWeb3Transfer, useMoralisWeb3Api, useERC20Balances, useNFTBalances, useApiContract } from "react-moralis";
-import Moralis from "moralis";
 import { useDispatch, useSelector } from "react-redux"
 import { connect } from "@/src/redux2/blockchain/blockchainActions"
 import { fetchData } from "@/src/redux2/data/dataActions"
