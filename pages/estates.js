@@ -6,7 +6,7 @@ import MintTitle from "@/components/mintComp/MintTitle"
 import MintPrice from "@/components/mintComp/MintPrice"
 import MintButtonEstates from "@/components/mintComp/MintButtonEstates"
 
-export default function TaurosPage() {
+export default function EstatesPage() {
     const item = properties[1];
             
     return (
