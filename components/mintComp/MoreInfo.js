@@ -1,4 +1,5 @@
-import { Tooltip, Link } from '@chakra-ui/react'
+import { Tooltip } from '@chakra-ui/react'
+import Link from 'next/link'
 
 export default function MoreInfo(props) {
     return (
