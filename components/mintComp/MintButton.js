@@ -1,6 +1,6 @@
-import { Divider, SimpleGrid, useToast, Flex, NumberInputStepper, NumberIncrementStepper, NumberDecrementStepper, NumberInputField, Text, NumberInput, Link, Button, Box, Tabs, TabPanel, TabList, Tab, TabPanels, FormControl, FormLabel, Input } from "@chakra-ui/react"
-import { useEffect, useState, } from "react";
-import { useWeb3Transfer, useMoralisWeb3Api, useERC20Balances, useNFTBalances, useApiContract } from "react-moralis";
+import { useToast, NumberInputStepper, NumberIncrementStepper, NumberDecrementStepper, NumberInputField, Text, NumberInput, Link, Button, FormControl, FormLabel } from "@chakra-ui/react"
+import { useState, } from "react";
+import { useApiContract } from "react-moralis";
 import Moralis from "moralis";
 import ABI from "@/components/data/InputsABI"
 

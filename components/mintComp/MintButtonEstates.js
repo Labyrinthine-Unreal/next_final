@@ -1,4 +1,4 @@
-import { Flex, Link, Button} from "@chakra-ui/react"
+import { Flex, Link, Button } from "@chakra-ui/react"
 import { useEffect, useState, } from "react";
 import { useDispatch, useSelector } from "react-redux"
 import { connect } from "@/src/redux/blockchain/blockchainActions"
