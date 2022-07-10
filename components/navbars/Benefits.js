@@ -5,7 +5,7 @@ export default function SlideEx() {
   
     return (
       <>
-        <Button onClick={onOpen} size="md" colorScheme="black" variant="ghost" pl={1}>here.</Button>
+        <Button onClick={onOpen} size="md" colorScheme="black" variant="ghost" pl={1} fontWeight="bold">here.</Button>
         <Drawer placement='right' onClose={onClose} isOpen={isOpen} size="full">
           <DrawerOverlay />
           <DrawerContent bgGradient="linear(to-br, gray.300,teal.300)" py={20} px={80}>
