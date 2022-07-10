@@ -11,14 +11,14 @@ export default function HeaderSignIn() {
           <Flex px="10" py="6" justifyContent="flex-end" color="white">
             <Center justifyContent="flex-end">
               <Box justifyContent="flex-end">
-              <Tooltip hasArrow arrowSize={12} label="Members only" bg="#6082B6">
+              {/* <Tooltip hasArrow arrowSize={12} label="Members only" bg="#6082B6"> */}
                 <Button colorScheme="purple"
                 onClick={()=>authenticate({
                   signingMessage:"Tauros SignIN"
                 })}>
                   Metamask Login
                 </Button>
-                </Tooltip>
+                {/* </Tooltip> */}
               </Box>
             </Center>
           </Flex>

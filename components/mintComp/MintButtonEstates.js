@@ -123,6 +123,8 @@ export default function MintButtonEstates({ user }) {
     return (
         <s.Screen>
     
+        {/* Opensea button --> move to bottom of the page
+        
         <s.Container jc={"right"} ai={"right"} style={{ width: "100%" }}>
         
       <span
@@ -142,7 +144,7 @@ export default function MintButtonEstates({ user }) {
               {CONFIG.MARKETPLACE}
             </Button>
           </span>          
-      </s.Container>              
+      </s.Container>               */}
   
   
      <s.Container
@@ -172,7 +174,7 @@ export default function MintButtonEstates({ user }) {
           <s.TextTitle
             style={{
               textAlign: "center",
-              fontSize: 50,
+              fontSize: 20,
               fontWeight: "bold",
               color: "var(--accent-text)",
             }}
@@ -215,7 +217,7 @@ export default function MintButtonEstates({ user }) {
               <s.TextDescription
                 style={{ textAlign: "center", color: "var(--accent-text)" }}
               >
-                Excluding gas fees.
+                Excluding gas fees
               </s.TextDescription>
               <s.SpacerSmall />
               {blockchain.account === "" ||

@@ -15,6 +15,7 @@ export default function Sidebar() {
             w={navSize == "small" ? "75px" : "200px"}
             flexDir="column"
             justifyContent="space-between"
+            mt={10}
         >
             <Flex
                 p="5%"
@@ -50,8 +51,8 @@ export default function Sidebar() {
                 <Divider display={navSize == "small" ? "none" : "flex"} />
             </Flex>
                 <NavItem navSize={navSize} href="/" icon={ImHome} title="Dashboard"/>
-                <NavItem navSize={navSize} href="events" icon={ImCalendar} title="Events" />
                 <NavItem navSize={navSize} href="members" icon={ImUser} title="Members" />
+                <NavItem navSize={navSize} href="events" icon={ImCalendar} title="Events" />
                 <NavItem navSize={navSize} href="apply" icon={ImPen} title="Apply" />
 
             </Flex>

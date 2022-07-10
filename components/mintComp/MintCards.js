@@ -20,7 +20,7 @@ function CreateEntry(property) {
 
 export default function MintCard() {
     return (
-        <SimpleGrid columns={{md: 2, sm: 1}} spacing={24} spacingY={10}>
+        <SimpleGrid columns={{lg: 2, md: 1}} spacing={24} spacingY={20}>
             {properties.map(CreateEntry)}
         </SimpleGrid>
     )

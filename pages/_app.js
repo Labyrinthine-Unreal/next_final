@@ -1,4 +1,4 @@
-import { ChakraProvider, Box } from "@chakra-ui/react"
+import { ChakraProvider, Grid, GridItem } from "@chakra-ui/react"
 import { MoralisProvider } from "react-moralis"
 import React from "react";
 import "@/styles/reset.css"
@@ -13,12 +13,20 @@ function MyApp({ Component, pageProps }) {
     <Provider store={store}>
       <ChakraProvider>
         <MoralisProvider appId={process.env.NEXT_PUBLIC_APPID}  serverUrl={process.env.NEXT_PUBLIC_SERVER_URL}>
-          <Box bgGradient="linear(to-br, teal.400,purple.300)">
-            <HeaderSignIn />
-            <Sidebar />
-            <Component {...pageProps} />
-            <Footer />
-          </Box>
+          <Grid 
+            templateAreas={`"header header"
+                          "nav main"
+                          "nav footer"`}
+            gridTemplateRows={'50px 1fr 30px'}
+            gridTemplateColumns={'150px 1fr'}
+            overflow="auto"
+            gap='1'
+            bgGradient="linear(to-br, teal.400,purple.300)">
+            <GridItem pl="2" area={"header"}><HeaderSignIn /></GridItem>
+            <GridItem pl="2" area={"nav"}><Sidebar /></GridItem>
+            <GridItem pl="2" area={"main"}><Component {...pageProps} /></GridItem>
+            <GridItem pl="2" area={"footer"}><Footer /></GridItem>
+          </Grid>
         </MoralisProvider>
       </ChakraProvider>
     </Provider>
