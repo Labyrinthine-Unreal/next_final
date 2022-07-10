@@ -16,6 +16,11 @@ export default function MembersPage() {
                     Requirements
                 </Text>
                 <Text pl={40} pr={40} pb={20}>This page should only open if the person signing in owns a TAUROS token. If not, perhaps a pop up window: `It seems you do not have permission to access this page. Would you like to purchase a TAUROS token? Yes/No.` If Yes, is clicked, proceed to the /tauros page. If No, close pop up window and stay where you are.</Text>
+                <Text 
+                    pl={40} pr={40} pb={5} fontWeight="semibold" fontSize="2xl" alignSelf="flex-start">
+                    Requirements, yes I wrote it twice so you actually read it!
+                </Text>
+                <Text pl={40} pr={40} pb={20}>This page should only open if the person signing in owns a TAUROS token. If not, perhaps a pop up window: `It seems you do not have permission to access this page. Would you like to purchase a TAUROS token? Yes/No.` If Yes, is clicked, proceed to the /tauros page. If No, close pop up window and stay where you are.</Text>
             </Flex>
         </Box>
     )
