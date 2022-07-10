@@ -16,13 +16,13 @@ export default function Sidebar() {
             flexDir="column"
             justifyContent="space-between"
         >
-            <Flex 
+            <Flex
                 p="5%"
                 flexDir="column"
                 alignItems="flex-start"
                 as="nav"
             >
-                <IconButton 
+                <IconButton
                     background="none"
                     mt={5}
                     _hover={{background: 'none'}}
@@ -30,7 +30,7 @@ export default function Sidebar() {
                     onClick={() => {
                         if(navSize == "small")
                             changeNavSize("large")
-                        else 
+                        else
                             changeNavSize("small")
                     }}
                 />
@@ -53,9 +53,9 @@ export default function Sidebar() {
                 <NavItem navSize={navSize} href="events" icon={ImCalendar} title="Events" />
                 <NavItem navSize={navSize} href="members" icon={ImUser} title="Members" />
                 <NavItem navSize={navSize} href="apply" icon={ImPen} title="Apply" />
-                
+
             </Flex>
-            
+
         </Flex>
     )
 }

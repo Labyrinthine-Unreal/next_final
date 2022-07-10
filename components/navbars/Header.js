@@ -7,15 +7,10 @@ export default function Header({user, logout, isLoggingOut}){
     const {setUserData, isUserUpdating} = useMoralis()
     return(
     <header>
-        <Flex px="10" py="6" justifyContent="space-between" bg="blackAlpha.800" color="white">
+        <Flex>
             <Center>
-                <Text fontSize="xl" fontWeight="bold">
-                    Tauros Dashboard:
-                </Text>
-            </Center>
-            <Center>
-                <Text>
-                    {user.getUsername()}
+                <Text color="black">
+                    User: {user.getUsername()}
                 </Text>
                     <Button ml="4" colorScheme="blackAlpha" onClick={logout} disable={isLoggingOut}>
                         Logout
