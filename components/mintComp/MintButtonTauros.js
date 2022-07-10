@@ -191,7 +191,7 @@ export default function MintButtonTauros({ user }) {
       };
     
       const getConfig = async () => {
-        const configResponse = await fetch("../public/config/config.json", {
+        const configResponse = await fetch("../public/config2/config.json", {
           headers: {
             "Content-Type": "application/json",
             Accept: "application/json",

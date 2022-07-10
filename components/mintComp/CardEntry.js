@@ -18,7 +18,7 @@ export default function CardEntry(props) {
                 <MintTitle 
                     title={props.title}
                 />
-                <SimpleGrid columns={2} h={10} textAlign='left' as='span' color='gray.600' fontSize='13px'>
+                <SimpleGrid columns={2} h={75} textAlign='left' as='span' color='gray.600' fontSize='13px'>
                     <MintPrice
                         presalePrice={props.presalePrice}
                         salePrice={props.salePrice}
