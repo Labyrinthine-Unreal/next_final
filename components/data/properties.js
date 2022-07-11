@@ -24,17 +24,17 @@ const properties = [
         description: (<p>We need a message informing people how many estates they can still claim depending on how many TAUROS they hold - any estates they may have claimed before.</p>),
         unclaimed: (<p>You have x unclaimed estates</p>)
     }
-    // {
-    //     id: 3,
-    //     imageUrl: 'Masks.mp4',
-    //     imageAlt: 'Masks',
-    //     title: 'INITIATION MASKS',
-    //     presalePrice: '0.15 ETH',
-    //     salePrice: '0.2 ETH',
-    //     info: 'More info...',
-    //     href: '/masks',
-    //     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
-    // }
+    {
+        id: 3,
+        imageUrl: 'Masks.mp4',
+        imageAlt: 'Masks',
+        title: 'INITIATION MASKS',
+        presalePrice: '0.15 ETH',
+        salePrice: '0.2 ETH',
+        info: 'More info...',
+        href: '/masks',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+    }
 ]
 
 export default properties
