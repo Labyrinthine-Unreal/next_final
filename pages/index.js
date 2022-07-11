@@ -1,9 +1,9 @@
 import { useState } from "react"
-import { cardVariant, parentVariant } from "../motion"
-import ProductModal from "@/components/mintComp/ProductModal"
 import { motion } from "framer-motion"
+import { cardVariant, parentVariant } from "../motion"
 import properties from "@/components/data/properties/"
 import ProductCard from "@/components/mintComp/ProductCard"
+import ProductModal from "@/components/mintComp/ProductModal"
 import { Box, SimpleGrid, Text, Link } from "@chakra-ui/react"
 import Head from "next/head"
 

@@ -24,7 +24,7 @@ export default function ProductModal({ isOpen, onClose, modalData }) {
       <ModalOverlay />
       <ModalContent>
         <ModalCloseButton />
-        <ModalHeader>Product Details</ModalHeader>
+        <ModalHeader>Details</ModalHeader>
         <ModalBody>
           <Box w="full" h="full">
             <Flex w="full" h="300px" position="relative">
