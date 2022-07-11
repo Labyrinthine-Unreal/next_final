@@ -1,69 +1,79 @@
 import { useMoralis } from "react-moralis"
-import { Flex, Center, Box, Button, IconButton, Tooltip, Text } from "@chakra-ui/react"
+import { Flex, Center, Box, Button, IconButton, Text } from "@chakra-ui/react"
 import { ImMenu } from 'react-icons/im'
 import UserProfile from "./UserProfile"
+import Image from "next/image"
 
-export default function HeaderSignIn({ onOpen }) {
+export default function HeaderSignIn({ onOpen, ...rest }) {
   const {isAuthenticated, authenticate, user, logout, isLoggingOut} =  useMoralis()
   console.log(isAuthenticated)
   if(!isAuthenticated){
-    return(
+
+    return (
       <Flex
-      ml={{ md: 0, lg: 44 }}
-      px="4"
-      py="4"
-      position="sticky"
-      top="0"
-      height="20"
-      zIndex="1"
-      alignItems="flex-start"
-      justifyContent={{ md: "space-between", lg: "flex-end" }}
-    >
-      <IconButton
-        display={{ md: "flex", lg: "none" }}
-        onClick={onOpen}
-        variant="outline"
-        aria-label="open menu"
-        icon={<ImMenu />}
-      />
-      <header>
-            <Center>
+        ml={{ base: 0, md: 60 }}
+        px="4"
+        position="sticky"
+        top="0"
+        height="20"
+        zIndex="1"
+        alignItems="center"
+        bg="white"
+        borderBottomWidth="1px"
+        borderBottomColor="gray.200"
+        justifyContent={{ base: "space-between", md: "flex-end" }}
+        {...rest}
+      >
+        <IconButton
+          display={{ base: "flex", md: "none" }}
+          onClick={onOpen}
+          variant="outline"
+          aria-label="open menu"
+          icon={<ImMenu />}
+        />
+        <Box display={{ base: "flex", md: "none" }}>
+          <Image src="/TaurosDAO_logo.jpg" alt="TaurosDAO-logo" width="200px" height="65px" />
+        </Box>
+        <Center>
               <Box>
-              {/* <Tooltip hasArrow arrowSize={12} label="Members only" bg="#6082B6"> */}
                 <Button colorScheme="purple"
                 onClick={()=>authenticate({
                   signingMessage:"Tauros SignIN"
                 })}>
                   Metamask Login
                 </Button>
-                {/* </Tooltip> */}
               </Box>
             </Center>
-        </header>
-    </Flex>
-    )
+      </Flex>
+    );
   }
+
   return (
     <Flex
-      ml={{ md: 0, lg: 44 }}
+      ml={{ base: 0, md: 60 }}
       px="4"
       position="sticky"
       top="0"
       height="20"
       zIndex="1"
-      alignItems="start"
-      justifyContent={{ md: "space-between", lg: "flex-end" }}
+      alignItems="center"
+      bg="white"
+      borderBottomWidth="1px"
+      borderBottomColor="gray.200"
+      justifyContent={{ base: "space-between", md: "flex-end" }}
+      {...rest}
     >
       <IconButton
-        display={{ md: "flex", lg: "none" }}
+        display={{ base: "flex", md: "none" }}
         onClick={onOpen}
         variant="outline"
         aria-label="open menu"
         icon={<ImMenu />}
       />
-      <header>
-        <UserProfile user={user} logout={logout} isLoggingOut={isLoggingOut}/>
-    </header>
+      <Box display={{ base: "flex", md: "none" }}>
+        <Image src="/TaurosDAO_logo.jpg" alt="TaurosDAO-logo" width="200px" height="65px" />
+      </Box>
+      <UserProfile user={user} logout={logout} isLoggingOut={isLoggingOut}/>
     </Flex>
-  )
+  );
 }
