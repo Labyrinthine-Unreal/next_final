@@ -18,7 +18,7 @@ export default function HeaderSignIn({ onOpen, ...rest }) {
         height="20"
         zIndex="1"
         alignItems="center"
-        bg="white"
+        // bg="white"
         borderBottomWidth="1px"
         borderBottomColor="gray.200"
         justifyContent={{ base: "space-between", md: "flex-end" }}
@@ -32,10 +32,10 @@ export default function HeaderSignIn({ onOpen, ...rest }) {
           icon={<ImMenu />}
         />
         <Box display={{ base: "flex", md: "none" }}>
-          <Image src="/TaurosDAO_logo.jpg" alt="TaurosDAO-logo" width="200px" height="65px" />
+          <Image src="/TaurosDAO_logo.png" alt="TaurosDAO-logo" width="200px" height="65px" />
         </Box>
         <Center>
-              <Box>
+              <Box size={{ base: "sm", md: "md" }}>
                 <Button colorScheme="purple"
                 onClick={()=>authenticate({
                   signingMessage:"Tauros SignIN"
@@ -57,7 +57,7 @@ export default function HeaderSignIn({ onOpen, ...rest }) {
       height="20"
       zIndex="1"
       alignItems="center"
-      bg="white"
+      // bg="white"
       borderBottomWidth="1px"
       borderBottomColor="gray.200"
       justifyContent={{ base: "space-between", md: "flex-end" }}
@@ -71,7 +71,7 @@ export default function HeaderSignIn({ onOpen, ...rest }) {
         icon={<ImMenu />}
       />
       <Box display={{ base: "flex", md: "none" }}>
-        <Image src="/TaurosDAO_logo.jpg" alt="TaurosDAO-logo" width="200px" height="65px" />
+        <Image src="/TaurosDAO_logo.png" alt="TaurosDAO-logo" width="200px" height="65px" />
       </Box>
       <UserProfile user={user} logout={logout} isLoggingOut={isLoggingOut}/>
     </Flex>

@@ -8,16 +8,16 @@ import { FiChevronDown } from "react-icons/fi";
           <Menu>
             <MenuButton py={2} transition="all 0.3s" _focus={{ boxShadow: "none" }}>
               <HStack spacing="4">
-                <Avatar size="md" src="tauros-avatar-black.png" />
                 <VStack
                   display={{ base: "none", md: "flex" }}
                   alignItems="flex-start"
                   spacing="1px"
                   ml="2"
                 >
-                  <Text fontSize="lg">{user.getUsername()}</Text>
+                  <Text maxW="130px" noOfLines={1} fontSize="lg">{user.getUsername()}</Text>
                   <Text fontSize="md" color="gray.600">User</Text>
                 </VStack>
+                <Avatar size="md" src="tauros-avatar-black.png" />
                 <Box display={{ base: "none", md: "flex" }}><FiChevronDown /></Box>
               </HStack>
             </MenuButton>

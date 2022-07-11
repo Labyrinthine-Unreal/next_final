@@ -11,7 +11,7 @@ function MyApp({ Component, pageProps }) {
     <Provider store={store}>
       <ChakraProvider>
         <MoralisProvider appId={process.env.NEXT_PUBLIC_APPID}  serverUrl={process.env.NEXT_PUBLIC_SERVER_URL}>
-          <Box bg="gray.100">
+          <Box>
             <Layout>
             <Component {...pageProps} />
             </Layout>

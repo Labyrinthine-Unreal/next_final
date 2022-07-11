@@ -6,7 +6,7 @@ import { Box, Drawer, DrawerContent, useDisclosure } from "@chakra-ui/react";
 export default function Layout({ children }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
   return (
-    <Box minH="100vh" bg="gray.100">
+    <Box minH="100vh" bgGradient="linear(to-br, teal.400,purple.300)">
         <Sidebar
             onClose={() => onClose}
             display={{ base: "none", md: "block" }}
