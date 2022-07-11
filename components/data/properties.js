@@ -23,7 +23,7 @@ const properties = [
         href: '/estates',
         description: (<p>We need a message informing people how many estates they can still claim depending on how many TAUROS they hold - any estates they may have claimed before.</p>),
         unclaimed: (<p>You have x unclaimed estates</p>)
-    }
+    },
     {
         id: 3,
         imageUrl: 'Masks.mp4',
