@@ -12,7 +12,7 @@ function MyApp({ Component, pageProps }) {
   return(
     <Provider store={store}>
       <ChakraProvider>
-        <MoralisProvider appId={process.env.NEXT_PUBLIC_APPID}  serverUrl={process.env.NEXT_PUBLIC_SERVER_URL}>
+        <MoralisProvider appId="dqkfmKHCu1vl17sLEOFgJ9RnwsJyrMgsqNLKTgQE"  serverUrl="https://d8tdshnwaepb.usemoralis.com:2053/server">
           <Box bgGradient="linear(to-br, teal.400,purple.300)">
             <HeaderSignIn />
             <Sidebar />
