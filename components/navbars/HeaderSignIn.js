@@ -1,16 +1,34 @@
 import { useMoralis } from "react-moralis"
-import { Flex,Center, Box, Button, Tooltip } from "@chakra-ui/react"
-import Header from "./Header"
+import { Flex, Center, Box, Button, IconButton, Tooltip, Text } from "@chakra-ui/react"
+import { ImMenu } from 'react-icons/im'
+import UserProfile from "./UserProfile"
 
-export default function HeaderSignIn() {
+export default function HeaderSignIn({ onOpen }) {
   const {isAuthenticated, authenticate, user, logout, isLoggingOut} =  useMoralis()
   console.log(isAuthenticated)
   if(!isAuthenticated){
     return(
-        <header>
-          <Flex px="10" py="6" justifyContent="flex-end" color="white">
-            <Center justifyContent="flex-end">
-              <Box justifyContent="flex-end">
+      <Flex
+      ml={{ md: 0, lg: 44 }}
+      px="4"
+      py="4"
+      position="sticky"
+      top="0"
+      height="20"
+      zIndex="1"
+      alignItems="flex-start"
+      justifyContent={{ md: "space-between", lg: "flex-end" }}
+    >
+      <IconButton
+        display={{ md: "flex", lg: "none" }}
+        onClick={onOpen}
+        variant="outline"
+        aria-label="open menu"
+        icon={<ImMenu />}
+      />
+      <header>
+            <Center>
+              <Box>
               {/* <Tooltip hasArrow arrowSize={12} label="Members only" bg="#6082B6"> */}
                 <Button colorScheme="purple"
                 onClick={()=>authenticate({
@@ -21,15 +39,31 @@ export default function HeaderSignIn() {
                 {/* </Tooltip> */}
               </Box>
             </Center>
-          </Flex>
         </header>
+    </Flex>
     )
   }
   return (
-    <header>
-        <Flex px="10" py="6" justifyContent="flex-end" color="white">
-            <Header user={user} logout={logout} isLoggingOut={isLoggingOut}/>
-        </Flex>
+    <Flex
+      ml={{ md: 0, lg: 44 }}
+      px="4"
+      position="sticky"
+      top="0"
+      height="20"
+      zIndex="1"
+      alignItems="start"
+      justifyContent={{ md: "space-between", lg: "flex-end" }}
+    >
+      <IconButton
+        display={{ md: "flex", lg: "none" }}
+        onClick={onOpen}
+        variant="outline"
+        aria-label="open menu"
+        icon={<ImMenu />}
+      />
+      <header>
+        <UserProfile user={user} logout={logout} isLoggingOut={isLoggingOut}/>
     </header>
+    </Flex>
   )
 }
