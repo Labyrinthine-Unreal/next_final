@@ -47,13 +47,9 @@ export default function ProductModal({ isOpen, onClose, modalData }) {
           </Box>
         </ModalBody>
         <ModalFooter>
-          <Button
-            bg="cyan.700" color="white" w="150px" h="200px" size="lg" 
-            // onClick={handleModalClose}
-            _hover={{ bg: "cyan.800" }}
-          >
+          <Box>
             {title == "MERCA CITY ESTATES" ? <MintButtonEstates /> : <MintButtonTauros />}
-          </Button>
+          </Box>
         </ModalFooter>
       </ModalContent>
     </Modal>
