@@ -125,9 +125,9 @@ export default function MintButtonEstates({ user }) {
             {/* <Link href={CONFIG.MARKETPLACE_LINK}>
               <StyledLogo alt={"logo"} src={"/config/images/logo.png"}/>
             </Link> */}
-                <Text align="center">
+                {/* <Text fontSize={{base: "20", md: "26"}} fontWeight="semibold">
                   {data.totalSupply} / 7110
-                </Text>
+                </Text> */}
                 
                 <Text>
                   <Link target={"_blank"} href={CONFIG.SCAN_LINK}>
@@ -150,8 +150,8 @@ export default function MintButtonEstates({ user }) {
                     {blockchain.account === "" ||
                     blockchain.smartContract === null ? (
                       <>
-                        <Button 
-                          mt={5}
+                        <Button
+                          size={{base: "xs", md: "md"}}
                           colorScheme="teal"
                           onClick={(e) => {
                             e.preventDefault();
@@ -162,7 +162,7 @@ export default function MintButtonEstates({ user }) {
                           CONNECT
                         </Button>
                         {blockchain.errorMsg !== "" ? (
-                            <Text>
+                            <Text fontSize={10}>
                               {blockchain.errorMsg}
                             </Text>
                         ) : null}
@@ -174,8 +174,9 @@ export default function MintButtonEstates({ user }) {
                         </Text>
                         
                         <Circle gap={5}>
-                            <Button 
-                              my={5}
+                            <Button
+                              size={{base: "xs", md: "md"}}
+                              mb={5}
                               variant="outline" 
                               borderRadius="full"
                               disabled={claimingNft ? 1 : 0}
@@ -192,7 +193,8 @@ export default function MintButtonEstates({ user }) {
                             </Text>
                             
                             <Button
-                              my={5}
+                              size={{base: "xs", md: "md"}}
+                              mb={5}
                               variant="outline" 
                               borderRadius="full"
                               disabled={claimingNft ? 1 : 0}
@@ -207,6 +209,7 @@ export default function MintButtonEstates({ user }) {
 
                         <Box>
                           <Button
+                            size={{base: "xs", md: "md"}}
                             colorScheme="teal"
                             disabled={claimingNft ? 1 : 0}
                             onClick={(e) => {
