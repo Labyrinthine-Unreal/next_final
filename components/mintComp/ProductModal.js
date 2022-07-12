@@ -2,6 +2,11 @@ import { Box, Text, Spacer, Modal, ModalOverlay, ModalContent, ModalHeader, Moda
 import MintButtonTauros from "./MintButtonTauros"
 import MintButtonEstates from "./MintButtonEstates"
 import Refresh from "./Refresh";
+import MBE from "./MintButtonEstatesv2";
+import MBT from "./MintButtonTaurosv2";
+
+// import MBE from "./MBE";
+
 export default function ProductModal({ isOpen, onClose, modalData }) {
   const { title, presalePrice, salePrice, imageUrl, imageAlt } = modalData || {};
   // const toast = useToast();
@@ -53,7 +58,7 @@ export default function ProductModal({ isOpen, onClose, modalData }) {
         </ModalBody>
         <ModalFooter>
           <Box>
-            {title == "MERCA CITY ESTATES" ? <MintButtonEstates /> : <MintButtonTauros />}
+            {title == "MERCA CITY ESTATES" ? <MBE /> : <MBT />}
             <Refresh />
           </Box>
         </ModalFooter>
