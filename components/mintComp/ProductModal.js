@@ -1,7 +1,7 @@
 import { Box, Text, Spacer, Modal, ModalOverlay, ModalContent, ModalHeader, ModalFooter, ModalBody, ModalCloseButton, Button, useToast, Flex, Grid } from "@chakra-ui/react";
 import MintButtonTauros from "./MintButtonTauros"
 import MintButtonEstates from "./MintButtonEstates"
-
+import Refresh from "./Refresh";
 export default function ProductModal({ isOpen, onClose, modalData }) {
   const { title, presalePrice, salePrice, imageUrl, imageAlt } = modalData || {};
   // const toast = useToast();
@@ -54,6 +54,7 @@ export default function ProductModal({ isOpen, onClose, modalData }) {
         <ModalFooter>
           <Box>
             {title == "MERCA CITY ESTATES" ? <MintButtonEstates /> : <MintButtonTauros />}
+            <Refresh />
           </Box>
         </ModalFooter>
       </ModalContent>
