@@ -1,4 +1,4 @@
-import { Box, Text, Spacer, Modal, ModalOverlay, ModalContent, ModalHeader, ModalFooter, ModalBody, ModalCloseButton, Button, useToast, Flex, Grid, GridItem, Stack, VStack, HStack, Container, Center, Divider } from "@chakra-ui/react";
+import { Box, Text, Modal, ModalOverlay, ModalContent, ModalHeader, ModalFooter, ModalBody, ModalCloseButton, Grid, GridItem, Center } from "@chakra-ui/react";
 import MintButtonTauros from "./MintButtonTauros"
 import MintButtonEstates from "./MintButtonEstates"
 
@@ -22,17 +22,17 @@ export default function ProductModal({ isOpen, onClose, modalData }) {
   return (
     <Modal isOpen={isOpen} onClose={onClose} size="xl">
       <ModalOverlay />
-      <ModalContent>
+      <ModalContent layout="fill">
         <ModalCloseButton />
         <ModalHeader>Details</ModalHeader>
         <ModalBody>
         <Grid
-          height={{base: "389", md: "470"}}
-          templateRows='repeat(2, 1fr)'
+          height={{base: "380", md: "470"}}
+          templateRows='repeat(4, 1fr)'
           templateColumns='repeat(9, 1fr)'
           gap={4}
         >
-          <GridItem rowSpan={1} colSpan={5}>
+          <GridItem rowSpan={3} colSpan={5}>
             <video
                     autoPlay
                     muted
@@ -42,7 +42,7 @@ export default function ProductModal({ isOpen, onClose, modalData }) {
                     layout="fill"
                   />
           </GridItem>
-          <GridItem rowSpan={1} colSpan={4}>
+          <GridItem rowSpan={3} colSpan={4}>
             <Text lineHeight="tight" layout="fill">
               <Box fontWeight="semibold" fontSize={{base: "14px", md: "18px"}}>{title}</Box>
               <Box fontSize={{base: "12px", md: "16px"}}>Price: {salePrice}</Box>
@@ -50,9 +50,11 @@ export default function ProductModal({ isOpen, onClose, modalData }) {
             </Text>
           </GridItem>
           <GridItem rowSpan={1} colSpan={5}>
-          <Box fontSize={{base: "12px", md: "16px"}}>
+          <Text align="left" fontSize={{base: "16px", md: "16px"}}>
                 {unclaimed}
-            </Box>
+          </Text>
+          <Text pt={5} color="red.600" fontWeight='semibold'>Free Mint ends on July 30th!</Text>
+            
           </GridItem>
           <GridItem rowSpan={1} colSpan={4}>
             <Center align="center">

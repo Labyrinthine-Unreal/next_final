@@ -24,10 +24,7 @@ export default function Home() {
         <Text pt={10} pb={5} fontWeight="semibold" fontSize="2xl">
           Welcome to TaurosDAO
         </Text>
-        <Text>TaurosDAO is an exclusive community of artists and collectors founded in January 2022 by <Link href="https://www.labyrinthineunreal.io/" target="_blank" rel="noreferrer" style={{color: "black", fontWeight: "500"}}>Labyrinthine Unreal</Link>. For purposes of governance and other membership privileges, members need to hold at least one TAUROS token.</Text>
-      </Box>
-      <Box py={5} maxW="900px" textAlign="left">
-      <Text pb={10}>TAUROS Membership Cards are TaurosDAO&apos;s genesis assets. Other assets by TaurosDAO will be airdropped from time to time to existing members. The First of these are Merca City Estates (or land plots). For more details on Estate use cases inside the Merca City Metaverse/RTS Game World, click on the information button inside the Estates Card.</Text>
+        <Text>TaurosDAO is an exclusive community of artists and collectors founded in January 2022 by <Link href="https://www.labyrinthineunreal.io/" target="_blank" rel="noreferrer" style={{color: "black", fontWeight: "500"}}>Labyrinthine Unreal</Link>. For purposes of governance and other membership privileges, members need to hold at least one TAUROS token.<br /><br />TAUROS Membership Cards are TaurosDAO&apos;s genesis assets. Other assets by TaurosDAO will be airdropped from time to time to existing members. The First of these are the Estates (or land plots) of Merca City. For more details on Estate use cases inside the Merca City Metaverse/RTS Game World, click on the information button inside the Estates Card.</Text>
       </Box>
       </Box>
       <Box align="center"> 

@@ -38,8 +38,8 @@ export default function ProductCard({ product, setModalData }) {
           <Box fontWeight="semibold" as="h4" lineHeight="tight" isTruncated>
             {title}
           </Box>
-          <Box>${presalePrice}</Box>
-          <Box>${salePrice}</Box>
+          <Box>{salePrice}</Box>
+          <Box>{presalePrice}</Box>
         </Box>
       </Box>
     </Flex>
