@@ -1,7 +1,6 @@
 import HeaderSignIn from "./HeaderSignIn";
 import Sidebar from "./Sidebar";
-import Footer from "./Footer"
-import { Box, Drawer, DrawerContent, useDisclosure } from "@chakra-ui/react";
+import { Box, Flex, Drawer, DrawerContent, useDisclosure } from "@chakra-ui/react";
 
 export default function Layout({ children }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -30,7 +29,6 @@ export default function Layout({ children }) {
         <Box ml={{ base: 0, md: 60 }} p="4">
             {children}
         </Box>
-        <Footer />
     </Box>
   );
 }

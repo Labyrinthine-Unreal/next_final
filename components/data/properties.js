@@ -21,8 +21,8 @@ const properties = [
         salePrice: '0.1 ETH',
         info: "ℹ",
         href: '/estates',
-        description: (<p>We need a message informing people how many estates they can still claim depending on how many TAUROS they hold - any estates they may have claimed before.</p>),
-        unclaimed: (<p>You have x unclaimed estates</p>)
+        description: (<p><span><b>Merca City</b></span> is a Metaverse/RTS Game where players own their assets. You can claim one free Estate for each TAUROS token you own.<br /><br /> <span style={{color: "red"}}><b>Free minting ends on July 30th!</b></span><br /><br />Unclaimed Estates will be sold at 0.1 ETH per Estate.</p>),
+        unclaimed: (<p>Blockchain Infobox: e.g., You have x unclaimed estates. (At the moment this is hardcoded).</p>)
     }
     // {
     //     id: 3,

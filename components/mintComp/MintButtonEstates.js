@@ -1,4 +1,4 @@
-import { Flex, Link, Button, Container, Text, Box, SimpleGrid } from "@chakra-ui/react"
+import { Flex, Link, Button, Container, Text, Box, SimpleGrid, Circle } from "@chakra-ui/react"
 import { useEffect, useState, } from "react";
 import { useDispatch, useSelector } from "react-redux"
 import { connect } from "@/src/redux/blockchain/blockchainActions"
@@ -146,11 +146,13 @@ export default function MintButtonEstates({ user }) {
                     
                   </>
                 ) : (
-                  <Box columns={3} align="center">
+                  <Box>
                     {blockchain.account === "" ||
                     blockchain.smartContract === null ? (
-                      <Flex alignItems="center">
-                        <Button
+                      <>
+                        <Button 
+                          mt={5}
+                          colorScheme="teal"
                           onClick={(e) => {
                             e.preventDefault();
                             dispatch(connect());
@@ -164,15 +166,18 @@ export default function MintButtonEstates({ user }) {
                               {blockchain.errorMsg}
                             </Text>
                         ) : null}
-                      </Flex>
+                      </>
                     ) : (
-                      <SimpleGrid align="center">
+                      <SimpleGrid>
                         <Text>
                           {feedback}
                         </Text>
                         
-                        <Flex alignItems="center">
-                            <Button
+                        <Circle gap={5}>
+                            <Button 
+                              my={5}
+                              variant="outline" 
+                              borderRadius="full"
                               disabled={claimingNft ? 1 : 0}
                               onClick={(e) => {
                                 e.preventDefault();
@@ -187,6 +192,9 @@ export default function MintButtonEstates({ user }) {
                             </Text>
                             
                             <Button
+                              my={5}
+                              variant="outline" 
+                              borderRadius="full"
                               disabled={claimingNft ? 1 : 0}
                               onClick={(e) => {
                                 e.preventDefault();
@@ -195,10 +203,11 @@ export default function MintButtonEstates({ user }) {
                             >
                               +
                             </Button>
-                        </Flex>
+                        </Circle>
 
-                        <Box align="center">
+                        <Box>
                           <Button
+                            colorScheme="teal"
                             disabled={claimingNft ? 1 : 0}
                             onClick={(e) => {
                               e.preventDefault();

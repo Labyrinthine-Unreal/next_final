@@ -13,13 +13,12 @@ export default function HeaderSignIn({ onOpen, ...rest }) {
       <Flex
         ml={{ base: 0, md: 60 }}
         px="4"
-        position="sticky"
         top="0"
         height="20"
         zIndex="1"
         alignItems="center"
         // bg="white"
-        borderBottomWidth="1px"
+        borderBottom="1px"
         borderBottomColor="gray.200"
         justifyContent={{ base: "space-between", md: "flex-end" }}
         {...rest}
@@ -52,13 +51,12 @@ export default function HeaderSignIn({ onOpen, ...rest }) {
     <Flex
       ml={{ base: 0, md: 60 }}
       px="4"
-      position="sticky"
       top="0"
       height="20"
       zIndex="1"
       alignItems="center"
       // bg="white"
-      borderBottomWidth="1px"
+      borderBottom="1px"
       borderBottomColor="gray.200"
       justifyContent={{ base: "space-between", md: "flex-end" }}
       {...rest}
