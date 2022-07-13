@@ -2,8 +2,8 @@ import { Box, Text, Spacer, Modal, ModalOverlay, ModalContent, ModalHeader, Moda
 import MintButtonTauros from "./MintButtonTauros"
 import MintButtonEstates from "./MintButtonEstates"
 import Refresh from "./Refresh";
-import MBE from "./MintButtonEstatesv2";
-import MBT from "./MintButtonTaurosv2";
+import MBE from "./MintButtonEstatesv2"
+import MBT from "./MintButtonTaurosv2"
 
 // import MBE from "./MBE";
 

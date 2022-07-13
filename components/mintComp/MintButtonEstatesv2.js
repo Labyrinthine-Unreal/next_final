@@ -13,46 +13,46 @@ const truncate = (input, len) =>
     input.length > len ? `${input.substring(0, len)}...` : input;
 
 export default function MBE() {
-    const dispatch = useDispatch();
-    const blockchain = useSelector((state) => state.blockchain);
-    const data = useSelector((state) => state.data);
-    const [claimingNft, setClaimingNft] = useState(false);
-    const [feedback, setFeedback] = useState(false);
-    const [mintAmount, setMintAmount] = useState(1);
-    const [CONFIG, SET_CONFIG] = useState({
-        CONTRACT_ADDRESS: "",
-        SCAN_LINK: "",
-        NETWORK: {
-            NAME: "",
-            SYMBOL: "",
-            ID: 0,
-        },
-        NFT_NAME: "",
-        SYMBOL: "",
-        MAX_SUPPLY: 1,
-        WEI_COST: 0,
-        DISPLAY_COST: 0,
-        GAS_LIMIT: 0,
-        MARKETPLACE: "",
-        MARKETPLACE_LINK: "",
-        SHOW_BACKGROUND: false,
-    });
+    // const dispatch = useDispatch();
+    // const blockchain = useSelector((state) => state.blockchain);
+    // const data = useSelector((state) => state.data);
+    // const [claimingNft, setClaimingNft] = useState(false);
+    // const [feedback, setFeedback] = useState(false);
+    // const [mintAmount, setMintAmount] = useState(1);
+    // const [CONFIG, SET_CONFIG] = useState({
+    //     CONTRACT_ADDRESS: "",
+    //     SCAN_LINK: "",
+    //     NETWORK: {
+    //         NAME: "",
+    //         SYMBOL: "",
+    //         ID: 0,
+    //     },
+    //     NFT_NAME: "",
+    //     SYMBOL: "",
+    //     MAX_SUPPLY: 1,
+    //     WEI_COST: 0,
+    //     DISPLAY_COST: 0,
+    //     GAS_LIMIT: 0,
+    //     MARKETPLACE: "",
+    //     MARKETPLACE_LINK: "",
+    //     SHOW_BACKGROUND: false,
+    // });
 
-    const decrementMintAmount = () => {
-        let newMintAmount = mintAmount - 1;
-        if (newMintAmount < 1) {
-            newMintAmount = 1;
-        }
-        setMintAmount(newMintAmount);
-    };
+    // const decrementMintAmount = () => {
+    //     let newMintAmount = mintAmount - 1;
+    //     if (newMintAmount < 1) {
+    //         newMintAmount = 1;
+    //     }
+    //     setMintAmount(newMintAmount);
+    // };
 
-    const incrementMintAmount = () => {
-        let newMintAmount = mintAmount + 1;
-        if (newMintAmount > 10) {
-            newMintAmount = 10;
-        }
-        setMintAmount(newMintAmount);
-    };
+    // const incrementMintAmount = () => {
+    //     let newMintAmount = mintAmount + 1;
+    //     if (newMintAmount > 10) {
+    //         newMintAmount = 10;
+    //     }
+    //     setMintAmount(newMintAmount);
+    // };
 
     // const getData = () => {
     //     if (blockchain.account !== "" && blockchain.smartContract !== null) {
@@ -99,10 +99,11 @@ export default function MBE() {
                 _count: 1,
             }
         }
+        await Moralis.enableWeb3()
         await contractProcessor.fetch({
             params: options,
             onSuccess: () => {
-                console.log("Mint successful");
+                console.log("Successful");
             },
             onError: (error) => {
                 console.log(error);
@@ -116,15 +117,3 @@ export default function MBE() {
       );
     }
 
-{/* Opensea button --> move to bottom of the page */ }
-{/* <Container>
-            <span>
-                <Button
-                  onClick={(e) => {
-                    window.open(CONFIG.MARKETPLACE_LINK, "_blank");
-                  }}
-                >
-                  {CONFIG.MARKETPLACE}
-                </Button>
-            </span>          
-          </Container>               */}
