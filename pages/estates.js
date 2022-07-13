@@ -15,7 +15,7 @@ export default function EstatesPage() {
             </Head>
             <Box maxW="900" textAlign="left">
                     <Text>
-                        Estates are Merca City&apos;s genesis assets. There are six districts in the city, each specialized in on area: 
+                        Merca City is a World Building RTS Game with the addition of a cryptocurrency economy, thus ideal for a full blown financial simulation and real world economy. Players can fully own their assets, build and upgrade them, team up, form financial interest groups, and even armies. Estates are their primary holdings in Merca City. Adjacent Estates may be joined to form larger areas (up to 5 for individual players, and up to 50 for factions).<br /><br />There is no difference between the Estates, except for their location and, over time, what players decide to do with them. The Estates&apos; location will be decided in settling contests for each district upon launch of Merca City.<br /><br />There are six districts in the city, each specialized in one area: 
                     </Text>
                         <List py={5} ml={5} spacing="2">
                             <ListItem>
@@ -28,7 +28,7 @@ export default function EstatesPage() {
                             </ListItem>
                             <ListItem spacing={3}>
                                 <ListIcon as={ImEarth} />
-                                Bravio (military and industrial district)
+                                Bravio (military & industrial district)
                             </ListItem>
                             <ListItem spacing={3}>
                                 <ListIcon as={ImEarth} />
@@ -36,15 +36,15 @@ export default function EstatesPage() {
                             </ListItem>
                             <ListItem spacing={3}>
                                 <ListIcon as={ImEarth} />
-                                Pangaea (ethnic, cultural district)
+                                Pangaea (ethnic & cultural district)
                             </ListItem>
                             <ListItem spacing={3}>
                                 <ListIcon as={ImEarth} />
-                                Morea (rugged terrain, rich in oil and gold ores)
+                                Morea (rugged terrain, rich in oil & gold ores)
                             </ListItem>
                         </List>
                         <Text>
-                            There is a fragile balance in the city. Tension is in the air and peace is about to be broken. Morea is rich in gold and oil but its inhabitants are beholden to the whims of Ritus, the financial district that controls everything.
+                            Peace is fragile in the city. Tension is in the air and war is always ready to break out. Morea is rich in gold and oil but its denizens are beholden to the whims of Ritus, the financial district whose reach no one in Merca can escape.
                         </Text>
                     <Center>
                         <Image src="images/Merca_City.png" alt="Merca-City-Map" />

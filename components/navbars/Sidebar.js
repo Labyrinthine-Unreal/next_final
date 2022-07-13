@@ -35,7 +35,7 @@ export default function Sidebar({ onClose, ...rest }) {
       <NavItem href="members" icon={ImUser} title="Members" />
       <NavItem href="events" icon={ImCalendar} title="Events" />
       <NavItem href="apply" icon={ImPen} title="Apply" />
-      <NavItem href="estates" icon={ImEarth} title="Estates" />
+      <NavItem href="estates" icon={ImEarth} title="Merca City" />
     </Box>
   );
 }
