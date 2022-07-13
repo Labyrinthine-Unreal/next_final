@@ -3,7 +3,7 @@ import MintButtonTauros from "./MintButtonTauros"
 import MintButtonEstates from "./MintButtonEstates"
 import Refresh from "./Refresh";
 import MBE from "./MintButtonEstatesv2"
-import MBT from "./MintButtonTaurosv2"
+import MBT from "./MintButtonTaurosV2";
 
 // import MBE from "./MBE";
 
