@@ -6,7 +6,7 @@ export default function EventsPage() {
         <Box>
             <Head>
                 <title>
-                    Tauros | Events
+                    TaurosDAO | Events
                 </title>
             </Head>
 

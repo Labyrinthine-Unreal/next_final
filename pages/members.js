@@ -7,7 +7,7 @@ export default function SlideEx() {
         <Box>
             <Head>
                 <title>
-                    Tauros | Members
+                    TaurosDAO | Members
                 </title>
             </Head>
 

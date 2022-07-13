@@ -17,7 +17,7 @@ import { FiChevronDown } from "react-icons/fi";
                   <Text maxW="130px" noOfLines={1} fontSize="lg">{user.getUsername()}</Text>
                   <Text fontSize="md" color="gray.600">User</Text>
                 </VStack>
-                <Avatar size="md" src="tauros-avatar-black.png" />
+                <Avatar size="md" src="images/tauros-avatar-black.png" />
                 <Box display={{ base: "none", md: "flex" }}><FiChevronDown /></Box>
               </HStack>
             </MenuButton>

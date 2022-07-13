@@ -6,7 +6,7 @@ export default function ApplicationPage() {
         <Box>
             <Head>
                 <title>
-                    Tauros | Apply
+                    TaurosDAO | Apply
                 </title>
             </Head>
 

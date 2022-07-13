@@ -17,7 +17,6 @@ export default function HeaderSignIn({ onOpen, ...rest }) {
         height="20"
         zIndex="1"
         alignItems="center"
-        // bg="white"
         borderBottom="1px"
         borderBottomColor="gray.200"
         justifyContent={{ base: "space-between", md: "flex-end" }}
@@ -31,7 +30,7 @@ export default function HeaderSignIn({ onOpen, ...rest }) {
           icon={<ImMenu />}
         />
         <Box display={{ base: "flex", md: "none" }}>
-          <Image src="/TaurosDAO_logo.png" alt="TaurosDAO-logo" width="200px" height="65px" />
+          <Image src="/images/TaurosDAO_logo.png" alt="images/TaurosDAO-logo" width="200px" height="65px" />
         </Box>
         <Center>
               <Box size={{ base: "sm", md: "md" }}>
@@ -69,7 +68,7 @@ export default function HeaderSignIn({ onOpen, ...rest }) {
         icon={<ImMenu />}
       />
       <Box display={{ base: "flex", md: "none" }}>
-        <Image src="/TaurosDAO_logo.png" alt="TaurosDAO-logo" width="200px" height="65px" />
+        <Image src="/images/TaurosDAO_logo.png" alt="TaurosDAO-logo" width="200px" height="65px" />
       </Box>
       <UserProfile user={user} logout={logout} isLoggingOut={isLoggingOut}/>
     </Flex>

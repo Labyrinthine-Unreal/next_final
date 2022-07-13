@@ -1,6 +1,4 @@
-import { Box, Flex, chakra } from "@chakra-ui/react";
-import { AiTwotoneStar } from "react-icons/ai";
-const ChakraStar = chakra(AiTwotoneStar);
+import { Box, Flex } from "@chakra-ui/react";
 
 export default function ProductCard({ product, setModalData }) {
   const { imageUrl, imageAlt, title, presalePrice, salePrice } = product;

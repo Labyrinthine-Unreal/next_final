@@ -3,7 +3,7 @@ import MintButtonTauros from "./MintButtonTauros"
 import MintButtonEstates from "./MintButtonEstates"
 
 export default function ProductModal({ isOpen, onClose, modalData }) {
-  const { title, presalePrice, salePrice, imageUrl, imageAlt, description, unclaimed } = modalData || {};
+  const { title, presalePrice, salePrice, imageUrl, imageAlt, description, unclaimed, glb } = modalData || {};
   // const toast = useToast();
 
   // const handleModalClose = () => {

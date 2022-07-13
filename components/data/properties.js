@@ -3,7 +3,7 @@ import { GiBleedingEye } from 'react-icons/gi'
 const properties = [
     {
         key: 1,
-        imageUrl: 'TaurosCard.mp4',
+        imageUrl: 'videos/TaurosCard.mp4',
         imageAlt: 'TAUROS Card',
         title: 'TAUROS MEMBERSHIP CARDS',
         salePrice: '0.05 ETH',
@@ -13,7 +13,7 @@ const properties = [
     },
     {
         key: 2,
-        imageUrl: 'Estate.mp4',
+        imageUrl: 'videos/Estate.mp4',
         imageAlt: 'Estate Animation',
         title: 'MERCA CITY ESTATES',
         presalePrice: 'FREE w/ TAUROS',
@@ -25,7 +25,7 @@ const properties = [
     }
     // {
     //     key: 3,
-    //     imageUrl: 'Masks.mp4',
+    //     glb: "glbs/hartebeast.glb",
     //     imageAlt: 'Masks',
     //     title: 'INITIATION MASKS',
     //     presalePrice: '0.15 ETH',

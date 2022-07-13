@@ -1,6 +1,6 @@
 import HeaderSignIn from "./HeaderSignIn";
 import Sidebar from "./Sidebar";
-import { Box, Flex, Drawer, DrawerContent, useDisclosure } from "@chakra-ui/react";
+import { Box, Drawer, DrawerContent, useDisclosure } from "@chakra-ui/react";
 
 export default function Layout({ children }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
