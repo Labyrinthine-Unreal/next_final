@@ -1,6 +1,4 @@
 import { Box, Text, Spacer, Modal, ModalOverlay, ModalContent, ModalHeader, ModalFooter, ModalBody, ModalCloseButton, Button, useToast, Flex, Grid } from "@chakra-ui/react";
-import MintButtonTauros from "./MintButtonTauros"
-import MintButtonEstates from "./MintButtonEstates"
 import Refresh from "./Refresh";
 import MBE from "./MintButtonEstatesv2"
 import MBT from "./MintButtonTaurosv2"
