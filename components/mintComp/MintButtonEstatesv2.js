@@ -1,4 +1,4 @@
-import { Flex, Link, Container, Text, Box, SimpleGrid } from "@chakra-ui/react"
+import { Flex, Link, Container,useToast, Text, Box, SimpleGrid } from "@chakra-ui/react"
 import { useEffect, useState, } from "react";
 import { useDispatch, useSelector } from "react-redux"
 import { connect } from "@/src/redux/blockchain/blockchainActions"
@@ -13,74 +13,10 @@ const truncate = (input, len) =>
     input.length > len ? `${input.substring(0, len)}...` : input;
 
 export default function MBE() {
-    // const dispatch = useDispatch();
-    // const blockchain = useSelector((state) => state.blockchain);
-    // const data = useSelector((state) => state.data);
-    // const [claimingNft, setClaimingNft] = useState(false);
-    // const [feedback, setFeedback] = useState(false);
-    // const [mintAmount, setMintAmount] = useState(1);
-    // const [CONFIG, SET_CONFIG] = useState({
-    //     CONTRACT_ADDRESS: "",
-    //     SCAN_LINK: "",
-    //     NETWORK: {
-    //         NAME: "",
-    //         SYMBOL: "",
-    //         ID: 0,
-    //     },
-    //     NFT_NAME: "",
-    //     SYMBOL: "",
-    //     MAX_SUPPLY: 1,
-    //     WEI_COST: 0,
-    //     DISPLAY_COST: 0,
-    //     GAS_LIMIT: 0,
-    //     MARKETPLACE: "",
-    //     MARKETPLACE_LINK: "",
-    //     SHOW_BACKGROUND: false,
-    // });
-
-    // const decrementMintAmount = () => {
-    //     let newMintAmount = mintAmount - 1;
-    //     if (newMintAmount < 1) {
-    //         newMintAmount = 1;
-    //     }
-    //     setMintAmount(newMintAmount);
-    // };
-
-    // const incrementMintAmount = () => {
-    //     let newMintAmount = mintAmount + 1;
-    //     if (newMintAmount > 10) {
-    //         newMintAmount = 10;
-    //     }
-    //     setMintAmount(newMintAmount);
-    // };
-
-    // const getData = () => {
-    //     if (blockchain.account !== "" && blockchain.smartContract !== null) {
-    //         dispatch(fetchData(blockchain.account));
-    //     }
-    // };
-
-    // const getConfig = async () => {
-    //     const configResponse = await fetch("../public/config/config.json", {
-    //         headers: {
-    //             "Content-Type": "application/json",
-    //             Accept: "application/json",
-    //         },
-    //     });
-    //     const config = await configResponse.json();
-    //     SET_CONFIG(config);
-    // };
-
-    // useEffect(() => {
-    //     getConfig();
-    // }, []);
-
-    // useEffect(() => {
-    //     getData();
-    // }, [blockchain.account])
 
     const { authenticate, isAuthenticated, isAuthenticating, Moralis, user, account, logout } = useMoralis();
     const contractProcessor = useWeb3ExecuteFunction();
+    const toast = useToast()
 
     useEffect(() => {
         if (isAuthenticated) {
@@ -103,9 +39,23 @@ export default function MBE() {
         await contractProcessor.fetch({
             params: options,
             onSuccess: () => {
-                console.log("Successful");
+                toast({
+                    title: 'Mint Successful',
+                    description: "Minted TaurosDAO Estate",
+                    status: 'success',
+                    duration: 9000,
+                    isClosable: true,
+                  })
+                console.log("Mint successful");
             },
             onError: (error) => {
+                toast({
+                    title: 'Mint Failed...',
+                    description: 'Mint Failed.. User is Not Whitelisted',
+                    status: "error",
+                    duration: '9000',
+                    isClosable: true
+                }) 
                 console.log(error);
             }
         })
@@ -114,6 +64,19 @@ export default function MBE() {
           <Button onClick={() => {
             if (isAuthenticated) {_mintEstates();}
           }} text={"Mint Estates"} theme={"primary"} />
+          
       );
     }
 
+{/* Opensea button --> move to bottom of the page */ }
+{/* <Container>
+            <span>
+                <Button
+                  onClick={(e) => {
+                    window.open(CONFIG.MARKETPLACE_LINK, "_blank");
+                  }}
+                >
+                  {CONFIG.MARKETPLACE}
+                </Button>
+            </span>          
+          </Container>               */}

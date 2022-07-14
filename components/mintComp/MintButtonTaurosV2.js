@@ -107,11 +107,25 @@ export default function MBT() {
         await contractProcessor.fetch({
           params: options,
           onSuccess: () => {
+            toast({
+                title: 'Mint Successful',
+                description: "Minted TaurosDAO Membership",
+                status: 'success',
+                duration: 9000,
+                isClosable: true,
+              })
             console.log("Mint successful");
-          },
-          onError: (error) => {
+        },
+        onError: (error) => {
+            toast({
+                title: 'Mint Failed.. Not enough Ether To Purchase TaurosDAO Membership',
+                description: console.log(error),
+                status: "error",
+                duration: '9000',
+                isClosable: true
+            }) 
             console.log(error);
-          }
+        }
         })
       }
     return (
