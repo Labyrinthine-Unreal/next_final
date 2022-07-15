@@ -1,6 +1,6 @@
 import { ChakraProvider, Box } from "@chakra-ui/react"
 import { MoralisProvider } from "react-moralis"
-import React from "react";
+import React, { Children } from "react";
 import "@styles/reset.css"
 import store from "@src/redux/store";
 import { Provider } from "react-redux";

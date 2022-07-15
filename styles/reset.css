@@ -1,5 +1,5 @@
-@import url('http://fonts.cdnfonts.com/css/trajanusbricks');
-@import url('http://fonts.cdnfonts.com/css/aetherius');
+@import url('https://fonts.cdnfonts.com/css/trajanusbricks');
+@import url('https://fonts.cdnfonts.com/css/aetherius');
 
 html,
 body,
@@ -129,7 +129,7 @@ table {
 body {
   margin: 0;
   font-family: 'a Area Stencil', "coder", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",
-    "Droid Sans", "Helvetica Neue", sans-serif;
+    "Droid Sans", "Helvetica Neue","Trajanus Bricks", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
