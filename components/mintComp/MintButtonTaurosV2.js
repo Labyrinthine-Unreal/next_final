@@ -1,8 +1,8 @@
 import { Container,SimpleGrid,Divider,useToast,Flex,NumberInputStepper,NumberIncrementStepper,NumberDecrementStepper,NumberInputField,Text,NumberInput,Link,Box,Tabs,TabPanel,TabList,Tab,TabPanels,FormControl,FormLabel,Input } from "@chakra-ui/react"
 import { useEffect, useState, } from "react";
-import { useDispatch, useSelector } from "react-redux"
-import { connect } from "@/src/redux/blockchain/blockchainActions"
-import { fetchData } from "@/src/redux/data/dataActions"
+// import { useDispatch, useSelector } from "react-redux"
+// import { connect } from "@/src/redux/blockchain/blockchainActions"
+// import { fetchData } from "@/src/redux/data/dataActions"
 import { Button } from 'web3uikit';
 import { useMoralis, useWeb3ExecuteFunction } from 'react-moralis';
 import taurosABI from "../ABIs/taurosABI"
