@@ -63,7 +63,7 @@ export default function MBE() {
     return (
           <Button onClick={() => {
             if (isAuthenticated) {_mintEstates();}
-          }} text={"Mint Estates"} theme={"primary"} />
+          }} text={"Claim Estates"} theme={"primary"} />
           
       );
     }
