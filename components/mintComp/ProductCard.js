@@ -17,11 +17,12 @@ export default function ProductCard({ product, setModalData }) {
       onClick={() => setModalData(product)}
       opacity="0.9"
       _hover={{
-        bg: "gray.200",
+        bg: "white",
         color: "teal.500",
         opacity: "1",
         transition: "transform 0.15s ease-in-out",
-        transform: "scale3d(1.05, 1.05, 1.05)"
+        transform: "scale3d(1.05, 1.05, 1.05)",
+        boxShadow: 'dark-lg'
       }}
       _focus={{
         bg: "white",

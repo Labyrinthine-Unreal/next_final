@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import { Box, Text, Heading, FormControl, FormLabel, FormErrorMessage, FormHelperText } from "@chakra-ui/react"
+import { Box, Text, Heading } from "@chakra-ui/react"
 
 export default function ApplicationPage() {
     return (
@@ -9,7 +9,7 @@ export default function ApplicationPage() {
                     TaurosDAO | Apply
                 </title>
             </Head>
-            <Heading pb={5} fontSize="3xl">
+            <Heading pb={5} fontSize="3xl" textShadow='0.5px 0.5px white'>
                 Apply
             </Heading>
             <Text>

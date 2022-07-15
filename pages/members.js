@@ -11,7 +11,7 @@ export default function SlideEx() {
                 </title>
             </Head>
 
-            <Heading pb={5} fontSize="3xl">
+            <Heading pb={5} fontSize="3xl" textShadow='0.5px 0.5px white'>
                 Members
             </Heading>
             <Text>

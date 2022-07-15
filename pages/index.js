@@ -21,7 +21,7 @@ export default function Home() {
           </title>
       </Head>
 
-      <Heading pb={5} fontSize="3xl">
+      <Heading pb={5} fontSize="3xl" textShadow='0.5px 0.5px white'>
         Welcome to Taurosdao
       </Heading>
       
@@ -52,7 +52,7 @@ export default function Home() {
           />
       </Box>
 
-      <Heading pb={5} fontSize="3xl">
+      <Heading pb={5} fontSize="3xl" textShadow='0.5px 0.5px white'>
         Labyrinthine Unreal
       </Heading>
       
