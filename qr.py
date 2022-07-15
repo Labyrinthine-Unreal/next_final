@@ -2,7 +2,7 @@
 import qrcode
  
 # Data to encode
-data = "https://next-final-k9ciomgq9-labyrinthineunreal.vercel.app/"
+data = "https://next-final-5lotu6cyw-labyrinthineunreal.vercel.app/"
  
 # Creating an instance of QRCode class
 qr = qrcode.QRCode(version = 1,
