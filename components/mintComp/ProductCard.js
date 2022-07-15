@@ -12,6 +12,7 @@ export default function ProductCard({ product, setModalData }) {
       bg="white"
       rounded="xl"
       shadow="lg"
+      border="1px solid white" p={0.5}
       borderWidth="1px"
       onClick={() => setModalData(product)}
     >
@@ -33,7 +34,7 @@ export default function ProductCard({ product, setModalData }) {
             />
         </Box>
         <Box p="6">
-          <Box fontWeight="semibold" as="h4" lineHeight="tight" isTruncated>
+          <Box fontWeight="semibold" as="h4" lineHeight="tight">
             {title}
           </Box>
           <Box>{salePrice}</Box>

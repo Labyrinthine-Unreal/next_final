@@ -1,9 +1,9 @@
 import { Flex, Link, Button } from "@chakra-ui/react"
 import { useEffect, useState, } from "react";
 import { useDispatch, useSelector } from "react-redux"
-import { connect } from "@/src/redux2/blockchain/blockchainActions"
-import { fetchData } from "@/src/redux2/data/dataActions"
-import * as s from "@/styles/globalStyles"
+import { connect } from "@src/redux2/blockchain/blockchainActions"
+import { fetchData } from "@src/redux2/data/dataActions"
+import * as s from "@styles/globalStyles"
 
 const truncate = (input, len) =>
   input.length > len ? `${input.substring(0, len)}...` : input;

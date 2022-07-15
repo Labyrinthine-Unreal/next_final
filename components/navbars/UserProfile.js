@@ -1,4 +1,4 @@
-import { Flex, Text, HStack, VStack, Menu, Avatar, Box, MenuButton, MenuDivider, MenuItem, MenuList, } from "@chakra-ui/react"
+import { Flex, Text, HStack, VStack, Menu, Avatar, Box, MenuButton, MenuDivider, MenuItem, MenuList, FormControl, FormLabel, FormErrorMessage, FormHelperText, Input } from "@chakra-ui/react"
 import { FiChevronDown } from "react-icons/fi";
   
   export default function UserProfile({ user, logout, isLoggingOut }) {

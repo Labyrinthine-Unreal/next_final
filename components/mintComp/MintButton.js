@@ -2,7 +2,7 @@ import { useToast, NumberInputStepper, NumberIncrementStepper, NumberDecrementSt
 import { useState, } from "react";
 import { useApiContract } from "react-moralis";
 import Moralis from "moralis";
-import ABI from "@/components/data/InputsABI"
+import ABI from "@components/data/InputsABI"
 
 
 export default function MintButton({ user }) {

@@ -1,10 +1,10 @@
 import Head from 'next/head'
 import { Box, SimpleGrid, Flex } from "@chakra-ui/react"
-import properties from "@/components/data/properties"
-import MintAnimation from "@/components/mintComp/MintAnimation"
-import MintTitle from "@/components/mintComp/MintTitle"
-import MintPrice from "@/components/mintComp/MintPrice"
-import MintButtonTauros from "@/components/mintComp/MintButtonTauros"
+import properties from "@components/data/properties"
+import MintAnimation from "@components/mintComp/MintAnimation"
+import MintTitle from "@components/mintComp/MintTitle"
+import MintPrice from "@components/mintComp/MintPrice"
+import MintButtonTauros from "@components/mintComp/MintButtonTauros"
 
 export default function TaurosPage() {
     const item = properties[0];
