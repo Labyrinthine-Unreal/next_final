@@ -1,22 +1,34 @@
-import { Box, Flex, chakra } from "@chakra-ui/react";
-import { AiTwotoneStar } from "react-icons/ai";
-const ChakraStar = chakra(AiTwotoneStar);
+import { Box } from "@chakra-ui/react";
 
 export default function ProductCard({ product, setModalData }) {
   const { imageUrl, imageAlt, title, presalePrice, salePrice } = product;
 
   return (
-    <Flex
-      maxW="300px"
+    <Box
+      maxW="350px"
       h="full"
       textAlign="left"
       cursor="pointer"
       bg="white"
       rounded="xl"
-      shadow="lg"
+      boxShadow='dark-lg'
+      p={2}
       borderWidth="1px"
       onClick={() => setModalData(product)}
-    >
+      opacity="0.9"
+      _hover={{
+        bg: "white",
+        color: "teal.500",
+        opacity: "1",
+        transition: "transform 0.15s ease-in-out",
+        transform: "scale3d(1.05, 1.05, 1.05)",
+        boxShadow: 'dark-lg'
+      }}
+      _focus={{
+        bg: "white",
+        boxShadow: "outline",
+        borderColor: "gray.300"}}
+      >
       <Box w="full" h="full">
         <Box
           w="100%"
@@ -35,13 +47,13 @@ export default function ProductCard({ product, setModalData }) {
             />
         </Box>
         <Box p="6">
-          <Box fontWeight="semibold" as="h4" lineHeight="tight" isTruncated>
+          <Box fontWeight="semibold" as="h4" lineHeight="tight">
             {title}
           </Box>
-          <Box>${presalePrice}</Box>
-          <Box>${salePrice}</Box>
+          <Box>{salePrice}</Box>
+          <Box>{presalePrice}</Box>
         </Box>
       </Box>
-    </Flex>
+    </Box>
   );
 }

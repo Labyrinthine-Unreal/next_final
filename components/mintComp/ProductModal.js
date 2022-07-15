@@ -1,12 +1,11 @@
-import { Box, Text, Spacer, Modal, ModalOverlay, ModalContent, ModalHeader, ModalFooter, ModalBody, ModalCloseButton, Button, useToast, Flex, Grid } from "@chakra-ui/react";
-import Refresh from "./Refresh";
+import { Box, Text, Modal, ModalOverlay, ModalContent, ModalHeader, ModalFooter, ModalBody, ModalCloseButton, Grid, GridItem, Center } from "@chakra-ui/react";
 import MBE from "./MintButtonEstatesv2";
 import MBT from "./MintButtonTaurosV2";
 
 // import MBE from "./MBE";
 
 export default function ProductModal({ isOpen, onClose, modalData }) {
-  const { title, presalePrice, salePrice, imageUrl, imageAlt } = modalData || {};
+  const { title, presalePrice, salePrice, imageUrl, imageAlt, description, unclaimed, glb } = modalData || {};
   // const toast = useToast();
 
   // const handleModalClose = () => {
@@ -25,42 +24,51 @@ export default function ProductModal({ isOpen, onClose, modalData }) {
   return (
     <Modal isOpen={isOpen} onClose={onClose} size="xl">
       <ModalOverlay />
-      <ModalContent>
+      <ModalContent rounded="xl">
         <ModalCloseButton />
         <ModalHeader>Details</ModalHeader>
         <ModalBody>
-          <Box w="full" h="full">
-            <Grid templateColumns="repeat(2, 1fr)" gap={5} w="full%" h="300px" position="relative">
-              <Box>
-              <video
-              autoPlay
-              muted
-              src={imageUrl}
-              alt={imageAlt}
-              objectfit="cover"
-              layout="fill"
-              />
-              </Box>
-              <Flex>
-                <Text>Merca City is a Metaverse/RTS Game where players own their assets.</Text>
-              </Flex>
-            </Grid>
-            <Box>
-              <Box fontWeight="semibold" as="h4" lineHeight="tight" isTruncated>
-                {title}
-              </Box>
-              <Box>{presalePrice}</Box>
-              <Box>{salePrice}</Box>
-            </Box>
-          </Box>
-        </ModalBody>
-        <ModalFooter>
-          <Box>
-            {title == "MERCA CITY ESTATES" ? <MBE /> : <MBT />}
-            <Refresh />
-          </Box>
-        </ModalFooter>
-      </ModalContent>
+        <Grid
+          height={{base: "380", md: "470"}}
+          templateRows='repeat(4, 1fr)'
+          templateColumns='repeat(9, 1fr)'
+          gap={4}
+        >
+          <GridItem rowSpan={3} colSpan={5}>
+            <video
+                    autoPlay
+                    muted
+                    src={imageUrl}
+                    alt={imageAlt}
+                    objectfit="cover"
+                    layout="fill"
+                  />
+          </GridItem>
+          <GridItem rowSpan={3} colSpan={4}>
+            <Text lineHeight="tight" layout="fill">
+              <Box fontWeight="semibold" fontSize={{base: "14px", md: "18px"}}>{title}</Box>
+              <Box fontSize={{base: "12px", md: "16px"}}>Price: {salePrice}</Box>
+              <Box fontSize={{base: "12px", md: "16px"}}>{presalePrice}</Box>
+            </Text>
+          </GridItem>
+          <GridItem rowSpan={1} colSpan={5}>
+          <Text align="left" fontSize={{base: "16px", md: "16px"}}>
+                {unclaimed}
+          </Text>
+          <Text pt={5} color="red.600" fontWeight='semibold'>Free Mint ends on July 30th!</Text>
+            
+          </GridItem>
+          <GridItem rowSpan={1} colSpan={4}>
+            <Center align="center">
+              {title == "MERCA CITY ESTATES" ? <MBE /> : <MBT />}
+            </Center>
+          </GridItem>
+        </Grid>
+                </ModalBody>
+                <ModalFooter>
+                      
+                </ModalFooter>
+              </ModalContent>
     </Modal>
   );
 }

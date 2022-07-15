@@ -21,12 +21,12 @@ export default function Home() {
           </title>
       </Head>
 
-      <Heading pb={5} fontSize="3xl">
+      <Heading pb={5} fontSize="3xl" textShadow='0.5px 0.5px white'>
         Welcome to Taurosdao
       </Heading>
       
       <Text>
-        TaurosDAO is an exclusive community of artists and collectors founded in November 2021 by <Link href="https://www.labyrinthineunreal.io/" target="_blank" rel="noreferrer" style={{color: "black", fontWeight: "500"}}>Labyrinthine Unreal</Link>. For purposes of governance and other membership privileges, members need to hold at least one <span style={{color: "black", fontWeight: "500"}}>TAUROS</span> token.<br /><br /><span style={{color: "black", fontWeight: "500"}}>Merca City</span> is an open world Metaverse/RTS Game, where TaurosDAO members, artists, designers, developers, players, and collectors may come together to play, experiment, and collaborate. <span style={{color: "black", fontWeight: "500"}}>Estates</span> are Merca City&apos;s genesis assets.<br /><br />Upon release, TAUROS holders will be able to claim the first 800 Estates for free out of a total of 4300. The rest will be whitelisted at a price of 0.1 ETH for the presale and 0.15 for the public sale. If you have one or more TAUROS tokens, click on the Merca City Estates card below to check if you have any unclaimed Estates. You will have two days to mint one free Estate for each token you own until all 800 free Estates have been claimed, after which the private sale will start. Estates are not tied to TAUROS ID; even if you own TAUROS token ID #4300 you can claim an Estate as long as 800 have not yet been claimed.
+        TaurosDAO is an exclusive community of artists and collectors founded in November 2021 by <Link href="https://www.labyrinthineunreal.io/" target="_blank" rel="noreferrer" style={{color: "black", fontWeight: "500"}}>Labyrinthine Unreal</Link>. For purposes of governance and other membership privileges, members need to hold at least one <span style={{color: "black", fontWeight: "500"}}>TAUROS</span> token.<br /><br /><span style={{color: "black", fontWeight: "500"}}>Merca City</span> is an open world Metaverse/RTS Game, where TaurosDAO members, artists, designers, developers, players, and collectors may come together to play, experiment, and collaborate. <span style={{color: "black", fontWeight: "500"}}>Estates</span> are Merca City&apos;s genesis assets.<br /><br />Upon release, TAUROS holders will be able to claim the first 800 Estates for free out of a total of 4300. The rest will be whitelisted at a price of 0.1 ETH for the presale and 0.15 for the public sale. If you have one or more TAUROS tokens, click on the Merca City Estates card below to check if you have any unclaimed Estates. You will have two days to mint one free Estate for each token you own until all 800 free Estates have been claimed, after which the private sale will start. Estates are not tied to TAUROS ID; no matter what token ID you own, you can claim an Estate as long as 800 have not yet been claimed.
       </Text>
     
       <Box pt={10} pb={20} align="center">
@@ -52,7 +52,7 @@ export default function Home() {
           />
       </Box>
 
-      <Heading pb={5} fontSize="3xl">
+      <Heading pb={5} fontSize="3xl" textShadow='0.5px 0.5px white'>
         Labyrinthine Unreal
       </Heading>
       
