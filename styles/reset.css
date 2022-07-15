@@ -1,3 +1,6 @@
+@import url('http://fonts.cdnfonts.com/css/trajanusbricks');
+@import url('http://fonts.cdnfonts.com/css/aetherius');
+
 html,
 body,
 div,
@@ -123,14 +126,9 @@ table {
   border-spacing: 0;
 }
 
-@font-face {
-  font-family: "coder";
-  src: local("coder"), url(font.woff) format("woff");
-}
-
 body {
   margin: 0;
-  font-family: "coder", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",
+  font-family: 'a Area Stencil', "coder", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",
     "Droid Sans", "Helvetica Neue", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

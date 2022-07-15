@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useRouter } from "next/router";
-import { Box, CloseButton, Flex, Text, Image } from "@chakra-ui/react";
-import { ImPen, ImHome, ImCalendar, ImUser } from 'react-icons/im'
+import { Box, CloseButton, Flex, Image } from "@chakra-ui/react";
+import { ImPen, ImHome, ImCalendar, ImUser, ImEarth } from 'react-icons/im'
 import NavItem from "./NavItem";
 
 export default function Sidebar({ onClose, ...rest }) {
@@ -18,7 +18,6 @@ export default function Sidebar({ onClose, ...rest }) {
     <Box
       pl={5}
       transition="3s ease"
-      // bg="white"
       borderRight="1px"
       borderRightColor="gray.200"
       w={{ base: "full", md: 60 }}
@@ -26,9 +25,9 @@ export default function Sidebar({ onClose, ...rest }) {
       h="full"
       {...rest}
     >
-      <Flex h="20" alignItems="center" justifyContent="space-between">
-        <Box>
-          <Image src="/TaurosDAO_logo.png" alt="TaurosDAO-logo" w="200px" h="65px" />
+      <Flex h="20" alignItems="center" justifyContent="space-between" mb={20}>
+        <Box display={{ base: "none", md: "flex" }}>
+          <Image src="images/TaurosDAO_logo.png" alt="TaurosDAO-logo" w="200px" h="65px" />
         </Box>
         <CloseButton display={{ base: "flex", md: "none" }} onClick={onClose} />
       </Flex>
@@ -36,6 +35,7 @@ export default function Sidebar({ onClose, ...rest }) {
       <NavItem href="members" icon={ImUser} title="Members" />
       <NavItem href="events" icon={ImCalendar} title="Events" />
       <NavItem href="apply" icon={ImPen} title="Apply" />
+      <NavItem href="estates" icon={ImEarth} title="Estates" />
     </Box>
   );
 }
