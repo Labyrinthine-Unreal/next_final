@@ -11,7 +11,7 @@ export default function ProductCard({ product, setModalData }) {
       cursor="pointer"
       bg="white"
       rounded="xl"
-      shadow="lg"
+      boxShadow='dark-lg'
       p={2}
       borderWidth="1px"
       onClick={() => setModalData(product)}
