@@ -1,7 +1,7 @@
 import { Box } from "@chakra-ui/react";
 
 export default function ProductCard({ product, setModalData }) {
-  const { imageUrl, imageAlt, title, presalePrice, salePrice } = product;
+  const { imageUrl, imageAlt, title, free, presalePrice, salePrice } = product;
 
   return (
     <Box
@@ -12,22 +12,19 @@ export default function ProductCard({ product, setModalData }) {
       bg="white"
       rounded="xl"
       boxShadow='dark-lg'
+      filter='auto'
+      brightness='90%'
       p={2}
       borderWidth="1px"
       onClick={() => setModalData(product)}
-      opacity="0.9"
       _hover={{
         bg: "white",
-        color: "teal.500",
-        opacity: "1",
+        color: "teal",
         transition: "transform 0.15s ease-in-out",
         transform: "scale3d(1.05, 1.05, 1.05)",
-        boxShadow: 'dark-lg'
+        boxShadow: 'dark-lg',
+        brightness: '100%'
       }}
-      _focus={{
-        bg: "white",
-        boxShadow: "outline",
-        borderColor: "gray.300"}}
       >
       <Box w="full" h="full">
         <Box
@@ -50,8 +47,9 @@ export default function ProductCard({ product, setModalData }) {
           <Box fontWeight="semibold" as="h4" lineHeight="tight">
             {title}
           </Box>
-          <Box>{salePrice}</Box>
-          <Box>{presalePrice}</Box>
+            <Box>{free}</Box>
+            <Box>{presalePrice}</Box>
+            <Box>{salePrice}</Box>
         </Box>
       </Box>
     </Box>

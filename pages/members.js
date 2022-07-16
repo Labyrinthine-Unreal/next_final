@@ -15,10 +15,9 @@ export default function SlideEx() {
                 Members
             </Heading>
             <Text>
-                TAUROS Cards confer a number of benefits on members. See the table below and click on each category for more info
+                TAUROS Cards confer a number of benefits on members. Fractionalized ownership, governance, and airdrops are only a few of them. Depending on whether you are an investor, an artist, a collector, or all of the above, you may look forward to a number of privileges from TaurosDAO membership. For a detailed breakdown, see the table below and click on each of the three categories.
             </Text>
-            
-            <Tabs>
+            <Tabs py={10}>
                 <TabList>
                     <Tab>Investors</Tab>
                     <Tab>Artists</Tab>
@@ -55,7 +54,7 @@ export default function SlideEx() {
                 </TabPanels>
             </Tabs>
 
-            <Text pt={5} pb={5}>
+            <Text>
                 It is important to understand that Terra is a curated NFT Marketplace and artists&apos; benefits are not guaranteed by membership. For example, if a work is found to be plagiarized, it will not be accepted and/or removed from the marketplace regardless of whether the artist is a member, and the author&apos;s artistic privileges will be terminated. However, while artworks will always be subject to the highest standards, members will receive priority and personal care in the checks and verification process.
             </Text>
         </Box>

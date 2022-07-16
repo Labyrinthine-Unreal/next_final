@@ -61,7 +61,7 @@ export default function MBE() {
         })
     }
     return (
-          <Button onClick={() => {
+          <Button style={{width: "140px", height: "40px", fontSize: "16px", border: "none", borderRadius: "6px"}} onClick={() => {
             if (isAuthenticated) {_mintEstates();}
           }} text={"Claim Estates"} theme={"primary"} />
           

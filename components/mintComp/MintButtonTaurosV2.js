@@ -130,7 +130,7 @@ export default function MBT() {
       }
     return (
         
-        <Button onClick={() => {
+        <Button style={{width: "140px", height: "40px", fontSize: "16px", border: "none", borderRadius: "6px"}} onClick={() => {
             if (isAuthenticated) {_mintTauros();}
           }} text={"Mint Taurus"} theme={"primary"} />
       );
