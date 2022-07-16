@@ -24,7 +24,7 @@ export default function EstatesBalance() {
     return(
         <CustomContainer>
             <Text fontSize="small" fontWeight="bold">
-                Available Estates To claim , *Still need to amount held*
+                Available Estates To claim , *Still need to display amount held*
             </Text>
             {data && data.result.map(nft => (
                 <Box mt="4" px="2" py="2" borderWidth="1px" borderRadius="md" key={nft.token_uri}>
