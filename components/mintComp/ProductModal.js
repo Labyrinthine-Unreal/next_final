@@ -3,8 +3,7 @@ import MBE from "./MintButtonEstatesv2";
 import MBT from "./MintButtonTaurosV2";
 import * as s from "../../styles/globalStyles";
 import styled from "styled-components";
-// import MBE from "./MBE";
-
+// import EstatesBalance from "./EstatesBalance";
 export default function ProductModal({ isOpen, onClose, modalData }) {
   const { title, presalePrice, salePrice, imageUrl, imageAlt, description, unclaimed, glb } = modalData || {};
   // const toast = useToast();
@@ -55,8 +54,10 @@ export default function ProductModal({ isOpen, onClose, modalData }) {
           <GridItem rowSpan={1} colSpan={5}>
           <Text align="left" fontSize={{base: "16px", md: "16px"}}>
                 {unclaimed}
+                {/* <EstatesBalance/> */}
           </Text>
-          <Text pt={5} color="red.600" fontWeight='semibold'>Free Mint ends on July 30th!</Text>
+          <Text pt={5} color="red.600" fontWeight='semibold'>Free Mint ends on July 30th! 
+          </Text>
             
           </GridItem>
           <GridItem rowSpan={1} colSpan={4}>

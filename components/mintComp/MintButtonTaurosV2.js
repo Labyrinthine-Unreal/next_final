@@ -100,7 +100,7 @@ export default function MBT() {
           abi: taurosABI,
           msgValue: Moralis.Units.ETH("0.05"),
           params: {
-            _mintAmount: 1,
+            _count: 1,
           }
         }
         await Moralis.enableWeb3()

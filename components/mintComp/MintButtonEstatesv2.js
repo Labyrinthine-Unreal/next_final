@@ -32,7 +32,7 @@ export default function MBE() {
             functionName: 'mintNFTs',
             abi: estatesABI,
             params: {
-                _count: 1,
+                _mintAmount: 1,
             }
         }
         await Moralis.enableWeb3()
