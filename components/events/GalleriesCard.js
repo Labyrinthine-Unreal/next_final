@@ -1,8 +1,8 @@
 import { Box, Image, Link, Button, Text, Flex } from "@chakra-ui/react"
 import styles from "@styles/Events.module.css"
 
-export default function CurrentEventsCard({ currentEvent }) {
-    const { title, croppedDescription, description, buttonText, imageUrl, imageAlt, href, externalUrl } = currentEvent;
+export default function CurrentEventsCard({ gallery }) {
+    const { title, croppedDescription, description, buttonText, imageUrl, imageAlt, href, externalUrl } = gallery;
     
     return (
         <Box>
@@ -23,7 +23,7 @@ export default function CurrentEventsCard({ currentEvent }) {
                 </Box>
                 <Box pb={5} className={styles.btn}>
                     <Button borderRadius="0" _hover={{opacity: "0.7"}} size="sm" variant="outline">
-                        <Link style={{textDecoration: "none"}} href={href}>{buttonText}</Link>
+                        <Link style={{textDecoration: "none"}} href={externalUrl} isExternal>{buttonText}</Link>
                     </Button>
                 </Box>
             </Box>
