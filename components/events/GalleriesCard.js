@@ -1,8 +1,8 @@
 import { Box, Image, Link, Button, Text, Flex } from "@chakra-ui/react"
 import styles from "@styles/Events.module.css"
 
-export default function CurrentEventsCard({ currentEvent }) {
-    const { title, croppedDescription, description, buttonText, imageUrl, imageAlt, href, externalUrl } = currentEvent;
+export default function CurrentEventsCard({ gallery }) {
+    const { title, croppedDescription, description, buttonText, imageUrl, imageAlt, href, externalUrl } = gallery;
     
     return (
         <Box>

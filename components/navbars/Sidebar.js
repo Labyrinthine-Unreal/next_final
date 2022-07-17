@@ -37,8 +37,8 @@ export default function Sidebar({ onClose, ...rest }) {
       <NavItem href="events" icon={ImCalendar} title="Events" />
       {/* <NavItem href="apply" icon={ImPen} title="Apply" /> */}
       <NavItem href="estates" icon={ImEarth} title="Estates" />
+      <NavItem href="gallery" icon={GrGallery} title="Gallery" />
       <NavItem href="podcast" icon={ImPodcast} title="Podcast" />
-      <NavItem href="galleries" icon={GrGallery} title="Galleries" />
     </Box>
   );
 }
