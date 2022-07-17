@@ -14,7 +14,7 @@ const truncate = (input, len) =>
     input.length > len ? `${input.substring(0, len)}...` : input;
 
 export default function MBE() {
-    const [amount, setAmount] = useState(0)
+    const [amount, setAmount] = useState(1)
     const handleChange = (value) => setAmount(value)
     const { authenticate, isAuthenticated, isAuthenticating, Moralis, user, account, logout } = useMoralis();
     const contractProcessor = useWeb3ExecuteFunction();
@@ -72,8 +72,8 @@ export default function MBE() {
             <FormLabel htmlFor="amount">
               Amount to Mint
             </FormLabel>
-            <NumberInput step={1} onChange={handleChange}>
-              <NumberInputField id="amount" value={amount} />
+            <NumberInput step={1} min={1} max={13} onChange={handleChange}>
+              <NumberInputField  id="amount" value={amount} />
               <NumberInputStepper>
                 <NumberIncrementStepper />
                 <NumberDecrementStepper />

@@ -13,7 +13,7 @@ const truncate = (input, len) =>
 
 export default function MBT() {
 
-  const [amount, setAmount] = useState(0)
+  const [amount, setAmount] = useState(1)
   const handleChange = (value) => setAmount(value)
   const toast = useToast()
 
@@ -73,8 +73,8 @@ export default function MBT() {
             <FormLabel htmlFor="amount">
               Amount to Mint
             </FormLabel>
-            <NumberInput step={1} onChange={handleChange}>
-              <NumberInputField id="amount" value={amount} />
+            <NumberInput step={1} min={1} max={13} onChange={handleChange}>
+              <NumberInputField  id="amount" value={amount} />
               <NumberInputStepper>
                 <NumberIncrementStepper />
                 <NumberDecrementStepper />
