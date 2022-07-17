@@ -1,4 +1,6 @@
-import { Container,Slider,SliderFilledTrack,SliderThumb,SliderTrack, SimpleGrid, Divider, useToast, Flex, NumberInputStepper, Spacer, NumberIncrementStepper, NumberDecrementStepper, NumberInputField, Text, NumberInput, Link, Box, Tabs, TabPanel, TabList, Tab, TabPanels, FormControl, FormLabel, Input } from "@chakra-ui/react"
+import { Container,Slider,SliderFilledTrack,SliderThumb,SliderTrack, SimpleGrid, Divider, } from "@chakra-ui/react"
+import {useToast, Flex, NumberInputStepper, Spacer, NumberIncrementStepper, NumberDecrementStepper, NumberInputField, Text} from "@chakra-ui/react"
+import { NumberInput, Link, Box, Tabs, TabPanel, TabList, Tab, TabPanels, FormControl, FormLabel, Input } from "@chakra-ui/react"
 import { useEffect, useState, } from "react";
 import CustomContainer from "@components/CustomContainer";
 // import { useDispatch, useSelector } from "react-redux"
@@ -30,7 +32,7 @@ export default function MBE() {
   async function _mintEstates() {
     let options = {
       // msgValue: Moralis.Units.ETH("0.05"),
-      contractAddress: '0x25cff20e9fb576b76768d4ce69c66578b7f7ac5d',
+      contractAddress: '0x508Da3a39A4a48661Cc218Fa76dC1cabC09F3887',
       functionName: 'mintNFTs',
       abi: estatesABI,
       params: {

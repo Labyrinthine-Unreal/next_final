@@ -1,4 +1,6 @@
-import { Container,Slider,SliderFilledTrack,SliderThumb,SliderTrack, SimpleGrid, Divider, useToast, Flex, NumberInputStepper, Spacer, NumberIncrementStepper, NumberDecrementStepper, NumberInputField, Text, NumberInput, Link, Box, Tabs, TabPanel, TabList, Tab, TabPanels, FormControl, FormLabel, Input } from "@chakra-ui/react"
+import { Container,Slider,SliderFilledTrack,SliderThumb,SliderTrack, SimpleGrid, Divider, } from "@chakra-ui/react"
+import {useToast, Flex, NumberInputStepper, Spacer, NumberIncrementStepper, NumberDecrementStepper, NumberInputField, Text} from "@chakra-ui/react"
+import { NumberInput, Link, Box, Tabs, TabPanel, TabList, Tab, TabPanels, FormControl, FormLabel, Input } from "@chakra-ui/react"
 import { useEffect, useState, } from "react";
 // import { useDispatch, useSelector } from "react-redux"
 // import { connect } from "@/src/redux/blockchain/blockchainActions"
