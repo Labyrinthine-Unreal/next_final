@@ -73,26 +73,27 @@ export default function MBT() {
             <FormLabel htmlFor="amount">
               Amount to Mint
             </FormLabel>
-            <Slider
-              flex='1'
-              focusThumbOnChange={false}
-              value={amount}
-              onChange={handleChange}
-              id="amount"
-            >
-              <SliderTrack>
-                <SliderFilledTrack />
-              </SliderTrack>
-              <SliderThumb fontSize='sm' boxSize='32px' children={amount} />
-            </Slider>
-            {/* <NumberInput step={1} min={1} max={13} onChange={handleChange}>
+
+            <NumberInput step={1} min={1} max={13} onChange={handleChange} allowMouseWheel>
               <NumberInputField  id="amount" value={amount} />
               <NumberInputStepper>
                 <NumberIncrementStepper />
                 <Spacer />
                 <NumberDecrementStepper />
               </NumberInputStepper>
-            </NumberInput> */}
+            </NumberInput>
+            {/* <Slider
+              flex='1'
+              focusThumbOnChange={false}
+              value={amount}
+              onChange={handleChange}
+              id="amount"
+            >
+              <SliderTrack min={1} max ={13}>
+                <SliderFilledTrack />
+              </SliderTrack>
+              <SliderThumb fontSize='sm' boxSize='32px' children={amount} />
+            </Slider> */}
           </FormControl>
           <Spacer />
           <Button onClick={() => {
