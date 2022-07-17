@@ -1,4 +1,4 @@
-import { Container, SimpleGrid, Divider, useToast, Flex, NumberInputStepper, NumberIncrementStepper, NumberDecrementStepper, NumberInputField, Text, NumberInput, Link, Box, Tabs, TabPanel, TabList, Tab, TabPanels, FormControl, FormLabel, Input, Spacer } from "@chakra-ui/react"
+import { Container,Slider,SliderFilledTrack,SliderThumb,SliderTrack, SimpleGrid, Divider, useToast, Flex, NumberInputStepper, Spacer, NumberIncrementStepper, NumberDecrementStepper, NumberInputField, Text, NumberInput, Link, Box, Tabs, TabPanel, TabList, Tab, TabPanels, FormControl, FormLabel, Input } from "@chakra-ui/react"
 import { useEffect, useState, } from "react";
 // import { useDispatch, useSelector } from "react-redux"
 // import { connect } from "@/src/redux/blockchain/blockchainActions"
@@ -73,14 +73,26 @@ export default function MBT() {
             <FormLabel htmlFor="amount">
               Amount to Mint
             </FormLabel>
-            <NumberInput step={1} min={1} max={13} onChange={handleChange}>
+            <Slider
+              flex='1'
+              focusThumbOnChange={false}
+              value={amount}
+              onChange={handleChange}
+              id="amount"
+            >
+              <SliderTrack>
+                <SliderFilledTrack />
+              </SliderTrack>
+              <SliderThumb fontSize='sm' boxSize='32px' children={amount} />
+            </Slider>
+            {/* <NumberInput step={1} min={1} max={13} onChange={handleChange}>
               <NumberInputField  id="amount" value={amount} />
               <NumberInputStepper>
                 <NumberIncrementStepper />
                 <Spacer />
                 <NumberDecrementStepper />
               </NumberInputStepper>
-            </NumberInput>
+            </NumberInput> */}
           </FormControl>
           <Spacer />
           <Button onClick={() => {
