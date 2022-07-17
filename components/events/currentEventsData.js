@@ -13,11 +13,11 @@ const currentEvents = [
         title: 'Curated ART GALLERIES',
         href: '/galleries',
         croppedDescription: (<>Dante&apos;s Inferno | 9 Weeks...</>),
-        description: (<>9 Weeks Art Gallery series following Dante&apos;s Inferno theme.<br /><br />A Gallery space is added each week, as we descend into hell.  </>),
+        description: (<>Theme: Dante&apos;s Inferno<br /><br />9 Weeks Art Gallery series<br />in New Art City<br /><br />New Gallery floor added every Monday</>),
         buttonText: 'All Galleries',
-        imageUrl: 'images/art_gallery.png',
+        imageUrl: 'images/Violence.png',
         imageAlt: 'art-gallery',
-        href: '/gallery',
+        href: '/galleries',
         externalUrl: 'https://newart.city/show/taurosdao-museum-entry'
     }
 ]

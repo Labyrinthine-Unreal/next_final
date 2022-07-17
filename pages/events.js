@@ -1,7 +1,7 @@
 import { Box, Heading, Text, Flex, SimpleGrid } from "@chakra-ui/react"
 import Head from "next/head"
-import CEC from "@components/events/CurrentEventsCard"
-import currentEvents from "@components/events/currentEvents";
+import CECard from "@components/events/CurrentEventsCard"
+import currentEvents from "@components/events/currentEventsData";
 
 export default function EventsPage() {
 
@@ -25,7 +25,7 @@ export default function EventsPage() {
                 <SimpleGrid pl={{base: "1", md: "3", lg: "5"}} columns={{base: "1", md: "2", lg: "3"}} gap={5} mt="4" minH="full" spacingY={20}>
                 {currentEvents.map((currentEvent, i) => (
                     <Flex key={i}>
-                        <CEC currentEvent={currentEvent} />
+                        <CECard currentEvent={currentEvent} />
                     </Flex>
                 ))}
                 </SimpleGrid>

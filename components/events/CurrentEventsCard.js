@@ -1,4 +1,5 @@
-import { Box, Image, Link, Button, Text, Flex } from "@chakra-ui/react"
+import { Box, Image, Button, Text, Flex } from "@chakra-ui/react"
+import Link from "next/link"
 import styles from "@styles/Events.module.css"
 
 export default function CurrentEventsCard({ currentEvent }) {
