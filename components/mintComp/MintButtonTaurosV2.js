@@ -1,4 +1,4 @@
-import { Container, SimpleGrid, Divider, useToast, Flex, NumberInputStepper, NumberIncrementStepper, NumberDecrementStepper, NumberInputField, Text, NumberInput, Link, Box, Tabs, TabPanel, TabList, Tab, TabPanels, FormControl, FormLabel, Input } from "@chakra-ui/react"
+import { Container, SimpleGrid, Divider, useToast, Flex, NumberInputStepper, NumberIncrementStepper, NumberDecrementStepper, NumberInputField, Text, NumberInput, Link, Box, Tabs, TabPanel, TabList, Tab, TabPanels, FormControl, FormLabel, Input, Spacer } from "@chakra-ui/react"
 import { useEffect, useState, } from "react";
 // import { useDispatch, useSelector } from "react-redux"
 // import { connect } from "@/src/redux/blockchain/blockchainActions"
@@ -77,10 +77,12 @@ export default function MBT() {
               <NumberInputField  id="amount" value={amount} />
               <NumberInputStepper>
                 <NumberIncrementStepper />
+                <Spacer />
                 <NumberDecrementStepper />
               </NumberInputStepper>
             </NumberInput>
           </FormControl>
+          <Spacer />
           <Button onClick={() => {
             if (isAuthenticated) { _mintTauros(); }
           }} text={"Mint Taurus"} theme={"primary"} />

@@ -1,4 +1,4 @@
-import { Container, SimpleGrid, Divider, useToast, Flex, NumberInputStepper, NumberIncrementStepper, NumberDecrementStepper, NumberInputField, Text, NumberInput, Link, Box, Tabs, TabPanel, TabList, Tab, TabPanels, FormControl, FormLabel, Input } from "@chakra-ui/react"
+import { Container, SimpleGrid, Divider, useToast, Flex, NumberInputStepper,Spacer, NumberIncrementStepper, NumberDecrementStepper, NumberInputField, Text, NumberInput, Link, Box, Tabs, TabPanel, TabList, Tab, TabPanels, FormControl, FormLabel, Input } from "@chakra-ui/react"
 import { useEffect, useState, } from "react";
 import CustomContainer from "@components/CustomContainer";
 // import { useDispatch, useSelector } from "react-redux"
@@ -76,6 +76,7 @@ export default function MBE() {
               <NumberInputField  id="amount" value={amount} />
               <NumberInputStepper>
                 <NumberIncrementStepper />
+                <Spacer />
                 <NumberDecrementStepper />
               </NumberInputStepper>
             </NumberInput>
