@@ -1,4 +1,4 @@
-import { Container, SimpleGrid, Divider, useToast, Flex, NumberInputStepper, NumberIncrementStepper, NumberDecrementStepper, NumberInputField, Text, NumberInput, Link, Box, Tabs, TabPanel, TabList, Tab, TabPanels, FormControl, FormLabel, Input } from "@chakra-ui/react"
+import { Container,Slider,SliderFilledTrack,SliderThumb,SliderTrack, SimpleGrid, Divider, useToast, Flex, NumberInputStepper, Spacer, NumberIncrementStepper, NumberDecrementStepper, NumberInputField, Text, NumberInput, Link, Box, Tabs, TabPanel, TabList, Tab, TabPanels, FormControl, FormLabel, Input } from "@chakra-ui/react"
 import { useEffect, useState, } from "react";
 import CustomContainer from "@components/CustomContainer";
 // import { useDispatch, useSelector } from "react-redux"
@@ -11,59 +11,59 @@ import { useMoralis, useWeb3ExecuteFunction } from 'react-moralis';
 import estatesABI from "../ABIs/estatesABI"
 
 const truncate = (input, len) =>
-    input.length > len ? `${input.substring(0, len)}...` : input;
+  input.length > len ? `${input.substring(0, len)}...` : input;
 
 export default function MBE() {
-    const [amount, setAmount] = useState(1)
-    const handleChange = (value) => setAmount(value)
-    const { authenticate, isAuthenticated, isAuthenticating, Moralis, user, account, logout } = useMoralis();
-    const contractProcessor = useWeb3ExecuteFunction();
-    const toast = useToast()
+  const [amount, setAmount] = useState(1)
+  const handleChange = (value) => setAmount(value)
+  const { authenticate, isAuthenticated, isAuthenticating, Moralis, user, account, logout } = useMoralis();
+  const contractProcessor = useWeb3ExecuteFunction();
+  const toast = useToast()
 
-    useEffect(() => {
-        if (isAuthenticated) {
+  useEffect(() => {
+    if (isAuthenticated) {
 
-        }
-
-    }, [isAuthenticated])
-
-    async function _mintEstates() {
-        let options = {
-            // msgValue: Moralis.Units.ETH("0.05"),
-            contractAddress: '0x25cff20e9fb576b76768d4ce69c66578b7f7ac5d',
-            functionName: 'mintNFTs',
-            abi: estatesABI,
-            params: {
-                _mintAmount: 1* amount,
-            }
-        }
-        await Moralis.enableWeb3()
-        await contractProcessor.fetch({
-            params: options,
-            onSuccess: () => {
-                toast({
-                    title: 'Mint Successful',
-                    description: "Minted TaurosDAO Estate",
-                    status: 'success',
-                    duration: 9000,
-                    isClosable: true,
-                  })
-                console.log("Mint successful");
-            },
-            onError: (error) => {
-                toast({
-                    title: 'Mint Failed...',
-                    description: 'Mint Failed.. User is Not Whitelisted or rejected the transaction',
-                    status: "error",
-                    duration: '9000',
-                    isClosable: true
-                }) 
-                console.log(error);
-            }
-        })
     }
-    return (
-      <CustomContainer>
+
+  }, [isAuthenticated])
+
+  async function _mintEstates() {
+    let options = {
+      // msgValue: Moralis.Units.ETH("0.05"),
+      contractAddress: '0x25cff20e9fb576b76768d4ce69c66578b7f7ac5d',
+      functionName: 'mintNFTs',
+      abi: estatesABI,
+      params: {
+        _mintAmount: 1 * amount,
+      }
+    }
+    await Moralis.enableWeb3()
+    await contractProcessor.fetch({
+      params: options,
+      onSuccess: () => {
+        toast({
+          title: 'Mint Successful',
+          description: "Minted TaurosDAO Estate",
+          status: 'success',
+          duration: 9000,
+          isClosable: true,
+        })
+        console.log("Mint successful");
+      },
+      onError: (error) => {
+        toast({
+          title: 'Mint Failed...',
+          description: 'Mint Failed.. User is Not Whitelisted or rejected the transaction',
+          status: "error",
+          duration: '9000',
+          isClosable: true
+        })
+        console.log(error);
+      }
+    })
+  }
+  return (
+    <CustomContainer>
       <Text fontSize="xl" fontWeight="bold">
         <form onSubmit={async e => {
           e.preventDefault()
@@ -72,10 +72,23 @@ export default function MBE() {
             <FormLabel htmlFor="amount">
               Amount to Mint
             </FormLabel>
+            {/* <Slider
+              flex='1'
+              focusThumbOnChange={false}
+              value={amount}
+              onChange={handleChange}
+              id="amount"
+            >
+              <SliderTrack>
+                <SliderFilledTrack />
+              </SliderTrack>
+              <SliderThumb fontSize='sm' boxSize='32px' children={amount} />
+            </Slider> */}
             <NumberInput step={1} min={1} max={13} onChange={handleChange}>
               <NumberInputField  id="amount" value={amount} />
               <NumberInputStepper>
                 <NumberIncrementStepper />
+                <Spacer />
                 <NumberDecrementStepper />
               </NumberInputStepper>
             </NumberInput>
@@ -88,12 +101,12 @@ export default function MBE() {
       </Text>
     </CustomContainer>
   )
-      //     <Button style={{width: "140px", height: "40px", fontSize: "16px", border: "none", borderRadius: "6px"}} onClick={() => {
-      //       if (isAuthenticated) {_mintEstates();}
-      //     }} text={"Claim Estates"} theme={"primary"} />
-          
-      // );
-    }
+  //     <Button style={{width: "140px", height: "40px", fontSize: "16px", border: "none", borderRadius: "6px"}} onClick={() => {
+  //       if (isAuthenticated) {_mintEstates();}
+  //     }} text={"Claim Estates"} theme={"primary"} />
+
+  // );
+}
 
 {/* Opensea button --> move to bottom of the page */ }
 {/* <Container>

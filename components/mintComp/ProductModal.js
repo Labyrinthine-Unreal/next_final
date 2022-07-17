@@ -1,4 +1,4 @@
-import { Box, Text, Modal, ModalOverlay, ModalContent, ModalHeader, ModalFooter, ModalBody, ModalCloseButton, Grid, GridItem, Center } from "@chakra-ui/react";
+import { Box, Text, Modal, ModalOverlay, ModalContent,Spacer, ModalHeader, ModalFooter, ModalBody, ModalCloseButton, Grid, GridItem, Center } from "@chakra-ui/react";
 import MBE from "./MintButtonEstatesv2";
 import MBT from "./MintButtonTaurosV2";
 import * as s from "../../styles/globalStyles";
@@ -42,6 +42,7 @@ export default function ProductModal({ isOpen, onClose, modalData }) {
         </Grid>
         </ModalBody>
         <ModalFooter>
+          <Spacer />
             {/* <EstatesBalance/> */}
             {title == "MERCA CITY ESTATE" ? <MBE /> : <MBT />}
         </ModalFooter>
