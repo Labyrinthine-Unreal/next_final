@@ -1,5 +1,6 @@
-import { Flex, Link, Container,useToast, Text, Box, SimpleGrid } from "@chakra-ui/react"
+import { Container, SimpleGrid, Divider, useToast, Flex, NumberInputStepper, NumberIncrementStepper, NumberDecrementStepper, NumberInputField, Text, NumberInput, Link, Box, Tabs, TabPanel, TabList, Tab, TabPanels, FormControl, FormLabel, Input } from "@chakra-ui/react"
 import { useEffect, useState, } from "react";
+import CustomContainer from "@components/CustomContainer";
 // import { useDispatch, useSelector } from "react-redux"
 // import { connect } from "@/src/redux/blockchain/blockchainActions"
 // import { fetchData } from "@/src/redux/data/dataActions"
@@ -13,7 +14,8 @@ const truncate = (input, len) =>
     input.length > len ? `${input.substring(0, len)}...` : input;
 
 export default function MBE() {
-
+    const [amount, setAmount] = useState(0)
+    const handleChange = (value) => setAmount(value)
     const { authenticate, isAuthenticated, isAuthenticating, Moralis, user, account, logout } = useMoralis();
     const contractProcessor = useWeb3ExecuteFunction();
     const toast = useToast()
@@ -32,7 +34,7 @@ export default function MBE() {
             functionName: 'mintNFTs',
             abi: estatesABI,
             params: {
-                _mintAmount: 1,
+                _mintAmount: 1* amount,
             }
         }
         await Moralis.enableWeb3()
@@ -61,11 +63,36 @@ export default function MBE() {
         })
     }
     return (
-          <Button style={{width: "140px", height: "40px", fontSize: "16px", border: "none", borderRadius: "6px"}} onClick={() => {
-            if (isAuthenticated) {_mintEstates();}
-          }} text={"Claim Estates"} theme={"primary"} />
+      <CustomContainer>
+      <Text fontSize="xl" fontWeight="bold">
+        <form onSubmit={async e => {
+          e.preventDefault()
+        }}>
+          <FormControl mt="4">
+            <FormLabel htmlFor="amount">
+              Amount to Mint
+            </FormLabel>
+            <NumberInput step={1} onChange={handleChange}>
+              <NumberInputField id="amount" value={amount} />
+              <NumberInputStepper>
+                <NumberIncrementStepper />
+                <NumberDecrementStepper />
+              </NumberInputStepper>
+            </NumberInput>
+          </FormControl>
+          <Button onClick={() => {
+            if (isAuthenticated) { _mintEstates(); }
+          }} text={"Mint Estates"} theme={"primary"} />
+
+        </form>
+      </Text>
+    </CustomContainer>
+  )
+      //     <Button style={{width: "140px", height: "40px", fontSize: "16px", border: "none", borderRadius: "6px"}} onClick={() => {
+      //       if (isAuthenticated) {_mintEstates();}
+      //     }} text={"Claim Estates"} theme={"primary"} />
           
-      );
+      // );
     }
 
 {/* Opensea button --> move to bottom of the page */ }
