@@ -23,7 +23,7 @@ export default function CurrentEventsCard({ currentEvent }) {
                 </Box>
                 <Box pb={5} className={styles.btn}>
                     <Button borderRadius="0" _hover={{opacity: "0.7"}} size="sm" variant="outline">
-                        <Link style={{textDecoration: "none"}} href={externalUrl} isExternal>{buttonText}</Link>
+                        <Link style={{textDecoration: "none"}} href={href}>{buttonText}</Link>
                     </Button>
                 </Box>
             </Box>

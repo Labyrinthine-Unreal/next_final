@@ -33,10 +33,10 @@ export default function Sidebar({ onClose, ...rest }) {
         <CloseButton display={{ base: "flex", md: "none" }} onClick={onClose} />
       </Flex>
       <NavItem href="/" icon={ImHome} title="Dashboard"/>
+      <NavItem href="estates" icon={ImEarth} title="Estates" />
       <NavItem href="members" icon={ImUser} title="Members" />
       <NavItem href="events" icon={ImCalendar} title="Events" />
       {/* <NavItem href="apply" icon={ImPen} title="Apply" /> */}
-      <NavItem href="estates" icon={ImEarth} title="Estates" />
       <NavItem href="gallery" icon={GrGallery} title="Gallery" />
       <NavItem href="podcast" icon={ImPodcast} title="Podcast" />
     </Box>
