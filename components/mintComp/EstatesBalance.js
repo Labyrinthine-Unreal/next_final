@@ -19,24 +19,24 @@ export default function EstatesBalance() {
   //   window.alert('Hi')
   // };
 
-    // useEffect(() => {
-    //   web3.eth.getBalance(user.get('ethAddress'), async (err, result) => {
-    //     if (err) {
-    //         console.log(err);
-    //         return;
-    //     }
-    //     const balance = web3.utils.fromWei(result, "ether");
-    //     console.log(balance + " ETH");
-    //     // onButtonClickHandler = () => {
-    //     //   window.alert(balance)
-    //     // };
-    // });
+    useEffect(() => {
+      web3.eth.getBalance(user.get('ethAddress'), async (err, result) => {
+        if (err) {
+            console.log(err);
+            return;
+        }
+        const balance = web3.utils.fromWei(result, "ether");
+        console.log(balance + " ETH");
+        // onButtonClickHandler = () => {
+        //   window.alert(balance)
+        // };
+    });
 
   
-    // }, [isAuthenticated])
+    }, [isAuthenticated])
 
     useEffect(() => {
-      console.log(tokenInst.methods.walletOfOwner(user.get('ethAddress')));
+      console.log(tokenInst.methods.balanceOf(user.get('ethAddress').call));
         if (isAuthenticated) {
 
         }
