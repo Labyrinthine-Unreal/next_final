@@ -23,7 +23,7 @@ export default function UpcomingEventsCard({ upcomingEvent }) {
                         <Text className={styles.body2}>{description}</Text>
                     </Box>
                 </Box>
-                <Box pb={5} className={styles.btn}>
+                <Box className={styles.btn}>
                     <Button onClick={onOpen} borderRadius="0" _hover={{opacity: "0.7"}} size="sm" variant="outline">
                         {buttonText}
                     </Button>

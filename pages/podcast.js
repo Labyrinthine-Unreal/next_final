@@ -21,7 +21,7 @@ export default function EventsPage() {
             A collaboration podcast series between TaurosDAO and Frontier Podcast bringing you the latest from the NFT Art World. The series focuses on established and emerging 1/1 artists in the NFT Space. Airing on Tuesdays and Fridays at 12:00 PM EST. 
             </Text>
 
-            <Box pt={10} pb={20} align="center">
+            <Box pt={10} align="center">
                 <SimpleGrid pl={{base: "1", md: "3", lg: "5"}} columns={{base: "1", md: "2", lg: "3"}} gap={5} mt="4" minH="full" spacingY={20}>
                 {podcastsData.map((podcast, i) => (
                     <Flex key={i}>

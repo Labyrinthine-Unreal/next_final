@@ -21,7 +21,7 @@ export default function PodcastsCard({ podcast }) {
                         <Text className={styles.body2}>{description}</Text>
                     </Box>
                 </Box>
-                <Box pb={5} className={styles.btn}>
+                <Box className={styles.btn}>
                     <Button borderRadius="0" _hover={{opacity: "0.7"}} size="sm" variant="outline">
                         <Link style={{textDecoration: "none"}} href={externalUrl} isExternal>{buttonText}</Link>
                     </Button>

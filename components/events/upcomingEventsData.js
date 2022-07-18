@@ -6,7 +6,7 @@ const upcomingEventsData = [
         buttonText: 'Preview',
         imageUrl: 'images/Spatial.png',
         imageAlt: 'Panopticon',
-        video: 'videos/Estate.mp4'
+        video: ''
     },
     {
         title: 'Cutthroat Companions',
