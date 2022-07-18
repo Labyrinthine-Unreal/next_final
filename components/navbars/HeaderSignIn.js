@@ -26,7 +26,7 @@ export default function HeaderSignIn({ onOpen, ...rest }) {
                 icon={<ImMenu />}
               />
               <Center>
-                  <ConnectButton />
+                  <ConnectButton signingMessage="TaurosDAO Login" />
               </Center>
           </Flex>
       );
