@@ -1,4 +1,4 @@
-const currentEvents = [
+const currentEventsData = [
     {
         title: 'Artist Series Podcast',
         croppedDescription: (<>TaurosDAO | Frontier Podcast...</>),
@@ -22,4 +22,4 @@ const currentEvents = [
     }
 ]
 
-export default currentEvents
+export default currentEventsData

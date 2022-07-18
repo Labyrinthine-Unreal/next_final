@@ -1,5 +1,4 @@
-import { Box, Image, Button, Text, Flex } from "@chakra-ui/react"
-import Link from "next/link"
+import { Box, Image, Button, Text, Link } from "@chakra-ui/react"
 import styles from "@styles/Events.module.css"
 
 export default function PodcastsCard({ podcast }) {
@@ -24,7 +23,7 @@ export default function PodcastsCard({ podcast }) {
                 </Box>
                 <Box pb={5} className={styles.btn}>
                     <Button borderRadius="0" _hover={{opacity: "0.7"}} size="sm" variant="outline">
-                        <Link style={{textDecoration: "none"}} href={href}>{buttonText}</Link>
+                        <Link style={{textDecoration: "none"}} href={externalUrl} isExternal>{buttonText}</Link>
                     </Button>
                 </Box>
             </Box>

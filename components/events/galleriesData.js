@@ -5,8 +5,7 @@ const galleriesData = [
         description: (<>Apr 11, 2022, 4:00 PM UTC<br />New Art City<br /><br />Dante&apos;s Inferno. Canto XIII. Seventh Circle: Violence<br /><br />TaurosDAO Members<br />Submissions open in <a style={{color: "#2E7DAF"}} href='https://discord.com/invite/labyrinthine' target="blank">Discord</a></>),
         buttonText: 'Enter',
         imageUrl: 'images/Violence.png',
-        imageAlt: 'TAUROS Card',
-        href: '/gallery',
+        imageAlt: 'art-gallery',
         externalUrl: 'https://newart.city/show/taurosdao-art-gallery-7'
     },
     {
@@ -16,7 +15,6 @@ const galleriesData = [
         buttonText: 'Enter',
         imageUrl: 'images/Heresy.png',
         imageAlt: 'art-gallery',
-        href: '/gallery',
         externalUrl: 'https://newart.city/show/taurosdao-art-gallery-6'
     },
     {
@@ -25,8 +23,7 @@ const galleriesData = [
         description: (<>Mar 21, 2022, 4:00 PM UTC<br />New Art City<br /><br />Dante&apos;s Inferno. Canto XI. Fifth Circle: Wrath<br /><br />TaurosDAO Members<br />Submissions open in <a style={{color: "#2E7DAF"}} href='https://discord.com/invite/labyrinthine' target="blank">Discord</a></>),
         buttonText: 'Enter',
         imageUrl: 'images/Wrath.png',
-        imageAlt: 'TAUROS Card',
-        href: '/gallery',
+        imageAlt: 'art-gallery',
         externalUrl: 'https://newart.city/show/taurosdao-art-gallery-5'
     },
     {
@@ -36,7 +33,6 @@ const galleriesData = [
         buttonText: 'Enter',
         imageUrl: 'images/Avarice2.png',
         imageAlt: 'art-gallery',
-        href: '/gallery',
         externalUrl: 'https://newart.city/show/taurosdao-art-gallery-4'
     },
     {
@@ -45,8 +41,7 @@ const galleriesData = [
         description: (<>Mar 07, 2022, 4:00 PM UTC<br />New Art City<br /><br />Dante&apos;s Inferno. Canto IX. Third Circle: Gluttony<br /><br />TaurosDAO Members<br />Submissions open in <a style={{color: "#2E7DAF"}} href='https://discord.com/invite/labyrinthine' target="blank">Discord</a></>),
         buttonText: 'Enter',
         imageUrl: 'images/Gluttony.png',
-        imageAlt: 'TAUROS Card',
-        href: '/gallery',
+        imageAlt: 'art-gallery',
         externalUrl: 'https://newart.city/show/taurosdao-art-gallery-3'
     },
     {
@@ -56,7 +51,6 @@ const galleriesData = [
         buttonText: 'Enter',
         imageUrl: 'images/Lust.png',
         imageAlt: 'art-gallery',
-        href: '/gallery',
         externalUrl: 'https://newart.city/show/taurosdao-museum-2'
     },
     {
@@ -65,8 +59,7 @@ const galleriesData = [
         description: (<>Feb 21, 2022, 4:00 PM UTC<br />New Art City<br /><br />Dante&apos;s Inferno. Canto VII. First Circle: Limbo<br /><br />TaurosDAO Members<br />Submissions open in <a style={{color: "#2E7DAF"}} href='https://discord.com/invite/labyrinthine' target="blank">Discord</a></>),
         buttonText: 'Enter',
         imageUrl: 'images/Limbo.png',
-        imageAlt: 'TAUROS Card',
-        href: '/gallery',
+        imageAlt: 'art-gallery',
         externalUrl: 'https://newart.city/show/taurosdao-art-gallery'
     },
     {
@@ -76,7 +69,6 @@ const galleriesData = [
         buttonText: 'Enter',
         imageUrl: 'images/Gallery-Entrance.png',
         imageAlt: 'art-gallery',
-        href: '/gallery',
         externalUrl: 'https://newart.city/show/taurosdao-museum-entry'
     }
 ]

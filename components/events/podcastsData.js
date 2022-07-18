@@ -1,23 +1,21 @@
 const podcastsData = [
     {
-        title: 'Salvo3D',
-        croppedDescription: (<>Dante&apos;s Inferno | 9 Weeks...</>),
-        description: (<>9 Weeks Art Gallery series following Dante&apos;s Inferno theme.<br /><br />A Gallery space is added each week, as we descend into hell.  </>),
+        title: '2nd Episode: Salvo3D',
+        croppedDescription: (<>Tue, Jul 19 | Frontier...</>),
+        description: (<>Jul 19, 2022, 12 PM EST<br />Frontier Podcast<br /><br />Conversation with digital 3D artist, Salvo3D</>),
         buttonText: 'Enter',
         imageUrl: 'images/Minotaur.jpg',
-        imageAlt: 'TAUROS Card',
-        href: '/gallery',
-        externalUrl: 'https://newart.city/show/taurosdao-art-gallery-7'
+        imageAlt: 'Salvo-Card',
+        externalUrl: 'https://www.youtube.com/channel/UCT-wbeP4uVaZCiDj7AAjvMw'
     },
     {
-        title: 'RagingTaz',
-        croppedDescription: (<>Dante&apos;s Inferno | 9 Weeks...</>),
-        description: (<>9 Weeks Art Gallery series following Dante&apos;s Inferno theme.<br /><br />A Gallery space is added each week, as we descend into hell.  </>),
+        title: '1st Episode: Raging Taz',
+        croppedDescription: (<>Fri, Jul 03 | Frontier...</>),
+        description: (<>Jul 03, 2022, 12 PM EST<br />Frontier Podcast<br /><br />A deep dive into the ancient art of mask making with Neapolitan multidisciplinary artist and maskmaker, Raging Taz</>),
         buttonText: 'Enter',
         imageUrl: 'images/ragingtaz.png',
-        imageAlt: 'art-gallery',
-        href: '/gallery',
-        externalUrl: 'https://newart.city/show/taurosdao-art-gallery-6'
+        imageAlt: 'RagingTaz-Card',
+        externalUrl: 'https://youtu.be/OSRyEKS8M-I'
     }
 ]
 
