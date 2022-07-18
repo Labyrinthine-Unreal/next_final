@@ -7,6 +7,7 @@ import upcomingEvents from "@components/events/upcomingEventsData"
 import PECard from "@components/events/PastEventsCard"
 import pastEvents from "@components/events/pastEventsData"
 
+
 export default function EventsPage() {
 
     return (

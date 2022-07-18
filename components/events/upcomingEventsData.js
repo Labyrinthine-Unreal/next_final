@@ -6,16 +6,16 @@ const upcomingEventsData = [
         buttonText: 'Preview',
         imageUrl: 'images/Spatial.png',
         imageAlt: 'Panopticon',
-        video: 'videos/Trailer.mp4'
+        video: 'videos/Estate.mp4'
     },
     {
         title: 'Cutthroat Companions',
         croppedDescription: (<>Game Demo in UE | The...</>),
         description: (<>The First Labyrinthine Unreal Game Demo, &quot;Cutthroat Companions: The Treacherous Alliance&quot; will be released soon after the mask sale<br /><br />To learn more join us in <a style={{color: "#2E7DAF"}} href='https://discord.com/invite/labyrinthine' target="blank">Discord</a></>),
-        buttonText: 'Trailer',
+        buttonText: 'video',
         imageUrl: 'images/LU-chars.png',
         imageAlt: 'Masked Game Characters',
-        video: ''
+        video: 'videos/Trailer.mp4'
     }
 ]
 
