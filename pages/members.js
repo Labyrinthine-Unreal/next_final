@@ -62,22 +62,29 @@ export default function SlideEx() {
                             <ListItem pt={6} fontWeight="semibold">Collaboration with and Featuring in the Labyrinthine Unreal Game</ListItem>
                             <Text color="gray.700">Many of the works we purchase may be featured in the Labyrinthine Unreal game or in Merca City. A work of art may be laced with some unclockable content giving further clues to the solution of a puzzle or it may be sought out simply for the art&apos; sake by collectors and gamers alike. NFT artists may also collaborate with us first hand in the custom creation of game assets, from 2D and 3D art objects (avatars, architectural constructions, game accessories, etc.) to animation and film, soundtracks and sound FX, etc.</Text>
 
-                            <ListItem pt={6} fontWeight="semibold">Exclusive and Private Events with known collectors, Auction Houses, etc</ListItem>
+                            <ListItem py={6} fontWeight="semibold">Exclusive and Private Events with known collectors, Auction Houses, etc</ListItem>
                             <Text color="gray.700">Closed door digital events are a great way for interested collectors to meet directly with their favourite artists. Live auctions, art galleries, art workshops, and educational events are all in the works in Merca City. Labyrinthine Unreal and TaurosDAO are uniquely positioned to capture and hold the attention of anyone interested in the NFT and metaverse space. We are only getting started!</Text>
                         </UnorderedList>
+                        <Divider maxW="300" py={6} />
+                        <Text id="disclaimer" fontSize="15px" color="gray.700">
+                            * It is important to understand that Terra is a curated NFT Marketplace and artists&apos; benefits are not guaranteed by membership. For example, if a work is found to be plagiarized, it will not be accepted and/or removed from the marketplace regardless of whether the artist is a member, and the author&apos;s artistic privileges will be terminated. However, while artworks will always be subject to the highest standards, members will receive priority and personal care in the checks and verification process.
+                        </Text>
                     </TabPanel>
                     <TabPanel>
-                        <UnorderedList fontWeight="semibold" fontSize="15px">
-                            <ListItem p={3}>Access to Public and Private Areas of TaurosDAO&apos;s Curated Art Galleries</ListItem>
-                            <ListItem p={3}>Collectors who acquire a 10 or more artworks from our upcoming platform will also be able to claim a free Estate inside Merca City, where they may showcase their collections. This is a limited offer and the number of works required to claim a land parcel will increase with each Estate claimed</ListItem>
+                        <UnorderedList fontSize="15px">
+                            <ListItem fontWeight="semibold">Invitations to Live 3D Auction House events</ListItem>
+                            <Text color="gray.700">Live Auction House events may be subject to certain standards before one is admitted (e.g., genuine and long standing involvement with the art community). Even though, these may be closed door events, they may be streamed live online for other viewers.</Text>
+
+                            <ListItem pt={6} fontWeight="semibold">Access to Public and Private Areas of TaurosDAO&apos;s Curated Art Galleries</ListItem>
+                            <Text color="gray.700">Collectors will enjoy access not only to live auction houses but also to limited and private areas of our art galleries and workshops. These are generally great opportunities to meet the artist face to face (or avatar to avatar, as the case may be).</Text>
+
+                            <ListItem pt={6} fontWeight="semibold">Other Perks and Rewards</ListItem>
+                            <Text color="gray.700">Collectors who acquire a 10 or more artworks from our upcoming platform will also be able to claim a free Estate inside Merca City, where they may showcase their collections. This is a limited offer and the number of works required to claim a land parcel will increase with each Estate claimed
+                            </Text>
                             </UnorderedList>
                     </TabPanel>
                 </TabPanels>
             </Tabs>
-            <Divider maxW="300" />
-            <Text id="disclaimer" fontSize="15px" color="gray.700">
-                * It is important to understand that Terra is a curated NFT Marketplace and artists&apos; benefits are not guaranteed by membership. For example, if a work is found to be plagiarized, it will not be accepted and/or removed from the marketplace regardless of whether the artist is a member, and the author&apos;s artistic privileges will be terminated. However, while artworks will always be subject to the highest standards, members will receive priority and personal care in the checks and verification process.
-            </Text>
         </Box>
     )
   }
