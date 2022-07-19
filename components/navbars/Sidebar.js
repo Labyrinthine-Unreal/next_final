@@ -37,8 +37,8 @@ export default function Sidebar({ onClose, ...rest }) {
       <NavItem href="about" icon={MdSummarize} title="About" />
       <NavItem href="members" icon={ImUsers} title="Members" />
       <NavItem href="events" icon={ImCalendar} title="Events" />
-      <NavItem href="galleries" icon={GrGallery} title="Galleries" />
-      <NavItem href="podcast" icon={ImPodcast} title="Podcast" />
+      {/* <NavItem href="galleries" icon={GrGallery} title="Galleries" />
+      <NavItem href="podcast" icon={ImPodcast} title="Podcast" /> */}
       <NavItem href="estates" icon={ImEarth} title="Estates" />
     </Box>
   );
