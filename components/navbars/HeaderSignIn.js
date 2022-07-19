@@ -1,6 +1,7 @@
 import { Flex, Center, IconButton } from "@chakra-ui/react"
 import { ImMenu } from 'react-icons/im'
 import { ConnectButton } from "web3uikit"
+import styles from "@styles/SignIn.module.css"
 
 
 export default function HeaderSignIn({ onOpen, ...rest }) {
@@ -25,7 +26,7 @@ export default function HeaderSignIn({ onOpen, ...rest }) {
                 aria-label="open menu"
                 icon={<ImMenu />}
               />
-              <Center>
+              <Center className={styles.connect}>
                   <ConnectButton signingMessage="TaurosDAO Login" />
               </Center>
           </Flex>
