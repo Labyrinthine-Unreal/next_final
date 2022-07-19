@@ -1,13 +1,10 @@
-.btn {
-    width: 140px;
+.btn button {
+    width: 200px;
     height: 40px;
     background: teal;
     border: none;
+    box-shadow: 1px 1px gray;
     -webkit-font-smoothing: antialiased;
     transition: all 0.2s ease;
     transition: all 0.2s ease;
-}
-
-.btn:hover {
-    background-color: red;
 }

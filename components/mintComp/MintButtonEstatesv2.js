@@ -1,13 +1,9 @@
-import { Container,Slider,SliderFilledTrack,SliderThumb,SliderTrack, SimpleGrid, Divider, } from "@chakra-ui/react"
-import {useToast, Flex, NumberInputStepper, Spacer, NumberIncrementStepper, NumberDecrementStepper, NumberInputField, Text} from "@chakra-ui/react"
-import { NumberInput, Link, Box, Tabs, TabPanel, TabList, Tab, TabPanels, FormControl, FormLabel, Input } from "@chakra-ui/react"
+import {useToast, NumberInputStepper, Box, Spacer, NumberIncrementStepper, NumberDecrementStepper, NumberInputField, Text, FormControl, FormLabel, NumberInput} from "@chakra-ui/react"
 import { useEffect, useState, } from "react";
 import CustomContainer from "@components/CustomContainer";
-// import { useDispatch, useSelector } from "react-redux"
-// import { connect } from "@/src/redux/blockchain/blockchainActions"
-// import { fetchData } from "@/src/redux/data/dataActions"
 import { Button } from 'web3uikit';
 import { useMoralis, useWeb3ExecuteFunction } from 'react-moralis';
+import styles from "@styles/MintButton.module.css"
 
 // import taurosABI from "./ABIs/taurosABI.json";
 import estatesABI from "../ABIs/estatesABI"
@@ -66,32 +62,20 @@ export default function MBE() {
   }
   return (
     <CustomContainer>
-      <Text fontSize="xl" fontWeight="bold">
-        <form onSubmit={async e => {
+      <Box fontSize="xl" fontWeight="bold" align="right">
+        <form className={styles.btn} onSubmit={async e => {
           e.preventDefault()
         }}>
-          <FormControl mt="4">
-            <FormLabel htmlFor="amount">
+          <FormControl my="4" maxW="200" minW="200">
+            <FormLabel htmlFor="amount" textAlign="right">
               Amount to Mint
             </FormLabel>
-            {/* <Slider
-              flex='1'
-              focusThumbOnChange={false}
-              value={amount}
-              onChange={handleChange}
-              id="amount"
-            >
-              <SliderTrack>
-                <SliderFilledTrack />
-              </SliderTrack>
-              <SliderThumb fontSize='sm' boxSize='32px' children={amount} />
-            </Slider> */}
-            <NumberInput step={1} min={1} max={13} onChange={handleChange}>
-              <NumberInputField  id="amount" value={amount} />
-              <NumberInputStepper>
-                <NumberIncrementStepper />
+            <NumberInput step={1} min={1} max={10} onChange={handleChange} allowMouseWheel>
+              <NumberInputField  id="amount" value={amount} bg="gray.200" boxShadow="lg" />
+              <NumberInputStepper bg="teal.300">
+                <NumberIncrementStepper borderLeft="none" />
                 <Spacer />
-                <NumberDecrementStepper />
+                <NumberDecrementStepper borderLeft="none" />
               </NumberInputStepper>
             </NumberInput>
           </FormControl>
@@ -100,14 +84,9 @@ export default function MBE() {
           }} text={"Mint Estates"} theme={"primary"} />
 
         </form>
-      </Text>
+      </Box>
     </CustomContainer>
   )
-  //     <Button style={{width: "140px", height: "40px", fontSize: "16px", border: "none", borderRadius: "6px"}} onClick={() => {
-  //       if (isAuthenticated) {_mintEstates();}
-  //     }} text={"Claim Estates"} theme={"primary"} />
-
-  // );
 }
 
 {/* Opensea button --> move to bottom of the page */ }

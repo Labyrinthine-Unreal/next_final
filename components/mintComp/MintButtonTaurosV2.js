@@ -1,14 +1,10 @@
-import { Container,Slider,SliderFilledTrack,SliderThumb,SliderTrack, SimpleGrid, Divider, } from "@chakra-ui/react"
-import {useToast, Flex, NumberInputStepper, Spacer, NumberIncrementStepper, NumberDecrementStepper, NumberInputField, Text} from "@chakra-ui/react"
-import { NumberInput, Link, Box, Tabs, TabPanel, TabList, Tab, TabPanels, FormControl, FormLabel, Input } from "@chakra-ui/react"
+import {useToast, NumberInputStepper, Box, Spacer, NumberIncrementStepper, NumberDecrementStepper, NumberInputField, Text, FormControl, FormLabel, NumberInput} from "@chakra-ui/react"
 import { useEffect, useState, } from "react";
-// import { useDispatch, useSelector } from "react-redux"
-// import { connect } from "@/src/redux/blockchain/blockchainActions"
-// import { fetchData } from "@/src/redux/data/dataActions"
+import CustomContainer from "@components/CustomContainer";
 import { Button } from 'web3uikit';
 import { useMoralis, useWeb3ExecuteFunction } from 'react-moralis';
+import styles from "@styles/MintButton.module.css"
 import taurosABI from "../ABIs/taurosABI"
-import CustomContainer from "@components/CustomContainer";
 
 const truncate = (input, len) =>
   input.length > len ? `${input.substring(0, len)}...` : input;
@@ -67,35 +63,23 @@ export default function MBT() {
   }
   return (
     <CustomContainer>
-      <Text fontSize="xl" fontWeight="bold">
-        <form onSubmit={async e => {
+      <Box fontSize="xl" fontWeight="bold" align="right">
+        <form className={styles.btn} onSubmit={async e => {
           e.preventDefault()
         }}>
-          <FormControl mt="4">
-            <FormLabel htmlFor="amount">
+          <FormControl my="4" maxW="200" minW="200">
+            <FormLabel htmlFor="amount" textAlign="right">
               Amount to Mint
             </FormLabel>
 
-            <NumberInput step={1} min={1} max={13} onChange={handleChange} allowMouseWheel>
-              <NumberInputField  id="amount" value={amount} />
-              <NumberInputStepper>
-                <NumberIncrementStepper />
+            <NumberInput step={1} min={1} max={10} onChange={handleChange} allowMouseWheel>
+              <NumberInputField  id="amount" value={amount} bg="gray.200" boxShadow="lg" />
+              <NumberInputStepper bg="teal.300">
+                <NumberIncrementStepper borderLeft="none" />
                 <Spacer />
-                <NumberDecrementStepper />
-              </NumberInputStepper>
-            </NumberInput>
-            {/* <Slider
-              flex='1'
-              focusThumbOnChange={false}
-              value={amount}
-              onChange={handleChange}
-              id="amount"
-            >
-              <SliderTrack min={1} max ={13}>
-                <SliderFilledTrack />
-              </SliderTrack>
-              <SliderThumb fontSize='sm' boxSize='32px' children={amount} />
-            </Slider> */}
+                <NumberDecrementStepper borderLeft="none" />
+                </NumberInputStepper>
+              </NumberInput>
           </FormControl>
           <Spacer />
           <Button onClick={() => {
@@ -103,27 +87,7 @@ export default function MBT() {
           }} text={"Mint Taurus"} theme={"primary"} />
 
         </form>
-      </Text>
+      </Box>
     </CustomContainer>
   )
 }
-//   return (
-
-//     <Button onClick={() => {
-//       if (isAuthenticated) { _mintTauros(); }
-//     }} text={"Mint Taurus"} theme={"primary"} />
-//   );
-// }
-
-{/* Opensea button --> move to bottom of the page */ }
-{/* <Container>
-            <span>
-                <Button
-                  onClick={(e) => {
-                    window.open(CONFIG.MARKETPLACE_LINK, "_blank");
-                  }}
-                >
-                  {CONFIG.MARKETPLACE}
-                </Button>
-            </span>          
-          </Container>               */}

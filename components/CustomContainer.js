@@ -1,7 +1,7 @@
 import { Box } from "@chakra-ui/react"
 export default function CustomContainer({children}){
     return(
-        <Box bg="white" width="full" height="full" px="20"pv="10" rounded="lg" shadow="lg" textAlign="left">
+        <Box width="full" height="full" pv="10" align="right">
             {children}
         </Box>
     )
