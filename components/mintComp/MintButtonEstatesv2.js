@@ -41,7 +41,7 @@ export default function MBE() {
       onSuccess: () => {
         toast({
           title: 'Mint Successful',
-          description: "Minted TaurosDAO Estate",
+          description: "Minted Merca City Estate",
           status: 'success',
           duration: 9000,
           isClosable: true,

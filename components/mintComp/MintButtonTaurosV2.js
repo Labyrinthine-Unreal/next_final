@@ -42,7 +42,7 @@ export default function MBT() {
       onSuccess: () => {
         toast({
           title: 'Mint Successful',
-          description: "Minted TaurosDAO Membership",
+          description: "Minted TAUROS",
           status: 'success',
           duration: 9000,
           isClosable: true,
@@ -51,7 +51,7 @@ export default function MBT() {
       },
       onError: (error) => {
         toast({
-          title: 'Mint Failed.. Not enough Ether To Purchase TaurosDAO Membership',
+          title: 'Mint Failed.. User rejected the transaction or not enough Ether To Purchase TAUROS',
           description: console.log(error),
           status: "error",
           duration: '9000',
