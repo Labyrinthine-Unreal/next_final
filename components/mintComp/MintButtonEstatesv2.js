@@ -66,7 +66,7 @@ export default function MBE() {
         <form className={styles.btn} onSubmit={async e => {
           e.preventDefault()
         }}>
-          <FormControl my="4" maxW="200" minW="200">
+          <FormControl my="4" maxW="210" minW="210">
             <FormLabel htmlFor="amount" textAlign="right">
               Amount to Mint
             </FormLabel>

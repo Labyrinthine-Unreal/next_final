@@ -16,10 +16,9 @@ export default function ProductModal({ isOpen, onClose, modalData }) {
         <ModalHeader>Details</ModalHeader>
         <ModalBody>
         <Grid
-          height={{base: "250", md: "280"}}
+          height={{base: "140", md: "125"}}
           templateRows='repeat(4, 1fr)'
           templateColumns='repeat(9, 1fr)'
-          gap={4}
         >
           <GridItem rowSpan={3} colSpan={5}>
             <video
@@ -31,7 +30,7 @@ export default function ProductModal({ isOpen, onClose, modalData }) {
                     layout="fill"
                   />
           </GridItem>
-          <GridItem rowSpan={3} colSpan={4}>
+          <GridItem rowSpan={2} colSpan={4} boxShadow="inner" pl="4" rounded="2xl" textColor="teal.700" textShadow='0.5px 0.5px gray'>
             <Box fontSize={{base: "14px", md: "20px"}} fontWeight="semibold">{title}</Box>
             <Box fontWeight="light" fontSize={{base: "13px", md: "18px"}}>
               <Box>{free}</Box>
@@ -44,7 +43,9 @@ export default function ProductModal({ isOpen, onClose, modalData }) {
         <ModalFooter>
           <Spacer />
             {/* <EstatesBalance/> */}
+            <Box pb="10">
             {title == "MERCA CITY ESTATE" ? <MBE /> : <MBT />}
+            </Box>
         </ModalFooter>
       </ModalContent>
     </Modal>
