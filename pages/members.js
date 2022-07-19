@@ -11,10 +11,10 @@ export default function SlideEx() {
                 </title>
             </Head>
 
-            <Heading pb={5} fontSize="3xl" textShadow='0.5px 0.5px white'>
+            <Heading pb={10} fontSize="3xl" textShadow='0.5px 0.5px white'>
                 Members
             </Heading>
-            <Text>
+            <Text pt={5}>
                 TAUROS Cards confer a number of benefits on members. Fractionalized ownership, governance, and airdrops are only a few of them. Depending on whether you are an investor, an artist, a collector, or all of the above, you may look forward to a number of privileges from TaurosDAO membership. For a detailed breakdown, see the table below and click on each of the three categories.
             </Text>
             <Tabs py={10}>

@@ -13,11 +13,11 @@ export default function EventsPage() {
                 </title>
             </Head>
 
-            <Heading pb={5} fontSize="3xl" textShadow='0.5px 0.5px white'>
+            <Heading pb={10} fontSize="3xl" textShadow='0.5px 0.5px white'>
                 Frontier Podcast
             </Heading>
             
-            <Text pb={5}>
+            <Text pt={5}>
             A collaboration podcast series between TaurosDAO and Frontier Podcast bringing you the latest from the NFT Art World. The series focuses on established and emerging 1/1 artists in the NFT Space. Airing on Tuesdays and Fridays at 12:00 PM EST. 
             </Text>
 
