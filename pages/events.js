@@ -23,7 +23,7 @@ export default function EventsPage() {
                 Events
             </Heading>
 
-            <Box pt={5} textStyle="primary" fontSize="36">Ongoing</Box>
+            <Box pt={5} textStyle="primary" fontSize="20">Ongoing</Box>
 
             <Box pt={5} pb={20} align="center">
                 <SimpleGrid pl={{base: "1", md: "3", lg: "5"}} columns={{base: "1", md: "2", lg: "3"}} gap={5} mt="4" minH="full" spacingY={20}>
@@ -35,7 +35,7 @@ export default function EventsPage() {
                 </SimpleGrid>
             </Box>
 
-            <Box textStyle="primary" fontSize="36" textShadow='0.5px 0.5px white'>
+            <Box textStyle="primary" fontSize="20" textShadow='0.5px 0.5px white'>
                 Upcoming
             </Box>
 
@@ -49,7 +49,7 @@ export default function EventsPage() {
                 </SimpleGrid>
             </Box>
 
-            <Box textStyle="primary" fontSize="36" textShadow='0.5px 0.5px white'>
+            <Box textStyle="primary" fontSize="20" textShadow='0.5px 0.5px white'>
                 Past
             </Box>
 

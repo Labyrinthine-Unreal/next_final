@@ -5,7 +5,7 @@ const theme = extendTheme({
     heading: `'TrajanusBricks', sans-serif`
   },
   textStyles: {
-    primary: {fontFamily: "Tangerine"}
+    primary: {fontFamily: "TrajanusBricksXtra"}
   }
 })
 
