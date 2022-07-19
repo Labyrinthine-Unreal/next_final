@@ -1,7 +1,8 @@
 import { useEffect } from "react";
 import { useRouter } from "next/router";
 import { Box, CloseButton, Flex, Image } from "@chakra-ui/react";
-import { ImPen, ImHome, ImCalendar, ImUser, ImEarth, ImPodcast } from 'react-icons/im'
+import { ImPen, ImHome, ImCalendar, ImUsers, ImEarth, ImPodcast } from 'react-icons/im'
+import { MdSummarize } from 'react-icons/md'
 import { GrGallery } from 'react-icons/gr'
 import NavItem from "./NavItem";
 
@@ -33,12 +34,12 @@ export default function Sidebar({ onClose, ...rest }) {
         <CloseButton display={{ base: "flex", md: "none" }} onClick={onClose} />
       </Flex>
       <NavItem href="/" icon={ImHome} title="Dashboard"/>
-      <NavItem href="estates" icon={ImEarth} title="Estates" />
-      <NavItem href="members" icon={ImUser} title="Members" />
+      <NavItem href="about" icon={MdSummarize} title="About" />
+      <NavItem href="members" icon={ImUsers} title="Members" />
       <NavItem href="events" icon={ImCalendar} title="Events" />
-      {/* <NavItem href="apply" icon={ImPen} title="Apply" /> */}
       <NavItem href="galleries" icon={GrGallery} title="Galleries" />
       <NavItem href="podcast" icon={ImPodcast} title="Podcast" />
+      <NavItem href="estates" icon={ImEarth} title="Estates" />
     </Box>
   );
 }
