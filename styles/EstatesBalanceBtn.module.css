@@ -1,0 +1,15 @@
+.btn button {
+    margin-top: 10px;
+    max-width: 210px;
+    height: 40px;
+    background-color: #ffffffbb;
+    color: #515151;
+    padding: 20px 14px;
+    font-size: 15px;
+    cursor: pointer;
+    border: 1px solid black;
+    box-shadow: 0.5px 1px gray;
+    -webkit-font-smoothing: antialiased;
+    transition: all 0.2s ease;
+    transition: all 0.2s ease;
+}

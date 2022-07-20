@@ -31,7 +31,7 @@ export default function Home() {
         <br /><br />
         <span style={{color: "black", fontWeight: "500"}}>Merca City</span> is an open world Metaverse/RTS Game, where TaurosDAO members, artists, designers, developers, gamers, and collectors may come together to play, experiment, and collaborate. <span style={{color: "black", fontWeight: "500"}}>Estates</span> are Merca City&apos;s genesis assets.
         <br /><br />
-        Upon release, TAUROS holders may claim the first 800 Estates for free out of a total of 4300. The rest (3300) will be whitelisted at a price of 0.1 ETH for the presale and 0.15 for the public sale. 200 Estates will be reserved by the team for special areas, public buildings, and institutions. If you have one or more TAUROS tokens, click on the Merca City Estate card below to check if you have any unclaimed Estates. You will have two days to mint one free Estate for each token you own until 800 have been claimed, after which the private sale will start.
+        Upon release, TAUROS holders may claim the first 800 Estates for free out of a total of 4300. The rest (3300) will be whitelisted at a price of 0.1 ETH for the presale and 0.15 for the public sale. 200 Estates will be reserved by the team for special areas, public buildings, and institutions. If you own one or more TAUROS tokens, open the Merca City Estate card below and click on the "Unclaimed Estates" button to check if you are eligible. You will have two days to mint one free Estate for each token you own until 800 have been claimed, after which the private sale will start.
       </Text>
 
       <Box pt={10} pb={20} align="center">

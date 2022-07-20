@@ -3,7 +3,7 @@ import { useEffect, useState, } from "react";
 import CustomContainer from "@components/CustomContainer";
 import { Button } from 'web3uikit';
 import { useMoralis, useWeb3ExecuteFunction } from 'react-moralis';
-import styles from "@styles/MintButton.module.css"
+import styles from "@styles/EstatesBalanceBtn.module.css"
 
 // import taurosABI from "./ABIs/taurosABI.json";
 import estatesABI from "../ABIs/estatesABI"
@@ -44,7 +44,7 @@ export default function EstatesBalance() {
             params: options,
             onSuccess: () => {
                 toast({
-                    title: 'TaurosDAO Estates Balance',
+                    title: 'Unclaimed Estates',
                     description: q.toString(),
                     status: 'success',
                     duration: 900000000,
@@ -65,14 +65,14 @@ export default function EstatesBalance() {
     }
     return (
         // <CustomContainer>
-        <Box fontSize="xl" fontWeight="bold" align="right">
+        <Box fontSize="xl" fontWeight="bold">
             <form className={styles.btn} onSubmit={async e => {
                 e.preventDefault()
             }}>
-                TaurosDAO Estates Balance
-                <Button onClick={() => {
+                {/* TaurosDAO Estates Balance */}
+                <Button variant="outline" onClick={() => {
                     if (isAuthenticated) { _EstatesBalance(); }
-                }} text={"TaurosDAO Estates Balance"} theme={"primary"} />
+                }} text={"Unclaimed Estates"} theme={"primary"} />
 
             </form>
         </Box>

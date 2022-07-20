@@ -33,17 +33,16 @@ export default function ProductModal({ isOpen, onClose, modalData }) {
           <GridItem rowSpan={2} colSpan={4} boxShadow="inner" pl="4" rounded="2xl" textColor="teal.700" textShadow='0.5px 0.5px gray'>
             <Box fontSize={{base: "14px", md: "20px"}} fontWeight="semibold">{title}</Box>
             <Box fontWeight="light" fontSize={{base: "13px", md: "18px"}}>
-              <Box>{free}</Box>
-              <Box>{presalePrice}</Box>
-              <Box>{salePrice}</Box>
+              <Box>{title == "MERCA CITY ESTATE" ? free : salePrice}</Box>
+              {/* <Box>{presalePrice}</Box>
+              <Box>{salePrice}</Box> */}
+              {title == "MERCA CITY ESTATE" && <EstatesBalance/>}
             </Box>
           </GridItem>
         </Grid>
         </ModalBody>
         <ModalFooter>
           <Spacer />
-
-            <EstatesBalance/>
 
             <Box pb="10">
             {title == "MERCA CITY ESTATE" ? <MBE /> : <MBT />}
