@@ -44,7 +44,7 @@ export default function EstatesBalance() {
             params: options,
             onSuccess: () => {
                 toast({
-                    title: 'TaurosDAO Balance',
+                    title: 'TaurosDAO Estates Balance',
                     description: q.toString(),
                     status: 'success',
                     duration: 900000000,
@@ -53,8 +53,8 @@ export default function EstatesBalance() {
             },
             onError: (error) => {
                 toast({
-                    title: 'Mint Failed...',
-                    description: 'Mint Failed.. User is Not Whitelisted or rejected the transaction',
+                    title: 'Failed...',
+                    description: 'Please Sign In',
                     status: "error",
                     duration: '9000',
                     isClosable: true
@@ -69,10 +69,10 @@ export default function EstatesBalance() {
             <form className={styles.btn} onSubmit={async e => {
                 e.preventDefault()
             }}>
-                TaurosDAO Balance
+                TaurosDAO Estates Balance
                 <Button onClick={() => {
                     if (isAuthenticated) { _EstatesBalance(); }
-                }} text={"TaurosDAO Balance"} theme={"primary"} />
+                }} text={"TaurosDAO Estates Balance"} theme={"primary"} />
 
             </form>
         </Box>
