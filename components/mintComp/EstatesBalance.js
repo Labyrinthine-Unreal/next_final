@@ -29,10 +29,10 @@ export default function EstatesBalance() {
         let options = {
             // msgValue: Moralis.Units.ETH("0.05"),
             contractAddress: '0x508Da3a39A4a48661Cc218Fa76dC1cabC09F3887',
-            functionName: 'walletOfOwner',
+            functionName: 'balanceOf',
             abi: estatesABI,
             params: {
-                _owner: user.get('ethAddress'),
+                owner: user.get('ethAddress'),
             }
         }
         const bigInt = require("big-integer");
