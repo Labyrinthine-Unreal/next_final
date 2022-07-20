@@ -28,7 +28,7 @@ export default function MBE() {
   async function _mintEstates() {
     let options = {
       // msgValue: Moralis.Units.ETH("0.05"),
-      contractAddress: '0x508Da3a39A4a48661Cc218Fa76dC1cabC09F3887',
+      contractAddress: '0xCEE74E08F23476E960F05472C821fc7cb80E51bc',
       functionName: 'mintNFTs',
       abi: estatesABI,
       params: {

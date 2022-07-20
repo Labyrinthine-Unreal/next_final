@@ -11,7 +11,7 @@ import estatesABI from "../ABIs/estatesABI"
 const truncate = (input, len) =>
     input.length > len ? `${input.substring(0, len)}...` : input;
 
-export default function EstatesBalance() {
+export default function EstatesClaimed() {
     const [amount, setAmount] = useState(1)
     const handleChange = (value) => setAmount(value)
     const { authenticate, isAuthenticated, isAuthenticating, Moralis, user, account, logout } = useMoralis();
@@ -25,7 +25,7 @@ export default function EstatesBalance() {
 
     }, [isAuthenticated])
 
-    async function _EstatesBalance() {
+    async function _EstatesClaimed() {
         let options = {
             // msgValue: Moralis.Units.ETH("0.05"),
             contractAddress: '0xCEE74E08F23476E960F05472C821fc7cb80E51bc',
@@ -59,8 +59,8 @@ export default function EstatesBalance() {
             params: options,
             onSuccess: () => {
                 toast({
-                    title: 'Unclaimed Estates',
-                    description: q2.toString(),
+                    title: 'claimed Estates',
+                    description: q.toString(),
                     status: 'success',
                     duration: 900000000,
                     isClosable: true,
@@ -86,8 +86,8 @@ export default function EstatesBalance() {
             }}>
                 {/* TaurosDAO Estates Balance */}
                 <Button variant="outline" onClick={() => {
-                    if (isAuthenticated) { _EstatesBalance(); }
-                }} text={"Unclaimed Estates"} theme={"primary"} />
+                    if (isAuthenticated) { _EstatesClaimed(); }
+                }} text={"Claimed Estates"} theme={"primary"} />
 
             </form>
         </Box>

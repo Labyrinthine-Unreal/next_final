@@ -4,7 +4,7 @@ import MBT from "./MintButtonTaurosV2";
 import * as s from "../../styles/globalStyles";
 import styled from "styled-components";
 import EstatesBalance from "./EstatesBalance";
-
+import EstatesClaimed from "./EstatesClaimed";
 export default function ProductModal({ isOpen, onClose, modalData }) {
   const { title, free, presalePrice, salePrice, imageUrl, imageAlt, description, unclaimed, glb } = modalData || {};
 
@@ -37,6 +37,7 @@ export default function ProductModal({ isOpen, onClose, modalData }) {
               {/* <Box>{presalePrice}</Box>
               <Box>{salePrice}</Box> */}
               {title == "MERCA CITY ESTATE" && <EstatesBalance/>}
+              {title == "MERCA CITY ESTATE" && <EstatesClaimed/>}
             </Box>
           </GridItem>
         </Grid>
