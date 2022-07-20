@@ -30,8 +30,6 @@ export default function ProductModal({ isOpen, onClose, modalData }) {
             <Box fontSize={{base: "14px", md: "20px"}} fontWeight="semibold">{title}</Box>
             <Box fontWeight="light" fontSize={{base: "13px", md: "18px"}}>
               <Box>{title == "MERCA CITY ESTATE" ? free : salePrice}</Box>
-              {/* <Box>{presalePrice}</Box>
-              <Box>{salePrice}</Box> */}
             </Box>
           </GridItem>
         </Grid>

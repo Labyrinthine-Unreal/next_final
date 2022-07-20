@@ -1,4 +1,4 @@
-import { useToast, Box } from "@chakra-ui/react"
+import { useToast, Box, Text } from "@chakra-ui/react"
 import { useEffect, useState, } from "react";
 import { Button } from 'web3uikit';
 import { useMoralis, useWeb3ExecuteFunction } from 'react-moralis';

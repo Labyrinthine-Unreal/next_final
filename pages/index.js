@@ -4,7 +4,7 @@ import { cardVariant, parentVariant } from "../motion"
 import properties from "@components/data/properties/"
 import ProductCard from "@components/mintComp/ProductCard"
 import ProductModal from "@components/mintComp/ProductModal"
-import { Box, Flex, SimpleGrid, Text, Link, Heading, FormControl, FormLabel, FormHelperText } from "@chakra-ui/react"
+import { Box, Flex, Center, SimpleGrid, Text, Link, Heading, TableContainer, Table, TableCaption, Thead, Tr, Th, Tbody, Td } from "@chakra-ui/react"
 import Head from "next/head"
 import EstatesBalance from "@components/mintComp/EstatesBalance";
 import EstatesClaimed from "@components/mintComp/EstatesClaimed";
@@ -35,16 +35,24 @@ export default function Home() {
         <br /><br />
         Upon release, TAUROS holders may claim the first 800 Estates for free out of a total of 4300. The rest (3300) will be whitelisted at a price of 0.1 ETH for the presale and 0.15 for the public sale. 200 Estates will be reserved by the team for special areas, public buildings, and institutions. You will have two days to mint one free Estate for each token you own until 800 have been claimed, after which the private sale will start.
       </Text>
-      <Flex py={10}>
-        <FormControl>
-          <FormLabel>Your Estates</FormLabel>
-          <FormHelperText>{ <EstatesBalance /> }</FormHelperText>
-        </FormControl>
-        <FormControl>
-          <FormLabel>Unclaimed Estates</FormLabel>
-          <FormHelperText>{ <EstatesClaimed /> }</FormHelperText>
-        </FormControl>
-      </Flex>
+
+      <TableContainer maxW={550} mt={10}>
+        <Table variant='striped' colorScheme="#9A583">
+          <Thead>
+            <Tr>
+              <TableCaption as={Th}>Estates Balance</TableCaption>
+              <TableCaption as={Th}>Unclaimed Estates</TableCaption>
+            </Tr>
+          </Thead>
+          <Tbody>
+            <Tr>
+              <Td><EstatesBalance /></Td>
+              <Td><EstatesClaimed /></Td>
+            </Tr>
+          </Tbody>
+        </Table>
+      </TableContainer>
+      
 
       <Box pt={10} pb={20} align="center">
         <MotionSimpleGrid
