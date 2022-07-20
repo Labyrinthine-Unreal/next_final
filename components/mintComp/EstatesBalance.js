@@ -11,7 +11,7 @@ import estatesABI from "../ABIs/estatesABI"
 const truncate = (input, len) =>
     input.length > len ? `${input.substring(0, len)}...` : input;
 
-export default function TaurosDAOBalance() {
+export default function EstatesBalance() {
     const [amount, setAmount] = useState(1)
     const handleChange = (value) => setAmount(value)
     const { authenticate, isAuthenticated, isAuthenticating, Moralis, user, account, logout } = useMoralis();
@@ -25,19 +25,19 @@ export default function TaurosDAOBalance() {
 
     }, [isAuthenticated])
 
-    async function _TaurosDAOBalance() {
+    async function _EstatesBalance() {
         let options = {
             // msgValue: Moralis.Units.ETH("0.05"),
             contractAddress: '0x508Da3a39A4a48661Cc218Fa76dC1cabC09F3887',
-            functionName: 'balanceOf',
+            functionName: 'walletOfOwner',
             abi: estatesABI,
             params: {
-                owner: user.get('ethAddress'),
+                _owner: user.get('ethAddress'),
             }
         }
         const bigInt = require("big-integer");
         const message = await Moralis.executeFunction(options)
-        const q = new bigInt(message, 16);
+        const q = new bigInt(message);
         console.log(q.toString());
         await Moralis.enableWeb3()
         await contractProcessor.fetch({
@@ -71,7 +71,7 @@ export default function TaurosDAOBalance() {
             }}>
                 TaurosDAO Balance
                 <Button onClick={() => {
-                    if (isAuthenticated) { _TaurosDAOBalance(); }
+                    if (isAuthenticated) { _EstatesBalance(); }
                 }} text={"TaurosDAO Balance"} theme={"primary"} />
 
             </form>

@@ -3,7 +3,7 @@ import MBE from "./MintButtonEstatesv2";
 import MBT from "./MintButtonTaurosV2";
 import * as s from "../../styles/globalStyles";
 import styled from "styled-components";
-import TaurosDAOBalance from "./TaurosDAOBalance";
+import EstatesBalance from "./EstatesBalance";
 
 export default function ProductModal({ isOpen, onClose, modalData }) {
   const { title, free, presalePrice, salePrice, imageUrl, imageAlt, description, unclaimed, glb } = modalData || {};
@@ -43,7 +43,7 @@ export default function ProductModal({ isOpen, onClose, modalData }) {
         <ModalFooter>
           <Spacer />
 
-            <TaurosDAOBalance/>
+            <EstatesBalance/>
 
             <Box pb="10">
             {title == "MERCA CITY ESTATE" ? <MBE /> : <MBT />}
