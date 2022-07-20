@@ -4,8 +4,10 @@ import { cardVariant, parentVariant } from "../motion"
 import properties from "@components/data/properties/"
 import ProductCard from "@components/mintComp/ProductCard"
 import ProductModal from "@components/mintComp/ProductModal"
-import { Box, SimpleGrid, Text, Link, Heading} from "@chakra-ui/react"
+import { Box, Flex, SimpleGrid, Text, Link, Heading, FormControl, FormLabel, FormHelperText } from "@chakra-ui/react"
 import Head from "next/head"
+import EstatesBalance from "@components/mintComp/EstatesBalance";
+import EstatesClaimed from "@components/mintComp/EstatesClaimed";
 
 
 const MotionSimpleGrid = motion(SimpleGrid)
@@ -31,8 +33,18 @@ export default function Home() {
         <br /><br />
         <span style={{color: "black", fontWeight: "500"}}>Merca City</span> is an open world Metaverse/RTS Game, where TaurosDAO members, artists, designers, developers, gamers, and collectors may come together to play, experiment, and collaborate. <span style={{color: "black", fontWeight: "500"}}>Estates</span> are Merca City&apos;s genesis assets.
         <br /><br />
-        Upon release, TAUROS holders may claim the first 800 Estates for free out of a total of 4300. The rest (3300) will be whitelisted at a price of 0.1 ETH for the presale and 0.15 for the public sale. 200 Estates will be reserved by the team for special areas, public buildings, and institutions. If you own one or more TAUROS tokens, open the Merca City Estate card below and click on the "Unclaimed Estates" button to check if you are eligible. You will have two days to mint one free Estate for each token you own until 800 have been claimed, after which the private sale will start.
+        Upon release, TAUROS holders may claim the first 800 Estates for free out of a total of 4300. The rest (3300) will be whitelisted at a price of 0.1 ETH for the presale and 0.15 for the public sale. 200 Estates will be reserved by the team for special areas, public buildings, and institutions. You will have two days to mint one free Estate for each token you own until 800 have been claimed, after which the private sale will start.
       </Text>
+      <Flex py={10}>
+        <FormControl>
+          <FormLabel>Your Estates</FormLabel>
+          <FormHelperText>{ <EstatesBalance /> }</FormHelperText>
+        </FormControl>
+        <FormControl>
+          <FormLabel>Unclaimed Estates</FormLabel>
+          <FormHelperText>{ <EstatesClaimed /> }</FormHelperText>
+        </FormControl>
+      </Flex>
 
       <Box pt={10} pb={20} align="center">
         <MotionSimpleGrid

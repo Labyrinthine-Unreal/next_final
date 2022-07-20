@@ -1,11 +1,8 @@
-import { useToast, NumberInputStepper, Box, Spacer, NumberIncrementStepper, NumberDecrementStepper, NumberInputField, Text, FormControl, FormLabel, NumberInput } from "@chakra-ui/react"
+import { useToast, Box } from "@chakra-ui/react"
 import { useEffect, useState, } from "react";
-import CustomContainer from "@components/CustomContainer";
 import { Button } from 'web3uikit';
 import { useMoralis, useWeb3ExecuteFunction } from 'react-moralis';
 import styles from "@styles/EstatesBalanceBtn.module.css"
-
-// import taurosABI from "./ABIs/taurosABI.json";
 import estatesABI from "../ABIs/estatesABI"
 
 const truncate = (input, len) =>
