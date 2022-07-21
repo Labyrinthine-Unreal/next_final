@@ -15,12 +15,11 @@ function MyApp({ Component, pageProps }) {
         <MoralisProvider appId="dqkfmKHCu1vl17sLEOFgJ9RnwsJyrMgsqNLKTgQE"  serverUrl="https://d8tdshnwaepb.usemoralis.com:2053/server">
           <Box>
             <Layout>
-            <Box align="center" py={20}>
-              <Box maxW="900" textAlign="left">
+            <Box maxW="1000" align="center" py={20}>
+              <Box textAlign="left">
                 <Component {...pageProps} />
               </Box>
             </Box>
-            <Footer />
             </Layout>
           </Box>
         </MoralisProvider>
