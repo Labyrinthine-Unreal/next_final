@@ -17,7 +17,12 @@ export default function GalleriesPage() {
                 Art Galleries
             </Heading>
             
-            <Text py={5}>
+            <Text 
+                boxShadow="0 4px 12px 0 rgba(0, 0, 0, 0.05)" 
+                rounded="lg"
+                py={8} 
+                px={4}
+            >
                 A nine week series of 3D digital art galleries in New Art City. Theme: <span style={{fontStyle: "italic"}}>Dante&apos;s Inferno</span>. New gallery floor is added every Monday. Some of the floors may hide a TAUROS token. Those who find one, may contact us on <Link href='https://discord.com/invite/labyrinthine' isExternal color="#2E7DAF">discord</Link> with their wallet address.
             </Text>
 
