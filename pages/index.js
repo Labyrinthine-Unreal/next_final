@@ -8,7 +8,6 @@ import { Box, SimpleGrid, Text, Link, Heading, Collapse, useDisclosure, Button, 
 import Head from "next/head"
 import EstatesBalance from "@components/mintComp/EstatesBalance";
 import EstatesClaimed from "@components/mintComp/EstatesClaimed";
-import { Feed } from "semantic-ui-react"
 
 
 const MotionSimpleGrid = motion(SimpleGrid)
