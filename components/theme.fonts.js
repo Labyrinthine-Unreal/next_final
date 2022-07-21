@@ -6,6 +6,14 @@ const theme = extendTheme({
   },
   textStyles: {
     primary: {fontFamily: "TrajanusBricksXtra"}
+  },
+  styles: {
+    global: {
+      body: {
+        fontWeight: 'light',
+        lineHeight: 'taller'
+      }
+    }
   }
 })
 

@@ -23,13 +23,9 @@ export default function EventsPage() {
                 Events
             </Heading>
 
-            <TableContainer maxW={550} mt={10}>
-                <Table variant='simple'>
-                <Thead>
-                    <TableCaption textStyle="primary" fontSize="20">Ongoing</TableCaption>
-                </Thead>
-                </Table>
-            </TableContainer>
+            <Heading fontSize="large" fontWeight="normal" color="#4A5568">
+                Ongoing
+            </Heading>
 
             <Box pt={5} pb={20} align="center">
                 <SimpleGrid pl={{base: "1", md: "3", lg: "5"}} columns={{base: "1", md: "2", lg: "3"}} gap={5} mt="4" minH="full" spacingY={20}>
@@ -41,13 +37,9 @@ export default function EventsPage() {
                 </SimpleGrid>
             </Box>
 
-            <TableContainer maxW={550} mt={10}>
-                <Table variant='simple'>
-                <Thead>
-                    <TableCaption textStyle="primary" fontSize="20">Upcoming</TableCaption>
-                </Thead>
-                </Table>
-            </TableContainer>
+            <Heading fontSize="large" fontWeight="normal" color="#4A5568">
+                Upcoming
+            </Heading>
 
             <Box pt={5} pb={20} align="center">
                 <SimpleGrid pl={{base: "1", md: "3", lg: "5"}} columns={{base: "1", md: "2", lg: "3"}} gap={5} mt="4" minH="full" spacingY={20}>
@@ -59,13 +51,9 @@ export default function EventsPage() {
                 </SimpleGrid>
             </Box>
 
-            <TableContainer maxW={550} mt={10}>
-                <Table variant='simple'>
-                <Thead>
-                    <TableCaption textStyle="primary" fontSize="20">Past</TableCaption>
-                </Thead>
-                </Table>
-            </TableContainer>
+            <Heading fontSize="large" fontWeight="normal" color="#4A5568">
+                Past
+            </Heading>
 
             <Box pt={5} align="center">
                 <SimpleGrid pl={{base: "1", md: "3", lg: "5"}} columns={{base: "1", md: "2", lg: "3"}} gap={5} mt="4" minH="full" spacingY={20}>

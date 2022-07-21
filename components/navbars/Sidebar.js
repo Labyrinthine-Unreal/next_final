@@ -1,45 +1,65 @@
-import { useEffect } from "react";
-import { useRouter } from "next/router";
-import { Box, CloseButton, Flex, Image } from "@chakra-ui/react";
-import { ImPen, ImHome, ImCalendar, ImUsers, ImEarth, ImPodcast } from 'react-icons/im'
+import React, { useState } from 'react'
+import { Flex, IconButton, Divider, Heading } from '@chakra-ui/react'
+import { ImMenu, ImEarth, ImHome, ImCalendar, ImUsers } from 'react-icons/im'
 import { MdSummarize } from 'react-icons/md'
-import { GrGallery } from 'react-icons/gr'
-import NavItem from "./NavItem";
+import NavItem from './NavItem'
 
-export default function Sidebar({ onClose, ...rest }) {
-  const router = useRouter();
+export default function Sidebar() {
+    const [navSize, changeNavSize] = useState("small")
+    return (
+        <Flex
+            display={{ base: "none", md: "block" }}
+            top="100px"
+            pos="fixed"
+            left="5"
+            h="95vh"
+            boxShadow="0 4px 12px 0 rgba(0, 0, 0, 0.05)"
+            borderRadius={navSize == "small" ? "15px" : "30px"}
+            w={navSize == "small" ? "75px" : "200px"}
+            flexDir="column"
+            justifyContent="space-between"
+        >
+            <Flex
+                p="5%"
+                flexDir="column"
+                alignItems="flex-start"
+                as="nav"
+            >
+                <IconButton
+                    background="none"
+                    mt={5}
+                    _hover={{background: 'none'}}
+                    icon={<ImMenu />}
+                    onClick={() => {
+                        if(navSize == "small")
+                            changeNavSize("large")
+                        else
+                            changeNavSize("small")
+                    }}
+                />
+                    <Flex
+                        flexDir="column"
+                        w="100%"
+                        alignItems={navSize == "small" ? "center" : "flex-start"}
+                        mb={4}
+                    >
+                        <Flex mt={4} mb={4} align="center">
+                            {/* <Avatar size="sm" src="../tauros-avatar-black.png" /> */}
+                            <Flex>
+                                <Heading size="sm"><NavItem navSize={navSize} href="/" icon={ImHome} title="Dashboard"/></Heading>
+                            </Flex>
+                        </Flex>
+                        <Divider display={navSize == "small" ? "none" : "flex"} />
+                    </Flex>
+                
+                <NavItem navSize={navSize} href="about" icon={MdSummarize} title="About" />
+                <NavItem navSize={navSize} href="members" icon={ImUsers} title="Members" />
+                <NavItem navSize={navSize} href="events" icon={ImCalendar} title="Events" />
+                {/* <NavItem navSize={navSize} href="galleries" icon={GrGallery} title="Galleries" />
+                <NavItem navSize={navSize} href="podcast" icon={ImPodcast} title="Podcast" /> */}
+                <NavItem navSize={navSize} href="estates" icon={ImEarth} title="Estates" />
+            </Flex>
 
-  useEffect(() => {
-    router.events.on("routeChangeComplete", onClose);
-    return () => {
-      router.events.off("routeChangeComplete", onClose);
-    };
-  }, [router.events, onClose]);
-
-  return (
-    <Box
-      pl={5}
-      transition="3s ease"
-      borderRight="1px"
-      borderRightColor="gray.200"
-      w={{ base: "full", md: 60 }}
-      pos="fixed"
-      h="full"
-      {...rest}
-    >
-      <Flex h="20" alignItems="center" justifyContent="space-between" mb={20}>
-        <Box display={{ base: "none", md: "flex" }}>
-          <Image src="images/TaurosDAO_logo.png" alt="TaurosDAO-logo" w="200px" h="65px" />
-        </Box>
-        <CloseButton display={{ base: "flex", md: "none" }} onClick={onClose} />
-      </Flex>
-      <NavItem href="/" icon={ImHome} title="Dashboard"/>
-      <NavItem href="about" icon={MdSummarize} title="About" />
-      <NavItem href="members" icon={ImUsers} title="Members" />
-      <NavItem href="events" icon={ImCalendar} title="Events" />
-      {/* <NavItem href="galleries" icon={GrGallery} title="Galleries" />
-      <NavItem href="podcast" icon={ImPodcast} title="Podcast" /> */}
-      <NavItem href="estates" icon={ImEarth} title="Estates" />
-    </Box>
-  );
+        </Flex>
+    )
 }

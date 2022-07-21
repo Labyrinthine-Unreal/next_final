@@ -1,4 +1,4 @@
-import { Flex, Text, Icon, Menu, MenuButton, MenuList, Box } from '@chakra-ui/react'
+import { Flex, Text, Icon, Menu, MenuButton, Box } from '@chakra-ui/react'
 import Link from "next/link"
 
 export default function NavItem({ navSize, title, icon, href }) {
@@ -14,18 +14,16 @@ export default function NavItem({ navSize, title, icon, href }) {
                     p={3} 
                     borderRadius={8} 
                     _hover={{textDecor: 'none', backgroundColor: '#AEC8CA'}} 
-                    w={navSize == "large" && "100%"}>
-                    <Link
-                        href={href}
-                    >
+                    w={navSize == "large" && "100%"}
+                >
+                    <Link href={href}>
                         <MenuButton w="100%">
                             <Flex>
-                                <Icon as={icon} fontSize="xl" />
-                                <Text ml={5} display={navSize == "small" ? "none" : "flex-start"}>{title}</Text>
+                                <Icon as={icon} fontSize="xl" mt={1.5} />
+                                <Text mt={title == "Dashboard" ? 2.5 : 0} ml={5} fontSize={title == "Dashboard" && 14} display={navSize == "small" ? "none" : "flex-start"}>{title}</Text>
                             </Flex>
                         </MenuButton>
                     </Link>
-                <MenuList py={0} border="none" ml={5}></MenuList>
                 </Box>
             </Menu>
         </Flex>

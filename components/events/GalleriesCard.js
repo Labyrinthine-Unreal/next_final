@@ -1,7 +1,7 @@
 import { Box, Image, Button, Text, Link } from "@chakra-ui/react"
 import styles from "@styles/Events.module.css"
 
-export default function CurrentEventsCard({ gallery }) {
+export default function GalleriesCard({ gallery }) {
     const { title, croppedDescription, description, buttonText, imageUrl, imageAlt, href, externalUrl } = gallery;
     
     return (

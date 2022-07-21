@@ -3,7 +3,7 @@ import Head from "next/head"
 import PodcastsCard from "@components/events/PodcastsCard"
 import podcastsData from "@components/events/podcastsData";
 
-export default function EventsPage() {
+export default function PodcastPage() {
 
     return (
         <Box>

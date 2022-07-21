@@ -1,14 +1,19 @@
 import HeaderSignIn from "./HeaderSignIn";
+import Footer from "./Footer"
 import Sidebar from "./Sidebar";
+import SidebarDrawer from "./SidebarDrawer";
 import { Box, Drawer, DrawerContent, useDisclosure } from "@chakra-ui/react";
 
 export default function Layout({ children }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
   return (
-    <Box 
-        minH="100vh" 
+    <Box
+        minH="100vh"
+        // style={{backgroundImage: `url(images/epiphany.jpg)`}}
         // bgGradient="linear(to-br, teal.300,purple.300)"
         bgGradient="linear(to-br, #dbcccc,#c4bd8b)"
+        // bg="#EDF1F0"
+        // bg="#ffffffbb"
     >
         <Sidebar
             onClose={() => onClose}
@@ -24,7 +29,7 @@ export default function Layout({ children }) {
             size="full"
         >
             <DrawerContent>
-            <Sidebar onClose={onClose} />
+            <SidebarDrawer onClose={onClose} />
             </DrawerContent>
         </Drawer>
 
@@ -33,6 +38,7 @@ export default function Layout({ children }) {
         <Box ml={{ base: 0, md: 60 }} p="4">
             {children}
         </Box>
+        <Footer />
     </Box>
   );
 }
