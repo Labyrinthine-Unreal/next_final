@@ -48,7 +48,7 @@ export default function Home() {
             <Tr>
               <Td><EstatesBalance /></Td>
               <Td><EstatesClaimed /></Td>
-            </Tr>
+            </Tr> 
           </Tbody>
         </Table>
       </TableContainer>
