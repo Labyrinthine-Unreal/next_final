@@ -19,6 +19,8 @@ export default function SlideEx() {
                 rounded="lg"
                 py={8} 
                 px={4}
+                bg="white"
+                opacity="0.8"
             >
                 <Text>
                     TaurosDAO Membership Cards (TAUROS) confer a number of benefits on members. Fractionalized ownership, governance, and airdrops are only a few of them. Depending on whether you are an investor, an artist, a collector, or all of the above, you may look forward to a number of privileges from TaurosDAO membership. For a detailed breakdown, see the table below and click on each of the three categories.

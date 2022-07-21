@@ -1,0 +1,12 @@
+.section {
+    position: relative;
+    background-color: #000;
+  }
+
+  #about {
+    background:url("/images/AbstractFuturistic.jpg");
+    background-color: #000000;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+  }

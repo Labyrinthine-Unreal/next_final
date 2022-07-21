@@ -18,6 +18,7 @@ export default function Sidebar() {
             w={navSize == "small" ? "75px" : "200px"}
             flexDir="column"
             justifyContent="space-between"
+            // bgGradient="linear(to-br, #f6ffee,#fef2f2)"
         >
             <Flex
                 p="5%"

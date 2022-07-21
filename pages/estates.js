@@ -20,6 +20,8 @@ export default function EstatesPage() {
                 rounded="lg"
                 py={8} 
                 px={4}
+                bg="white"
+                opacity="0.8"
             >
                 <Text>
                     Merca City is a World Building RTS Game bootstrapped with a cryptocurrency economy, thus ideal for a full blown financial simulation and real world economy. Players can fully own their assets, build and upgrade them, team up, form financial interest groups, and even armies. Estates are their primary holdings in Merca City. Adjacent Estates may be joined to form larger areas (initially up to 5 for individual players, and up to 50 for factions).<br /><br />There is no difference between the Estates, except for their location and, over time, what players decide to do with them. The Estates&apos; location will be decided in settling contests for each district upon launch of Merca City.<br /><br />There are six districts in the city, each specialized in one area: 

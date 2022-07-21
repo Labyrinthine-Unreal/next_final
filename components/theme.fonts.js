@@ -11,7 +11,8 @@ const theme = extendTheme({
     global: {
       body: {
         fontWeight: 'light',
-        lineHeight: 'taller'
+        lineHeight: 'taller',
+        color: "black"
       }
     }
   }
