@@ -32,29 +32,28 @@ export default function SidebarDrawer({ onClose, ...rest }) {
                 alignItems="flex-start"
                 as="nav"
             >
-            <CloseButton mt={5} display={{ base: "flex", md: "none" }} onClick={onClose} />
+                <CloseButton mt={5} display={{ base: "flex", md: "none" }} onClick={onClose} />
 
                     <Flex
-                p="5%"
-                flexDir="column"
-                w="100%"
-                alignItems="flex-start"
-                mb={4}
-            >
-                <Flex mt={4} mb={4} align="center">
+                        flexDir="column"
+                        w="100%"
+                        alignItems="flex-start"
+                        mb={4}
+                    >
+                        <Flex mt={4} mb={4} align="center">
                     
-                    <Flex flexDir="column">
-                    <Heading size="sm"><NavItem href="/" icon={ImHome} title="Dashboard"/></Heading>
+                            <Flex>
+                                <Heading size="sm"><NavItem href="/" icon={ImHome} title="Dashboard"/></Heading>
+                            </Flex>
+                        </Flex>
+                        <Divider />
                     </Flex>
-                </Flex>
-                <Divider />
-            </Flex>
-            <NavItem href="about" icon={MdSummarize} title="About" />
-            <NavItem href="members" icon={ImUsers} title="Members" />
-            <NavItem href="events" icon={ImCalendar} title="Events" />
-            {/* <NavItem href="galleries" icon={GrGallery} title="Galleries" />
-            <NavItem href="podcast" icon={ImPodcast} title="Podcast" /> */}
-            <NavItem href="estates" icon={ImEarth} title="Estates" />
+                <NavItem href="about" icon={MdSummarize} title="About" />
+                <NavItem href="members" icon={ImUsers} title="Members" />
+                <NavItem href="events" icon={ImCalendar} title="Events" />
+                {/* <NavItem href="galleries" icon={GrGallery} title="Galleries" />
+                <NavItem href="podcast" icon={ImPodcast} title="Podcast" /> */}
+                <NavItem href="estates" icon={ImEarth} title="Estates" />
             </Flex>
         </Flex>
     )

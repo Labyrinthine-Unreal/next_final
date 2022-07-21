@@ -20,7 +20,7 @@ export default function NavItem({ navSize, title, icon, href }) {
                         <MenuButton w="100%">
                             <Flex>
                                 <Icon as={icon} fontSize="xl" mt={1.5} />
-                                <Text mt={title == "Dashboard" ? 2.5 : 0} ml={5} fontSize={title == "Dashboard" && 14} display={navSize == "small" ? "none" : "flex-start"}>{title}</Text>
+                                <Text mt={title == "Dashboard" ? 2.5 : 0} ml={5} fontSize={title == "Dashboard" && 13} display={navSize == "small" ? "none" : "flex-start"}>{title}</Text>
                             </Flex>
                         </MenuButton>
                     </Link>
