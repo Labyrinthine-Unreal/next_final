@@ -31,7 +31,7 @@ export default function Home() {
             color="teal.700"
             // color="#B30018" 
             fontWeight="extrabold" 
-            textShadow='0.5px 0.5px white'
+            textShadow='1px 1px white'
         >
             Welcome to Taurosdao
         </Heading>
@@ -103,7 +103,7 @@ export default function Home() {
             />
         </Box>
 
-        <Heading pb={5} fontSize="3xl" color="teal.700" fontWeight="extrabold" textShadow='0.5px 0.5px white'>
+        <Heading pb={5} fontSize="3xl" color="teal.700" fontWeight="extrabold" textShadow='1px 1px white'>
           Labyrinthine Unreal
         </Heading>
 

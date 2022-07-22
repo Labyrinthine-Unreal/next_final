@@ -11,7 +11,7 @@ export default function EstatesPage() {
                     TaurosDAO | Estates
                 </title>
             </Head>
-            <Heading pb={10} fontSize="3xl" color="teal.700" fontWeight="extrabold" textShadow='0.5px 0.5px white'>
+            <Heading pb={10} fontSize="3xl" color="teal.700" fontWeight="extrabold" textShadow='1px 1px white'>
                 Estates
             </Heading>
 
