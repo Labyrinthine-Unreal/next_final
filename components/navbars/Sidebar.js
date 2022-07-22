@@ -12,7 +12,7 @@ export default function Sidebar() {
             top="100px"
             pos="fixed"
             left="5"
-            h="95vh"
+            h="73vh"
             boxShadow="0 4px 12px 0 rgba(0, 0, 0, 0.05)"
             borderRadius={navSize == "small" ? "15px" : "30px"}
             w={navSize == "small" ? "75px" : "200px"}
