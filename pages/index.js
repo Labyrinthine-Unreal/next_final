@@ -52,7 +52,7 @@ export default function Home() {
                 </Collapse>
                 <Box align="right" px={4}>
                     <Button onClick={onToggle} variant="unstyled" color="black" >
-                        {isOpen ? "Collapse" : "Read more"}
+                        {isOpen ? "Read less" : "Read more"}
                     </Button>
                 </Box>
             </Box>
