@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Flex, IconButton, Divider, Heading } from '@chakra-ui/react'
 import { ImMenu, ImEarth, ImHome, ImCalendar, ImUsers } from 'react-icons/im'
-import { MdSummarize } from 'react-icons/md'
+import { MdSummarize, MdBallot } from 'react-icons/md'
 import NavItem from './NavItem'
 
 export default function Sidebar() {
@@ -9,10 +9,10 @@ export default function Sidebar() {
     return (
         <Flex
             display={{ base: "none", md: "block" }}
-            top="100px"
+            top={20}
             pos="fixed"
             left="5"
-            h="73vh"
+            h="81vh"
             boxShadow="0 4px 12px 0 rgba(0, 0, 0, 0.05)"
             borderRadius={navSize == "small" ? "15px" : "30px"}
             w={navSize == "small" ? "75px" : "200px"}
@@ -44,7 +44,7 @@ export default function Sidebar() {
                         alignItems={navSize == "small" ? "center" : "flex-start"}
                         mb={4}
                     >
-                        <Flex mt={4} mb={4} align="center">
+                        <Flex mb={4} align="center">
                             {/* <Avatar size="sm" src="../tauros-avatar-black.png" /> */}
                             <Flex>
                                 <Heading size="sm"><NavItem navSize={navSize} href="/" icon={ImHome} title="Dashboard"/></Heading>
@@ -55,6 +55,7 @@ export default function Sidebar() {
                 
                 <NavItem navSize={navSize} href="about" icon={MdSummarize} title="About" />
                 <NavItem navSize={navSize} href="members" icon={ImUsers} title="Members" />
+                <NavItem navSize={navSize} href="voting" icon={MdBallot} title="Voting" />
                 <NavItem navSize={navSize} href="events" icon={ImCalendar} title="Events" />
                 {/* <NavItem navSize={navSize} href="galleries" icon={GrGallery} title="Galleries" />
                 <NavItem navSize={navSize} href="podcast" icon={ImPodcast} title="Podcast" /> */}

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { useRouter } from "next/router";
 import { Flex, Divider, Heading, CloseButton } from '@chakra-ui/react'
 import { ImHome, ImCalendar, ImUsers, ImEarth } from 'react-icons/im'
-import { MdSummarize } from "react-icons/md"
+import { MdSummarize, MdBallot } from "react-icons/md"
 import NavItem from './NavItem'
 
 export default function SidebarDrawer({ onClose, ...rest }) {
@@ -50,6 +50,7 @@ export default function SidebarDrawer({ onClose, ...rest }) {
                     </Flex>
                 <NavItem href="about" icon={MdSummarize} title="About" />
                 <NavItem href="members" icon={ImUsers} title="Members" />
+                <NavItem href="voting" icon={MdBallot} title="Voting" />
                 <NavItem href="events" icon={ImCalendar} title="Events" />
                 {/* <NavItem href="galleries" icon={GrGallery} title="Galleries" />
                 <NavItem href="podcast" icon={ImPodcast} title="Podcast" /> */}

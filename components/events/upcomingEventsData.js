@@ -4,7 +4,7 @@ const upcomingEventsData = [
         croppedDescription: (<>Panopticon | Light...</>),
         description: (<>&quot;Panopticon: Darkness in Light&quot; in Spatial<br /><br />3D digital Art Gallery in collaboration with <a style={{color: "#2E7DAF"}} href='https://twitter.com/sodomstar' target="blank">Sodomstar</a> and <a style={{color: "#2E7DAF"}} href='https://twitter.com/libeskindARTS' target="blank">LibeskindARTS</a></>),
         buttonText: 'Preview',
-        imageUrl: 'images/events/Spatial.png',
+        imageUrl: 'images/galleries/Spatial.png',
         imageAlt: 'Panopticon',
         video: ''
     },

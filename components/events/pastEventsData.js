@@ -12,15 +12,15 @@ const pastEventsData = [
         croppedDescription: (<>New Art City Puzzle...</>), 
         description: (<>Puzzle Event in New Art City<br /><br />Prize: 1 Founders&apos; Deed World by LeapN (Current Price: 1.2 ETH)<br /><br />Winner: <a style={{color: "#2E7DAF"}} href='https://twitter.com/shavedkiwi_eth' target="blank">shavedkiwi</a></>), 
         buttonText: 'Solution',
-        imageUrl: 'images/events/puzzle2.png',
+        imageUrl: 'images/game/Avatar.png',
         imageAlt: 'art-gallery'
     },
     {
         title: 'Ancient Libraries',
         croppedDescription: (<>Arg Style Puzzle...</>),
-        description: (<>ARG style puzzle spanning virtual environments, hidden webpages, & various social media (Current Price: 2.5 ETH)<br /><br />Prize: 1 Founders&apos; Private Plot + 1 Timeless by Treeverse<br /><br />Winner: <a style={{color: "#2E7DAF"}} href='https://twitter.com/TileshStashie' target="blank">tilesh</a></>),
+        description: (<>ARG style puzzle spanning virtual environments, hidden webpages, & various social media<br /><br />Prize: 1 Founders&apos; Private Plot + 1 Timeless by Treeverse (Current Price: 2.5 ETH)<br /><br />Winner: <a style={{color: "#2E7DAF"}} href='https://twitter.com/TileshStashie' target="blank">tilesh</a></>),
         buttonText: 'Solution',
-        imageUrl: 'images/events/Ancient-Libraries.png',
+        imageUrl: 'images/puzzles/Ancient-Libraries.png',
         imageAlt: 'art-gallery',
         externalUrl: 'https://twitter.com/LabyrinthUnreal/status/1485326744508944388?s=20&t=8K4pNSiWY8UqAS1hKYYfVg'
     }

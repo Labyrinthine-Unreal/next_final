@@ -1,57 +1,13 @@
-/* <Box id={styles.events} className={styles.section}>
-            <Box className={styles.videoWrapper}>
-                <video className={styles.portalVideo} autoPlay muted loop>
-                    <source src="videos/Trailer.mp4" type="video/mp4" />
-                    Your browser does not support the video tag.
-                </video>
-            </Box> */
-
-#event {
-  background-color: #000;
-  background-position: center center;
-  background-size: cover;
-  background-repeat: repeat;
-  min-height: calc(100vh - 77px);
-}
-
-#home>.videoWrapper {
-  position: absolute;
-  background: black;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  left: 0;
-  right: 0;
-  top: 0px;
-  bottom: 0;
-  width: 100%;
-  max-width: 100%;
-  margin: 0 auto;
-}
-
-.section {
-  position: relative;
-  background-color: #000;
-}
-
-.portalVideo {
-  justify-content: center;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center center;
-  z-index: -0;
-}
-
+/* Event Cards */
 .container {
   position: relative;
-  width: 250px;
+  width: 100%;
   border: 0.2px solid #000;
 }
 
 .image {
   display: block;
-  width: 250px;
+  width: 100%;
   height: auto;
 }
 
@@ -104,7 +60,7 @@
 
 .body {
   font-size: 14px;
-  top: 20%;
+  top: 10%;
 }
 
 .body2 {
@@ -130,3 +86,43 @@
 .link {
   text-decoration: none;
 }
+
+
+/* 
+
+#event {
+  background-color: #000;
+  background-position: center center;
+  background-size: cover;
+  background-repeat: repeat;
+  min-height: calc(100vh - 77px);
+}
+
+#home>.videoWrapper {
+  position: absolute;
+  background: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  left: 0;
+  right: 0;
+  top: 0px;
+  bottom: 0;
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.section {
+  position: relative;
+  background-color: #000;
+}
+
+.portalVideo {
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  z-index: -0;
+} */

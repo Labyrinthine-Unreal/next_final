@@ -1,4 +1,4 @@
-import { Box, Image, Button, Text } from "@chakra-ui/react"
+import { Box, Image, Button, Text, Link } from "@chakra-ui/react"
 import styles from "@styles/Events.module.css"
 
 export default function PastEventsCard({ pastEvent }) {
@@ -23,10 +23,12 @@ export default function PastEventsCard({ pastEvent }) {
                 </Box>
                 <Box pb={5} className={styles.btn}>
                     <Button borderRadius="0" _hover={{opacity: "0.7"}} size="sm" variant="outline">
-                        {buttonText}
+                        <Link style={{textDecoration: "none"}} href={externalUrl} isExternal>{buttonText}</Link>
                     </Button>
                 </Box>
             </Box>
         </Box>
     );
 }
+
+
