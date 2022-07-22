@@ -1,4 +1,4 @@
-import { Box, Heading, Flex, SimpleGrid, TableCaption, Table, Thead, TableContainer} from "@chakra-ui/react"
+import { Box, Heading, Flex, SimpleGrid } from "@chakra-ui/react"
 import Head from "next/head"
 import CECard from "@components/events/CurrentEventsCard"
 import currentEvents from "@components/events/currentEventsData"
@@ -23,8 +23,8 @@ export default function EventsPage() {
                 Events
             </Heading>
 
-            <Heading fontSize="large" fontWeight="normal" color="teal.700" textShadow='1px 1px white'>
-                Ongoing
+            <Heading fontSize="large" fontWeight="extrabold" color="teal.700" textShadow='1px 1px white'>
+                ONGOING
             </Heading>
 
             <Box pt={5} pb={20} align="center">
@@ -38,7 +38,7 @@ export default function EventsPage() {
             </Box>
 
             <Heading fontSize="large" color="teal.700" fontWeight="extrabold" textShadow='1px 1px white'>
-                Upcoming
+                UPCOMING
             </Heading>
 
             <Box pt={5} pb={20} align="center">
@@ -52,7 +52,7 @@ export default function EventsPage() {
             </Box>
 
             <Heading fontSize="large" color="teal.700" fontWeight="extrabold" textShadow='1px 1px white'>
-                Past
+                PAST
             </Heading>
 
             <Box pt={5} align="center">
