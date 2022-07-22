@@ -19,11 +19,11 @@ export default function EventsPage() {
                 </title>
             </Head>
 
-            <Heading pb={10} fontSize="3xl" textShadow='0.5px 0.5px white'>
+            <Heading pb={10} fontSize="3xl" color="teal.700" fontWeight="extrabold" textShadow='0.5px 0.5px white'>
                 Events
             </Heading>
 
-            <Heading fontSize="large" fontWeight="normal" color="#4A5568">
+            <Heading fontSize="large" fontWeight="normal" color="teal.700">
                 Ongoing
             </Heading>
 
@@ -37,7 +37,7 @@ export default function EventsPage() {
                 </SimpleGrid>
             </Box>
 
-            <Heading fontSize="large" fontWeight="normal" color="#4A5568">
+            <Heading fontSize="large" color="teal.700" fontWeight="extrabold" textShadow='0.5px 0.5px white'>
                 Upcoming
             </Heading>
 
@@ -51,7 +51,7 @@ export default function EventsPage() {
                 </SimpleGrid>
             </Box>
 
-            <Heading fontSize="large" fontWeight="normal" color="#4A5568">
+            <Heading fontSize="large" color="teal.700" fontWeight="extrabold" textShadow='0.5px 0.5px white'>
                 Past
             </Heading>
 

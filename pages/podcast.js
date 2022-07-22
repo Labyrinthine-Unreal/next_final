@@ -13,7 +13,7 @@ export default function EventsPage() {
                 </title>
             </Head>
 
-            <Heading pb={10} fontSize="3xl" textShadow='0.5px 0.5px white'>
+            <Heading pb={10} fontSize="3xl" color="teal.700" fontWeight="extrabold" textShadow='0.5px 0.5px white'>
                 Frontier Podcast
             </Heading>
             
