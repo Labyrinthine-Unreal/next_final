@@ -25,7 +25,7 @@ export default function EstatesBalance() {
     async function _EstatesBalance() {
         let options = {
             // msgValue: Moralis.Units.ETH("0.05"),
-            contractAddress: '0xCEE74E08F23476E960F05472C821fc7cb80E51bc',
+            contractAddress: '0xc7fc72953489E3Cd79Eb833051EF9c3abE7A3910',
             functionName: 'balanceOf',
             abi: estatesABI,
             params: {
