@@ -25,7 +25,7 @@ export default function SlideEx() {
                 <Text>
                     TaurosDAO Membership Cards (TAUROS) confer a number of benefits on members. Fractionalized ownership, governance, and airdrops are only a few of them. Depending on whether you are an investor, an artist, a collector, or all of the above, you may look forward to a number of privileges from TaurosDAO membership. For a detailed breakdown, see the table below and click on each of the three categories.
                 </Text>
-                <Tabs py={10}>
+                <Tabs pt={10}>
                     <TabList>
                         <Tab>Investors</Tab>
                         <Tab>Artists</Tab>
@@ -70,7 +70,7 @@ export default function SlideEx() {
                                 <ListItem pt={6} fontWeight="semibold">Collaboration with and Featuring in the Labyrinthine Unreal Game</ListItem>
                                 <Text color="gray.700">Many of the works we purchase may be featured in the Labyrinthine Unreal game or in Merca City. A work of art may be laced with some unclockable content giving further clues to the solution of a puzzle or it may be sought out simply for the art&apos; sake by collectors and gamers alike. NFT artists may also collaborate with us first hand in the custom creation of game assets, from 2D and 3D art objects (avatars, architectural constructions, game accessories, etc.) to animation and film, soundtracks and sound FX, etc.</Text>
 
-                                <ListItem py={6} fontWeight="semibold">Exclusive and Private Events with known collectors, Auction Houses, etc</ListItem>
+                                <ListItem pt={6} fontWeight="semibold">Exclusive and Private Events with known collectors, Auction Houses, etc</ListItem>
                                 <Text color="gray.700">Closed door digital events are a great way for interested collectors to meet directly with their favourite artists. Live auctions, art galleries, art workshops, and educational events are all in the works in Merca City. Labyrinthine Unreal and TaurosDAO are uniquely positioned to capture and hold the attention of anyone interested in the NFT and metaverse space. We are only getting started!</Text>
                             </UnorderedList>
                             <Divider maxW="300" py={6} />
