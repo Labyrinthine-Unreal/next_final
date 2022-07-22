@@ -87,7 +87,7 @@ export default function EstatesClaimed() {
                 {/* TaurosDAO Estates Balance */}
                 <Button variant="outline" onClick={() => {
                     if (isAuthenticated) { _EstatesClaimed(); }
-                }} text={"Unclaimed Estates"} theme={"primary"} />
+                }} text={"Unclaimed"} theme={"primary"} />
 
             </form>
         </Box>

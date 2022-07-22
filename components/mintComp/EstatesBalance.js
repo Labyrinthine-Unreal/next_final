@@ -84,7 +84,7 @@ export default function EstatesBalance() {
                 {/* TaurosDAO Estates Balance */}
                 <Button variant="outline" onClick={() => {
                     if (isAuthenticated) { _EstatesBalance(); }
-                }} text={"Estates Balance"} theme={"primary"} />
+                }} text={"Balance"} theme={"primary"} />
 
             </form>
         </Box>
