@@ -57,10 +57,11 @@ export default function EstatesPage() {
                 <Text>
                     Peace is fragile in the city. Tension is in the air and war is always ready to break out. Morea is rich in gold and oil but its denizens are beholden to the whims of Ritus, the financial district whose reach no one in Merca can escape.
                 </Text>
-            </Box>
+            
             <Center>
                 <Image src="images/Merca_City.png" alt="Merca-City-Map" />
             </Center>
+            </Box>
         </Box>
     )
 }
