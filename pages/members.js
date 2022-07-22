@@ -19,7 +19,7 @@ export default function SlideEx() {
                 rounded="lg"
                 py={8} 
                 px={4}
-                bg="white"
+                bg="#ffffffbb"
                 opacity="0.8"
             >
                 <Text>
