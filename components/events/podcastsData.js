@@ -4,7 +4,7 @@ const podcastsData = [
         croppedDescription: (<>Tue, Jul 19 | Frontier...</>),
         description: (<>Jul 19, 2022, 12 PM EST<br />Frontier Podcast<br /><br />Conversation with digital 3D artist, Salvo3D</>),
         buttonText: 'Watch Now',
-        imageUrl: 'images/Minotaur.jpg',
+        imageUrl: 'images/events/Minotaur.jpg',
         imageAlt: 'Salvo-Card',
         externalUrl: 'https://www.youtube.com/channel/UCT-wbeP4uVaZCiDj7AAjvMw'
     },
@@ -13,7 +13,7 @@ const podcastsData = [
         croppedDescription: (<>Fri, Jul 03 | Frontier...</>),
         description: (<>Jul 03, 2022, 12 PM EST<br />Frontier Podcast<br /><br />A deep dive into the ancient art of mask making with Neapolitan multidisciplinary artist and maskmaker, Raging Taz</>),
         buttonText: 'Watch Now',
-        imageUrl: 'images/ragingtaz.png',
+        imageUrl: 'images/events/ragingtaz.png',
         imageAlt: 'RagingTaz-Card',
         externalUrl: 'https://youtu.be/OSRyEKS8M-I'
     }

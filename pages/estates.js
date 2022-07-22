@@ -59,7 +59,7 @@ export default function EstatesPage() {
                 </Text>
             
             <Center>
-                <Image src="images/Merca_City.png" alt="Merca-City-Map" />
+                <Image src="images/game/Merca_City.png" alt="Merca-City-Map" />
             </Center>
             </Box>
         </Box>
