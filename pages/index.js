@@ -61,6 +61,7 @@ export default function Home() {
                 mt={10}
                 pt={4} 
                 px={4}
+                maxW={600}
               >
                 <Table variant="unstyled">
                     <Thead>
@@ -77,7 +78,7 @@ export default function Home() {
                     </Tbody>
                 </Table>
             </TableContainer>
-        
+            
         </Box>
 
         <Box pt={10} pb={20} align="center">
