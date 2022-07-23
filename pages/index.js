@@ -58,7 +58,11 @@ export default function Home() {
             </Box>
 
 
-            <SimpleGrid columns={{sm: 1, md: 2}} gap={4} mt={20} mb={10} pt={4} px={4} maxW={600}>
+            <SimpleGrid columns={{sm: 1, md: 3}} gap={4} mt={20} mb={10} pt={4} px={4} maxW={900}>
+                <Box>
+                    <Heading fontSize="16px" fontWeight="normal" color="#4A5568">TAUROS BALANCE</Heading>
+                    <Box>x</Box>
+                </Box>
                 <Box>
                     <Heading fontSize="16px" fontWeight="normal" color="#4A5568">ESTATES BALANCE</Heading>
                     <EstatesBalance />
