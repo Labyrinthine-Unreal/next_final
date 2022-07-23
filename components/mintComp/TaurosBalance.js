@@ -1,45 +1,45 @@
 import {Box, Progress} from "@chakra-ui/react";
 import {useEffect, useState,} from "react";
 import {useMoralis, useWeb3ExecuteFunction} from 'react-moralis';
-import estatesABI from "@components/ABIs/estatesABI";
+import taurosABI from "@components/ABIs/taurosABI";
 
-export default function EstatesBalance() {
+export default function TaurosBalance() {
     const { authenticate, isAuthenticated, isAuthenticating, Moralis, user, account, logout } = useMoralis();
     const contractProcessor = useWeb3ExecuteFunction();
-    let [balance, setEstates] = useState();
+    let [balance, setTauros] = useState();
 
     useEffect(() => {
 
         if (!isAuthenticated) {
             if (Moralis.isWeb3Enabled()) Moralis.deactivateWeb3();
-            setEstates("You are NOT authenticated");
+            setTauros("You are NOT authenticated");
         }
 
         if (isAuthenticated) {
-            setEstates(<Progress size='xs' isIndeterminate />);
+            setTauros(<Progress size='xs' isIndeterminate />);
 
             async function setAmount() {
-                let estatesAmount;
+                let taurosAmount;
 
-                let estatesOtions = {
-                    contractAddress: '0xc7fc72953489E3Cd79Eb833051EF9c3abE7A3910',
+                let taurosOtions = {
+                    contractAddress: '0x0C558b282c361C5f68848517e768e34e045c7936',
                     functionName: 'balanceOf',
-                    abi: estatesABI,
+                    abi: taurosABI,
                     params: {
                         owner: user.get('ethAddress'),
                     }
                 }
-                // calling for the balance of ESTATES.
+                // calling for the balance of TAUROS.
                 await contractProcessor.fetch({
-                    params: estatesOtions,
+                    params: taurosOtions,
                     onSuccess: (results) => {
-                        estatesAmount = parseInt(results.toString());
+                        taurosAmount = parseInt(results.toString());
                     },
                     onError: (error) => {
                         console.log(error);
                     }
                 });
-                setEstates(estatesAmount.toString());
+                setTauros(taurosAmount.toString());
             }
             setTimeout(() => {
                 setAmount();

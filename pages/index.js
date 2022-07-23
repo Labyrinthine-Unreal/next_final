@@ -6,8 +6,9 @@ import ProductCard from "@components/mintComp/ProductCard"
 import ProductModal from "@components/mintComp/ProductModal"
 import { Box, SimpleGrid, Text, Link, Heading, Collapse, useDisclosure, Button } from "@chakra-ui/react"
 import Head from "next/head"
-import EstatesBalance from "@components/mintComp/EstatesBalance";
-import EstatesClaimed from "@components/mintComp/EstatesClaimed";
+import EstatesBalance from "@components/mintComp/EstatesBalance"
+import EstatesClaimed from "@components/mintComp/EstatesClaimed"
+import TaurosBalance from "@components/mintComp/TaurosBalance"
 
 
 const MotionSimpleGrid = motion(SimpleGrid)
@@ -61,7 +62,7 @@ export default function Home() {
             <SimpleGrid columns={{sm: 1, md: 3}} gap={4} mt={20} mb={10} pt={4} px={4} maxW={900}>
                 <Box>
                     <Heading fontSize="16px" fontWeight="normal" color="#4A5568">TAUROS BALANCE</Heading>
-                    <Box>x</Box>
+                    <Box><TaurosBalance /></Box>
                 </Box>
                 <Box>
                     <Heading fontSize="16px" fontWeight="normal" color="#4A5568">ESTATES BALANCE</Heading>
