@@ -12,7 +12,7 @@ export default function ProductModal({ isOpen, onClose, modalData }) {
         <ModalHeader>{title == "MERCA CITY ESTATE" ? "dNFT Details" : "NFT Details"}</ModalHeader>
         <ModalBody>
         <Grid
-          height={{base: "140", md: "125"}}
+          height="125"
           templateRows='repeat(4, 1fr)'
           templateColumns='repeat(9, 1fr)'
         >

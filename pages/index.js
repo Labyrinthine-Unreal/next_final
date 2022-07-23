@@ -4,7 +4,7 @@ import { cardVariant, parentVariant } from "../motion"
 import properties from "@components/data/properties/"
 import ProductCard from "@components/mintComp/ProductCard"
 import ProductModal from "@components/mintComp/ProductModal"
-import { Box, SimpleGrid, Text, Link, Heading, Collapse, useDisclosure, Button, Flex, TableContainer, Table, Thead, Tbody, Tr, Th, Td } from "@chakra-ui/react"
+import { Box, SimpleGrid, Text, Link, Heading, Collapse, useDisclosure, Button } from "@chakra-ui/react"
 import Head from "next/head"
 import EstatesBalance from "@components/mintComp/EstatesBalance";
 import EstatesClaimed from "@components/mintComp/EstatesClaimed";
@@ -57,31 +57,23 @@ export default function Home() {
                 </Box>
             </Box>
 
-            <TableContainer
-                mt={10}
-                pt={4} 
-                px={4}
-                maxW={600}
-              >
-                <Table variant="unstyled">
-                    <Thead>
-                        <Tr>
-                            <Th fontSize="16px" fontWeight="normal" color="#4A5568">Estates Balance</Th>
-                            <Th fontSize="16px" fontWeight="normal" color="#4A5568">Unclaimed Estates</Th>
-                        </Tr>
-                    </Thead>
-                    <Tbody>
-                        <Tr>
-                            <Td><EstatesBalance /></Td>
-                            <Td><EstatesClaimed /></Td>
-                        </Tr>
-                    </Tbody>
-                </Table>
-            </TableContainer>
+
+            <SimpleGrid columns={{sm: 1, md: 2}} gap={4} mt={20} mb={10} pt={4} px={4} maxW={600}>
+                <Box>
+                    <Heading fontSize="16px" fontWeight="normal" color="#4A5568">ESTATES BALANCE</Heading>
+                    <EstatesBalance />
+                </Box>
+                <Box>
+                    <Heading fontSize="16px" fontWeight="normal" color="#4A5568">UNCLAIMED ESTATES</Heading>
+                    <EstatesClaimed />
+                </Box>
+            </SimpleGrid>
+
+            
             
         </Box>
 
-        <Box pt={10} pb={20} align="center">
+        <Box pt={20} pb={20} align="center">
           <MotionSimpleGrid
             mt="4"
             minChildWidth="250px"
