@@ -31,7 +31,7 @@ export default function PastEventsCard({ pastEvent }) {
                 </Box>
                 <Box className={styles.btn}>
                     <Button onClick={onOpen} borderRadius="0" _hover={{opacity: "0.7"}} size="sm" variant="outline">
-                        <Link href={externalUrl} isExternal>{buttonText}</Link>
+                        <Link style={{textDecoration: "none"}} href={externalUrl} isExternal>{buttonText}</Link>
                         {title == "Art Contest" &&
                         <Modal isCentered size="lg" isOpen={isOpen} onClose={onClose} transition="6">
                         <ModalOverlay />

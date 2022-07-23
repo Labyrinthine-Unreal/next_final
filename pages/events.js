@@ -23,46 +23,54 @@ export default function EventsPage() {
                 Events
             </Heading>
 
-            <Heading fontSize="large" fontWeight="extrabold" color="teal.700" textShadow='1px 1px white'>
-                ONGOING
-            </Heading>
+            <Box 
+                boxShadow="0 4px 12px 0 rgba(0, 0, 0, 0.05)" 
+                rounded="lg"
+                pt={8}
+                pb={20}
+                px={4}
+            >
+                <Heading pb={10} fontSize="large" fontWeight="extrabold" color="teal.700" textShadow='1px 1px white'>
+                    ONGOING
+                </Heading>
 
-            <Box pt={5} pb={20} align="center">
-                <SimpleGrid pl={{base: "1", md: "3", lg: "5"}} columns={{base: "1", md: "2", lg: "3"}} gap={5} mt="4" minH="full" spacingY={20}>
-                {ongoingEvents.map((ongoingEvent, i) => (
-                    <Flex key={i}>
-                        <OECard currentEvent={ongoingEvent} />
-                    </Flex>
-                ))}
-                </SimpleGrid>
-            </Box>
+                <Box pb={20} align="center">
+                    <SimpleGrid pl={{base: "1", md: "3", lg: "5"}} columns={{base: "1", md: "2", lg: "3"}} gap={5} mt="4" minH="full" spacingY={20}>
+                    {ongoingEvents.map((ongoingEvent, i) => (
+                        <Flex key={i}>
+                            <OECard currentEvent={ongoingEvent} />
+                        </Flex>
+                    ))}
+                    </SimpleGrid>
+                </Box>
 
-            <Heading fontSize="large" color="teal.700" fontWeight="extrabold" textShadow='1px 1px white'>
-                UPCOMING
-            </Heading>
+                <Heading pt={10} pb={10} fontSize="large" color="teal.700" fontWeight="extrabold" textShadow='1px 1px white'>
+                    UPCOMING
+                </Heading>
 
-            <Box pt={5} pb={20} align="center">
-                <SimpleGrid pl={{base: "1", md: "3", lg: "5"}} columns={{base: "1", md: "2", lg: "3"}} gap={5} mt="4" minH="full" spacingY={20}>
-                {upcomingEvents.map((upcomingEvent, i) => (
-                    <Flex key={i}>
-                        <UECard upcomingEvent={upcomingEvent} />
-                    </Flex>
-                ))}
-                </SimpleGrid>
-            </Box>
+                <Box pb={20} align="center">
+                    <SimpleGrid pl={{base: "1", md: "3", lg: "5"}} columns={{base: "1", md: "2", lg: "3"}} gap={5} mt="4" minH="full" spacingY={20}>
+                    {upcomingEvents.map((upcomingEvent, i) => (
+                        <Flex key={i}>
+                            <UECard upcomingEvent={upcomingEvent} />
+                        </Flex>
+                    ))}
+                    </SimpleGrid>
+                </Box>
 
-            <Heading fontSize="large" color="teal.700" fontWeight="extrabold" textShadow='1px 1px white'>
-                PAST
-            </Heading>
+                <Heading pt={10} pb={10} fontSize="large" color="teal.700" fontWeight="extrabold" textShadow='1px 1px white'>
+                    PAST
+                </Heading>
 
-            <Box pt={5} align="center">
-                <SimpleGrid pl={{base: "1", md: "3", lg: "5"}} columns={{base: "1", md: "2", lg: "3"}} gap={5} mt="4" minH="full" spacingY={20}>
-                {pastEvents.map((pastEvent, i) => (
-                    <Flex key={i}>
-                        <PECard pastEvent={pastEvent} />
-                    </Flex>
-                ))}
-                </SimpleGrid>
+                <Box align="center">
+                    <SimpleGrid pl={{base: "1", md: "3", lg: "5"}} columns={{base: "1", md: "2", lg: "3"}} gap={5} mt="4" minH="full" spacingY={20}>
+                    {pastEvents.map((pastEvent, i) => (
+                        <Flex key={i}>
+                            <PECard pastEvent={pastEvent} />
+                        </Flex>
+                    ))}
+                    </SimpleGrid>
+                </Box>
             </Box>
         </Box>
     );
