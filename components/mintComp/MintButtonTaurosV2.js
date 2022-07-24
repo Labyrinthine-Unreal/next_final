@@ -84,7 +84,7 @@ export default function MBT() {
           <Spacer />
           <Button onClick={() => {
             if (isAuthenticated) { _mintTauros(); }
-          }} text={"Mint Taurus"} theme={"primary"} />
+          }} text={"Mint Tauros"} theme={"primary"} />
 
         </form>
       </Box>
