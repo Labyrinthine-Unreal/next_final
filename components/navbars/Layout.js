@@ -9,19 +9,6 @@ export default function Layout({ children }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
   return (
     <Box id={styles.about} className={styles.section}
-        // minH="100vh"
-        // style={{backgroundImage: `url(images/epiphany.jpg)`}}
-        // bgGradient="linear(to-br, teal.300,purple.300)"
-        // bgGradient="linear(to-br, #dbcccc,#c4bd8b)"
-        // bgGradient="linear(to-br, #f2f1ef,#d8cfd0)"
-        // bgGradient="linear(to-br, #f6f6f2,#fef2f2)"
-        // bgGradient="linear(to-br, #fef2f2,#f6ffee)"
-        // bg="#d8cfd0"
-        // bg="#EDF1F0"
-        // bg="#f6f6f2"
-        // bg="#fef2f2"
-        // bg="#f6ffee"
-        // backgroundImage="images/AbstractFuturistic.jpg"
     >
         <Sidebar
             onClose={() => onClose}

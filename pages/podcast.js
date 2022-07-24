@@ -13,16 +13,11 @@ export default function EventsPage() {
                 </title>
             </Head>
 
-            <Heading pb={10} fontSize="3xl" color="teal.700" fontWeight="extrabold" textShadow='1px 1px white'>
+            <Heading ptextStyle="title" fontSize="3xl">
                 Frontier Podcast
             </Heading>
             
-            <Text 
-                boxShadow="0 4px 12px 0 rgba(0, 0, 0, 0.05)" 
-                rounded="lg"
-                py={8} 
-                px={4}
-            >
+            <Text textStyle="landingPageContent">
                 A collaboration podcast series between TaurosDAO and Frontier Podcast bringing you the latest from the NFT Art World. The series focuses on established and emerging 1/1 artists in the NFT Space. Airs weekly.
             </Text>
 

@@ -11,18 +11,11 @@ export default function EstatesPage() {
                     TaurosDAO | Estates
                 </title>
             </Head>
-            <Heading pb={10} fontSize="3xl" color="teal.700" fontWeight="extrabold" textShadow='1px 1px white'>
+            <Heading textStyle="title" fontSize="3xl">
                 Estates
             </Heading>
 
-            <Box 
-                boxShadow="0 4px 12px 0 rgba(0, 0, 0, 0.05)" 
-                rounded="lg"
-                py={8} 
-                px={4}
-                bg="#ffffffbb"
-                opacity="0.8"
-            >
+            <Box textStyle="content">
                 <Text>
                     Merca City is a World Building Metaverse/RTS Game bootstrapped with its own cryptocurrency economy. Players can fully own their assets, build and upgrade them, team up, form factions and alliances, and even raiding parties or armies. Estates are their primary holdings in Merca City. Adjacent Estates may be joined to form larger areas (up to 5 for individual players, and up to 50 for factions).<br /><br />There is no difference between the Estates, except for their location and, over time, what players decide to do with them. Estates&apos; locations will be decided in a series of settling contests for each district upon launch of Merca City.<br /><br />Settlers can build whatever they wish in their Estates, or at least as far as the size allows. Below is a list of possible use cases, but this is not exhaustive and players may find novel uses for them:
                 </Text>
@@ -111,19 +104,11 @@ export default function EstatesPage() {
                     />
                 </Center>
 
-            <Heading pt={20} fontSize="3xl" color="teal.700" fontWeight="extrabold" textShadow='1px 1px white'>
+            <Heading pt={10} fontSize="3xl" textStyle="title">
                 Districts
             </Heading>
             
-            <Box
-                mt={10}
-                boxShadow="0 4px 12px 0 rgba(0, 0, 0, 0.05)" 
-                rounded="lg"
-                py={8} 
-                px={4}
-                bg="#ffffffbb"
-                opacity="0.8"
-            >
+            <Box textStyle="content">
                 <Text>
                     There are six districts in the city, each specialized in one area: 
                 </Text>

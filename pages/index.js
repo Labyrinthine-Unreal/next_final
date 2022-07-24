@@ -26,24 +26,10 @@ export default function Home() {
             </title>
         </Head>
 
-        <Heading 
-            pb={10} 
-            fontSize="3xl" 
-            color="teal.700"
-            // color="#B30018" 
-            fontWeight="extrabold" 
-            textShadow='1px 1px white'
-        >
-            Welcome to Taurosdao
-        </Heading>
+        <Heading textStyle="title" fontSize="3xl">Welcome to Taurosdao</Heading>
 
         <Box alignContent="center">
-            <Box
-                boxShadow="0 4px 12px 0 rgba(0, 0, 0, 0.05)" 
-                rounded="lg"
-                pt={8} 
-                px={4}
-              >
+            <Box textStyle="landingPageContent">
                 <Collapse in={isOpen} startingHeight={60}>
                     TaurosDAO is an exclusive community of artists and collectors founded in November 2021 by <Link href="https://www.labyrinthineunreal.io/" target="_blank" rel="noreferrer" style={{color: "black", fontWeight: "500"}}>Labyrinthine Unreal</Link>. For purposes of governance and other membership privileges, members need to hold at least one <span style={{color: "black", fontWeight: "500"}}>TAUROS</span> token.
                     <br /><br />
@@ -101,16 +87,11 @@ export default function Home() {
             />
         </Box>
 
-        <Heading pb={5} fontSize="3xl" color="teal.700" fontWeight="extrabold" textShadow='1px 1px white'>
+        <Heading textStyle="title">
           Labyrinthine Unreal
         </Heading>
 
-        <Text 
-            boxShadow="0 4px 12px 0 rgba(0, 0, 0, 0.05)" 
-            rounded="lg"
-            py={8} 
-            px={4}
-          >
+        <Text textStyle="landingPageContent">
             Labyrinthine Unreal is the undergound space of Merca City. Players may move between worlds through hidden portals that can be accessed from a personal tablet (each player is equipped with one at the beginning of the game). However, to activate the portals, players need one of the Labyrinthine Unreal Initiation Masks; for no mortal may enter the Labyrinth without one!
             <br /><br />
             Characters undergo a transformation as they move between worlds; thus, the character one plays is not exactly the same in both worlds, although there are similarities that carry across, for example a character&apos;s gait and other recognizable traits. Their identity becomes hidden under a mask in the Labyrinth. This is the perfect environment to form teams and factions that span both worlds, as well as infiltrate and undermine enemy factions.

@@ -9,18 +9,12 @@ export default function VotingPage() {
                     TaurosDAO | Voting
                 </title>
             </Head>
-            <Heading pb={10} fontSize="3xl" color="teal.700" fontWeight="extrabold"  textShadow='1px 1px white'>
+            <Heading textStyle="title" fontSize="3xl">
                 Voting
             </Heading>
             
             
-                <Text
-                    boxShadow="0 4px 12px 0 rgba(0, 0, 0, 0.05)" 
-                    rounded="lg"
-                    py={8} 
-                    // px={4}
-                    bg="#ffffffbb"
-                    opacity="0.8"
+                <Text textStyle="content"
                     fontSize="50px"
                     textAlign="center"
                 >

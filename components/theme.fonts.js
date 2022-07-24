@@ -5,7 +5,32 @@ const theme = extendTheme({
     heading: `'TrajanusBricks', sans-serif`
   },
   textStyles: {
-    primary: {fontFamily: "TrajanusBricksXtra"}
+    title: {
+      fontWeight: "extrabold",
+      color: "teal.700",
+      textShadow: "1px 1px white",
+      pb: "10"
+    },
+    subtitle: {
+      pb: "10",
+      fontWeight: "extrabold", 
+      color: "teal.700", 
+      textShadow: '1px 1px white'
+    },
+    landingPageContent: {
+      boxShadow: "0 4px 12px 0 rgba(0, 0, 0, 0.05)", 
+      rounded: "lg",
+      py: "8",
+      px: "4"
+    },
+    content: {
+      boxShadow: "0 4px 12px 0 rgba(0, 0, 0, 0.05)", 
+      rounded: "lg",
+      py: "8",
+      px: "4",
+      bg: "#ffffffbb",
+      opacity: "0.8"
+    }
   },
   styles: {
     global: {
@@ -19,3 +44,4 @@ const theme = extendTheme({
 })
 
 export default theme
+
