@@ -34,7 +34,7 @@ export default function EstatesClaimed() {
                     }
                 }
                 let estatesOtions = {
-                    contractAddress: '0x105634A79b2739F1FF836Cbe54C30a4D0BcceA67',
+                    contractAddress: '0x9800D87960307a08B086625819E0909cCDc7975f',
                     functionName: 'balanceOf',
                     abi: estatesABI,
                     params: {
