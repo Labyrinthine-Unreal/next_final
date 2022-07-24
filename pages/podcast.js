@@ -13,7 +13,7 @@ export default function EventsPage() {
                 </title>
             </Head>
 
-            <Heading ptextStyle="title" fontSize="3xl">
+            <Heading textStyle="title" fontSize="3xl">
                 Frontier Podcast
             </Heading>
             

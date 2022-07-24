@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import { Box, Center, Text, UnorderedList, List, ListItem, ListIcon, Heading, Tabs, TabList, Tab, TabPanels, TabPanel, Divider } from "@chakra-ui/react"
+import { Box, Center, Text, UnorderedList, List, ListItem, ListIcon, Heading, Tabs, TabList, Tab, TabPanels, TabPanel } from "@chakra-ui/react"
 import { ImEarth } from 'react-icons/im'
 
 export default function EstatesPage() {
