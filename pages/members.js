@@ -35,7 +35,7 @@ export default function SlideEx() {
                         <TabPanel>
                             <UnorderedList fontSize="15px">
                                 <ListItem fontWeight="semibold">Governance</ListItem>
-                                <Text color="gray.700">First and foremost, governance tokens grant holders the right to vote on important decisions and the direction a project may take in the future. In the case of TaurosDAO, TAUROS are our governance tokens. It&apos;s simple: 1 TAUROS token means 1 vote.</Text>
+                                <Text color="gray.700">First and foremost, governance tokens grant holders the right to vote on important decisions and the direction the project may take in the future. In the case of TaurosDAO, TAUROS are our governance tokens. It&apos;s simple: 1 TAUROS token means 1 vote.</Text>
 
                                 <ListItem pt={6} fontWeight="semibold">Fractionalized Ownership</ListItem>
                                 <Text color="gray.700">TAUROS tokens represent also a fraction of TaurosDAO&apos;s assets, thus as the funds and assets of the DAO grow, in theory the tokens&apos; value should also follow, although this depends on the market and is not a guarantee (it may take time for it to catch up).</Text>
@@ -59,7 +59,7 @@ export default function SlideEx() {
                                 <Text color="gray.700">Both Labyrinthine Unreal and TaurosDAO may directly purchase artworks from our members. However, this is not a guarantee and it should not be the reason for anyone to purchase a card and become a member. TaurosDAO exists as a service to its art community, and being a member does not entitle one to guaranteed sales.</Text>
 
                                 <ListItem pt={6} fontWeight="semibold">Early Access to the Terra curated NFT Marketplace</ListItem>
-                                <Text color="gray.700">Terra is an exclusive curated NFT Marketplace. It will feature both 1/1 works and collections and it is designed from the ground up to bring many features that are sorely lacking in the space, from a tiered verification system to various promotional activities to give participating artists good visibility, personal author&apos;s page, wip publishing options and much more. Applications for 1/1 artists will open soon, so keep an eye out for the announcement.<a href="#disclaimer">*</a></Text>
+                                <Text color="gray.700">Terra is an exclusive curated NFT Marketplace. It will feature both 1/1 works and collections and it is designed from the ground up to bring many features that are sorely lacking in the space, from a tiered verification system to various promotional activities to afford visibility to participating artists, personal author&apos;s page, wip publishing options and much more. Applications for 1/1 artists will open soon, so keep an eye out for the announcement.<a href="#disclaimer">*</a></Text>
 
                                 <ListItem pt={6} fontWeight="semibold">Various Promotional Activities</ListItem>
                                 <Text color="gray.700">Labyrinthine Unreal and TaurosDAO are a massive ecosystem, and therefore hold a huge potential for promotional activities, from art galleries and podcast shows featuring our members, to exhibitions within the Merca City sim, concerts, contests, museums, and even collaborations and custom works demand by gamers and other metaverse visitors.</Text>
@@ -80,14 +80,14 @@ export default function SlideEx() {
                         </TabPanel>
                         <TabPanel>
                             <UnorderedList fontSize="15px">
-                                <ListItem fontWeight="semibold">Invitations to Live 3D Auction House events</ListItem>
-                                <Text color="gray.700">Live Auction House events may be subject to certain standards before one is admitted (e.g., genuine and long standing involvement with the art community). Even though, these may be closed door events, they may be streamed live online for other viewers.</Text>
+                                <ListItem fontWeight="semibold">Live 3D Auction House events</ListItem>
+                                <Text color="gray.700">Live Auction House events may be subject to certain standards before one is admitted (e.g., genuine and long standing involvement with the art community). Although these may be closed door events, they may be streamed live online for other viewers.</Text>
 
                                 <ListItem pt={6} fontWeight="semibold">Access to Public and Private Areas of TaurosDAO&apos;s Curated Art Galleries</ListItem>
                                 <Text color="gray.700">Collectors will enjoy access not only to live auction houses but also to limited and private areas of our art galleries and workshops. These are generally great opportunities to meet the artist face to face (or avatar to avatar, as the case may be).</Text>
 
                                 <ListItem pt={6} fontWeight="semibold">Other Perks and Rewards</ListItem>
-                                <Text color="gray.700">Collectors who acquire a 10 or more artworks from our upcoming platform will also be able to claim a free Estate inside Merca City, where they may showcase their collections. This is a limited offer and the number of works required to claim a land parcel will increase with each Estate claimed
+                                <Text color="gray.700">Collectors who acquire 10 or more artworks from our upcoming platform will also be able to claim a free Estate inside Merca City, where they may showcase their collections. This is a limited offer and the number of works required to claim a land parcel will increase with each Estate claimed.
                                 </Text>
                                 </UnorderedList>
                         </TabPanel>

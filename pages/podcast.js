@@ -23,7 +23,7 @@ export default function EventsPage() {
                 py={8} 
                 px={4}
             >
-                A collaboration podcast series between TaurosDAO and Frontier Podcast bringing you the latest from the NFT Art World. The series focuses on established and emerging 1/1 artists in the NFT Space. Airing on Tuesdays and Fridays at 12:00 PM EST. 
+                A collaboration podcast series between TaurosDAO and Frontier Podcast bringing you the latest from the NFT Art World. The series focuses on established and emerging 1/1 artists in the NFT Space. Airs weekly.
             </Text>
 
             <Box pt={10} align="center">

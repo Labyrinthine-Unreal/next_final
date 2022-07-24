@@ -24,7 +24,7 @@ export default function EstatesPage() {
                 opacity="0.8"
             >
                 <Text>
-                    Merca City is a World Building Metaverse/RTS Game bootstrapped with its own cryptocurrency economy. Players can fully own their assets, build and upgrade them, team up, form factions and alliances, and even armies. Estates are their primary holdings in Merca City. Adjacent Estates may be joined to form larger areas (up to 5 for individual players, and up to 50 for factions).<br /><br />There is no difference between the Estates, except for their location and, over time, what players decide to do with them. The Estates&apos; location will be decided in settling contests for each district upon launch of Merca City.<br /><br />Players can build whatever they wish in their Estates, or at least as far as the size allows. Below is a list of possible use cases, but this is not exhaustive and players may find novel uses for them:
+                    Merca City is a World Building Metaverse/RTS Game bootstrapped with its own cryptocurrency economy. Players can fully own their assets, build and upgrade them, team up, form factions and alliances, and even raiding parties or armies. Estates are their primary holdings in Merca City. Adjacent Estates may be joined to form larger areas (up to 5 for individual players, and up to 50 for factions).<br /><br />There is no difference between the Estates, except for their location and, over time, what players decide to do with them. Estates&apos; locations will be decided in a series of settling contests for each district upon launch of Merca City.<br /><br />Settlers can build whatever they wish in their Estates, or at least as far as the size allows. Below is a list of possible use cases, but this is not exhaustive and players may find novel uses for them:
                 </Text>
                 
                 <Tabs pt={10}>
@@ -46,7 +46,7 @@ export default function EstatesPage() {
                                 <Text color="gray.700">Owners may use their properties themselves or rent them out through escrows. Users may also choose any third party smart contracts or even write their own to fit their specific purpose.</Text>
 
                                 <ListItem pt={6} fontWeight="semibold">Collateral</ListItem>
-                                <Text color="gray.700">Walk to the bank and take out a loan using your Estate as collateral. Build and upgrade your Estate to increase its value and qualify for greater sums. The more active you are in the game, the better your credit score gets.</Text>
+                                <Text color="gray.700">Walk to the bank and take out a loan using your Estate as collateral. Build and upgrade your Estate to increase its value and qualify for higher loans. The more active you are in the game, the better your credit score gets.</Text>
 
                                 <ListItem pt={6} fontWeight="semibold">Minigames</ListItem>
                                 <Text color="gray.700">Do you have an idea for an activity or minigame? You can launch it in Merca City, airdrop the assets to players based on your own set of criteria, or sell them in our Marketplace. In Merca City you may also find many great artists, designers, and developers to collaborate with on your next big project.</Text>
@@ -55,7 +55,7 @@ export default function EstatesPage() {
                                 <Text color="gray.700">Estates are necessary to store game assets that would otherwise quickly reach the limit of the default backpack inventory space. Anyone may enter Merca City, but an Estate would extend a user&apos;s inventory beyond the default mode. In Merca City anyone may find rare items but, unless they own an Estate, there are limits to how many items may be picked up.</Text>
 
                                 <ListItem pt={6} fontWeight="semibold">Approved Shops & Art Supplies</ListItem>
-                                <Text color="gray.700">Select artist members of TaurosDAO will have a choice to set up their own art supplies&apos; shop where players not only from Merca City and Labyrinthine Unreal, but form other metaverses as well, may come up and ask for custom made game items. In our own game platform, we&apos;ll have special designated rogue areas where players may try out experimental assets. If these assets work well and fit the general theme of the game, they may later be incorporated into the game proper, allocating lifetime royalties to both the artist and the sponsor.</Text>
+                                <Text color="gray.700">Select artist members of TaurosDAO will have a choice to set up their own art supplies&apos; shop where players not only from Merca City and Labyrinthine Unreal, but from other metaverses as well, may come up and ask for custom made game items. In our own game platform, there are special designated rogue areas where players may try out experimental assets. If these assets work well and fit the general theme of the game, they may later be incorporated into the game proper, allocating lifetime royalties to both the artist and the sponsor.</Text>
                             </UnorderedList>
                         </TabPanel>
                         <TabPanel>
