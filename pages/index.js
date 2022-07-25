@@ -4,11 +4,14 @@ import { cardVariant, parentVariant } from "../motion"
 import properties from "@components/data/properties/"
 import ProductCard from "@components/mintComp/ProductCard"
 import ProductModal from "@components/mintComp/ProductModal"
-import { Box, SimpleGrid, Text, Link, Heading, Collapse, useDisclosure, Button, Center } from "@chakra-ui/react"
+import { Box, SimpleGrid, Text, Link, Heading, Collapse, useDisclosure, Button, Center, IconButton } from "@chakra-ui/react"
 import Head from "next/head"
 import EstatesBalance from "@components/mintComp/EstatesBalance"
 import EstatesClaimed from "@components/mintComp/EstatesClaimed"
 import TaurosBalance from "@components/mintComp/TaurosBalance"
+import styles from '@styles/MintButton.module.css'
+import { IoMdArrowDropdownCircle, IoMdArrowDropupCircle } from 'react-icons/io'
+import { TbArrowBigDownLines, TbArrowBigUpLines } from 'react-icons/tb'
 
 
 const MotionSimpleGrid = motion(SimpleGrid)
@@ -29,7 +32,7 @@ export default function Home() {
         <Heading textStyle="title" fontSize="3xl">Welcome to Taurosdao</Heading>
 
         <Box alignContent="center">
-            <Box textStyle="landingPageContent">
+            <Box textStyle="landingPageContent" pb={0}>
                 <Collapse in={isOpen} startingHeight={60}>
                     TaurosDAO is an exclusive community of artists and collectors founded in November 2021 by <Link href="https://www.labyrinthineunreal.io/" target="_blank" rel="noreferrer" style={{color: "black", fontWeight: "500"}}>Labyrinthine Unreal</Link>. For purposes of governance and other membership privileges, members need to hold at least one <span style={{color: "black", fontWeight: "500"}}>TAUROS</span> token.
                     <br /><br />
@@ -38,24 +41,24 @@ export default function Home() {
                     Upon release, TAUROS holders may claim the first 800 Estates for free out of a total of 4300. The rest (3300) will be whitelisted at a price of 0.1 ETH for the presale and 0.15 for the public sale. 200 Estates will be reserved by the team for special areas, public buildings, and institutions. You will have two days to mint one free Estate for each token you own until 800 have been claimed, after which the private sale will start.
                 </Collapse>
                 <Box align="right" px={4}>
-                    <Button onClick={onToggle} variant="unstyled" color="black" >
-                        {isOpen ? "Read less" : "Read more"}
-                    </Button>
+                    <IconButton className={styles.arrow} w="50" h="50" onClick={onToggle} variant="unstyled" color="black" >
+                        {isOpen ?  <TbArrowBigUpLines w="20" h="20" /> : <TbArrowBigDownLines w="20" h="20" />}
+                    </IconButton>
                 </Box>
             </Box>
 
 
-            <SimpleGrid columns={{sm: 1, md: 3}} gap={4} mt={20} mb={10} pt={4} px={4} maxW={900}>
-                <Box>
-                    <Heading pb={2} fontSize="16px" fontWeight="normal" color="#4A5568">TAUROS BALANCE</Heading>
+            <SimpleGrid columns={{sm: 1, md: 3}} gap={4} mt={20} mb={10} pt={4} px={4} maxW={1000}>
+                <Box className={styles.balances}>
+                    <Heading pb={2} fontSize="18px" fontWeight="normal" color="#4A5568">TAUROS BALANCE</Heading>
                     <TaurosBalance />
                 </Box>
-                <Box>
+                {/* <Box className={styles.balances}>
                     <Heading pb={2} fontSize="16px" fontWeight="normal" color="#4A5568">ESTATES BALANCE</Heading>
-                    <EstatesBalance />
-                </Box>
-                <Box>
-                    <Heading pb={2} fontSize="16px" fontWeight="normal" color="#4A5568">UNCLAIMED ESTATES</Heading>
+                    <EstatesBalance fontWeight="normal" fontSize="xs" />
+                </Box> */}
+                <Box className={styles.balances}>
+                    <Heading pb={2} fontSize="18px" fontWeight="normal" color="#4A5568">UNCLAIMED ESTATES</Heading>
                     <EstatesClaimed />
                 </Box>
             </SimpleGrid>

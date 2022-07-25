@@ -14,7 +14,7 @@ export default function EstatesClaimed() {
         if (!isAuthenticated) {
             console.log("!isAuthenticated")
             if (Moralis.isWeb3Enabled()) Moralis.deactivateWeb3();
-            setEstates("");
+            setEstates("Sign in to check for free mint");
         }
 
         if (isAuthenticated) {
