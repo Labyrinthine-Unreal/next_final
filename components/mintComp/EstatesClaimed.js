@@ -14,7 +14,7 @@ export default function EstatesClaimed() {
         if (!isAuthenticated) {
             console.log("!isAuthenticated")
             if (Moralis.isWeb3Enabled()) Moralis.deactivateWeb3();
-            setEstates("You are NOT authenticated");
+            setEstates("");
         }
 
         if (isAuthenticated) {
@@ -33,7 +33,7 @@ export default function EstatesClaimed() {
                         owner: user.get('ethAddress'),
                     }
                 }
-                let estatesOtions = {
+                let estatesOptions = {
                     contractAddress: '0x9800D87960307a08B086625819E0909cCDc7975f',
                     functionName: 'balanceOf',
                     abi: estatesABI,
@@ -53,7 +53,7 @@ export default function EstatesClaimed() {
                 });
                 // calling for the balance of ESTATES.
                 await contractProcessor.fetch({
-                    params: estatesOtions,
+                    params: estatesOptions,
                     onSuccess: (results) => {
                         estatesAmount = parseInt(results.toString());
                     },

@@ -47,15 +47,15 @@ export default function Home() {
 
             <SimpleGrid columns={{sm: 1, md: 3}} gap={4} mt={20} mb={10} pt={4} px={4} maxW={900}>
                 <Box>
-                    <Heading fontSize="16px" fontWeight="normal" color="#4A5568">TAUROS BALANCE</Heading>
+                    <Heading pb={2} fontSize="16px" fontWeight="normal" color="#4A5568">TAUROS BALANCE</Heading>
                     <TaurosBalance />
                 </Box>
                 <Box>
-                    <Heading fontSize="16px" fontWeight="normal" color="#4A5568">ESTATES BALANCE</Heading>
+                    <Heading pb={2} fontSize="16px" fontWeight="normal" color="#4A5568">ESTATES BALANCE</Heading>
                     <EstatesBalance />
                 </Box>
                 <Box>
-                    <Heading fontSize="16px" fontWeight="normal" color="#4A5568">UNCLAIMED ESTATES</Heading>
+                    <Heading pb={2} fontSize="16px" fontWeight="normal" color="#4A5568">UNCLAIMED ESTATES</Heading>
                     <EstatesClaimed />
                 </Box>
             </SimpleGrid>
