@@ -50,8 +50,8 @@ export default function MBE() {
       },
       onError: (error) => {
         toast({
-          title: 'Mint Failed...',
-          description: 'Mint Failed.. User is Not Whitelisted or rejected the transaction',
+          title: 'Mint Failed.. User is Not Whitelisted or rejected the transaction',
+          description: console.log(error),
           status: "error",
           duration: '9000',
           isClosable: true
