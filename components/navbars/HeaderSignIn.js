@@ -28,7 +28,7 @@ export default function HeaderSignIn({ onOpen, ...rest }) {
               </Box>
               <Spacer />
               <Center className={styles.connect}>
-                  <ConnectButton signingMessage="TaurosDAO Login" />
+                  <ConnectButton type="button" disabled signingMessage="TaurosDAO Login" />
               </Center>
           </Flex>
       );

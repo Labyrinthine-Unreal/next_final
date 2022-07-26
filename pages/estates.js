@@ -30,10 +30,10 @@ export default function EstatesPage() {
                         <TabPanel>
                             <UnorderedList fontSize="15px">
                                 <ListItem fontWeight="semibold">Private & Public Art Galleries</ListItem>
-                                <Text color="gray.700">For artists and collectors, the Estates are a great way to display their works and collections. These may be open to the public or private and accessible only with the proper link or password. They are fully customizable, so users may show off their design skills, or they may opt to use default constructions.</Text>
+                                <Text color="gray.700">For artists and collectors, the Estates are a great way to display their works and collections. These may be open to the public, or they may be private and accessible only with the proper link or password. They are fully customizable, so users may show off their design skills, or they may opt to use default constructions.</Text>
 
                                 <ListItem pt={6} fontWeight="semibold">Event Venues & Ticketed Events</ListItem>
-                                <Text color="gray.700">The ability to lock private areas means also being able to create ticketed events, and get paid in other NFTs or ERC20 tokens for access. From concerts and auditorium halls to conferences and workshops, users may create and schedule one time or recurrent events and even offer subscriptions to their followers.</Text>
+                                <Text color="gray.700">The ability to lock private areas means also being able to create ticketed events and get paid in other NFTs or ERC20 tokens for access. From concerts and auditorium halls to conferences and workshops, users may create and schedule one time or recurrent events and even offer subscriptions to their followers.</Text>
 
                                 <ListItem pt={6} fontWeight="semibold">Rental Spaces</ListItem>
                                 <Text color="gray.700">Owners may use their properties themselves or rent them out through escrows. Users may also choose any third party smart contracts or even write their own to fit their specific purpose.</Text>
@@ -45,7 +45,7 @@ export default function EstatesPage() {
                                 <Text color="gray.700">Do you have an idea for an activity or minigame? You can launch it in Merca City, airdrop the assets to players based on your own set of criteria, or sell them in our Marketplace. In Merca City you may also find many great artists, designers, and developers to collaborate with on your next big project.</Text>
 
                                 <ListItem pt={6} fontWeight="semibold">Storage</ListItem>
-                                <Text color="gray.700">Estates are necessary to store game assets that would otherwise quickly reach the limit of the default backpack inventory space. Anyone may enter Merca City, but an Estate would extend a user&apos;s inventory beyond the default mode. In Merca City anyone may find rare items but, unless they own an Estate, there are limits to how many items may be picked up.</Text>
+                                <Text color="gray.700">Estates are necessary to store game assets that would otherwise reach the limit of the default backpack inventory space. Anyone may enter Merca City, but an Estate would extend a user&apos;s inventory beyond the default mode. In Merca City anyone may find rare items but, unless they own an Estate, there are limits to how many items may be picked up.</Text>
 
                                 <ListItem pt={6} fontWeight="semibold">Approved Shops & Art Supplies</ListItem>
                                 <Text color="gray.700">Select artist members of TaurosDAO will have a choice to set up their own art supplies&apos; shop where players not only from Merca City and Labyrinthine Unreal, but from other metaverses as well, may come up and ask for custom made game items. In our own game platform, there are special designated rogue areas where players may try out experimental assets. If these assets work well and fit the general theme of the game, they may later be incorporated into the game proper, allocating lifetime royalties to both the artist and the sponsor.</Text>
@@ -110,7 +110,7 @@ export default function EstatesPage() {
             
             <Box textStyle="content">
                 <Text>
-                    There are six districts in the city, each specialized in one area: 
+                    There are six districts in the city, each specialized in its own specific area: 
                 </Text>
 
                     <List py={5} ml={5} spacing="2">
@@ -139,10 +139,6 @@ export default function EstatesPage() {
                             Morea (rugged terrain, rich in oil & gold ores)
                         </ListItem>
                     </List>
-
-                <Text>
-                    Peace is fragile in the city. Tension is in the air and war is always ready to break out. Morea is rich in gold and oil but its denizens are beholden to the whims of Ritus, the financial district whose reach no one in Merca can escape.
-                </Text>
             </Box>
         </Box>
     )

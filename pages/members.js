@@ -37,7 +37,7 @@ export default function SlideEx() {
                                 <Text color="gray.700">Many assets created by TaurosDAO are initially dropped to existing members (TAUROS holders). This is the case, for example, with Merca City Estates (land plots), in-game tokens, and other game assets such as, resource mining utilities, etc.</Text>
 
                                 <ListItem pt={6} fontWeight="semibold">Various Whitelists, Rewards, and third party Airdrops</ListItem>
-                                <Text color="gray.700">Being part of a thriving community brings many other opportunities beyond the community itself. Other projects constantly seek collaboration & partnership with TaurosDAO. Airdrops from other projects will be common.</Text>
+                                <Text color="gray.700">Being part of a thriving community brings many other opportunities beyond the community itself. Other projects constantly seek collaboration and partnership with TaurosDAO. We expect airdrops from other projects will be common.</Text>
                             </UnorderedList>
                         </TabPanel>
                         <TabPanel>
@@ -51,8 +51,8 @@ export default function SlideEx() {
                                 <ListItem pt={6} fontWeight="semibold">Direct Purchases by TaurosDAO or Labyrinthine Unreal</ListItem>
                                 <Text color="gray.700">Both Labyrinthine Unreal and TaurosDAO may directly purchase artworks from our members. However, this is not a guarantee and it should not be the reason for anyone to purchase a card and become a member. TaurosDAO exists as a service to its art community, and being a member does not entitle one to guaranteed sales.</Text>
 
-                                <ListItem pt={6} fontWeight="semibold">Early Access to the Terra curated NFT Marketplace</ListItem>
-                                <Text color="gray.700">Terra is an exclusive curated NFT Marketplace. It will feature both 1/1 works and collections and it is designed from the ground up to bring many features that are sorely lacking in the space, from a tiered verification system to various promotional activities to afford visibility to participating artists, personal author&apos;s page, wip publishing options and much more. Applications for 1/1 artists will open soon, so keep an eye out for the announcement.<a href="#disclaimer">*</a></Text>
+                                <ListItem pt={6} fontWeight="semibold">Early Access to our curated NFT Marketplace</ListItem>
+                                <Text color="gray.700">Our curated NFT Marketplace will feature both 1/1 works and collections and it is designed from the ground up to bring many features that are sorely lacking in the space, from a tiered verification system to various promotional activities to afford proper visibility to participating artists, personal author&apos;s page, wip publishing options and much more. Applications for 1/1 artists will open soon, so keep an eye out for the announcement.<a href="#disclaimer">*</a></Text>
 
                                 <ListItem pt={6} fontWeight="semibold">Various Promotional Activities</ListItem>
                                 <Text color="gray.700">Labyrinthine Unreal and TaurosDAO are a massive ecosystem, and therefore hold a huge potential for promotional activities, from art galleries and podcast shows featuring our members, to exhibitions within the Merca City sim, concerts, contests, museums, and even collaborations and custom works demand by gamers and other metaverse visitors.</Text>
