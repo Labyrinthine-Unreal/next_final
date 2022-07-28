@@ -1,7 +1,8 @@
-import { Flex, Center, IconButton, Box, Image, Spacer } from "@chakra-ui/react"
+import { Flex, Center, IconButton, Box, Image, Spacer } from '@chakra-ui/react'
 import { ImMenu } from 'react-icons/im'
-import { ConnectButton } from "web3uikit"
-import styles from "@styles/SignIn.module.css"
+import { ConnectButton } from 'web3uikit'
+import styles from '@styles/SignIn.module.css'
+
 
 
 export default function HeaderSignIn({ onOpen, ...rest }) {

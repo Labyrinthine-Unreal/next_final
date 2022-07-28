@@ -12,6 +12,7 @@ import TaurosBalance from '@components/mint/TaurosBalance'
 import styles from '@styles/MintButton.module.css'
 import { TbArrowBigDownLines, TbArrowBigUpLines } from 'react-icons/tb'
 import Title, { LU } from '@components/AnimatedTitles'
+import { useInView } from 'react-intersection-observer'
 
 
 const MotionSimpleGrid = motion(SimpleGrid)
@@ -21,6 +22,12 @@ const MotionIconButton = motion(IconButton)
 export default function Home() {
   const [modalData, setModalData] = useState(null)
   const { isOpen, onToggle } = useDisclosure()
+
+  const [ref, inView] = useInView({
+      /* Optional options */
+      threshold: 0.3,
+      triggerOnce: false
+  });
 
   const buttonVariants = {
     initial: {
@@ -51,7 +58,7 @@ export default function Home() {
         <Box alignContent="center">
             <Box textStyle="landingPageContent" pb={0}>
                 <motion.div initial="initial" whileInView="whileInView" whileHover="hover" tap="whileTap">
-                    <Collapse in={isOpen} startingHeight={60}>
+                    <Collapse in={isOpen} startingHeight={155}>
                         TaurosDAO is an exclusive community of artists and collectors founded in November 2021 by <Link href="https://www.labyrinthineunreal.io/" target="_blank" rel="noreferrer" style={{color: "black", fontWeight: "500"}}>Labyrinthine Unreal</Link>. For purposes of governance and other membership privileges, members need to hold at least one <span style={{color: "black", fontWeight: "500"}}>TAUROS</span> token. There will only ever be 2000 TAUROS tokens: 300 OG and 1700 Standard. OG members receive free airdrops of all future assets Labyrinthine Unreal and TaurosDAO produce. Merca City Estates are the first of these drops. Standard members receive random drops and most other perks (for a more detailed overview check the members page). Price doubles for every 500 tokens minted.
                         <br /><br />
                         <UnorderedList>
@@ -98,8 +105,10 @@ export default function Home() {
             spacing="4em"
             minH="full"
             variants={parentVariant}
-            initial="initial"
-            animate="animate"
+            // initial="initial"
+            // animate="animate"
+            animate={inView ? "animate" : "initial"} 
+            ref={ref}
           >
             {products.map((product, i) => (
               <MotionBox variants={cardVariant} key={i}>

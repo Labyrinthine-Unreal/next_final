@@ -31,7 +31,7 @@ export default function TitleComp() {
             className="load-screen--message"
             variants={sentence}
             initial="hidden"
-            whileInView="visible"
+            animate="visible"
 
         >
         {welcome.split("").map((char, index) => {

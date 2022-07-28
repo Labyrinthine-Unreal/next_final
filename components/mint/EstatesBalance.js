@@ -12,7 +12,7 @@ export default function EstatesBalance() {
 
         if (!isAuthenticated) {
             if (Moralis.isWeb3Enabled()) Moralis.deactivateWeb3();
-            setEstates("");
+            setEstates("Sign in to view your balance");
         }
 
         if (isAuthenticated) {
