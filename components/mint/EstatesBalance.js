@@ -22,7 +22,7 @@ export default function EstatesBalance() {
                 let estatesAmount;
 
                 let estatesOptions = {
-                    contractAddress: '0x075ba61CFA6437EF6531eE7beDEbCB0D18aa14C4',
+                    contractAddress: '0x98329539A5a19bB64eBCde2663fB8b46dF12E479',
                     functionName: 'balanceOf',
                     abi: estatesABI,
                     params: {
