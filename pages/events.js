@@ -1,11 +1,11 @@
 import { Box, Heading, Flex, SimpleGrid } from "@chakra-ui/react"
 import Head from "next/head"
-import OECard from "@components/events/OngoingEventsCard"
-import ongoingEvents from "@components/events/ongoingEventsData"
-import UECard from "@components/events/UpcomingEventsCard"
-import upcomingEvents from "@components/events/upcomingEventsData"
-import PECard from "@components/events/PastEventsCard"
-import pastEvents from "@components/events/pastEventsData"
+import OECard from "@components/cards/OngoingEventsCard"
+import ongoingEvents from "@components/data/ongoingEventsData"
+import UECard from "@components/cards/UpcomingEventsCard"
+import upcomingEvents from "@components/data/upcomingEventsData"
+import PECard from "@components/cards/PastEventsCard"
+import pastEvents from "@components/data/pastEventsData"
 import "@fontsource/tangerine"
 
 

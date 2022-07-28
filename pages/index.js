@@ -1,25 +1,44 @@
-import React, { useState } from "react"
-import { motion } from "framer-motion"
-import { cardVariant, parentVariant } from "../motion"
-import properties from "@components/data/properties/"
-import ProductCard from "@components/mintComp/ProductCard"
-import ProductModal from "@components/mintComp/ProductModal"
-import { Box, SimpleGrid, Text, Link, Heading, Collapse, useDisclosure, Button, Center, IconButton } from "@chakra-ui/react"
+import React, { useState } from 'react'
+import { motion } from 'framer-motion'
+import { cardVariant, parentVariant } from '../motion'
+import products from '@components/data/products/'
+import titles from '@components/data/titles'
+import ProductCard from '@components/cards/ProductCard'
+import ProductModal from '@components/cards/ProductModal'
+import { Box, SimpleGrid, Text, Link, Heading, Collapse, useDisclosure, IconButton, UnorderedList, ListItem } from '@chakra-ui/react'
 import Head from "next/head"
-import EstatesBalance from "@components/mintComp/EstatesBalance"
-import EstatesClaimed from "@components/mintComp/EstatesClaimed"
-import TaurosBalance from "@components/mintComp/TaurosBalance"
+import EstatesBalance from '@components/mint/EstatesBalance'
+import EstatesClaimed from '@components/mint/EstatesClaimed'
+import TaurosBalance from '@components/mint/TaurosBalance'
 import styles from '@styles/MintButton.module.css'
 import { IoMdArrowDropdownCircle, IoMdArrowDropupCircle } from 'react-icons/io'
 import { TbArrowBigDownLines, TbArrowBigUpLines } from 'react-icons/tb'
+import Title from '@components/AnimatedTitle'
 
 
 const MotionSimpleGrid = motion(SimpleGrid)
 const MotionBox = motion(Box)
+const MotionIconButton = motion(IconButton)
 
 export default function Home() {
   const [modalData, setModalData] = useState(null)
   const { isOpen, onToggle } = useDisclosure()
+
+  const buttonVariants = {
+    initial: {
+      scale: 1
+    },
+    whileInView: {
+      scale: [1.5, 1],
+      transition: {repeat: Infinity, type: "spring", duration: 2}
+    },
+    hover: {
+      color: "teal"
+    },
+    tap: {
+      scale: 2
+    }
+  }
 
   return (
     <Box>
@@ -29,22 +48,31 @@ export default function Home() {
             </title>
         </Head>
 
-        <Heading textStyle="title" fontSize="3xl">Welcome to Taurosdao</Heading>
+        <Heading textStyle="title" fontSize="3xl"><Title /></Heading>
 
         <Box alignContent="center">
             <Box textStyle="landingPageContent" pb={0}>
-                <Collapse in={isOpen} startingHeight={60}>
-                    TaurosDAO is an exclusive community of artists and collectors founded in November 2021 by <Link href="https://www.labyrinthineunreal.io/" target="_blank" rel="noreferrer" style={{color: "black", fontWeight: "500"}}>Labyrinthine Unreal</Link>. For purposes of governance and other membership privileges, members need to hold at least one <span style={{color: "black", fontWeight: "500"}}>TAUROS</span> token.
-                    <br /><br />
-                    <span style={{color: "black", fontWeight: "500"}}>Merca City</span> is an open world Metaverse/RTS Game, where TaurosDAO members, artists, designers, developers, gamers, and collectors may come together to play, experiment, and collaborate. <span style={{color: "black", fontWeight: "500"}}>Estates</span> are Merca City&apos;s genesis assets.
-                    <br /><br />
-                    Upon release, TAUROS holders may claim the first 800 Estates for free out of a total of 4300. The rest (3300) will be whitelisted at a price of 0.1 ETH for the presale and 0.15 for the public sale. 200 Estates will be reserved by the team for special areas, public buildings, and institutions. You will have two days to mint one free Estate for each token you own until 800 have been claimed, after which the private sale will start.
-                </Collapse>
-                <Box align="right" px={4}>
-                    <IconButton className={styles.arrow} w="50" h="50" onClick={onToggle} variant="unstyled" color="black" >
-                        {isOpen ?  <TbArrowBigUpLines w="20" h="20" /> : <TbArrowBigDownLines w="20" h="20" />}
-                    </IconButton>
-                </Box>
+                <motion.div initial="initial" whileInView="whileInView" whileHover="hover" tap="whileTap">
+                    <Collapse in={isOpen} startingHeight={60}>
+                        TaurosDAO is an exclusive community of artists and collectors founded in November 2021 by <Link href="https://www.labyrinthineunreal.io/" target="_blank" rel="noreferrer" style={{color: "black", fontWeight: "500"}}>Labyrinthine Unreal</Link>. For purposes of governance and other membership privileges, members need to hold at least one <span style={{color: "black", fontWeight: "500"}}>TAUROS</span> token. There will only ever be 2000 TAUROS tokens: 300 OG and 1700 Standard. OG members receive free airdrops of all future assets Labyrinthine Unreal and TaurosDAO produce. Merca City Estates are the first of these drops. Standard members receive random drops and most other perks (for a more detailed overview check the members page). Price doubles for every 500 tokens minted.
+                        <br /><br />
+                        <UnorderedList>
+                          <ListItem>500 TAUROS x 0.05 ETH</ListItem>
+                          <ListItem>500 TAUROS x 0.1 ETH</ListItem>
+                          <ListItem>500 TAUROS x 0.2 ETH</ListItem>
+                          <ListItem>500 TAUROS x 0.4 ETH</ListItem>
+                        </UnorderedList>
+                        <br />
+                        <span style={{color: "black", fontWeight: "500"}}>Merca City</span> is an open world Metaverse/RTS Game, where TaurosDAO members, artists, designers, developers, gamers, and collectors may come together to play, experiment, and collaborate. <span style={{color: "black", fontWeight: "500"}}>Estates</span> are Merca City&apos;s genesis assets.
+                        <br /><br />
+                        Upon release, TAUROS holders may claim the first 800 Estates for free out of a total of 4300. The rest (3300) will be whitelisted at a price of 0.1 ETH for the presale and 0.15 for the public sale. 200 Estates will be reserved by the team for special areas, public buildings, and institutions. You will have two days to mint one free Estate for each token you own until 800 have been claimed, after which the private sale will start.
+                    </Collapse>
+                    <Box align="right" px={4}>
+                        <MotionIconButton variants={buttonVariants}  className={styles.arrow} w="50" h="50" onClick={onToggle} variant="unstyled" color="black" >
+                            {isOpen ?  <TbArrowBigUpLines w="20" h="20" /> : <TbArrowBigDownLines w="20" h="20" />}
+                        </MotionIconButton>
+                    </Box>
+                </motion.div>
             </Box>
 
 
@@ -53,14 +81,14 @@ export default function Home() {
                     <Heading pb={2} fontSize="18px" fontWeight="normal" color="#4A5568">TAUROS BALANCE</Heading>
                     <TaurosBalance />
                 </Box>
-                {/* <Box className={styles.balances}>
-                    <Heading pb={2} fontSize="16px" fontWeight="normal" color="#4A5568">ESTATES BALANCE</Heading>
-                    <EstatesBalance fontWeight="normal" fontSize="xs" />
-                </Box> */}
                 <Box className={styles.balances}>
+                    <Heading pb={2} fontSize="18px" fontWeight="normal" color="#4A5568">ESTATES BALANCE</Heading>
+                    <EstatesBalance fontWeight="normal" fontSize="xs" />
+                </Box>
+                {/* <Box className={styles.balances}>
                     <Heading pb={2} fontSize="18px" fontWeight="normal" color="#4A5568">UNCLAIMED ESTATES</Heading>
                     <EstatesClaimed />
-                </Box>
+                </Box> */}
             </SimpleGrid>
             
         </Box>
@@ -75,7 +103,7 @@ export default function Home() {
             initial="initial"
             animate="animate"
           >
-            {properties.map((product, i) => (
+            {products.map((product, i) => (
               <MotionBox variants={cardVariant} key={i}>
                 <ProductCard product={product} setModalData={setModalData} />
               </MotionBox>
@@ -88,7 +116,7 @@ export default function Home() {
             />
         </Box>
 
-        <Heading textStyle="title">
+        <Heading textStyle="title" pt={20}>
           Labyrinthine Unreal
         </Heading>
 

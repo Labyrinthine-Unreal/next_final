@@ -1,7 +1,7 @@
 import { Box, Heading, Text, Flex, SimpleGrid, Link } from "@chakra-ui/react"
 import Head from "next/head"
-import GalleriesCard from "@components/events/GalleriesCard"
-import galleriesData from "@components/events/galleriesData";
+import GalleriesCard from "@components/cards/GalleriesCard"
+import galleriesData from "@components/data/galleriesData";
 
 export default function GalleriesPage() {
 
