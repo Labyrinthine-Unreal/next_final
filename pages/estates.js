@@ -18,11 +18,11 @@ import { useInView } from 'react-intersection-observer'
 
 export default function EstatesPage() {
 
-    const [ref, inView] = useInView({
-        /* Optional options */
-        threshold: 0.5,
-        triggerOnce: false
-      });
+    // const [ref, inView] = useInView({
+    //     /* Optional options */
+    //     threshold: 0.5,
+    //     triggerOnce: false
+    //   });
             
     return (
         <Box>
