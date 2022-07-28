@@ -10,7 +10,6 @@ import EstatesBalance from '@components/mint/EstatesBalance'
 import EstatesClaimed from '@components/mint/EstatesClaimed'
 import TaurosBalance from '@components/mint/TaurosBalance'
 import styles from '@styles/MintButton.module.css'
-import { IoMdArrowDropdownCircle, IoMdArrowDropupCircle } from 'react-icons/io'
 import { TbArrowBigDownLines, TbArrowBigUpLines } from 'react-icons/tb'
 import Title, { LU } from '@components/AnimatedTitles'
 

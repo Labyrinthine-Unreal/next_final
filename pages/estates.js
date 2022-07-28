@@ -3,20 +3,26 @@ import { Box, Center, Text, UnorderedList, List, ListItem, ListIcon, Heading, Ta
 import { ImEarth } from 'react-icons/im'
 import { Estates, Districts } from '@components/AnimatedTitles'
 import { motion } from 'framer-motion'
+import { useInView } from 'react-intersection-observer'
 
 const MotionCenter = motion(Center)
 
 const VideoVariants = {
-    initial: {
-        scale: 0.9
-    },
-    whileInView: {
-        scale: 1,
-        transition: { type: "spring", duration: 3 }
+    visible: { opacity: 1, scale: 1, y: 0 },
+    hidden: {
+      opacity: 0,
+      scale: 0.65,
+      y: 50
     }
-}
+  };
 
 export default function EstatesPage() {
+
+    const [ref, inView] = useInView({
+        /* Optional options */
+        threshold: 0.5,
+        triggerOnce: false
+      });
             
     return (
         <Box>
@@ -108,7 +114,14 @@ export default function EstatesPage() {
                 </Tabs>
             </Box>
                     
-                <MotionCenter pt={10} variants={VideoVariants} initial="initial" whileInView="whileInView">
+                <MotionCenter 
+                    py={20} 
+                    variants={VideoVariants} 
+                    animate={inView ? "visible" : "hidden"} 
+                    transition={{ duration: 2, ease: "easeOut" }}
+                    ref={ref}
+                    className="magic"
+                >
                     <video 
                         src="videos/Cloudy.mp4" 
                         alt="Merca-City-Map"
@@ -118,7 +131,7 @@ export default function EstatesPage() {
                     />
                 </MotionCenter>
 
-            <Heading pt={20} fontSize="3xl" textStyle="title">
+            <Heading pt={10} fontSize="3xl" textStyle="title">
                 <Districts />
             </Heading>
             
