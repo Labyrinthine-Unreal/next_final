@@ -9,6 +9,7 @@ const events = "Events"
 const estates = "Estates"
 const galleries = "Art Galleries"
 const podcasts = "Frontier Podcast"
+const districts = "Districts"
 
 const sentence = {
     hidden: { opacity: 0 },
@@ -205,7 +206,27 @@ function Podcasts() {
     )
 }
 
-export { LU, About, Members, Voting, Events, Estates, Galleries, Podcasts }
+function Districts() {
+
+    return (
+        <motion.div
+            className="load-screen--message"
+            variants={sentence}
+            initial="hidden"
+            whileInView="visible"
+        >
+        {districts.split("").map((char, index) => {
+            return (
+                <motion.span key={char + '-' + index} variants={letter}>
+                    {char}
+                </motion.span>
+            )
+        })}
+        </motion.div>
+    )
+}
+
+export { LU, About, Members, Voting, Events, Estates, Galleries, Podcasts, Districts }
 
 
 

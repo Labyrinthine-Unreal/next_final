@@ -1,7 +1,20 @@
 import Head from 'next/head'
 import { Box, Center, Text, UnorderedList, List, ListItem, ListIcon, Heading, Tabs, TabList, Tab, TabPanels, TabPanel } from "@chakra-ui/react"
 import { ImEarth } from 'react-icons/im'
-import { Estates } from '@components/AnimatedTitles'
+import { Estates, Districts } from '@components/AnimatedTitles'
+import { motion } from 'framer-motion'
+
+const MotionCenter = motion(Center)
+
+const VideoVariants = {
+    initial: {
+        scale: 0.9
+    },
+    whileInView: {
+        scale: 1,
+        transition: { type: "spring", duration: 3 }
+    }
+}
 
 export default function EstatesPage() {
             
@@ -95,7 +108,7 @@ export default function EstatesPage() {
                 </Tabs>
             </Box>
                     
-                <Center pt={10}>
+                <MotionCenter pt={10} variants={VideoVariants} initial="initial" whileInView="whileInView">
                     <video 
                         src="videos/Cloudy.mp4" 
                         alt="Merca-City-Map"
@@ -103,10 +116,10 @@ export default function EstatesPage() {
                         objectfit="cover"
                         layout="fill"
                     />
-                </Center>
+                </MotionCenter>
 
-            <Heading pt={10} fontSize="3xl" textStyle="title">
-                Districts
+            <Heading pt={20} fontSize="3xl" textStyle="title">
+                <Districts />
             </Heading>
             
             <Box textStyle="content">
