@@ -4,7 +4,7 @@ import { cardVariant, parentVariant } from '../motion'
 import products from '@components/data/products/'
 import ProductCard from '@components/cards/ProductCard'
 import ProductModal from '@components/cards/ProductModal'
-import { Box, SimpleGrid, Text, Link, Heading, Collapse, useDisclosure, IconButton, UnorderedList, ListItem } from '@chakra-ui/react'
+import { Box, Center, SimpleGrid, Text, Link, Heading, Collapse, useDisclosure, IconButton, UnorderedList, ListItem } from '@chakra-ui/react'
 import Head from "next/head"
 import EstatesBalance from '@components/mint/EstatesBalance'
 import EstatesClaimed from '@components/mint/EstatesClaimed'
@@ -13,6 +13,7 @@ import styles from '@styles/MintButton.module.css'
 import { TbArrowBigDownLines, TbArrowBigUpLines } from 'react-icons/tb'
 import Title, { LU } from '@components/AnimatedTitles'
 import { useInView } from 'react-intersection-observer'
+import TaurosDAOIcon from '@components/TaurosDAOIcon'
 
 
 const MotionSimpleGrid = motion(SimpleGrid)
@@ -56,10 +57,10 @@ export default function Home() {
         <Heading textStyle="title" fontSize="3xl"><Title /></Heading>
 
         <Box alignContent="center">
-            <Box textStyle="landingPageContent" pb={0}>
+            <Box textStyle="landingPageContent" mb={10} pb={0}>
                 <motion.div initial="initial" whileInView="whileInView" whileHover="hover" tap="whileTap">
-                    <Collapse in={isOpen} startingHeight={155}>
-                        TaurosDAO is an exclusive community of artists and collectors founded in November 2021 by <Link href="https://www.labyrinthineunreal.io/" target="_blank" rel="noreferrer" style={{color: "black", fontWeight: "500"}}>Labyrinthine Unreal</Link>. For purposes of governance and other membership privileges, members need to hold at least one <span style={{color: "black", fontWeight: "500"}}>TAUROS</span> token. There will only ever be 2000 TAUROS tokens: 300 OG and 1700 Standard. OG members receive free airdrops of all future assets Labyrinthine Unreal and TaurosDAO produce. Merca City Estates are the first of these drops. Standard members receive random drops and most other perks (for a more detailed overview check the members page). Price doubles for every 500 tokens minted.
+                    <Collapse in={isOpen} startingHeight={60}>
+                        TaurosDAO is an exclusive community of artists and collectors founded in November 2021 by <Link href="https://www.labyrinthineunreal.io/" target="_blank" rel="noreferrer" style={{color: "black", fontWeight: "500"}}>Labyrinthine Unreal</Link>. For purposes of governance and other membership privileges, members need to hold at least one <span style={{color: "black", fontWeight: "500"}}>TAUROS</span> token. There will only ever be 2000 TAUROS tokens: <span style={{color: "black", fontWeight: "500"}}>300 OG</span> and <span style={{color: "black", fontWeight: "500"}}>1700 Standard</span>. OG members will receive free airdrops of all future assets Labyrinthine Unreal and TaurosDAO produce (such as, Merca City Estates, Initiation Masks, etc). Standard members receive random drops and most other perks (for a more detailed overview check the members page). Price doubles for every 500 tokens sold.
                         <br /><br />
                         <UnorderedList>
                           <ListItem>500 TAUROS x 0.05 ETH</ListItem>
@@ -80,8 +81,10 @@ export default function Home() {
                 </motion.div>
             </Box>
 
-
-            <SimpleGrid columns={{sm: 1, md: 3}} gap={4} mt={20} mb={10} pt={4} px={4} maxW={1000}>
+            <Center><TaurosDAOIcon /></Center>
+            
+            
+            <SimpleGrid columns={{sm: 1, md: 3}} gap={4} mt={20} mb={10} pt={4} px={4}>
                 <Box className={styles.balances}>
                     <Heading pb={2} fontSize="18px" fontWeight="normal" color="#4A5568">TAUROS BALANCE</Heading>
                     <TaurosBalance />

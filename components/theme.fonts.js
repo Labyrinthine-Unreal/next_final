@@ -23,7 +23,8 @@ const theme = extendTheme({
       boxShadow: "0 4px 12px 0 rgba(0, 0, 0, 0.05)", 
       rounded: "lg",
       py: "8",
-      px: "4"
+      px: "4",
+      lineHeight: 'taller',
     },
 
     content: {
@@ -32,7 +33,8 @@ const theme = extendTheme({
       py: "8",
       px: "4",
       bg: "#ffffffbb",
-      opacity: "0.8"
+      opacity: "0.8",
+      lineHeight: 'taller',
     }
 
   },
@@ -40,7 +42,6 @@ const theme = extendTheme({
     global: {
       body: {
         fontWeight: 'light',
-        lineHeight: 'taller',
         color: "black"
       }
     }

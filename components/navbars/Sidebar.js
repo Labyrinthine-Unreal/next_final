@@ -12,7 +12,7 @@ export default function Sidebar() {
             top={20}
             pos="fixed"
             left="5"
-            h="81vh"
+            h="78vh"
             boxShadow="0 4px 12px 0 rgba(0, 0, 0, 0.05)"
             borderRadius={navSize == "small" ? "15px" : "30px"}
             w={navSize == "small" ? "75px" : "200px"}
@@ -44,7 +44,7 @@ export default function Sidebar() {
                         alignItems={navSize == "small" ? "center" : "flex-start"}
                         mb={4}
                     >
-                        <Flex mb={4} align="center">
+                        <Flex align="center">
                             {/* <Avatar size="sm" src="../tauros-avatar-black.png" /> */}
                             <Flex>
                                 <Heading size="sm"><NavItem navSize={navSize} href="/" icon={ImHome} title="Dashboard"/></Heading>
