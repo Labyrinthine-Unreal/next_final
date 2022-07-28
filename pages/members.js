@@ -1,5 +1,6 @@
 import Head from 'next/head'
-import { Box, Heading, Text, UnorderedList, ListItem, Tabs, TabList, TabPanels, Tab, TabPanel, Divider } from "@chakra-ui/react"
+import { Box, Heading, Text, UnorderedList, ListItem, Tabs, TabList, TabPanels, Tab, TabPanel, Divider } from '@chakra-ui/react'
+import { Members } from '@components/AnimatedTitles'
 
 export default function SlideEx() {
   
@@ -12,7 +13,7 @@ export default function SlideEx() {
             </Head>
 
             <Heading textStyle="title" fontSize="3xl">
-                Members
+                <Members />
             </Heading>
             <Box textStyle="content">
                 <Text>

@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import { motion } from 'framer-motion'
 import { cardVariant, parentVariant } from '../motion'
 import products from '@components/data/products/'
-import titles from '@components/data/titles'
 import ProductCard from '@components/cards/ProductCard'
 import ProductModal from '@components/cards/ProductModal'
 import { Box, SimpleGrid, Text, Link, Heading, Collapse, useDisclosure, IconButton, UnorderedList, ListItem } from '@chakra-ui/react'
@@ -13,7 +12,7 @@ import TaurosBalance from '@components/mint/TaurosBalance'
 import styles from '@styles/MintButton.module.css'
 import { IoMdArrowDropdownCircle, IoMdArrowDropupCircle } from 'react-icons/io'
 import { TbArrowBigDownLines, TbArrowBigUpLines } from 'react-icons/tb'
-import Title from '@components/AnimatedTitle'
+import Title, { LU } from '@components/AnimatedTitles'
 
 
 const MotionSimpleGrid = motion(SimpleGrid)
@@ -33,7 +32,7 @@ export default function Home() {
       transition: {repeat: Infinity, type: "spring", duration: 2}
     },
     hover: {
-      color: "teal"
+      color: "#008080"
     },
     tap: {
       scale: 2
@@ -117,7 +116,7 @@ export default function Home() {
         </Box>
 
         <Heading textStyle="title" pt={20}>
-          Labyrinthine Unreal
+          <LU />
         </Heading>
 
         <Text textStyle="landingPageContent">

@@ -1,7 +1,8 @@
-import { Box, Heading, Text, Flex, SimpleGrid } from "@chakra-ui/react"
-import Head from "next/head"
-import PodcastsCard from "@components/cards/PodcastsCard"
-import podcastsData from "@components/data/podcastsData";
+import { Box, Heading, Text, Flex, SimpleGrid } from '@chakra-ui/react'
+import Head from 'next/head'
+import PodcastsCard from '@components/cards/PodcastsCard'
+import podcastsData from '@components/data/podcastsData'
+import { Podcasts } from '@components/AnimatedTitles'
 
 export default function EventsPage() {
 
@@ -14,7 +15,7 @@ export default function EventsPage() {
             </Head>
 
             <Heading textStyle="title" fontSize="3xl">
-                Frontier Podcast
+                <Podcasts />
             </Heading>
             
             <Text textStyle="landingPageContent">

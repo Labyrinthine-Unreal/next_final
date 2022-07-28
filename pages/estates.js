@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import { Box, Center, Text, UnorderedList, List, ListItem, ListIcon, Heading, Tabs, TabList, Tab, TabPanels, TabPanel } from "@chakra-ui/react"
 import { ImEarth } from 'react-icons/im'
+import { Estates } from '@components/AnimatedTitles'
 
 export default function EstatesPage() {
             
@@ -12,7 +13,7 @@ export default function EstatesPage() {
                 </title>
             </Head>
             <Heading textStyle="title" fontSize="3xl">
-                Estates
+                <Estates />
             </Heading>
 
             <Box textStyle="content">

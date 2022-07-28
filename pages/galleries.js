@@ -1,7 +1,8 @@
-import { Box, Heading, Text, Flex, SimpleGrid, Link } from "@chakra-ui/react"
-import Head from "next/head"
-import GalleriesCard from "@components/cards/GalleriesCard"
-import galleriesData from "@components/data/galleriesData";
+import { Box, Heading, Text, Flex, SimpleGrid, Link } from '@chakra-ui/react'
+import Head from 'next/head'
+import GalleriesCard from '@components/cards/GalleriesCard'
+import galleriesData from '@components/data/galleriesData'
+import { Galleries } from '@components/AnimatedTitles'
 
 export default function GalleriesPage() {
 
@@ -14,7 +15,7 @@ export default function GalleriesPage() {
             </Head>
 
             <Heading textStyle="title" fontSize="3xl">
-                Art Galleries
+                <Galleries />
             </Heading>
             
             <Text textStyle="landingPageContent">

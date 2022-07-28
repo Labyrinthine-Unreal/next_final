@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import { Box, Text, Heading } from "@chakra-ui/react"
+import { About } from '@components/AnimatedTitles'
 
 export default function AboutPage() {
     return (
@@ -9,7 +10,7 @@ export default function AboutPage() {
                     TaurosDAO | About
                 </title>
             </Head>
-            <Heading textStyle="title" fontSize="3xl">About</Heading>
+            <Heading textStyle="title" fontSize="3xl"><About /></Heading>
             
             
                 <Text textStyle="content">
