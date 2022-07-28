@@ -1,20 +1,20 @@
 import Head from 'next/head'
-import { Box, Center, Text, UnorderedList, List, ListItem, ListIcon, Heading, Tabs, TabList, Tab, TabPanels, TabPanel } from "@chakra-ui/react"
+import { Box, Center, Text, UnorderedList, List, ListItem, ListIcon, Heading, Tabs, TabList, Tab, TabPanels, TabPanel } from '@chakra-ui/react'
 import { ImEarth } from 'react-icons/im'
 import { Estates, Districts } from '@components/AnimatedTitles'
-import { motion } from 'framer-motion'
+import { motion, useViewportScroll } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
 
-const MotionCenter = motion(Center)
+// const MotionCenter = motion(Center)
 
-const VideoVariants = {
-    visible: { opacity: 1, scale: 1, y: 0 },
-    hidden: {
-      opacity: 0,
-      scale: 0.65,
-      y: 50
-    }
-  };
+// const VideoVariants = {
+//     visible: { opacity: 1, scale: 1, y: 0 },
+//     hidden: {
+//       opacity: 0,
+//       scale: 0.65,
+//       y: 50
+//     }
+//   };
 
 export default function EstatesPage() {
 
@@ -114,13 +114,13 @@ export default function EstatesPage() {
                 </Tabs>
             </Box>
                     
-                <MotionCenter 
+                <Center 
                     py={20} 
-                    variants={VideoVariants} 
-                    animate={inView ? "visible" : "hidden"} 
-                    transition={{ duration: 2, ease: "easeOut" }}
-                    ref={ref}
-                    className="magic"
+                    // variants={VideoVariants} 
+                    // animate={inView ? "visible" : "hidden"} 
+                    // transition={{ duration: 2, ease: "easeOut" }}
+                    // ref={ref}
+                    // className="magic"
                 >
                     <video 
                         src="videos/Cloudy.mp4" 
@@ -129,7 +129,7 @@ export default function EstatesPage() {
                         objectfit="cover"
                         layout="fill"
                     />
-                </MotionCenter>
+                </Center>
 
             <Heading pt={10} fontSize="3xl" textStyle="title">
                 <Districts />
