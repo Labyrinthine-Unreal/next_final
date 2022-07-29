@@ -28,7 +28,7 @@ export default function TauorsDAOIcon() {
       height="280"
     >
       <motion.path
-        stroke="black"
+        stroke="#004D40"
         strokeLinecap="round"
         strokeLinejoin="round"
         strokeWidth={3}
