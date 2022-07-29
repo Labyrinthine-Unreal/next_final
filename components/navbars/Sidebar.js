@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Flex, IconButton, Divider, Heading } from '@chakra-ui/react'
+import { Flex, IconButton, Divider, Heading, Center } from '@chakra-ui/react'
 import { ImMenu, ImEarth, ImHome, ImCalendar, ImUsers } from 'react-icons/im'
 import { MdSummarize, MdBallot } from 'react-icons/md'
 import NavItem from './NavItem'
@@ -23,10 +23,10 @@ export default function Sidebar() {
             <Flex
                 p="5%"
                 flexDir="column"
-                alignItems="flex-start"
+                alignItems={navSize == "small" ? "center" : "flex-start"}
                 as="nav"
             >
-                <IconButton
+               <IconButton
                     background="none"
                     mt={5}
                     _hover={{background: 'none'}}
