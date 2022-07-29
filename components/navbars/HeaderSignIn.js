@@ -1,4 +1,4 @@
-import { Flex, Center, IconButton, Icon, Box, Image, Spacer } from '@chakra-ui/react'
+import { Flex, Center, IconButton, Image, Spacer } from '@chakra-ui/react'
 import { ImMenu } from 'react-icons/im'
 import { ConnectButton } from 'web3uikit'
 import styles from '@styles/SignIn.module.css'

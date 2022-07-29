@@ -53,7 +53,7 @@ export default function EstatesPage() {
                                 <Text color="gray.700">For artists and collectors, the Estates are a great way to display their works and collections. These may be open to the public, or they may be private and accessible only with the proper link or password. They are fully customizable, so users may show off their design skills, or they may opt to use default constructions.</Text>
 
                                 <ListItem pt={6} fontWeight="semibold">Event Venues & Ticketed Events</ListItem>
-                                <Text color="gray.700">The ability to lock private areas means also being able to create ticketed events and get paid in other NFTs or ERC20 tokens for access. From concerts and auditorium halls to conferences and workshops, users may create and schedule one time or recurrent events and even offer subscriptions to their followers.</Text>
+                                <Text color="gray.700">The ability to lock private areas means also being able to create ticketed events and get paid in other NFTs or ERC20 tokens for access. From concerts and auditorium halls to conferences and workshops, users may create and schedule recurrent or one time events and even offer subscriptions to their followers.</Text>
 
                                 <ListItem pt={6} fontWeight="semibold">Rental Spaces</ListItem>
                                 <Text color="gray.700">Owners may use their properties themselves or rent them out through escrows. Users may also choose any third party smart contracts or even write their own to fit their specific purpose.</Text>
@@ -86,13 +86,13 @@ export default function EstatesPage() {
                                 <Text color="gray.700">Staking the game token also unlocks voting powers, and each district will have its own separate voting process for issues important to them (see "Districts" below). In addition, factions may also choose to create and mint their own distinct tokens for closed voting important to their own activities.</Text>
 
                                 <ListItem pt={6} fontWeight="semibold">Rare Item Discovery</ListItem>
-                                <Text color="gray.700">Players may stumble upon rare and valuable items throughout Merca City. However, these items need to be brought to a safe space and secured before you can call them your own. Until then, you are open to attacks and mugging. Districts and factions may write their own rules and even build a police force to protect their citizenry and to create safe spaces within the city.</Text>
+                                <Text color="gray.700">You may stumble upon rare and valuable items throughout Merca City. However, these items need to be brought to a safe space and secured before you can call them your own. Until then, you are open to attacks and mugging. Districts and factions may write their own rules and even build a police force to protect their citizenry and to create safe spaces within the city. Or they may decide to take a more Wild West and <em>laissez faire</em> approach. For these and other game decisions members may use their voting power.</Text>
 
                                 <ListItem pt={6} fontWeight="semibold">Resource Mining</ListItem>
                                 <Text color="gray.700">Natural resources are important in Merca City and, as long as people play the game, there will always be demand for them. Building lumber mills, stone quarries, oil rigs, or gold ores is therefore a lucrative activity.</Text>
 
                                 <ListItem pt={6} fontWeight="semibold">Raids</ListItem>
-                                <Text color="gray.700">"Money won is twice as sweet as money earned!" While all of the above activities are a good way to earn it, raiding others is still more fun. You may raid alone or with your team or even gear up and wage open war to another faction or district.</Text>
+                                <Text color="gray.700">"Money won is twice as sweet as money earned!" While all of the above activities are a good way to earn it, raiding others is more enjoyable still. You may raid alone or with your team or even gear up and wage open war to another faction or district and impose a tax on it. Be careful though, for imposing high taxes may lower productivity and even cause mass migrations. As in everything, a balance must be found.</Text>
                             </UnorderedList>
                         </TabPanel>
                         <TabPanel>
