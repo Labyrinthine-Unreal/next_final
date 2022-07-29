@@ -5,14 +5,12 @@ const svgVariants = {
     initial: {
         opacity: 0.5,
         pathLength: 0,
-        // offsetDistance: "0%", scale: 0.5
     },
     animate: {
         opacity: 1,
         pathLength: 1,
-        // offsetDistance: "100%", scale: 1,
         transition: {
-            duration: 15,
+            duration: 14,
             ease: 'easeInOut',
             repeat: 2,
             repeatType: 'reverse'
@@ -29,8 +27,7 @@ export default function TauorsDAOIcon() {
       width="400"
       height="280"
     >
-      <motion.path 
-        // stroke="#36454F"
+      <motion.path
         stroke="black"
         strokeLinecap="round"
         strokeLinejoin="round"
