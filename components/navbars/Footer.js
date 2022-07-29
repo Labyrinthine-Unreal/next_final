@@ -1,5 +1,6 @@
-import { Flex, Text } from '@chakra-ui/react'
+import { Flex, Text, Box, Center } from '@chakra-ui/react'
 import Icons from './Icons'
+import Credits from './Credits'
 
 export default function Footer(){
     const year = new Date().getFullYear()

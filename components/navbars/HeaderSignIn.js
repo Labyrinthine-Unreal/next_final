@@ -25,8 +25,8 @@ export default function HeaderSignIn({ onOpen, ...rest }) {
                 icon={<ImMenu />}
               />
               <Center display={{ base: "none", md: "flex" }}>
-                <Image src="images/logos-icons/head-only.png" alt="Tauros_final" w="65px" h="85px" />
-                <Image pl={1} src="images/logos-icons/Tauros_letters.png" alt="Tauros_final" w="180px" h="65px" />
+                <Image src="images/logos-icons/tauros_head.png" alt="Tauros_final" w="65px" h="85px" />
+                <Image pl={1} src="images/logos-icons/tauros_letters.png" alt="Tauros_final" w="180px" h="65px" />
               </Center>
               <Spacer />
               <Center className={styles.connect}>
