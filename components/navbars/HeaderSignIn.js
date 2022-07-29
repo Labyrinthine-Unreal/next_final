@@ -9,7 +9,7 @@ export default function HeaderSignIn({ onOpen, ...rest }) {
 
     return (
           <Flex
-              pl="8"
+              pl="7"
               top="0"
               height="20"
               zIndex="1"
@@ -24,9 +24,10 @@ export default function HeaderSignIn({ onOpen, ...rest }) {
                 aria-label="open menu"
                 icon={<ImMenu />}
               />
-              <Box display={{ base: "none", md: "flex" }}>
-                <Image src="images/logos-icons/TaurosDAO_logo.png" alt="Tauros_final" w="200px" h="65px" />
-              </Box>
+              <Center display={{ base: "none", md: "flex" }}>
+                <Image src="images/logos-icons/head-only.png" alt="Tauros_final" w="65px" h="85px" />
+                <Image pl={1} src="images/logos-icons/Tauros_letters.png" alt="Tauros_final" w="180px" h="65px" />
+              </Center>
               <Spacer />
               <Center className={styles.connect}>
                   <ConnectButton type="button" disabled signingMessage="TaurosDAO Login" />
