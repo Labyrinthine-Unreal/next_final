@@ -135,7 +135,7 @@ export default function Home() {
             <br /><br />
             Characters undergo a transformation as they move between worlds; thus, the character one plays is not exactly the same in both worlds, although there are similarities that carry across, for example a character&apos;s gait and other recognizable traits. Their identity becomes hidden under a mask in the Labyrinth. This is the perfect environment to form teams and factions that span both worlds, as well as infiltrate and undermine enemy factions.
             <br /><br />
-            <span style={{color: "black", fontWeight: "500"}}>Initiation Masks</span> are the genesis assets of Labyrinthine Unreal, and the players&apos; ticket to the private alpha stage of the game. TAUROS token holders are automatically whitelisted for the Initiation Masks sale, and those who own both a Mask and an Estate will receive further upgrades to their assets in Merca City. Initiates will also be the first to receive the game&apos;s native token as rewards for completing tasks and/or solving various puzzles.
+            <span style={{color: "black", fontWeight: "500"}}>Initiation Masks</span> are the genesis assets of Labyrinthine Unreal, and the players&apos; ticket to the private alpha stage of the game. All OG Tauros holders will receive a free Initiation Mask for each token they own. Standard Tauros holders will be automatically whitelisted for the sale, and those who own both a Mask and an Estate will receive further upgrades to their assets in Merca City. Initiates will also be the first to receive the game&apos;s native token as rewards for completing tasks and/or solving various puzzles.
         </Text>
     </Box>
   );
