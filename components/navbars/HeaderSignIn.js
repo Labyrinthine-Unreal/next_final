@@ -25,11 +25,7 @@ export default function HeaderSignIn({ onOpen, ...rest }) {
                 icon={<ImMenu />}
               />
               <Box display={{ base: "none", md: "flex" }}>
-                {/* <Image src="images/logos-icons/Tauros_teal.png" alt="TaurosDAO-logo" w="200px" h="80px" /> */}
-                {/* <Image src="images/logos-icons/Tauros_logo.png" alt="TaurosDAO-logo" w="200px" h="80px" />
-                <Image src="images/logos-icons/TaurosDAO_logo.png" alt="TaurosDAO-logo" w="200px" h="65px" />
-                <Image src="images/logos-icons/head.png" alt="TaurosDAO-logo" w="200px" h="65px" /> */}
-                <Image src="images/logos-icons/No_head.png" alt="Tauros_final" w="200px" h="65px" />
+                <Image src="images/logos-icons/TaurosDAO_logo.png" alt="Tauros_final" w="200px" h="65px" />
               </Box>
               <Spacer />
               <Center className={styles.connect}>
