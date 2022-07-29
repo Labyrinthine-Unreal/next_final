@@ -4,11 +4,13 @@ import logoPath from '@components/data/logoPath'
 const svgVariants = {
     initial: {
         opacity: 0.5,
+        scale: 0.98,
         pathLength: 0,
     },
     animate: {
         opacity: 1,
         pathLength: 1,
+        scale: 1.02,
         transition: {
             duration: 14,
             ease: 'easeInOut',
@@ -23,7 +25,7 @@ export default function TauorsDAOIcon() {
     <motion.svg
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
-      viewBox="20 140 720 250"
+      viewBox="10 140 720 250"
       width="400"
       height="280"
     >
