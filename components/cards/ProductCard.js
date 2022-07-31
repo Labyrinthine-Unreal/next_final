@@ -52,7 +52,7 @@ export default function ProductCard({ product, setModalData }) {
             <Box>{salePrice}</Box>
         </Box>
       </Box>
-      {title == "TAUROS MEMBERSHIP CARD" && <AllowList />} 
+      {title == "TAUROS MEMBERSHIP TOKEN" && <AllowList />} 
     </Box>
   );
 }

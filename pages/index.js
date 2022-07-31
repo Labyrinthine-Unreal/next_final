@@ -25,9 +25,8 @@ export default function Home() {
   const { isOpen, onToggle } = useDisclosure()
 
   const [ref, inView] = useInView({
-      /* Optional options */
       threshold: 0.3,
-      triggerOnce: false
+      triggerOnce: true
   });
 
   const buttonVariants = {
