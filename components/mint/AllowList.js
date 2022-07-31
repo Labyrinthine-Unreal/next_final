@@ -6,12 +6,13 @@ export default function AllowList() {
     const cancelRef = React.useRef()
   
     return (
-      <Box pt={5}>
-        <Button variant="outline" onClick={onOpen}>Enter Allowlist</Button>
+      <Box pl={5} pb={4}>
+        <Button colorScheme="teal" onClick={onOpen}>Enter Allowlist</Button>
         <AlertDialog
           leastDestructiveRef={cancelRef}
           onClose={onClose}
           isOpen={isOpen}
+          isCentered
         >
           <AlertDialogOverlay />
           <AlertDialogContent>

@@ -1,4 +1,5 @@
 import { Box } from '@chakra-ui/react'
+import AllowList from '@components/mint/AllowList';
 
 export default function ProductCard({ product, setModalData }) {
   const { imageUrl, imageAlt, title, free, presalePrice, salePrice, active } = product;
@@ -16,7 +17,6 @@ export default function ProductCard({ product, setModalData }) {
       brightness='90%'
       p={2}
       borderWidth="1px"
-      onClick={() => setModalData(product)}
       _hover={{
         bg: "white",
         color: "teal",
@@ -26,7 +26,7 @@ export default function ProductCard({ product, setModalData }) {
         brightness: '100%'
       }}
       >
-      <Box w="full" h="full">
+      <Box onClick={() => setModalData(product)}>
         <Box
           w="100%"
           height="300px"
@@ -34,14 +34,14 @@ export default function ProductCard({ product, setModalData }) {
           overflow="hidden"
           roundedTop="lg"
         >
-        <video
-            autoPlay
-            muted
-            src={imageUrl}
-            alt={imageAlt}
-            objectfit="cover"
-            layout="fill"
-            />
+          <video
+              autoPlay
+              muted
+              src={imageUrl}
+              alt={imageAlt}
+              objectfit="cover"
+              layout="fill"
+              />
         </Box>
         <Box p="6">
           <Box fontWeight="semibold" as="h4" lineHeight="tight">
@@ -50,9 +50,9 @@ export default function ProductCard({ product, setModalData }) {
             <Box>{free}</Box>
             <Box>{presalePrice}</Box>
             <Box>{salePrice}</Box>
-            
         </Box>
       </Box>
+      {title == "TAUROS MEMBERSHIP CARD" && <AllowList />} 
     </Box>
   );
 }
