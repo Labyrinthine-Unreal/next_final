@@ -8,7 +8,7 @@ const properties = [
         info: "ℹ",
         href: '/tauros',
         description: (<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>),
-        active: (<p>Minting is not active&#8212;<a style={{color: "#2E7DAF"}} href='https://discord.com/invite/labyrinthine' target="blank">Get Whitelisted</a></p>)
+        active: (<p style={{color: "#2E7DAF"}}>Minting is not active<br />Get Whitelisted below</p>)
     },
     {
         key: 2,

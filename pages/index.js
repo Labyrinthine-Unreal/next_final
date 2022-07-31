@@ -60,13 +60,13 @@ export default function Home() {
             <Box textStyle="landingPageContent" mb={10} pb={0}>
                 <motion.div initial="initial" whileInView="whileInView" whileHover="hover" tap="whileTap">
                     <Collapse in={isOpen} startingHeight={60}>
-                        TaurosDAO is an exclusive community of artists and collectors founded in November 2021 by <Link href="https://www.labyrinthineunreal.io/" target="_blank" rel="noreferrer" style={{color: "black", fontWeight: "500"}}>Labyrinthine Unreal</Link>. For purposes of governance and other membership privileges, members must hold at least one <span style={{color: "black", fontWeight: "500"}}>TAUROS</span> token. There will only ever be 2000 TAUROS tokens: <span style={{color: "black", fontWeight: "500"}}>300 OG</span> and <span style={{color: "black", fontWeight: "500"}}>1700 Standard</span>. OG members will receive free airdrops of all future assets Labyrinthine Unreal and TaurosDAO produce (such as, Merca City Estates, Initiation Masks, etc). Standard members receive random drops and most other perks (for a more detailed overview check the members page). Price doubles for every 500 tokens sold.
+                        TaurosDAO is an exclusive community of artists and collectors founded in January 2022 by <Link href="https://www.labyrinthineunreal.io/" target="_blank" rel="noreferrer" style={{color: "black", fontWeight: "500"}}>Labyrinthine Unreal</Link>. For purposes of governance and other membership privileges, members must hold at least one <span style={{color: "black", fontWeight: "500"}}>TAUROS</span> token. There will only ever be 2000 TAUROS tokens: <span style={{color: "black", fontWeight: "500"}}>300 OG</span> and <span style={{color: "black", fontWeight: "500"}}>1700 Standard</span>. OG members will receive free airdrops of all future assets Labyrinthine Unreal and TaurosDAO produce (such as, Merca City Estates, Initiation Masks, etc). Standard members receive random drops and most other perks (for a more detailed overview check the members page). Price doubles for every 500 TAUROS tokens sold.
                         <br /><br />
                         <UnorderedList>
-                          <ListItem>500 TAUROS x 0.05 ETH</ListItem>
-                          <ListItem>500 TAUROS x 0.1 ETH</ListItem>
-                          <ListItem>500 TAUROS x 0.2 ETH</ListItem>
-                          <ListItem>500 TAUROS x 0.4 ETH</ListItem>
+                          <ListItem>From 1 to 500 tokens x 0.05 ETH</ListItem>
+                          <ListItem>From 501 to 1000 tokens x 0.1 ETH</ListItem>
+                          <ListItem>From 1001 to 1500 tokens x 0.2 ETH</ListItem>
+                          <ListItem>From 1501 to 2000 tokens x 0.4 ETH</ListItem>
                         </UnorderedList>
                         <br />
                         <span style={{color: "black", fontWeight: "500"}}>Merca City</span> is an open world Metaverse/RTS Game, where TaurosDAO members, artists, designers, developers, gamers, and collectors may come together to play, experiment, and collaborate. <span style={{color: "black", fontWeight: "500"}}>Estates</span> are Merca City&apos;s genesis assets.
@@ -108,8 +108,6 @@ export default function Home() {
             spacing="4em"
             minH="full"
             variants={parentVariant}
-            // initial="initial"
-            // animate="animate"
             animate={inView ? "animate" : "initial"} 
             ref={ref}
           >
