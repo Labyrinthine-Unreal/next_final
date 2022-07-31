@@ -14,6 +14,7 @@ import { TbArrowBigDownLines, TbArrowBigUpLines } from 'react-icons/tb'
 import Title, { LU } from '@components/AnimatedTitles'
 import { useInView } from 'react-intersection-observer'
 import TaurosDAOIcon from '@components/TaurosDAOIcon'
+import AllowList from '@components/mint/AllowList'
 
 
 const MotionSimpleGrid = motion(SimpleGrid)
@@ -98,6 +99,8 @@ export default function Home() {
                     <EstatesClaimed />
                 </Box> */}
             </SimpleGrid>
+
+            <AllowList />
             
         </Box>
 
