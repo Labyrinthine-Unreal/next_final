@@ -37,7 +37,7 @@ export default function SlideEx() {
                                 <ListItem pt={6} fontWeight="semibold">Airdrops</ListItem>
                                 <Text color="gray.700">Many assets created by TaurosDAO are initially dropped to existing members (TAUROS holders). OG Members receive an airdrop of all Labyrinthine Unreal and TaurosDAO future assets (Merca City Estates, Initiation Masks etc.). Standard Members receive random drops plus all the other perks of membership (such as, being automatically whitelisted, governance, fractionalized ownership, artist and collector benefits, etc.). Merca City game tokens will be distributed to all members.</Text>
 
-                                <ListItem pt={6} fontWeight="semibold">Various Whitelists, Rewards, and third party Airdrops</ListItem>
+                                <ListItem pt={6} fontWeight="semibold">Various whitelist, Rewards, and third party Airdrops</ListItem>
                                 <Text color="gray.700">Being part of a thriving community brings many other opportunities beyond the community itself. Other projects constantly seek collaboration and partnership with TaurosDAO. We expect airdrops from other projects will be common.</Text>
                             </UnorderedList>
                         </TabPanel>
