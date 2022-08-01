@@ -1,5 +1,5 @@
 import React from 'react'
-import { Box, useDisclosure, Button, AlertDialog, AlertDialogOverlay, AlertDialogContent, AlertDialogHeader, AlertDialogCloseButton, AlertDialogBody, AlertDialogFooter, Input } from '@chakra-ui/react'
+import { Box, useDisclosure, Button, AlertDialog, AlertDialogOverlay, AlertDialogContent, AlertDialogHeader, AlertDialogCloseButton, AlertDialogBody, AlertDialogFooter, FormControl, FormLabel, Input } from '@chakra-ui/react'
 import { useState,useEffect } from 'react';
 import {getAllWhitelist ,createWhitelistItem } from '@src/api';
 import {useToast} from '@chakra-ui/react'
@@ -23,7 +23,6 @@ export default function AllowList() {
         duration: 9000,
         isClosable: true,
       })
-      // event.preventDefault();
       event.preventDefault();
       createWhitelistItem(whitelistDetail).then(res => {
         console.log('Whitelist details added to the database');
@@ -50,16 +49,19 @@ export default function AllowList() {
         >
           <AlertDialogOverlay />
           <AlertDialogContent>
-            <AlertDialogHeader>Paste in your address & save</AlertDialogHeader>
+            <AlertDialogHeader></AlertDialogHeader>
             <AlertDialogCloseButton />
             <AlertDialogBody>
-              <Input 
-              type="text" 
-              name={whitelistDetail}
-              value={whitelistDetail}
-              placeholder="Enter your address here"
-              onChange={handleWhitelistDetailChange}
-               />
+              <FormControl isRequired>
+              <FormLabel>Enter your Ethereum Address</FormLabel>
+                <Input 
+                type="text" 
+                name={whitelistDetail}
+                value={whitelistDetail}
+                placeholder="Enter your address here"
+                onChange={handleWhitelistDetailChange}
+                />
+              </FormControl>
             </AlertDialogBody>
             <AlertDialogFooter>
               <Button ref={cancelRef} onClick={handleSubmit}>
