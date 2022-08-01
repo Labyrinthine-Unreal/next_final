@@ -1,7 +1,8 @@
 import React from 'react'
 import { Box, useDisclosure, Button, AlertDialog, AlertDialogOverlay, AlertDialogContent, AlertDialogHeader, AlertDialogCloseButton, AlertDialogBody, AlertDialogFooter, Input } from '@chakra-ui/react'
-import { useState } from 'react';
-import { createWhitelistItem } from '@src/api';
+import { useState,useEffect } from 'react';
+import {getAllWhitelist ,createWhitelistItem } from '@src/api';
+import {useToast} from '@chakra-ui/react'
 export default function AllowList() {
     // const useStyles = makeStyles({
     //   root: {
@@ -18,12 +19,20 @@ export default function AllowList() {
     const cancelRef = React.useRef()
     const [whitelistDetail, setWhitelistDetail] = useState('');
     const [whitelist, setwhitelist] = useState([]);
+    const toast = useToast()
 
     function handleWhitelistDetailChange(event) {
       console.log(event.target.value);
       setWhitelistDetail(event.target.value);
     }
     function handleSubmit(event) {
+      toast({
+        title: 'Submission Successful',
+        description: "Whitelist Submission Succesful",
+        status: 'success',
+        duration: 9000,
+        isClosable: true,
+      })
       // event.preventDefault();
       event.preventDefault();
       createWhitelistItem(whitelistDetail).then(res => {
@@ -33,7 +42,12 @@ export default function AllowList() {
     function resetInputField() {
       setWhitelistDetail('');
     }
-
+    useEffect(() => {
+      getAllWhitelist.then(res => {
+        setwhitelist(res);
+        console.log(res);
+      });
+    }, []);
   
     return (
       <Box pl={5} pb={4}>
