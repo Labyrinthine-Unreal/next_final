@@ -3,18 +3,8 @@ import { Box, useDisclosure, Button, AlertDialog, AlertDialogOverlay, AlertDialo
 import { useState,useEffect } from 'react';
 import {getAllWhitelist ,createWhitelistItem } from '@src/api';
 import {useToast} from '@chakra-ui/react'
+
 export default function AllowList() {
-    // const useStyles = makeStyles({
-    //   root: {
-    //     marginTop: 80,
-    //     margin: 20,
-    //     flexGrow: 1
-    //   },
-    //   list: {
-    //     marginTop: 20
-    //   }
-    // });
-    // const classes = useStyles();
     const { isOpen, onOpen, onClose } = useDisclosure()
     const cancelRef = React.useRef()
     const [whitelistDetail, setWhitelistDetail] = useState('');
