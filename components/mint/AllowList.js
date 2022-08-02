@@ -3,6 +3,8 @@ import { Box, useDisclosure, Button, AlertDialog, AlertDialogOverlay, AlertDialo
 import { useState,useEffect } from 'react';
 import {getAllWhitelist ,createWhitelistItem } from '@src/api';
 import {useToast} from '@chakra-ui/react'
+import taurosABIv1 from "../ABIs/taurosABIv1"
+
 
 export default function AllowList() {
     const { isOpen, onOpen, onClose } = useDisclosure()
