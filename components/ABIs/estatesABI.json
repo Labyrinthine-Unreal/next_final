@@ -318,9 +318,9 @@
 	{
 		"inputs": [
 			{
-				"internalType": "uint256",
+				"internalType": "uint8",
 				"name": "_mintAmount",
-				"type": "uint256"
+				"type": "uint8"
 			}
 		],
 		"name": "mintNFTs",
@@ -819,6 +819,11 @@
 				"internalType": "address[]",
 				"name": "_users",
 				"type": "address[]"
+			},
+			{
+				"internalType": "uint8",
+				"name": "numAllowedToMint",
+				"type": "uint8"
 			}
 		],
 		"name": "whitelistUsers",
