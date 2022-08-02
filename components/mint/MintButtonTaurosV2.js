@@ -30,7 +30,7 @@ export default function MBT() {
       contractAddress: '0x8a94b8CC4C0221c9e45B7861C6f2004412C56858',
       functionName: 'mintNFTs',
       abi: taurosABI,
-      msgValue: Moralis.Units.ETH("0.5")* amount,
+      msgValue: Moralis.Units.ETH("0.05")* amount,
 //       Moralis.Units.ETH("0.1")
       params: {
         _mintAmount: amount,
