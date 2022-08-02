@@ -27,7 +27,7 @@ export default function MBT() {
 
   async function _mintTauros() {
     let options = {
-      contractAddress: '0x8192e58F15481D5C0adef18AFBfbf048B59778b9',
+      contractAddress: '0x74b08A544E0fc5719A3225C2cAF51e17641CDA21',
       functionName: 'mintNFTs',
       abi: taurosABI,
       msgValue: Moralis.Units.FromWei("100000000000000000") * amount,
