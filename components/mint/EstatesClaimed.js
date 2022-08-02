@@ -26,7 +26,7 @@ export default function EstatesClaimed() {
                 let estatesAmount;
 
                 let DAOoptions = {
-                    contractAddress: '0x19D57cCcC6850Abf11a2cabC112c36B4dDCa4761',
+                    contractAddress: '0x7f271661d4D10b0e9f4228eEf13AE3D530953678',
                     functionName: 'balanceOf',
                     abi: taurosABI,
                     params: {
