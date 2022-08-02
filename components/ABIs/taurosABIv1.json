@@ -353,6 +353,19 @@
 		"type": "function"
 	},
 	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "_newPRICE2",
+				"type": "uint256"
+			}
+		],
+		"name": "setPRICE2",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
 		"anonymous": false,
 		"inputs": [
 			{
@@ -748,6 +761,19 @@
 	{
 		"inputs": [],
 		"name": "PRICE",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "PRICE2",
 		"outputs": [
 			{
 				"internalType": "uint256",
