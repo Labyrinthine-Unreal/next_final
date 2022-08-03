@@ -4,20 +4,20 @@ import CustomContainer from "@components/CustomContainer";
 import { Button } from 'web3uikit';
 import { useMoralis, useWeb3ExecuteFunction } from 'react-moralis';
 import styles from "@styles/MintButton.module.css"
-
-// import taurosABI from "./ABIs/taurosABI.json";
-import estatesABI from "../ABIs/estatesABI"
+import taurosABI from "../ABIs/taurosABI"
 
 const truncate = (input, len) =>
   input.length > len ? `${input.substring(0, len)}...` : input;
 
-export default function MBE() {
+export default function MBT() {
+
   const [amount, setAmount] = useState(1)
   const handleChange = (value) => setAmount(value)
-  const { authenticate, isAuthenticated, isAuthenticating, Moralis, user, account, logout } = useMoralis();
-  const contractProcessor = useWeb3ExecuteFunction();
   const toast = useToast()
 
+  const { authenticate, isAuthenticated, isAuthenticating, Moralis, user, account, logout } = useMoralis();
+  const contractProcessor = useWeb3ExecuteFunction();
+  // const [value, setValue] = useControllableState({ defaultValue: 1 })
   useEffect(() => {
     if (isAuthenticated) {
 
@@ -25,23 +25,25 @@ export default function MBE() {
 
   }, [isAuthenticated])
 
-  async function _mintEstates() {
+  async function _mintTauros() {
     let options = {
-      // msgValue: Moralis.Units.ETH("0.05"),
-      contractAddress: '0x4472391CaB818842F3a8f7eC4b620Ea7BE9aB8A4',
+      contractAddress: '0x4CA308C37B2EadF9e685642746C3f8ba80F4deC2',
       functionName: 'mintNFTs',
-      abi: estatesABI,
+      abi: taurosABI,
+      msgValue: Moralis.Units.ETH("0.05")* amount,
+//       Moralis.Units.ETH("0.1")
       params: {
-        _mintAmount: 1 * amount,
+        _count: amount,
       }
     }
+
     await Moralis.enableWeb3()
     await contractProcessor.fetch({
       params: options,
       onSuccess: () => {
         toast({
           title: 'Mint Successful',
-          description: "Minted Merca City Estate",
+          description: "Minted TAUROS",
           status: 'success',
           duration: 9000,
           isClosable: true,
@@ -50,7 +52,7 @@ export default function MBE() {
       },
       onError: (error) => {
         toast({
-          title: 'Mint Failed.. User is Not Whitelisted or rejected the transaction',
+          title: 'Mint Failed.. User rejected the transaction or not enough Ether To Purchase TAUROS',
           description: console.log(error),
           status: "error",
           duration: '9000',
@@ -70,34 +72,23 @@ export default function MBE() {
             <FormLabel htmlFor="amount" textAlign="right">
               Amount to Mint
             </FormLabel>
+
             <NumberInput step={1} min={1} max={10} onChange={handleChange} allowMouseWheel>
               <NumberInputField  id="amount" value={amount} bg="gray.200" boxShadow="lg" />
               <NumberInputStepper bg="teal.300">
                 <NumberIncrementStepper borderLeft="none" />
                 <Spacer />
                 <NumberDecrementStepper borderLeft="none" />
-              </NumberInputStepper>
-            </NumberInput>
+                </NumberInputStepper>
+              </NumberInput>
           </FormControl>
+          <Spacer />
           <Button onClick={() => {
-            if (isAuthenticated) { _mintEstates(); }
-          }} text={"Mint Estates"} theme={"primary"} />
+            if (isAuthenticated) { _mintTauros(); }
+          }} text={"Mint Tauros"} theme={"primary"} />
 
         </form>
       </Box>
     </CustomContainer>
   )
 }
-
-{/* Opensea button --> move to bottom of the page */ }
-{/* <Container>
-            <span>
-                <Button
-                  onClick={(e) => {
-                    window.open(CONFIG.MARKETPLACE_LINK, "_blank");
-                  }}
-                >
-                  {CONFIG.MARKETPLACE}
-                </Button>
-            </span>          
-          </Container>               */}
