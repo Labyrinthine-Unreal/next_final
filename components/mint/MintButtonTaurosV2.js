@@ -4,7 +4,7 @@ import CustomContainer from "@components/CustomContainer";
 import { Button } from 'web3uikit';
 import { useMoralis, useWeb3ExecuteFunction } from 'react-moralis';
 import styles from "@styles/MintButton.module.css"
-import taurosABIv1 from "../ABIs/taurosABIv1"
+import taurosABI from "../ABIs/taurosABI"
 
 const truncate = (input, len) =>
   input.length > len ? `${input.substring(0, len)}...` : input;
@@ -27,10 +27,10 @@ export default function MBT() {
 
   async function _mintTauros() {
     let options = {
-      contractAddress: '0x260b1B530C1a6B9624725A9C0c97F23a0AfEc739',
-      functionName: 'mintNFTs2',
-      abi: taurosABIv1,
-      msgValue: Moralis.Units.ETH("0.1")* amount,
+      contractAddress: '0xFe295c34e6aD045f3704D973cDE516A7ea61ac56',
+      functionName: 'mintNFTs',
+      abi: taurosABI,
+      msgValue: Moralis.Units.ETH("0.05")* amount,
 //       Moralis.Units.ETH("0.1")
       params: {
         _count: amount,
