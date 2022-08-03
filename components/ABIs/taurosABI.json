@@ -395,9 +395,9 @@
 				"type": "address[]"
 			},
 			{
-				"internalType": "uint8",
+				"internalType": "uint256",
 				"name": "numAllowedToMint",
-				"type": "uint8"
+				"type": "uint256"
 			}
 		],
 		"name": "whitelistUsers",
