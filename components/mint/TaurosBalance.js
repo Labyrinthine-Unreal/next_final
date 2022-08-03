@@ -1,7 +1,7 @@
 import {Box, Progress} from "@chakra-ui/react";
 import {useEffect, useState,} from "react";
 import {useMoralis, useWeb3ExecuteFunction} from 'react-moralis';
-import taurosABI from "@components/ABIs/taurosABIv1";
+import taurosABI from "@components/ABIs/taurosABI";
 
 export default function TaurosBalance() {
     const { authenticate, isAuthenticated, isAuthenticating, Moralis, user, account, logout } = useMoralis();
@@ -22,7 +22,7 @@ export default function TaurosBalance() {
                 let taurosAmount;
 
                 let taurosOtions = {
-                    contractAddress: '0x4CA308C37B2EadF9e685642746C3f8ba80F4deC2',
+                    contractAddress: '0xFe295c34e6aD045f3704D973cDE516A7ea61ac56',
                     functionName: 'balanceOf',
                     abi: taurosABI,
                     params: {
