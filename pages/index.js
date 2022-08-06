@@ -69,6 +69,8 @@ export default function Home() {
                           <ListItem>From 1501 to 2000 tokens x 0.4 ETH</ListItem>
                         </UnorderedList>
                         <Text pt={5}><span style={{fontWeight: "400"}}>Merca City</span> is an open world Metaverse/RTS Game, where TaurosDAO members, artists, designers, developers, gamers, and collectors may come together to play, experiment, and collaborate. <span style={{fontWeight: "400"}}>Estates</span> are Merca City&apos;s genesis assets. Out of 4300 Estates, 800 will be airdropped to TAUROS holders. 200 Estates will be reserved for special areas, public buildings, and institutions. The rest (3300) will be listed at a price of 0.1 ETH for the presale and 0.2 for the public sale.</Text>
+
+                        <Text pt={5}>The Estates NFT is dynamic, A.K.A. dNFT or <em>smart NFT</em>; its metadata and output animation changes based on live weather conditions pinpointing to a secret location. It reports temperature and visibility, and its animation depicts four weather conditions: sunny, overcast, rainy, and snowy.</Text>
                         
                     </Collapse>
                     <Box align="right" px={4}>

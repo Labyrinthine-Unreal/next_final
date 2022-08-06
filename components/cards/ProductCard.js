@@ -37,6 +37,7 @@ export default function ProductCard({ product, setModalData }) {
           <video
               autoPlay
               muted
+              loop
               src={imageUrl}
               alt={imageAlt}
               objectfit="cover"

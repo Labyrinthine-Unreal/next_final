@@ -18,8 +18,7 @@ export default function ProductModal({ isOpen, onClose, modalData }) {
         >
           <GridItem rowSpan={3} colSpan={5}>
             <video
-                    autoPlay
-                    muted
+                    controls
                     src={imageUrl}
                     alt={imageAlt}
                     objectfit="cover"
