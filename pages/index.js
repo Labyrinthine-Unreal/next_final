@@ -63,10 +63,10 @@ export default function Home() {
                         
                         <Text ml={6} mt={5} p={5} rounded="lg" brightness="90%" borderColor="teal.700" maxW={800} _hover={{color: "teal.600", bg: "#eee", brightness: "100%", boxShadow: "dark-lg", transition: "transform 0.15s ease-in-out", transform: "scale3d(1.05, 1.05, 1.05)",}} style={{fontWeight: "400"}}>To mint TAUROS when the sale goes live, save your wallet address in the allowlist below. You may only mint 3 TAUROS per address! Price doubles for every 500 TAUROS tokens sold:</Text>
                         <UnorderedList pt={3} ml={14}>
-                          <ListItem>From 1 to 500 tokens x 0.05 ETH</ListItem>
-                          <ListItem>From 501 to 1000 tokens x 0.1 ETH</ListItem>
-                          <ListItem>From 1001 to 1500 tokens x 0.2 ETH</ListItem>
-                          <ListItem>From 1501 to 2000 tokens x 0.4 ETH</ListItem>
+                          <ListItem>Price from 1 to 500 tokens x 0.05 ETH</ListItem>
+                          <ListItem>Price from 501 to 1000 tokens x 0.1 ETH</ListItem>
+                          <ListItem>Price from 1001 to 1500 tokens x 0.2 ETH</ListItem>
+                          <ListItem>Price from 1501 to 2000 tokens x 0.4 ETH</ListItem>
                         </UnorderedList>
                         <Text pt={5}><span style={{fontWeight: "400"}}>Merca City</span> is an open world Metaverse/RTS Game, where TaurosDAO members, artists, designers, developers, gamers, and collectors may come together to play, experiment, and collaborate. <span style={{fontWeight: "400"}}>Estates</span> are Merca City&apos;s genesis assets. Out of 4300 Estates, 800 will be airdropped to TAUROS holders. 200 Estates will be reserved for special areas, public buildings, and institutions. The rest (3300) will be listed at a price of 0.1 ETH for the presale and 0.2 for the public sale.</Text>
 
