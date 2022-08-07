@@ -18,6 +18,12 @@ export default function AllowList() {
       setWhitelistDetail(event.target.value);
     }
     function handleSubmit(event) {
+      event.preventDefault();
+      createWhitelistItem(whitelistDetail).then(res => {
+        console.log('Whitelist details added to the database');
+      });
+      setWhitelistDetail('');
+      onClose();
       toast({
         title: 'Submission Successful',
         description: "Whitelist Submission Succesful",
@@ -25,13 +31,6 @@ export default function AllowList() {
         duration: 9000,
         isClosable: true,
       })
-      event.preventDefault();
-      createWhitelistItem(whitelistDetail).then(res => {
-        console.log('Whitelist details added to the database');
-      });
-    }
-    function resetInputField() {
-      setWhitelistDetail('');
     }
     useEffect(() => {
       getAllWhitelist.then(res => {
