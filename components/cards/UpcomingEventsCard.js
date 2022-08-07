@@ -33,7 +33,7 @@ export default function UpcomingEventsCard({ upcomingEvent }) {
                             <ModalHeader>Game Trailer</ModalHeader>
                             <ModalBody>
                                 <video
-                                    autoPlay
+                                    controls
                                     src={video}
                                     objectfit="cover"
                                     layout="fill"
