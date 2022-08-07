@@ -10,7 +10,7 @@ const properties = [
     },
     {
         key: 2,
-        imageUrl: 'videos/Rainy2.mp4',
+        imageUrl: 'videos/rainy.mp4',
         imageAlt: 'Estate Animation',
         title: 'MERCA CITY ESTATE',
         presalePrice: 'Presale: 0.1 ETH',
