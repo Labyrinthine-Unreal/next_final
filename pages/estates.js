@@ -167,8 +167,25 @@ export default function EstatesPage() {
                         </ListItem>
                     </List>
 
-                <Text>Even in times of peace there is always tension between the two military districts, Bravio and Pangaea, as they vie for the favor of Ritus, the financial district, and dominance over resource rich districts of the city. For its part, Ritus ruthlessly plays this enmity to its own advantage. The other districts ally themselves now with one now with the other, as the power balance shifts.<br /><br />To complicate things further, there is an underground labyrinth below Merca City, where these enmities extend and mutate to unpredictable and wild new combinations. These subterranean spaces are ideal for the smuggler underclass of Merca City, and a growing insurgency struggling to overthrow the iron rule of both Bravio and Pangaea.<br /><br /> But the labyrinth leads deeper still, into age old riddles that go well beyond the concerns of everyday society. There are real secrets in the architectural game matrix of the <a style={{color: "#2E7DAF"}} href='https://docs.labyrinthineunreal.io/the-game/labyrinthine-unreal' target="blank">labyrinth</a>, secrets that captivate the mind no less than the body, and will make you question the very nature of reality.</Text>
+                <Text>Even in times of peace there is always tension between the two military districts, Bravio and Pangaea, as they vie for the favor of Ritus, the financial district, and dominance over resource rich districts of the city. For its part, Ritus ruthlessly plays this enmity to its own advantage. The other districts ally themselves now with one now with the other, as the power balance shifts.<br /><br />To complicate things further, there is an underground labyrinth below Merca City, where these enmities extend and mutate to unpredictable and wild new combinations. These subterranean spaces are ideal for the smuggler underclass of Merca City, and a growing insurgency struggling to overthrow the iron rule of both Bravio and Pangaea.<br /><br /> But the labyrinth leads deeper still, into age old riddles that go well beyond the concerns of everyday society. There are real secrets in the architectural game matrix of the <a style={{color: "#2E7DAF"}} href='https://docs.labyrinthineunreal.io/the-game/labyrinthine-unreal' target="blank">labyrinth</a>. Beware of the dangerous allure of these hidden spaces. For it is said that the Minotaur was imprisoned in the underground labyrinth of king Mino’s palace not by how difficult it was to navigate, but because he never wanted to leave its enchanted gardens.</Text>
             </Box>
+
+            <Center 
+                    py={20} 
+                    // variants={VideoVariants} 
+                    // animate={inView ? "visible" : "hidden"} 
+                    // transition={{ duration: 2, ease: "easeOut" }}
+                    // ref={ref}
+                    // className="magic"
+                >
+                    <video 
+                        src="videos/Trailer.mp4" 
+                        alt="Merca-City-Map"
+                        controls
+                        objectfit="cover"
+                        layout="fill"
+                    />
+                </Center>
         </Box>
     )
 }
