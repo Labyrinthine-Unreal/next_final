@@ -1,0 +1,6 @@
+.trailer {
+    border-radius: 5px;
+overflow: hidden;
+-webkit-transform: translateZ(0);
+max-width: 700px;
+}

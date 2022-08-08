@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import { Box, Text, Heading, Center } from "@chakra-ui/react"
 import { About } from '@components/AnimatedTitles'
+import styles from '@styles/About.module.css'
 
 export default function AboutPage() {
     return (
@@ -20,12 +21,12 @@ export default function AboutPage() {
             </Text>
             <Center pt={10}>
                 <video 
+                    className={styles.trailer}
                     src="videos/Trailer.mp4" 
-                    alt="Merca-City-Map"
+                    alt="game-trailer"
                     controls
                     objectfit="cover"
                     layout="fill"
-                    width="500px"
                 />
                 
             </Center>
