@@ -48,7 +48,7 @@ export default function ProductCard({ product, setModalData }) {
           <Box fontWeight="semibold" as="h4" lineHeight="tight">
             {title}
           </Box>
-          Mint is not yet live
+          Mint is not live
             {/* <Box>{free}</Box>
             <Box>{presalePrice}</Box>
             <Box>{salePrice}</Box> */}
