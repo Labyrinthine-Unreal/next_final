@@ -22,7 +22,7 @@ export default function AboutPage() {
             </Text>
             <Center pt={10}>
                 <video 
-                    className={styles.trailer}
+                    className={styles.aboutTrailer}
                     src="videos/Trailer.mp4" 
                     alt="game-trailer"
                     controls
