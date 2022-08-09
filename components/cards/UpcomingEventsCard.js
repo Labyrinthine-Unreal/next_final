@@ -2,7 +2,7 @@ import { Box, Image, Button, Text, Modal, ModalOverlay, ModalContent, ModalHeade
 import styles from "@styles/Events.module.css"
 
 export default function UpcomingEventsCard({ upcomingEvent }) {
-    const { video, title, croppedDescription, description, buttonText, imageUrl, imageAlt, href, externalUrl } = upcomingEvent;
+    const { video, title, modalTitle, croppedDescription, description, buttonText, imageUrl, imageAlt, href, externalUrl } = upcomingEvent;
 
     const { isOpen, onOpen, onClose } = useDisclosure()
     
@@ -30,7 +30,7 @@ export default function UpcomingEventsCard({ upcomingEvent }) {
                     <Modal isCentered size="xl" isOpen={isOpen} onClose={onClose} transition="6">
                         <ModalOverlay />
                         <ModalContent>
-                            <ModalHeader>Game Trailer</ModalHeader>
+                            <ModalHeader>{modalTitle}</ModalHeader>
                             <ModalBody>
                                 <video
                                     controls
