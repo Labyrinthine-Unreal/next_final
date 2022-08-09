@@ -1,6 +1,6 @@
 const podcastsData = [
     {
-        title: '2nd Episode: Ignis',
+        title: '3rd Episode: Ignis',
         croppedDescription: (<>Fri, Jul 29 | Frontier...</>),
         description: (<>Jul 29, 2022, 12 PM EST<br />Frontier Podcast<br /><br />Discussing the importance of art in culture and the artist&apos;s interpretation of digital fantasy. With digital artist and filmmaker, <a style={{color: "#2E7DAF"}} href='https://twitter.com/ignis____' target="blank">Ignis</a></>),
         buttonText: 'Watch Now',
