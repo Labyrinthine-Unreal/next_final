@@ -17,7 +17,7 @@ export default function SlideEx() {
             </Heading>
             <Box textStyle="content">
                 <Text>
-                    TaurosDAO Membership Cards (TAUROS) confer a number of benefits on members. Fractionalized ownership, governance, and airdrops are only a few of them. Depending on whether you are an investor, an artist, a collector, or all of the above, you may look forward to a number of privileges from TaurosDAO membership. For a detailed breakdown, see the table below and click on each of the three categories.
+                    TaurosDAO Membership Cards (TAUROS) confer a number of benefits on members. Governance, airdrops, and various allowlists are only a few of them. Depending on whether you are an investor, an artist, a collector, or all of the above, you may look forward to a number of privileges from TaurosDAO membership. For a detailed breakdown, see the table below and click on each of the three categories.
                 </Text>
                 <Tabs pt={10}>
                     <TabList>
@@ -31,11 +31,8 @@ export default function SlideEx() {
                                 <ListItem fontWeight="semibold">Governance</ListItem>
                                 <Text color="gray.700">First and foremost, governance tokens grant holders the right to vote on important decisions and the direction the project may take in the future. In the case of TaurosDAO, TAUROS are our governance tokens. It&apos;s simple: 1 TAUROS token means 1 vote.</Text>
 
-                                <ListItem pt={6} fontWeight="semibold">Fractionalized Ownership</ListItem>
-                                <Text color="gray.700">TAUROS tokens represent also a fraction of TaurosDAO&apos;s assets, thus as the funds and assets of the DAO grow, in theory the tokens&apos; value should also follow, although this depends on the market and is not a guarantee (it may take time for it to catch up).</Text>
-
                                 <ListItem pt={6} fontWeight="semibold">Airdrops</ListItem>
-                                <Text color="gray.700">Many assets created by TaurosDAO are initially dropped to existing members (TAUROS holders). OG Members receive an airdrop of all Labyrinthine Unreal and TaurosDAO future assets (Merca City Estates, Initiation Masks etc.). Standard Members receive random drops plus all the other perks of membership (such as, automatically entered for all allowlists, governance, fractionalized ownership, artist and collector benefits, etc.). Merca City game tokens will be distributed to all TAUROS and Estate owners. If you own both, you will receive two drops.</Text>
+                                <Text color="gray.700">Many assets created by TaurosDAO are initially dropped to existing members (TAUROS holders). OG Members receive an airdrop of all Labyrinthine Unreal and TaurosDAO future assets (Merca City Estates, Initiation Masks etc.). Standard Members receive random drops plus all the other perks of membership (such as, automatically entered for all allowlists, governance, artist and collector benefits, etc.). Merca City game tokens will be distributed to all TAUROS and Estate owners. If you own both, you will receive two drops.</Text>
 
                                 <ListItem pt={6} fontWeight="semibold">Various Allowlists, Rewards, and third party Airdrops</ListItem>
                                 <Text color="gray.700">TaurosDAO Members do not need to apply for allowlists; if you hold a TAUROS token you are automatically entered. However, being part of a thriving community brings many other opportunities beyond the community itself. Other projects constantly seek collaboration and partnership with TaurosDAO. We expect airdrops from other projects to be common.</Text>
