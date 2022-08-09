@@ -48,9 +48,10 @@ export default function ProductCard({ product, setModalData }) {
           <Box fontWeight="semibold" as="h4" lineHeight="tight">
             {title}
           </Box>
-            <Box>{free}</Box>
+          Minting is not yet live
+            {/* <Box>{free}</Box>
             <Box>{presalePrice}</Box>
-            <Box>{salePrice}</Box>
+            <Box>{salePrice}</Box> */}
         </Box>
       </Box>
       {title == "TAUROS MEMBERSHIP TOKEN" && <AllowList />}
