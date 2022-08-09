@@ -18,10 +18,10 @@ export default function Icons(){
                 <GridItem colSpan={1}>
                     <Center>
                         <Text>Tauros:</Text>
-                        <Link href="https://etherscan.io/address/0x94B610aDB09eaDde3774e93D490861fa4de23f6A" isExternal mx={2}>
+                        <Link href="" isExternal mx={2}>
                             <Image src="images/logos-icons/etherscan.png" w="0.8em" h="0.8em" p={0} />
                         </Link>
-                        <Link href="https://opensea.io/collection/taurosdao" isExternal mx={2}>
+                        <Link href="" isExternal mx={2}>
                             <Image src="images/logos-icons/opensea-blue.png" color="#1868B7" w="0.8em" h="0.8em" p={0} />
                         </Link>
                     </Center>
