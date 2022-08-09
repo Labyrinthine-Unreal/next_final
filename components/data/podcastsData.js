@@ -1,5 +1,14 @@
 const podcastsData = [
     {
+        title: '2nd Episode: Ignis',
+        croppedDescription: (<>Fri, Jul 29 | Frontier...</>),
+        description: (<>Jul 29, 2022, 12 PM EST<br />Frontier Podcast<br /><br />Discussing the importance of art in culture and the artist&apos;s interpretation of digital fantasy. With digital artist and filmmaker, <a style={{color: "#2E7DAF"}} href='https://twitter.com/ignis____' target="blank">Ignis</a></>),
+        buttonText: 'Watch Now',
+        imageUrl: 'images/podcasts/Ignis.jpeg',
+        imageAlt: 'Ignis-Card',
+        externalUrl: 'https://youtu.be/w3rmJvLVZDM'
+    },
+    {
         title: '2nd Episode: SalvoIn3D',
         croppedDescription: (<>Tue, Jul 19 | Frontier...</>),
         description: (<>Jul 19, 2022, 12 PM EST<br />Frontier Podcast<br /><br /><b>Interview with <a style={{color: "#2E7DAF"}} href='https://twitter.com/salvo3_d' target="blank">SalvoIn3D</a>:</b><br /><i>Exploring New Frontiers in NFT digital fantasy</i></>),
