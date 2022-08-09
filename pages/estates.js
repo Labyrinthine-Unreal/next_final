@@ -4,6 +4,7 @@ import { ImEarth } from 'react-icons/im'
 import { Estates, Districts } from '@components/AnimatedTitles'
 import { motion, useViewportScroll } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
+import styles from '@styles/About.module.css'
 
 // const MotionCenter = motion(Center)
 
@@ -123,6 +124,7 @@ export default function EstatesPage() {
                     // className="magic"
                 >
                     <video 
+                        className={styles.estatesTrailer}
                         src="videos/Cloudy.mp4" 
                         alt="Merca-City-Map"
                         controls
