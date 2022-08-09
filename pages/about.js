@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import { Box, Text, Heading, Center } from "@chakra-ui/react"
+import Link from 'next/link'
 import { About } from '@components/AnimatedTitles'
 import styles from '@styles/About.module.css'
 
@@ -34,7 +35,7 @@ export default function AboutPage() {
                 <figcaption>Game Trailer. All footage from the game</figcaption>
             </Center>
             <Text textStyle="content">
-                As we've mentioned, Merca City is a fully realized overworld, a city sim made up of districts with fully realized mini-games, performance arts, social gatherings, real estate management, mercantilism, and optional raids and competitions between its very distinct and exotic city districts, or between neighborhoods within any given district. Labyrinthine Unreal, Merca City's less grounded underworld, is a surreal combat-puzzler which can be accessed by any Initiation Mask holders by means of booting straight into its maze or by summoning a portal into it anywhere within Merca City. What further ties these games together and incentivizes players who hold the necessary assets to access both is the overarching lore, intrigue, and ARG elements which unify them and will lead to cross-play events that go both between and beyond each of them into other metaverses, platforms, and even reality itself. 
+                As we've mentioned, Merca City is a fully realized overworld, a city sim made up of districts with fully realized mini-games, performance arts, social gatherings, real estate management, mercantilism, and optional raids and competitions between its very distinct and exotic city <Link href="/estates"><a className={styles.district}>districts</a></Link>, or between neighborhoods within any given district. Labyrinthine Unreal, Merca City's less grounded underworld, is a surreal combat-puzzler which can be accessed by any Initiation Mask holders by means of booting straight into its maze or by summoning a portal into it anywhere within Merca City. What further ties these games together and incentivizes players who hold the necessary assets to access both is the overarching lore, intrigue, and ARG elements which unify them and will lead to cross-play events that go both between and beyond each of them into other metaverses, platforms, and even reality itself. 
             </Text>
         </Box>
     )

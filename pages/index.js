@@ -97,7 +97,7 @@ export default function Home() {
             <Center><TaurosDAOIcon /></Center>
             
             
-            <SimpleGrid columns={{sm: 1, md: 3}} gap={4} mt={20} mb={10} pt={4} px={4}>
+            {/* <SimpleGrid columns={{sm: 1, md: 3}} gap={4} mt={20} mb={10} pt={4} px={4}>
                 <Box className={styles.balances}>
                     <Heading pb={2} fontSize="18px" fontWeight="normal" color="#4A5568">TAUROS BALANCE</Heading>
                     <TaurosBalance />
@@ -106,11 +106,7 @@ export default function Home() {
                     <Heading pb={2} fontSize="18px" fontWeight="normal" color="#4A5568">ESTATES BALANCE</Heading>
                     <EstatesBalance fontWeight="normal" fontSize="xs" />
                 </Box>
-                {/* <Box className={styles.balances}>
-                    <Heading pb={2} fontSize="18px" fontWeight="normal" color="#4A5568">UNCLAIMED ESTATES</Heading>
-                    <EstatesClaimed />
-                </Box> */}
-            </SimpleGrid>
+            </SimpleGrid> */}
             
         </Box>
 
