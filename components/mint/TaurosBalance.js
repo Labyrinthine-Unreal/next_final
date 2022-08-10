@@ -22,7 +22,7 @@ export default function TaurosBalance() {
                 let taurosAmount;
 
                 let taurosOtions = {
-                    contractAddress: '0x3d8321BBD928903EfF286b60a25Dd197dDD46BFB',
+                    contractAddress: '0xAD3DD9d196Dd9393ce5C5BAC9870cFc991cbd2c1',
                     functionName: 'balanceOf',
                     abi: taurosABI,
                     params: {
