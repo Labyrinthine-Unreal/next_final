@@ -255,7 +255,7 @@
 				"type": "uint256"
 			}
 		],
-		"name": "claimEstates",
+		"name": "claimESTATES",
 		"outputs": [],
 		"stateMutability": "payable",
 		"type": "function"
