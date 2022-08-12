@@ -41,7 +41,7 @@ export default function AllowList() {
   
     return (
       <Box pl={5} pb={4}>
-        <Button disabled colorScheme="teal" onClick={onOpen}>Enter Allowlist</Button>
+        <Button colorScheme="teal" onClick={onOpen}>Enter Allowlist</Button>
         <AlertDialog
           leastDestructiveRef={cancelRef}
           onClose={onClose}

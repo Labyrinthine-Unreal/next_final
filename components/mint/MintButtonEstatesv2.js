@@ -79,7 +79,7 @@ export default function MBE() {
               </NumberInputStepper>
             </NumberInput>
           </FormControl>
-          <Button disabled onClick={() => {
+          <Button onClick={() => {
             if (isAuthenticated) { _mintEstates(); }
           }} text={"Mint Estates"} theme={"primary"} />
 
