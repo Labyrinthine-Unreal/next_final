@@ -4,7 +4,7 @@ const currentEventsData = [
         croppedDescription: (<>TaurosDAO | Frontier...</>),
         description: (<>TaurosDAO partners with Frontier Podcast for a series of shows focusing on 1/1 artists<br /><br />Airing on Tuesdays and Fridays<br /><br />TaurosDAO members may contact us on <a style={{color: "#2E7DAF"}} href='https://discord.com/invite/labyrinthine' target="blank">Discord</a> to schedule an interview</>),
         buttonText: 'All Podcasts',
-        imageUrl: 'images/podcasts/RagingTaz.png',
+        imageUrl: 'images/podcasts/RagingTaz.jpg',
         imageAlt: 'TAUROS Card',
         href: '/podcast',
         externalUrl: 'https://youtu.be/OSRyEKS8M-I'
@@ -15,7 +15,7 @@ const currentEventsData = [
         croppedDescription: (<>Dante&apos;s Inferno | 9 Weeks...</>),
         description: (<>Theme: Dante&apos;s Inferno<br /><br />9 Weeks Art Gallery series<br />in New Art City<br /><br />New Gallery floor added every Monday</>),
         buttonText: 'All Galleries',
-        imageUrl: 'images/galleries/Violence.png',
+        imageUrl: 'images/galleries/Violence.jpg',
         imageAlt: 'art-gallery',
         href: '/galleries',
         externalUrl: 'https://newart.city/show/taurosdao-museum-entry'

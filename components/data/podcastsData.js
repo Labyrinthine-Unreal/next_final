@@ -13,7 +13,7 @@ const podcastsData = [
         croppedDescription: (<>Tue, Jul 19 | Frontier...</>),
         description: (<>Jul 19, 2022, 12 PM EST<br />Frontier Podcast<br /><br /><b>Interview with <a style={{color: "#2E7DAF"}} href='https://twitter.com/salvo3_d' target="blank">SalvoIn3D</a>:</b><br /><i>Exploring New Frontiers in NFT digital fantasy</i></>),
         buttonText: 'Watch Now',
-        imageUrl: 'images/podcasts/SalvoIn3D.png',
+        imageUrl: 'images/podcasts/SalvoIn3D.jpg',
         imageAlt: 'SalvoIn3D',
         externalUrl: 'https://youtu.be/OjVwyYlLND0'
     },
@@ -22,7 +22,7 @@ const podcastsData = [
         croppedDescription: (<>Fri, Jul 03 | Frontier...</>),
         description: (<>Jul 03, 2022, 12 PM EST<br />Frontier Podcast<br /><br />A deep dive into the ancient art of mask making with Neapolitan multidisciplinary artist and maskmaker, <a style={{color: "#2E7DAF"}} href='https://twitter.com/RagingTaz' target="blank">RagingTaz</a></>),
         buttonText: 'Watch Now',
-        imageUrl: 'images/podcasts/RagingTaz.png',
+        imageUrl: 'images/podcasts/RagingTaz.jpg',
         imageAlt: 'RagingTaz-Card',
         externalUrl: 'https://youtu.be/OSRyEKS8M-I'
     }
