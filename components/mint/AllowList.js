@@ -14,7 +14,7 @@ export default function AllowList() {
     const toast = useToast()
 
     function handleWhitelistDetailChange(event) {
-      console.log(event.target.value);
+      // console.log(event.target.value);
       setWhitelistDetail(event.target.value);
     }
     function handleSubmit(event) {
@@ -35,7 +35,8 @@ export default function AllowList() {
     useEffect(() => {
       getAllWhitelist.then(res => {
         setwhitelist(res);
-        console.log(res);
+        //Remove console or everything is visible live
+        // console.log(res);
       });
     }, []);
   

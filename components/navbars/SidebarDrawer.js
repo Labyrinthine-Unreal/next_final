@@ -23,6 +23,7 @@ export default function SidebarDrawer({ onClose, ...rest }) {
             // borderRadius={navSize == "small" ? "15px" : "30px"}
             // w={navSize == "small" ? "75px" : "200px"}
             flexDir="column"
+            overflow="scroll"
             justifyContent="space-between"
             {...rest}
         >
