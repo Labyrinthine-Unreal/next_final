@@ -1,7 +1,7 @@
 const properties = [
     {
         key: 1,
-        imageUrl: 'videos/TaurosCard.mp4',
+        imageUrl: 'videos/OGCard.m4v',
         imageAlt: 'TAUROS Token',
         title: 'TAUROS MEMBERSHIP CARD',
         salePrice: 'Sale: 0.05 ETH',
