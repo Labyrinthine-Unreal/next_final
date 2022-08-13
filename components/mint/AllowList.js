@@ -14,7 +14,6 @@ export default function AllowList() {
     const toast = useToast()
 
     function handleWhitelistDetailChange(event) {
-      // console.log(event.target.value);
       setWhitelistDetail(event.target.value);
     }
     function handleSubmit(event) {
