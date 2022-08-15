@@ -13,7 +13,7 @@ import {
   } from 'next-share'
 
 export default function ProductCard({ article }) {
-  const { title, date, author, blogContent } = article;
+  const { title, date, author, blogContent, share } = article;
   const { isOpen, onToggle } = useDisclosure()
 
   return (
@@ -30,23 +30,23 @@ export default function ProductCard({ article }) {
                 </Box>
             </Collapse>
             <Flex mt={4} gap={4}>
-                <FacebookShareButton url={'http://taurosdao.app/blog#panopticon'} >
+                <FacebookShareButton url={share} >
                     <FacebookIcon size={20} round />
                 </FacebookShareButton>
                 <TwitterShareButton
-                    url={'http://taurosdao.app/blog#panopticon'} >
+                    url={share} >
                     <TwitterIcon size={20} round />
                 </TwitterShareButton>
                 <RedditShareButton
-                    url={'http://taurosdao.app/blog#panopticon'} >
+                    url={share} >
                     <RedditIcon size={20} round />
                 </RedditShareButton>
                 <PinterestShareButton
-                    url={'http://taurosdao.app/blog#panopticon'} >
+                    url={share} >
                     <PinterestIcon size={20} round />
                 </PinterestShareButton>
                 <TumblrShareButton
-                    url={'http://taurosdao.app/blog#panopticon'} >
+                    url={share} >
                     <TumblrIcon size={20} round />
                 </TumblrShareButton>
                 <Spacer />
