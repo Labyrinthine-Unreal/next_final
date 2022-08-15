@@ -1,23 +1,27 @@
 import React, { useState } from 'react'
 import { Flex, IconButton, Divider, Heading, Center } from '@chakra-ui/react'
-import { ImMenu, ImEarth, ImHome, ImCalendar, ImUsers } from 'react-icons/im'
+import { ImMenu, ImEarth, ImHome, ImCalendar, ImUsers, ImBlog } from 'react-icons/im'
 import { MdSummarize, MdBallot } from 'react-icons/md'
 import NavItem from './NavItem'
+import styles from '@styles/Sidebar.module.css'
 
 export default function Sidebar() {
     const [navSize, changeNavSize] = useState("small")
     return (
         <Flex
+            className={styles.hideScroll}
             display={{ base: "none", md: "block" }}
             top={20}
             pos="fixed"
             left="5"
-            h="78vh"
+            h="85vh"
             boxShadow="0 4px 12px 0 rgba(0, 0, 0, 0.05)"
             borderRadius={navSize == "small" ? "15px" : "30px"}
             w={navSize == "small" ? "75px" : "200px"}
             flexDir="column"
             justifyContent="space-between"
+            overflowY="scroll"
+            overflowX="hidden"
             // bgGradient="linear(to-br, #f6ffee,#fef2f2)"
         >
             <Flex
@@ -42,7 +46,7 @@ export default function Sidebar() {
                         flexDir="column"
                         w="100%"
                         alignItems={navSize == "small" ? "center" : "flex-start"}
-                        mb={4}
+                        // mb={4}
                     >
                         <Flex align="center">
                             {/* <Avatar size="sm" src="../tauros-avatar-black.png" /> */}
@@ -60,6 +64,7 @@ export default function Sidebar() {
                 {/* <NavItem navSize={navSize} href="galleries" icon={GrGallery} title="Galleries" />
                 <NavItem navSize={navSize} href="podcast" icon={ImPodcast} title="Podcast" /> */}
                 <NavItem navSize={navSize} href="estates" icon={ImEarth} title="Estates" />
+                <NavItem navSize={navSize} href="blog" icon={ImBlog} title="Blog" />
             </Flex>
 
         </Flex>

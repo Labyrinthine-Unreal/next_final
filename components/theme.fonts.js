@@ -13,10 +13,10 @@ const theme = extendTheme({
     },
 
     subtitle: {
-      pb: "10",
-      fontWeight: "extrabold", 
-      color: "teal.700", 
-      textShadow: '1px 1px white'
+      fontWeight: "extrabold",
+      color: "teal.700",
+      textShadow: "1px 1px white",
+      pb: "4"
     },
 
     landingPageContent: {
@@ -35,7 +35,16 @@ const theme = extendTheme({
       bg: "#ffffffbb",
       opacity: "0.8",
       lineHeight: 'taller',
-    }
+    },
+
+    blogContent: {
+      boxShadow: "0 4px 12px 0 rgba(0, 0, 0, 0.05)", 
+      rounded: "lg",
+      pt: "8",
+      pb: "2",
+      px: "4",
+      lineHeight: 'taller',
+    },
 
   },
   styles: {

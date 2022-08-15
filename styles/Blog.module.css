@@ -1,0 +1,14 @@
+.blogTrailer {
+    margin: auto;
+    border: 5px solid black;
+    border-radius: 5px;
+    overflow: hidden;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    max-width: 700px;
+  }
+
+  .blogLink {
+    color: #2E7DAF; 
+    font-weight: 400;
+  }

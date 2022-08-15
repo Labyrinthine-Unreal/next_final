@@ -25,7 +25,7 @@ export default function EventsPage() {
             </Heading>
 
             <Box pb={20} textStyle="landingPageContent">
-                <Heading fontSize="large" textStyle="subtitle">
+                <Heading fontSize="large" textStyle="title">
                     ONGOING
                 </Heading>
 
@@ -39,7 +39,7 @@ export default function EventsPage() {
                     </SimpleGrid>
                 </Box>
 
-                <Heading fontSize="large" textStyle="subtitle">
+                <Heading fontSize="large" textStyle="title">
                     UPCOMING
                 </Heading>
 
@@ -53,7 +53,7 @@ export default function EventsPage() {
                     </SimpleGrid>
                 </Box>
 
-                <Heading fontSize="large" textStyle="subtitle">
+                <Heading fontSize="large" textStyle="title">
                     PAST
                 </Heading>
 

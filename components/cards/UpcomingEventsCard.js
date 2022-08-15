@@ -1,4 +1,5 @@
-import { Box, Image, Button, Text, Modal, ModalOverlay, ModalContent, ModalHeader, ModalBody, ModalFooter, useDisclosure } from "@chakra-ui/react"
+import { Box, Image, Button, Text, Modal, ModalOverlay, ModalContent, ModalHeader, ModalBody, ModalFooter, useDisclosure, Link } from "@chakra-ui/react"
+import NextLink from 'next/link'
 import styles from "@styles/Events.module.css"
 
 export default function UpcomingEventsCard({ upcomingEvent }) {
@@ -24,29 +25,34 @@ export default function UpcomingEventsCard({ upcomingEvent }) {
                     </Box>
                 </Box>
                 <Box className={styles.btn}>
-                    <Button onClick={onOpen} borderRadius="0" _hover={{opacity: "0.7"}} size="sm" variant="outline">
-                        {buttonText}
-                    </Button>
-                    <Modal isCentered size="xl" isOpen={isOpen} onClose={onClose} transition="6">
-                        <ModalOverlay />
-                        <ModalContent>
-                            <ModalHeader>{modalTitle}</ModalHeader>
-                            <ModalBody>
-                                <video
-                                    controls
-                                    src={video}
-                                    objectfit="cover"
-                                    layout="fill"
-                                />
-                            </ModalBody>
-
-                            <ModalFooter>
-                                <Button variant="outline" colorScheme='blue' mr={3} onClick={onClose}>
-                                Close
-                                </Button>
-                            </ModalFooter>
-                        </ModalContent>
-                    </Modal>
+                    {title == "Curated Art Gallery" ? 
+                        <Button onClick={onOpen} borderRadius="0" _hover={{opacity: "0.7"}} size="sm" variant="outline">
+                            <NextLink style={{textDecoration: "none"}} href="/blog" as={`${href}`} passHref><Link>{buttonText}</Link></NextLink>
+                        </Button> : 
+                        
+                        <Button onClick={onOpen} borderRadius="0" _hover={{opacity: "0.7"}} size="sm" variant="outline">    
+                            {buttonText}
+                            <Modal isCentered size="xl" isOpen={isOpen} onClose={onClose} transition="6">
+                            
+                            <ModalOverlay />
+                            <ModalContent>
+                                <ModalHeader>{modalTitle}</ModalHeader>
+                                <ModalBody>
+                                    <video
+                                        controls
+                                        src={video}
+                                        objectfit="cover"
+                                        layout="fill"
+                                    />
+                                </ModalBody>
+                                <ModalFooter>
+                                    <Button variant="outline" colorScheme='blue' mr={3} onClick={onClose}>
+                                    Close
+                                    </Button>
+                                </ModalFooter>
+                            </ModalContent>
+                        </Modal></Button>}
+                    
                 </Box>
             </Box>
         </Box>

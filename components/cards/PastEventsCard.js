@@ -1,5 +1,6 @@
 import { Box, Image, Button, Text, Link, useDisclosure, Modal, ModalOverlay, ModalContent, ModalHeader, ModalBody, ModalFooter } from "@chakra-ui/react"
 import styles from "@styles/Events.module.css"
+import NextLink from 'next/link'
 import dynamic from 'next/dynamic'
 
 const Model = dynamic(
