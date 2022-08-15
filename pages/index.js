@@ -4,8 +4,9 @@ import { cardVariant, parentVariant } from '../motion'
 import products from '@components/data/products/'
 import ProductCard from '@components/cards/ProductCard'
 import ProductModal from '@components/cards/ProductModal'
-import { Box, Center, SimpleGrid, Text, Link, Heading, Collapse, useDisclosure, IconButton, UnorderedList, ListItem } from '@chakra-ui/react'
-import Head from "next/head"
+import { Box, Center, SimpleGrid, Text, Link, Heading, Collapse, useDisclosure, IconButton } from '@chakra-ui/react'
+import Head from 'next/head'
+import NextLink from 'next/link'
 import EstatesBalance from '@components/mint/EstatesBalance'
 import EstatesClaimed from '@components/mint/EstatesClaimed'
 import TaurosBalance from '@components/mint/TaurosBalance'
@@ -59,13 +60,13 @@ export default function Home() {
             <Box textStyle="landingPageContent" mb={10} pb={0}>
                 <motion.div initial="initial" whileInView="whileInView" whileHover="hover" tap="whileTap">
                     <Collapse in={isOpen} startingHeight={60}>
-                        <Text>TaurosDAO is an exclusive community of artists and collectors founded in January 2022 by <Link href="https://www.labyrinthineunreal.io/" target="_blank" rel="noreferrer" style={{fontWeight: "400"}}>Labyrinthine Unreal</Link>. For purposes of governance and other membership privileges, members must hold at least one TAUROS token. There are two types of TAUROS tokens: <span style={{fontWeight: "400"}}>OG TAUROS</span> and <span style={{fontWeight: "400"}}>Standard</span>. OG members receive free airdrops of all future assets Labyrinthine Unreal and TaurosDAO produce (such as, Merca City Estates, Initiation Masks, etc). Standard members receive random airdrops and most other perks (for a more detailed overview check the members page).
+                        <Text>TaurosDAO is an exclusive community of artists and collectors founded in January 2022 by <Link href="https://www.labyrinthineunreal.io/" target="_blank" rel="noreferrer" style={{textDecoration: "none", color: "#2E7DAF", fontWeight: "400"}}>Labyrinthine Unreal</Link>. For purposes of governance and other membership privileges, members must hold at least one TAUROS token. There are two types of TAUROS tokens: <span style={{fontWeight: "400"}}>OG TAUROS</span> and <span style={{fontWeight: "400"}}>Standard</span>. OG members receive free airdrops of all future assets Labyrinthine Unreal and TaurosDAO produce (such as, Merca City Estates, Initiation Masks, etc). Standard members receive random airdrops and most other perks (for a more detailed overview check the members page).
                         </Text>
                         
                         <Text ml={6} mt={5} p={5} rounded="lg" brightness="90%" borderColor="teal.700" maxW={800} _hover={{color: "teal.600", bg: "#eee", brightness: "100%", boxShadow: "dark-lg", transition: "transform 0.15s ease-in-out", transform: "scale3d(1.05, 1.05, 1.05)",}} style={{fontWeight: "400"}}>To be able to mint TAUROS, you must save your Ethereum wallet address with the allowlist below when it goes live. We will announce the date soon, so stay tuned!
                         </Text>
                         
-                        <Text pt={5}><span style={{fontWeight: "400"}}>Merca City</span> is an open world Metaverse/RTS Game, where TaurosDAO members, artists, designers, developers, gamers, and collectors may come together to play, experiment, and collaborate. <span style={{fontWeight: "400"}}>Estates</span> are Merca City&apos;s genesis assets. The Estates NFT is dynamic, A.K.A. dNFT or <em>smart NFT</em>; its metadata and output animation changes based on live weather conditions pinpointing to a secret location. It reports temperature and visibility, and its animation depicts four weather conditions: sunny, overcast, rainy, and snowy.
+                        <Text pt={5}><span style={{fontWeight: "400"}}>Merca City</span> is an open world Metaverse/RTS Game, where TaurosDAO members, artists, designers, developers, gamers, and collectors may come together to play, experiment, and collaborate. <NextLink href="/estates"><a style={{color: "#2E7DAF", fontWeight: "400"}}>Estates</a></NextLink> are Merca City&apos;s genesis assets. The Estates NFT is dynamic, A.K.A. dNFT or <em>smart NFT</em>; its metadata and output animation changes based on live weather conditions pinpointing to a secret location. It reports temperature and visibility, and its animation depicts four weather conditions: sunny, overcast, rainy, and snowy.
                         </Text>
 
                         {/* <Text>TaurosDAO is an exclusive community of artists and collectors founded in January 2022 by <Link href="https://www.labyrinthineunreal.io/" target="_blank" rel="noreferrer" style={{fontWeight: "400"}}>Labyrinthine Unreal</Link>. For purposes of governance and other membership privileges, members must hold at least one TAUROS token. There will only ever be 2000 TAUROS tokens: <span style={{fontWeight: "400"}}>300 OG</span> and <span style={{fontWeight: "400"}}>1700 Standard</span>. OG members receive free airdrops of all future assets Labyrinthine Unreal and TaurosDAO produce (such as, Merca City Estates, Initiation Masks, etc). Standard members receive random airdrops and most other perks (for a more detailed overview check the members page).
