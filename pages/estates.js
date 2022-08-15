@@ -133,7 +133,7 @@ export default function EstatesPage() {
                     />
                 </Center>
 
-            <Heading pt={10} fontSize="3xl" textStyle="title">
+            <Heading id="districts" pt={10} fontSize="3xl" textStyle="title">
                 <Districts />
             </Heading>
             
