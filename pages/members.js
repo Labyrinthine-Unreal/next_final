@@ -29,7 +29,7 @@ export default function SlideEx() {
                         <TabPanel>
                             <UnorderedList fontSize="15px">
                                 <ListItem fontWeight="semibold">Governance</ListItem>
-                                <Text color="gray.700">First and foremost, governance tokens grant holders the right to vote on important decisions and the direction the project may take in the future. In the case of TaurosDAO, TAUROS cards are also our governance tokens. It&apos;s simple: 1 TAUROS card means 1 vote, regardless of card type.</Text>
+                                <Text color="gray.700">First and foremost, governance tokens grant holders the right to vote on important decisions and the direction the project may take in the future. In the case of TaurosDAO, TAUROS cards are also our governance tokens. It&apos;s simple: 1 TAUROS means 1 vote, regardless of card type.</Text>
 
                                 <ListItem pt={6} fontWeight="semibold">Airdrops</ListItem>
                                 <Text color="gray.700">A set amount of assets created by TaurosDAO are initially airdropped to existing members. All OG cards will receive an Estate airdrop. Afterwards, they have a 50% chance to receive a random airdrop of all Labyrinthine Unreal and TaurosDAO future assets. Archons and Guardians have a 25% and 10% chance respectively, plus all the other perks of membership (such as, automatically entered for all allowlists, governance, artist and collector benefits, etc.). A part of Merca City game tokens will be distributed equally to all TAUROS owners. The rest will be distributed to Estate holders based on tasks completed and/or time spent in the game.</Text>
