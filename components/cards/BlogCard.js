@@ -33,20 +33,16 @@ export default function ProductCard({ article }) {
                 <FacebookShareButton url={share} >
                     <FacebookIcon size={20} round />
                 </FacebookShareButton>
-                <TwitterShareButton
-                    url={share} >
+                <TwitterShareButton url={share} >
                     <TwitterIcon size={20} round />
                 </TwitterShareButton>
-                <RedditShareButton
-                    url={share} >
+                <RedditShareButton url={share} title={"test"} hashtags={"#labunreal"}>
                     <RedditIcon size={20} round />
                 </RedditShareButton>
-                <PinterestShareButton
-                    url={share} >
+                <PinterestShareButton url={share} >
                     <PinterestIcon size={20} round />
                 </PinterestShareButton>
-                <TumblrShareButton
-                    url={share} >
+                <TumblrShareButton url={share} >
                     <TumblrIcon size={20} round />
                 </TumblrShareButton>
                 <Spacer />
