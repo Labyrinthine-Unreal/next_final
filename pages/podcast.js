@@ -2,7 +2,7 @@ import { Box, Heading, Text, Flex, SimpleGrid } from '@chakra-ui/react'
 import Head from 'next/head'
 import PodcastsCard from '@components/cards/PodcastsCard'
 import podcastsData from '@components/data/podcastsData'
-import { Podcasts } from '@components/AnimatedTitles'
+import { Podcasts } from '@components/animations/AnimatedTitles'
 
 export default function EventsPage() {
 

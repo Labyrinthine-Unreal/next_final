@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import { Box, Text, Heading, Center } from "@chakra-ui/react"
 import Link from 'next/link'
-import { About } from '@components/AnimatedTitles'
+import { About } from '@components/animations/AnimatedTitles'
 import styles from '@styles/About.module.css'
 
 export default function AboutPage() {

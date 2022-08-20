@@ -2,7 +2,7 @@ import { Box, Heading, Text, Flex, SimpleGrid, Link } from '@chakra-ui/react'
 import Head from 'next/head'
 import GalleriesCard from '@components/cards/GalleriesCard'
 import galleriesData from '@components/data/galleriesData'
-import { Galleries } from '@components/AnimatedTitles'
+import { Galleries } from '@components/animations/AnimatedTitles'
 
 export default function GalleriesPage() {
 

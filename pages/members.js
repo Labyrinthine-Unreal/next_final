@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import { Box, Heading, Text, UnorderedList, ListItem, Tabs, TabList, TabPanels, Tab, TabPanel, Divider } from '@chakra-ui/react'
-import { Members } from '@components/AnimatedTitles'
+import { Members } from '@components/animations/AnimatedTitles'
 
 export default function SlideEx() {
   

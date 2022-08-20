@@ -6,7 +6,7 @@ import UECard from '@components/cards/UpcomingEventsCard'
 import upcomingEvents from '@components/data/upcomingEventsData'
 import PECard from '@components/cards/PastEventsCard'
 import pastEvents from '@components/data/pastEventsData'
-import { Events } from '@components/AnimatedTitles'
+import { Events } from '@components/animations/AnimatedTitles'
 import '@fontsource/tangerine'
 
 

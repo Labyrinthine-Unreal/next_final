@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import { Box, Text, Heading } from '@chakra-ui/react'
-import { Voting } from '@components/AnimatedTitles'
+import { Voting } from '@components/animations/AnimatedTitles'
 
 export default function VotingPage() {
     return (

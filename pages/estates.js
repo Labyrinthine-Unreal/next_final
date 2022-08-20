@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import { Box, Center, Text, UnorderedList, List, ListItem, ListIcon, Heading, Tabs, TabList, Tab, TabPanels, TabPanel } from '@chakra-ui/react'
 import { ImEarth } from 'react-icons/im'
-import { Estates, Districts } from '@components/AnimatedTitles'
+import { Estates, Districts } from '@components/animations/AnimatedTitles'
 import { motion, useViewportScroll } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
 import styles from '@styles/About.module.css'
