@@ -27,7 +27,7 @@ export default function Home() {
 
   const [ref, inView] = useInView({
       threshold: 0.3,
-      triggerOnce: true
+      triggerOnce: false
   });
 
   const buttonVariants = {
