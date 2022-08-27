@@ -24,8 +24,8 @@ export default function AllowList() {
       setWhitelistDetail('');
       onClose();
       toast({
-        title: 'Submission Successful',
-        description: "Whitelist Submission Succesful",
+        title: 'Sweet.',
+        description: "Address Submission Succesful.",
         status: 'success',
         duration: 9000,
         isClosable: true,
@@ -41,7 +41,7 @@ export default function AllowList() {
   
     return (
       <Box pl={5} pb={4}>
-        <Button disabled colorScheme="teal" onClick={onOpen}>Enter Allowlist</Button>
+        <Button disabled colorScheme="teal" onClick={onOpen}>Enter Tauroslist</Button>
         <AlertDialog
           leastDestructiveRef={cancelRef}
           onClose={onClose}

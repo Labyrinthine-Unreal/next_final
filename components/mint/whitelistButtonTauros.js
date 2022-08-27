@@ -40,7 +40,7 @@ export default function MBT() {
       params: options,
       onSuccess: () => {
         toast({
-          title: 'Whitelist Successful',
+          title: 'Success.',
           description: "Whitelisted for TAUROS",
           status: 'success',
           duration: 9000,
@@ -50,7 +50,7 @@ export default function MBT() {
       },
       onError: (error) => {
         toast({
-          title: 'Whitelist Failed.. User rejected the transaction or not enough Ether To Whitelist for TAUROS',
+          title: 'Failed.. User rejected the transaction or not enough Ether To Whitelist for TAUROS',
           description: console.log(error),
           status: "error",
           duration: '9000',
