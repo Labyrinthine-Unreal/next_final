@@ -15,7 +15,7 @@ const blogData = [
             layout="fill"
         />
         <br /><br />
-        The Gallery is designed by Lev of the <a className={styles.blogLink} href='https://twitter.com/libeskindARTS' target="blank">LIBESKIND ARTS</a> Project and <a className={styles.blogLink} href='https://twitter.com/sodomstar' target="blank">Sodomstar</a>. The title itself refers both to the dark aspects of this transparent, &#8220;all in view&#8221;, not merely architectural but political design system, and to the fact that mostly &#8220;dark art&#8221; will be curated. A means to simulate, through art, our digital culture of nonstop surveillance, Panopticon: <em>Darkness in Light</em> reflects our current state of existence: one which is watched all the time, but somehow still behaves as if it weren&apos;t. </p>),
+        The Gallery is designed by Lev of the <a className={styles.blogLink} href='https://twitter.com/libeskindARTS' target="blank">LIBESKIND ARTS</a> Project, <a className={styles.blogLink} href='https://twitter.com/sodomstar' target="blank">Sodomstar</a>, and <a className={styles.blogLink} href='https://twitter.com/_makemamaproud_' target="blank">Makemamaproud</a>. The title itself refers both to the dark aspects of this transparent, &#8220;all in view&#8221;, not merely architectural but political design system, and to the fact that mostly &#8220;dark art&#8221; will be curated. A means to simulate, through art, our digital culture of nonstop surveillance, Panopticon: <em>Darkness in Light</em> reflects our current state of existence: one which is watched all the time, but somehow still behaves as if it weren&apos;t. </p>),
         share: "http://taurosdao.app/blog#panopticon"
     }
 ]
