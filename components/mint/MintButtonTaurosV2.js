@@ -1,8 +1,8 @@
-import {useToast, NumberInputStepper, Button,Box, Spacer, NumberIncrementStepper, NumberDecrementStepper, NumberInputField, Text, FormControl, FormLabel, NumberInput} from "@chakra-ui/react"
+import {useToast, NumberInputStepper, Box, Spacer, NumberIncrementStepper, NumberDecrementStepper, NumberInputField, Text, FormControl, FormLabel, NumberInput} from "@chakra-ui/react"
 import { useEffect, useState, } from "react";
 import CustomContainer from "@components/CustomContainer";
-// import { Button } from 'web3uikit';
-import { useMoralis, useWeb3ExecuteFunction } from 'react-moralis';
+import { Button } from 'web3uikit';
+// import { useMoralis, useWeb3ExecuteFunction } from 'react-moralis';
 import styles from "@styles/MintButton.module.css"
 import taurosABI from "../ABIs/taurosABI"
 
@@ -15,53 +15,54 @@ export default function MBT() {
   const handleChange = (value) => setAmount(value)
   const toast = useToast()
 
-  const { authenticate, isAuthenticated, isAuthenticating, Moralis, user, account, logout } = useMoralis();
-  const contractProcessor = useWeb3ExecuteFunction();
-  // const [value, setValue] = useControllableState({ defaultValue: 1 })
-  useEffect(() => {
-    if (isAuthenticated) {
+//   const { authenticate, isAuthenticated, isAuthenticating, Moralis, user, account, logout } = useMoralis();
+//   const contractProcessor = useWeb3ExecuteFunction();
+//   // const [value, setValue] = useControllableState({ defaultValue: 1 })
+//   useEffect(() => {
+//     if (isAuthenticated) {
 
-    }
+//     }
 
-  }, [isAuthenticated])
+//   }, [isAuthenticated])
 
-  async function _mintTauros() {
-    let options = {
-      contractAddress: '0x34C417Cd815F551A564e03CB92F5d23935775B7E',
-      functionName: 'claimTauros',
-      abi: taurosABI,
-      msgValue: Moralis.Units.ETH("0.05")* amount,
-//       Moralis.Units.ETH("0.1")
-      params: {
-        _count: amount,
-      }
-    }
+//   async function _mintTauros() {
+//     let options = {
+//       contractAddress: '0x3afB351CeC55E029eDD69D445F3E0Cb57e5E7ed0',
+//       functionName: 'mintNFTs',
+//       abi: taurosABI,
+//       msgValue: Moralis.Units.ETH("0.05")* amount,
+// //       Moralis.Units.ETH("0.1")
+//       params: {
+//         _count: amount,
+//       }
+//     }
 
-    await Moralis.enableWeb3()
-    await contractProcessor.fetch({
-      params: options,
-      onSuccess: () => {
-        toast({
-          title: 'Mint Successful',
-          description: "Minted TAUROS",
-          status: 'success',
-          duration: 9000,
-          isClosable: true,
-        })
-        console.log("Mint successful");
-      },
-      onError: (error) => {
-        toast({
-          title: 'Mint Failed.. User rejected the transaction or not enough Ether To Purchase TAUROS',
-          description: console.log(error),
-          status: "error",
-          duration: '9000',
-          isClosable: true
-        })
-        console.log(error);
-      }
-    })
-  }
+//     await Moralis.enableWeb3()
+//     await contractProcessor.fetch({
+//       params: options,
+//       onSuccess: () => {
+//         toast({
+//           title: 'Mint Successful',
+//           description: "Minted TAUROS",
+//           status: 'success',
+//           duration: 9000,
+//           isClosable: true,
+//         })
+//         console.log("Mint successful");
+//       },
+//       onError: (error) => {
+//         toast({
+//           title: 'Mint Failed.. User rejected the transaction or not enough Ether To Purchase TAUROS',
+//           description: console.log(error),
+//           status: "error",
+//           duration: '9000',
+//           isClosable: true
+//         })
+//         console.log(error);
+//       }
+//     })
+  // }
+
   return (
     <CustomContainer>
       <Box fontSize="xl" fontWeight="bold" align="right">
@@ -83,7 +84,7 @@ export default function MBT() {
               </NumberInput>
           </FormControl>
           <Spacer />
-          <Button onClick={() => {
+          <Button disabled onClick={() => {
             if (isAuthenticated) { _mintTauros(); }
           }} text={"Mint Tauros"} theme={"primary"} />
 
