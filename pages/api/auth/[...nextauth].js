@@ -1,5 +1,5 @@
 import CredentialsProvider from 'next-auth/providers/credentials';
-import NextAuth from 'next-auth/next';
+import NextAuth from 'next-auth';
 import Moralis from 'moralis';
 
 export default NextAuth({
