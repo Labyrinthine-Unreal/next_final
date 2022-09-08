@@ -25,7 +25,7 @@ function MyApp({ Component, pageProps }) {
     <Provider store={store}>
       <ChakraProvider theme={theme}>
         <WagmiConfig client={client}>
-          <MoralisProvider appId="dqkfmKHCu1vl17sLEOFgJ9RnwsJyrMgsqNLKTgQE" serverUrl="https://d8tdshnwaepb.usemoralis.com:2053/server">
+          {/* <MoralisProvider appId="dqkfmKHCu1vl17sLEOFgJ9RnwsJyrMgsqNLKTgQE" serverUrl="https://d8tdshnwaepb.usemoralis.com:2053/server"> */}
             <SessionProvider session={pageProps.session} refetchInterval={0}>
               <Box>
                 <Layout>
@@ -37,7 +37,7 @@ function MyApp({ Component, pageProps }) {
                 </Layout>
               </Box>
             </SessionProvider>
-          </MoralisProvider>
+          {/* </MoralisProvider> */}
         </WagmiConfig>
       </ChakraProvider>
     </Provider>
