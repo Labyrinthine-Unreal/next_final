@@ -1,8 +1,8 @@
-import {useToast, NumberInputStepper, Box, Spacer, NumberIncrementStepper, NumberDecrementStepper, NumberInputField, Text, FormControl, FormLabel, NumberInput} from "@chakra-ui/react"
+import {useToast,Button, NumberInputStepper, Box, Spacer, NumberIncrementStepper, NumberDecrementStepper, NumberInputField, Text, FormControl, FormLabel, NumberInput} from "@chakra-ui/react"
 import { useEffect, useState, } from "react";
 import CustomContainer from "@components/CustomContainer";
-import { Button } from 'web3uikit';
-import { useMoralis, useWeb3ExecuteFunction } from 'react-moralis';
+// import { Button } from 'web3uikit';
+// import { useMoralis, useWeb3ExecuteFunction } from 'react-moralis';
 import styles from "@styles/MintButton.module.css"
 
 // import taurosABI from "./ABIs/taurosABI.json";
@@ -14,52 +14,52 @@ const truncate = (input, len) =>
 export default function MBE() {
   const [amount, setAmount] = useState(1)
   const handleChange = (value) => setAmount(value)
-  const { authenticate, isAuthenticated, isAuthenticating, Moralis, user, account, logout } = useMoralis();
-  const contractProcessor = useWeb3ExecuteFunction();
-  const toast = useToast()
+  // const { authenticate, isAuthenticated, isAuthenticating, Moralis, user, account, logout } = useMoralis();
+  // const contractProcessor = useWeb3ExecuteFunction();
+  // const toast = useToast()
 
-  useEffect(() => {
-    if (isAuthenticated) {
+  // useEffect(() => {
+  //   if (isAuthenticated) {
 
-    }
+  //   }
 
-  }, [isAuthenticated])
+  // }, [isAuthenticated])
 
-  async function _mintEstates() {
-    let options = {
-      // msgValue: Moralis.Units.ETH("0.05"),
-      contractAddress: '0x6997640355E20515C541F7D93D662782e43823a4',
-      functionName: 'mintNFTs',
-      abi: estatesABI,
-      params: {
-        _count: 1 * amount,
-      }
-    }
-    await Moralis.enableWeb3()
-    await contractProcessor.fetch({
-      params: options,
-      onSuccess: () => {
-        toast({
-          title: 'Mint Successful',
-          description: "Minted Merca City Estate",
-          status: 'success',
-          duration: 9000,
-          isClosable: true,
-        })
-        console.log("Mint successful");
-      },
-      onError: (error) => {
-        toast({
-          title: 'Mint Failed.. User is Not Whitelisted or rejected the transaction',
-          description: console.log(error),
-          status: "error",
-          duration: '9000',
-          isClosable: true
-        })
-        console.log(error);
-      }
-    })
-  }
+  // async function _mintEstates() {
+  //   let options = {
+  //     // msgValue: Moralis.Units.ETH("0.05"),
+  //     contractAddress: '0x6997640355E20515C541F7D93D662782e43823a4',
+  //     functionName: 'mintNFTs',
+  //     abi: estatesABI,
+  //     params: {
+  //       _count: 1 * amount,
+  //     }
+  //   }
+  //   await Moralis.enableWeb3()
+  //   await contractProcessor.fetch({
+  //     params: options,
+  //     onSuccess: () => {
+  //       toast({
+  //         title: 'Mint Successful',
+  //         description: "Minted Merca City Estate",
+  //         status: 'success',
+  //         duration: 9000,
+  //         isClosable: true,
+  //       })
+  //       console.log("Mint successful");
+  //     },
+  //     onError: (error) => {
+  //       toast({
+  //         title: 'Mint Failed.. User is Not Whitelisted or rejected the transaction',
+  //         description: console.log(error),
+  //         status: "error",
+  //         duration: '9000',
+  //         isClosable: true
+  //       })
+  //       console.log(error);
+  //     }
+  //   })
+  // }
   return (
     <CustomContainer>
       <Box fontSize="xl" fontWeight="bold" align="right">
@@ -79,7 +79,7 @@ export default function MBE() {
               </NumberInputStepper>
             </NumberInput>
           </FormControl>
-          <Button disabled onClick={() => {
+          <Button onClick={() => {
             if (isAuthenticated) { _mintEstates(); }
           }} text={"Mint Estates"} theme={"primary"} />
 

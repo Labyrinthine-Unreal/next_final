@@ -1,7 +1,7 @@
-import {useToast, NumberInputStepper, Box, Spacer, NumberIncrementStepper, NumberDecrementStepper, NumberInputField, Text, FormControl, FormLabel, NumberInput} from "@chakra-ui/react"
+import {useToast,Button, NumberInputStepper, Box, Spacer, NumberIncrementStepper, NumberDecrementStepper, NumberInputField, Text, FormControl, FormLabel, NumberInput} from "@chakra-ui/react"
 import { useEffect, useState, } from "react";
 import CustomContainer from "@components/CustomContainer";
-import { Button } from 'web3uikit';
+// import { Button } from 'web3uikit';
 import { useMoralis, useWeb3ExecuteFunction } from 'react-moralis';
 import styles from "@styles/MintButton.module.css"
 import taurosABI from "../ABIs/taurosABI"
@@ -27,8 +27,8 @@ export default function MBT() {
 
   async function _mintTauros() {
     let options = {
-      contractAddress: '0x4CA308C37B2EadF9e685642746C3f8ba80F4deC2',
-      functionName: 'mintNFTs',
+      contractAddress: '0x34C417Cd815F551A564e03CB92F5d23935775B7E',
+      functionName: 'claimTauros',
       abi: taurosABI,
       msgValue: Moralis.Units.ETH("0.05")* amount,
 //       Moralis.Units.ETH("0.1")
@@ -83,7 +83,7 @@ export default function MBT() {
               </NumberInput>
           </FormControl>
           <Spacer />
-          <Button onClick={() => {
+          <Button enabled onClick={() => {
             if (isAuthenticated) { _mintTauros(); }
           }} text={"Mint Tauros"} theme={"primary"} />
 
