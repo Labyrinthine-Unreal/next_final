@@ -7,22 +7,36 @@ import { Provider } from "react-redux";
 import Layout from "@components/navbars/Layout"
 import Footer from "@components/navbars/Footer"
 import theme from '@components/theme.fonts'
+import { createClient, configureChains, defaultChains, WagmiConfig } from 'wagmi';
+import { publicProvider } from 'wagmi/providers/public';
+import { SessionProvider } from 'next-auth/react';
+
+const { provider, webSocketProvider } = configureChains(defaultChains, [publicProvider()]);
+
+const client = createClient({
+  provider,
+  webSocketProvider,
+  autoConnect: true,
+});
+
 
 function MyApp({ Component, pageProps }) {
-  return(
+  return (
     <Provider store={store}>
       <ChakraProvider theme={theme}>
-        <MoralisProvider appId="dqkfmKHCu1vl17sLEOFgJ9RnwsJyrMgsqNLKTgQE"  serverUrl="https://d8tdshnwaepb.usemoralis.com:2053/server">
-          <Box>
-            <Layout>
-            <Box maxW="1000" align="center" py={20}>
-              <Box textAlign="left">
-                <Component {...pageProps} />
-              </Box>
+        <WagmiConfig client={client}>
+          <SessionProvider session={pageProps.session} refetchInterval={0}>
+            <Box>
+              <Layout>
+                <Box maxW="1000" align="center" py={20}>
+                  <Box textAlign="left">
+                    <Component {...pageProps} />
+                  </Box>
+                </Box>
+              </Layout>
             </Box>
-            </Layout>
-          </Box>
-        </MoralisProvider>
+          </SessionProvider>
+        </WagmiConfig>
       </ChakraProvider>
     </Provider>
   )
