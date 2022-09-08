@@ -1,4 +1,4 @@
-import Moralis from 'moralis-v1';
+import Moralis from 'moralis';
 
 const config = {
     domain: process.env.APP_DOMAIN,
