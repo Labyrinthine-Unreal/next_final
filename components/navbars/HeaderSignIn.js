@@ -29,6 +29,7 @@ export default function HeaderSignIn({ ...rest }) {
     const { account, chain } = await connectAsync({ connector: new InjectedConnector() });
     const userData = { address: account, chain: chain.id, network: 'evm' };
     console.log(userData)
+    onClose()
   };
   // const { data } = await axios.post('../../src/api/auth/request-message', userData, {
   //     headers: {
@@ -175,6 +176,7 @@ export default function HeaderSignIn({ ...rest }) {
                 } catch (error) {
                   console.error(error)
                 }
+                onClose()
               }}
               >
                 Unstoppable Domains
