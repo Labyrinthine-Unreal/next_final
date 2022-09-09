@@ -116,7 +116,7 @@ export default function HeaderSignIn({ ...rest }) {
                 fontWeight="normal"
                 onClick={() => handleAuth()}
               >
-                  Login via moralis
+                  Metamask (via moralis)
               </Button>
               <Spacer py={2} />
 {/* /////////////////////////////////////////////////////////////////////////////////////// */}
@@ -177,7 +177,7 @@ export default function HeaderSignIn({ ...rest }) {
                 }
               }}
               >
-                Login with Unstoppable
+                Unstoppable Domains
               </Button>
               
 
