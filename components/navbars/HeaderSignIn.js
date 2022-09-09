@@ -1,5 +1,6 @@
-import { Box, Flex, Center, Button, Text, IconButton, Image, Spacer, Divider, useDisclosure, Modal, ModalOverlay, ModalContent, ModalHeader, ModalFooter, ModalBody, ModalCloseButton, ListIcon } from '@chakra-ui/react'
+import { Box, Flex, Icon, Center, Button, Text, IconButton, Image, Spacer, Divider, useDisclosure, Modal, ModalOverlay, ModalContent, ModalHeader, ModalFooter, ModalBody, ModalCloseButton, ListIcon } from '@chakra-ui/react'
 import { ImMenu } from 'react-icons/im'
+import { AiOutlineWallet } from 'react-icons/ai'
 // import { ConnectButton } from 'web3uikit'
 import styles from '@styles/SignIn.module.css'
 import { InjectedConnector } from 'wagmi/connectors/injected'
@@ -108,6 +109,12 @@ export default function HeaderSignIn({ ...rest }) {
       qrcode: true,
     },
   })
+
+  const getShortenAddress = address => {
+    const firstCharacters = address.substring(0, 6)
+    const lastCharacters = address.substring(address.length - 4, address.length)
+    return `${firstCharacters}...${lastCharacters}`
+  }
   {/* /////////////////////////////////////////////////////////////////////////////////////// */ }
   {/* /////////////////////////////////////////////////////////////////////////////////////// */ }
 
@@ -135,10 +142,10 @@ export default function HeaderSignIn({ ...rest }) {
       <Spacer />
       <Box className={styles.connect}>
       {isConnected ?
-        <Box>
-            Connected to {address}
-            <Button onClick={() => disconnect()}>Disconnect</Button>
-          </Box> 
+          <Center>
+              <Center bg="teal.500" color="#fff" position="absolute" mr={60} h="40px" p={2} pr={10} rounded="2xl"><Icon mr={2} as={AiOutlineWallet} /> {getShortenAddress(address)}</Center>
+              <Button onClick={() => disconnect()}>Disconnect</Button>
+          </Center> 
           :
           <Box>
             <Button onClick={onOpen}>Connect Wallet</Button>
