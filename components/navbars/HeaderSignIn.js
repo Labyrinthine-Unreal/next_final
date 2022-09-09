@@ -12,6 +12,7 @@ import { providers } from 'ethers';
 import { Web3Provider } from '@ethersproject/providers';
 import UAuth from '@uauth/js';
 import axios from 'axios'
+
 export default function HeaderSignIn({ ...rest }) {
 
   const { isOpen, onOpen, onClose } = useDisclosure()
@@ -93,7 +94,7 @@ export default function HeaderSignIn({ ...rest }) {
       <Spacer />
       <Box className={styles.connect}>
         {/* <ConnectButton type="button" disabled signingMessage="TaurosDAO Login" /> */}
-        <Button onClick={onOpen}>Login</Button>
+        <Button onClick={onOpen}>Connect Wallet</Button>
         <Modal blockScrollOnMount={false} isOpen={isOpen} onClose={onClose} isCentered size="sm">
           <ModalOverlay />
           <ModalContent rounded="2xl">
