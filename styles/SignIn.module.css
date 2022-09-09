@@ -1,7 +1,6 @@
 .connect button {
     background-color: #ffffffbb;
     box-shadow: -1px 3px #501e50;
-    /* transition:ease-in; */
     height: 40px;
     margin: 0 16px;
     white-space: nowrap;
@@ -13,7 +12,6 @@
   }
   
   .connect button:active {
-    box-shadow: none;
-    width: 95%;
-    height: 90%;
+    box-shadow: -0.5px 2px #501e50;
+    background-color: white;
   }
