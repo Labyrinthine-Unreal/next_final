@@ -26,29 +26,6 @@ export default function HeaderSignIn({ ...rest }) {
     },
   })
 
-  if (isConnected)
-    return (
-      <div>
-        Connected to {address}
-        <Button 
-        // w="full"
-        //   h="60px"
-          justifyContent="center"
-          variant="outline"
-          borderColor="#ffffff"
-          _hover={{ borderColor: '#000000' }}
-          rounded="2xl"
-          fontWeight="normal" onClick={() => disconnect()}>Disconnect</Button>
-      </div>
-    )
-  // const { signMessageAsync } = useSignMessage();
-  // const { push } = useRouter();
-  // const disconnect = useDisconnect({
-  //   onSuccess(data) {
-  //     console.log('Success', data)
-  //   },
-  // })
-
 
   {/* /////////////////////////////////////////////////////////////////////////////////////// */ }
 
@@ -119,18 +96,18 @@ export default function HeaderSignIn({ ...rest }) {
       </Center>
       <Spacer />
       <Box className={styles.connect}>
-        <Button
-          // leftIcon={<Image src="/images/logos-icons/MM.png" w="2em" h="2em" mr="2" />}
-          w="full"
-          h="60px"
-          justifyContent="center"
+        {isConnected ? <Box>
+        Connected to {address}
+        <Button 
+        // w="full"
+        //   h="60px"
+          // justifyContent="center"
           variant="outline"
           borderColor="#ffffff"
           _hover={{ borderColor: '#000000' }}
           rounded="2xl"
-          fontWeight="normal" onClick={async () => disconnect()}>Disconnect</Button>
-      </Box>
-      <Box className={styles.connect}>
+          fontWeight="normal" onClick={() => disconnect()}>Disconnect</Button>
+      </Box> : <Box className={styles.connect}>
         {/* <ConnectButton type="button" disabled signingMessage="TaurosDAO Login" /> */}
         <Button onClick={onOpen}>Connect Wallet</Button>
         <Modal blockScrollOnMount={false} isOpen={isOpen} onClose={onClose} isCentered size="sm">
@@ -230,7 +207,21 @@ export default function HeaderSignIn({ ...rest }) {
             </ModalBody>
           </ModalContent>
         </Modal>
+      </Box>}
+        
+        
+        {/* <Button
+          leftIcon={<Image src="/images/logos-icons/MM.png" w="2em" h="2em" mr="2" />}
+          w="full"
+          h="60px"
+          justifyContent="center"
+          variant="outline"
+          borderColor="#ffffff"
+          _hover={{ borderColor: '#000000' }}
+          rounded="2xl"
+          fontWeight="normal" onClick={async () => disconnect()}>Disconnect</Button> */}
       </Box>
+      
     </Flex>
   );
 }
