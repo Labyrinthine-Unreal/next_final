@@ -1,5 +1,4 @@
-import { useDisclosure, Modal, ModalOverlay, ModalContent, ModalHeader, ModalFooter, ModalBody, ModalCloseButton } from '@chakra-ui/react'
-import { Flex, Center,Button,Text, IconButton, Image, Spacer } from '@chakra-ui/react'
+import { Box, Flex, Center, Button, Text, IconButton, Image, Spacer, Divider, useDisclosure, Modal, ModalOverlay, ModalContent, ModalHeader, ModalFooter, ModalBody, ModalCloseButton, ListIcon } from '@chakra-ui/react'
 import { ImMenu } from 'react-icons/im'
 // import { ConnectButton } from 'web3uikit'
 import styles from '@styles/SignIn.module.css'
@@ -91,47 +90,84 @@ export default function HeaderSignIn({ ...rest }) {
         <Image pl={1} src="images/logos-icons/tauros_letters.png" alt="Tauros_final" w="180px" h="65px" />
       </Center>
       <Spacer />
-      <Center className={styles.connect}>
+      <Box className={styles.connect}>
         {/* <ConnectButton type="button" disabled signingMessage="TaurosDAO Login" /> */}
         <Button onClick={onOpen}>Login</Button>
-        <Modal blockScrollOnMount={false} isOpen={isOpen} onClose={onClose}>
+        <Modal blockScrollOnMount={false} isOpen={isOpen} onClose={onClose} isCentered size="sm">
           <ModalOverlay />
-          <ModalContent>
-            <ModalHeader>Choose Wallet Provider</ModalHeader>
+          <ModalContent rounded="2xl">
+            <ModalHeader>Connect Wallet</ModalHeader>
+            <Divider />
             <ModalCloseButton />
-            <ModalBody>
-              <Text fontWeight='bold' mb='1rem'>
-                Choose One Of The Wallet Providers To Connect To the TaurosDAO APP
-              </Text>
-              {/* <Lorem count={2} /> */}
-            </ModalBody>
-            <ModalFooter>
+            <ModalBody py={10}>
+              
 {/* /////////////////////////////////////////////////////////////////////////////////////// */}
 {/* /////////////////////////////////////////////////////////////////////////////////////// */}
 
-              <Button onClick={() => handleAuth()}>Login via moralis</Button>
-              <Spacer />
+              <Button 
+                leftIcon={<Image src="/images/logos-icons/MM.png" w="2em" h="2em" mr="2" />} 
+                w="full" 
+                h="60px" 
+                justifyContent="left" 
+                variant="outline" 
+                borderColor="#ffffff" 
+                _hover={{ borderColor: '#000000' }} 
+                rounded="xl" 
+                onClick={() => handleAuth()}
+              >
+                  Login via moralis
+              </Button>
+              <Spacer py={2} />
 {/* /////////////////////////////////////////////////////////////////////////////////////// */}
 {/* /////////////////////////////////////////////////////////////////////////////////////// */}
 
-              <Button onClick={async () => {
+              <Button 
+                leftIcon={<Image src="/images/logos-icons/WC.png" w="2em" h="2em" mr="2" />} 
+                w="full" 
+                h="60px" 
+                justifyContent="left" 
+                variant="outline" 
+                borderColor="#ffffff" 
+                _hover={{ borderColor: '#000000' }} 
+                rounded="xl"
+              >
+                Wallet Connect
+              </Button>
+              <Spacer py={2} />
+
+{/* /////////////////////////////////////////////////////////////////////////////////////// */}
+{/* /////////////////////////////////////////////////////////////////////////////////////// */}
+
+              <Button 
+                leftIcon={<Image src="/images/logos-icons/UD.png" w="2em" h="2em" mr="2" />} 
+                w="full" 
+                h="60px" 
+                justifyContent="left" 
+                variant="outline" 
+                borderColor="#ffffff" 
+                _hover={{ borderColor: '#000000' }} 
+                rounded="xl" 
+                onClick={async () => {
                 try {
                   const authorization = await uauth.loginWithPopup()
                   console.log(authorization)
                 } catch (error) {
                   console.error(error)
                 }
-              }}>Login with Unstoppable</Button>
-              <Spacer />
+              }}
+              >
+                Login with Unstoppable
+              </Button>
+              
 
 
 {/* /////////////////////////////////////////////////////////////////////////////////////// */}
 {/* /////////////////////////////////////////////////////////////////////////////////////// */}
 
-            </ModalFooter>
+            </ModalBody>
           </ModalContent>
         </Modal>
-      </Center>
+      </Box>
     </Flex>
   );
 }
