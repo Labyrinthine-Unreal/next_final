@@ -96,7 +96,7 @@ export default function HeaderSignIn({ ...rest }) {
         <Modal blockScrollOnMount={false} isOpen={isOpen} onClose={onClose} isCentered size="sm">
           <ModalOverlay />
           <ModalContent rounded="2xl">
-            <ModalHeader>Connect Wallet</ModalHeader>
+            <ModalHeader fontWeight="normal">Connect Wallet</ModalHeader>
             <Divider />
             <ModalCloseButton />
             <ModalBody py={10}>
@@ -105,14 +105,15 @@ export default function HeaderSignIn({ ...rest }) {
 {/* /////////////////////////////////////////////////////////////////////////////////////// */}
 
               <Button 
-                leftIcon={<Image src="/images/logos-icons/MM.png" w="2em" h="2em" mr="2" />} 
-                w="full" 
-                h="60px" 
-                justifyContent="left" 
-                variant="outline" 
-                borderColor="#ffffff" 
-                _hover={{ borderColor: '#000000' }} 
-                rounded="xl" 
+                leftIcon={<Image src="/images/logos-icons/MM.png" w="2em" h="2em" mr="2" />}
+                w="full"
+                h="60px"
+                justifyContent="left"
+                variant="outline"
+                borderColor="#ffffff"
+                _hover={{ borderColor: '#000000' }}
+                rounded="xl"
+                fontWeight="normal"
                 onClick={() => handleAuth()}
               >
                   Login via moralis
@@ -120,16 +121,17 @@ export default function HeaderSignIn({ ...rest }) {
               <Spacer py={2} />
 {/* /////////////////////////////////////////////////////////////////////////////////////// */}
 {/* /////////////////////////////////////////////////////////////////////////////////////// */}
-
+              {/* Non Functional */}
               <Button 
-                leftIcon={<Image src="/images/logos-icons/WC.png" w="2em" h="2em" mr="2" />} 
-                w="full" 
-                h="60px" 
-                justifyContent="left" 
-                variant="outline" 
-                borderColor="#ffffff" 
-                _hover={{ borderColor: '#000000' }} 
+                leftIcon={<Image src="/images/logos-icons/WC.png" w="2em" h="2em" mr="2" />}
+                w="full"
+                h="60px"
+                justifyContent="left"
+                variant="outline"
+                borderColor="#ffffff"
+                _hover={{ borderColor: '#000000' }}
                 rounded="xl"
+                fontWeight="normal"
               >
                 Wallet Connect
               </Button>
@@ -137,16 +139,35 @@ export default function HeaderSignIn({ ...rest }) {
 
 {/* /////////////////////////////////////////////////////////////////////////////////////// */}
 {/* /////////////////////////////////////////////////////////////////////////////////////// */}
+              {/* Non Functional */}
+              <Button 
+                leftIcon={<Image src="/images/logos-icons/CBW.png" w="2em" h="2em" mr="2" />}
+                w="full"
+                h="60px"
+                justifyContent="left"
+                variant="outline"
+                borderColor="#ffffff"
+                _hover={{ borderColor: '#000000' }}
+                rounded="xl"
+                fontWeight="normal"
+              >
+                Coinbase
+              </Button>
+              <Spacer py={2} />
+
+{/* /////////////////////////////////////////////////////////////////////////////////////// */}
+{/* /////////////////////////////////////////////////////////////////////////////////////// */}
 
               <Button 
-                leftIcon={<Image src="/images/logos-icons/UD.png" w="2em" h="2em" mr="2" />} 
-                w="full" 
-                h="60px" 
-                justifyContent="left" 
-                variant="outline" 
-                borderColor="#ffffff" 
-                _hover={{ borderColor: '#000000' }} 
-                rounded="xl" 
+                leftIcon={<Image src="/images/logos-icons/UD.png" w="2em" h="2em" mr="2" />}
+                w="full"
+                h="60px"
+                justifyContent="left"
+                variant="outline"
+                borderColor="#ffffff"
+                _hover={{ borderColor: '#000000' }}
+                rounded="xl"
+                fontWeight="normal"
                 onClick={async () => {
                 try {
                   const authorization = await uauth.loginWithPopup()
