@@ -12,19 +12,45 @@ import { providers } from 'ethers';
 import { Web3Provider } from '@ethersproject/providers';
 import UAuth from '@uauth/js';
 import axios from 'axios'
+// import { getSession, signOut } from 'next-auth/react';
 
 export default function HeaderSignIn({ ...rest }) {
 
   const { isOpen, onOpen, onClose } = useDisclosure()
+  const { isConnected, address } = useAccount()
+  const { connectAsync } = useConnect()
+  const { disconnect } = useDisconnect()
+  const { account, isConnecting, isDisconnected } = useAccount({
+    onConnect({ address, connector, isReconnected }) {
+      console.log('Connected', { address, connector, isReconnected })
+    },
+  })
 
-  const { connectAsync } = useConnect();
-  // const { disconnectAsync } = useDisconnect();
-  // const { isConnected } = useAccount();
+  if (isConnected)
+    return (
+      <div>
+        Connected to {address}
+        <Button 
+        // w="full"
+        //   h="60px"
+          justifyContent="center"
+          variant="outline"
+          borderColor="#ffffff"
+          _hover={{ borderColor: '#000000' }}
+          rounded="2xl"
+          fontWeight="normal" onClick={() => disconnect()}>Disconnect</Button>
+      </div>
+    )
   // const { signMessageAsync } = useSignMessage();
   // const { push } = useRouter();
+  // const disconnect = useDisconnect({
+  //   onSuccess(data) {
+  //     console.log('Success', data)
+  //   },
+  // })
 
 
-{/* /////////////////////////////////////////////////////////////////////////////////////// */}
+  {/* /////////////////////////////////////////////////////////////////////////////////////// */ }
 
   const handleAuth = async () => {
     const { account, chain } = await connectAsync({ connector: new InjectedConnector() });
@@ -48,10 +74,10 @@ export default function HeaderSignIn({ ...rest }) {
    */
   // push(url);
   // };
-{/* /////////////////////////////////////////////////////////////////////////////////////// */}
+  {/* /////////////////////////////////////////////////////////////////////////////////////// */ }
 
 
-{/* /////////////////////////////////////////////////////////////////////////////////////// */}
+  {/* /////////////////////////////////////////////////////////////////////////////////////// */ }
 
   const uauth = new UAuth({
     clientID: "524a7dd4-bbd6-4633-9257-a685979aef44",
@@ -67,7 +93,7 @@ export default function HeaderSignIn({ ...rest }) {
       console.log('Logged out with Unstoppable')
     }
   }
-{/* /////////////////////////////////////////////////////////////////////////////////////// */}
+  {/* /////////////////////////////////////////////////////////////////////////////////////// */ }
 
 
   return (
@@ -92,6 +118,22 @@ export default function HeaderSignIn({ ...rest }) {
         <Image pl={1} src="images/logos-icons/tauros_letters.png" alt="Tauros_final" w="180px" h="65px" />
       </Center>
       <Spacer />
+              {/* /////////////////////////////////////////////////////////////////////////////////////// */}
+              {/* /////////////////////////////////////////////////////////////////////////////////////// */}
+      <Box className={styles.connect}>
+        <Button
+          // leftIcon={<Image src="/images/logos-icons/MM.png" w="2em" h="2em" mr="2" />}
+          w="full"
+          h="60px"
+          justifyContent="center"
+          variant="outline"
+          borderColor="#ffffff"
+          _hover={{ borderColor: '#000000' }}
+          rounded="2xl"
+          fontWeight="normal" onClick={async () => disconnect()}>Disconnect</Button>
+      </Box>
+              {/* /////////////////////////////////////////////////////////////////////////////////////// */}
+              {/* /////////////////////////////////////////////////////////////////////////////////////// */}
       <Box className={styles.connect}>
         {/* <ConnectButton type="button" disabled signingMessage="TaurosDAO Login" /> */}
         <Button onClick={onOpen}>Connect Wallet</Button>
@@ -102,11 +144,11 @@ export default function HeaderSignIn({ ...rest }) {
             <Divider />
             <ModalCloseButton />
             <ModalBody py={10}>
-              
-{/* /////////////////////////////////////////////////////////////////////////////////////// */}
-{/* /////////////////////////////////////////////////////////////////////////////////////// */}
 
-              <Button 
+              {/* /////////////////////////////////////////////////////////////////////////////////////// */}
+              {/* /////////////////////////////////////////////////////////////////////////////////////// */}
+
+              <Button
                 leftIcon={<Image src="/images/logos-icons/MM.png" w="2em" h="2em" mr="2" />}
                 w="full"
                 h="60px"
@@ -118,13 +160,14 @@ export default function HeaderSignIn({ ...rest }) {
                 fontWeight="normal"
                 onClick={() => handleAuth()}
               >
-                  Metamask (via moralis)
+                Metamask (via moralis)
               </Button>
+
               <Spacer py={2} />
-{/* /////////////////////////////////////////////////////////////////////////////////////// */}
-{/* /////////////////////////////////////////////////////////////////////////////////////// */}
+              {/* /////////////////////////////////////////////////////////////////////////////////////// */}
+              {/* /////////////////////////////////////////////////////////////////////////////////////// */}
               {/* Non Functional */}
-              <Button 
+              <Button
                 leftIcon={<Image src="/images/logos-icons/WC.png" w="2em" h="2em" mr="2" />}
                 w="full"
                 h="60px"
@@ -139,10 +182,10 @@ export default function HeaderSignIn({ ...rest }) {
               </Button>
               <Spacer py={2} />
 
-{/* /////////////////////////////////////////////////////////////////////////////////////// */}
-{/* /////////////////////////////////////////////////////////////////////////////////////// */}
+              {/* /////////////////////////////////////////////////////////////////////////////////////// */}
+              {/* /////////////////////////////////////////////////////////////////////////////////////// */}
               {/* Non Functional */}
-              <Button 
+              <Button
                 leftIcon={<Image src="/images/logos-icons/CBW.png" w="2em" h="2em" mr="2" />}
                 w="full"
                 h="60px"
@@ -157,10 +200,10 @@ export default function HeaderSignIn({ ...rest }) {
               </Button>
               <Spacer py={2} />
 
-{/* /////////////////////////////////////////////////////////////////////////////////////// */}
-{/* /////////////////////////////////////////////////////////////////////////////////////// */}
+              {/* /////////////////////////////////////////////////////////////////////////////////////// */}
+              {/* /////////////////////////////////////////////////////////////////////////////////////// */}
 
-              <Button 
+              <Button
                 leftIcon={<Image src="/images/logos-icons/UD.png" w="2em" h="2em" mr="2" />}
                 w="full"
                 h="60px"
@@ -171,22 +214,22 @@ export default function HeaderSignIn({ ...rest }) {
                 rounded="xl"
                 fontWeight="normal"
                 onClick={async () => {
-                try {
-                  const authorization = await uauth.loginWithPopup()
-                  console.log(authorization)
-                } catch (error) {
-                  console.error(error)
-                }
-                onClose()
-              }}
+                  try {
+                    const authorization = await uauth.loginWithPopup()
+                    console.log(authorization)
+                  } catch (error) {
+                    console.error(error)
+                  }
+                  onClose()
+                }}
               >
                 Unstoppable Domains
               </Button>
-              
 
 
-{/* /////////////////////////////////////////////////////////////////////////////////////// */}
-{/* /////////////////////////////////////////////////////////////////////////////////////// */}
+
+              {/* /////////////////////////////////////////////////////////////////////////////////////// */}
+              {/* /////////////////////////////////////////////////////////////////////////////////////// */}
 
             </ModalBody>
           </ModalContent>
