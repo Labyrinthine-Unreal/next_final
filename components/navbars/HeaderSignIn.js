@@ -118,8 +118,6 @@ export default function HeaderSignIn({ ...rest }) {
         <Image pl={1} src="images/logos-icons/tauros_letters.png" alt="Tauros_final" w="180px" h="65px" />
       </Center>
       <Spacer />
-              {/* /////////////////////////////////////////////////////////////////////////////////////// */}
-              {/* /////////////////////////////////////////////////////////////////////////////////////// */}
       <Box className={styles.connect}>
         <Button
           // leftIcon={<Image src="/images/logos-icons/MM.png" w="2em" h="2em" mr="2" />}
@@ -132,8 +130,6 @@ export default function HeaderSignIn({ ...rest }) {
           rounded="2xl"
           fontWeight="normal" onClick={async () => disconnect()}>Disconnect</Button>
       </Box>
-              {/* /////////////////////////////////////////////////////////////////////////////////////// */}
-              {/* /////////////////////////////////////////////////////////////////////////////////////// */}
       <Box className={styles.connect}>
         {/* <ConnectButton type="button" disabled signingMessage="TaurosDAO Login" /> */}
         <Button onClick={onOpen}>Connect Wallet</Button>
