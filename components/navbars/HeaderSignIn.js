@@ -13,6 +13,8 @@ import { Web3Provider } from '@ethersproject/providers';
 import UAuth from '@uauth/js';
 import axios from 'axios'
 // import { getSession, signOut } from 'next-auth/react';
+import { WalletConnectConnector } from 'wagmi/connectors/walletConnect'
+import { CoinbaseWalletConnector } from 'wagmi/connectors/coinbaseWallet'
 
 export default function HeaderSignIn({ ...rest }) {
 
@@ -26,11 +28,64 @@ export default function HeaderSignIn({ ...rest }) {
     },
   })
 
+  if (isConnected)
+    return (
+      <div>
+        Connected to {address}
+        <Button 
+        // w="full"
+        //   h="60px"
+          justifyContent="center"
+          variant="outline"
+          borderColor="#ffffff"
+          _hover={{ borderColor: '#000000' }}
+          rounded="2xl"
+          fontWeight="normal" onClick={() => disconnect()}>Disconnect</Button>
+      </div>
+    )
+  // const { signMessageAsync } = useSignMessage();
+  // const { push } = useRouter();
+  // const disconnect = useDisconnect({
+  //   onSuccess(data) {
+  //     console.log('Success', data)
+  //   },
+  // })
+
 
   {/* /////////////////////////////////////////////////////////////////////////////////////// */ }
 
+
+  const handleAuthCoinbase = async () => {
+    const { account, chain } = await connectAsync({ connector: new CoinbaseWalletConnector({
+      options:
+      {
+          appName: "TaurosDAO.app",
+          jsonRpcUrl: 'https://rinkeby.infura.io/v3/5c9cb0b35a2742659dec6fc7680c16c4',
+
+      }
+    }) });
+    const userData = { address: account, chain: chain.id, network: 'evm' };
+    console.log(userData)
+    onClose()
+  };
+
   const handleAuth = async () => {
     const { account, chain } = await connectAsync({ connector: new InjectedConnector() });
+    const userData = { address: account, chain: chain.id, network: 'evm' };
+    console.log(userData)
+    onClose()
+  };
+
+
+  const handleAuthWalletConnect = async () => {
+    const { account, chain } = await connectAsync({ connector: new WalletConnectConnector({
+      options:
+      {
+        qrcode: true,
+      }
+    }) });
+
+    
     const userData = { address: account, chain: chain.id, network: 'evm' };
     console.log(userData)
     onClose()
@@ -71,7 +126,15 @@ export default function HeaderSignIn({ ...rest }) {
     }
   }
   {/* /////////////////////////////////////////////////////////////////////////////////////// */ }
+  {/* /////////////////////////////////////////////////////////////////////////////////////// */ }
 
+  const connector = new WalletConnectConnector({
+    options: {
+      qrcode: true,
+    },
+  })
+  {/* /////////////////////////////////////////////////////////////////////////////////////// */ }
+  {/* /////////////////////////////////////////////////////////////////////////////////////// */ }
 
   return (
     <Flex
@@ -96,114 +159,121 @@ export default function HeaderSignIn({ ...rest }) {
       </Center>
       <Spacer />
       <Box className={styles.connect}>
-        {isConnected ? 
-          <Box>
-            Connected to {address}
-            <Button onClick={() => disconnect()}>Disconnect</Button>
-          </Box> 
-          : 
-          <Box>
-          <Button onClick={onOpen}>Connect Wallet</Button>
-          <Modal blockScrollOnMount={false} isOpen={isOpen} onClose={onClose} isCentered size="sm">
-            <ModalOverlay />
-            <ModalContent rounded="2xl">
-              <ModalHeader fontWeight="normal">Connect Wallet</ModalHeader>
-              <Divider />
-              <ModalCloseButton />
-              <ModalBody py={10}>
-
-                {/* /////////////////////////////////////////////////////////////////////////////////////// */}
-                {/* /////////////////////////////////////////////////////////////////////////////////////// */}
-
-                <Button
-                  leftIcon={<Image src="/images/logos-icons/MM.png" w="2em" h="2em" mr="2" />}
-                  w="full"
-                  h="60px"
-                  justifyContent="left"
-                  variant="outline"
-                  borderColor="#ffffff"
-                  _hover={{ borderColor: '#000000' }}
-                  rounded="xl"
-                  fontWeight="normal"
-                  onClick={() => handleAuth()}
-                >
-                  Metamask (via moralis)
-                </Button>
-
-                <Spacer py={2} />
-                {/* /////////////////////////////////////////////////////////////////////////////////////// */}
-                {/* /////////////////////////////////////////////////////////////////////////////////////// */}
-                {/* Non Functional */}
-                <Button
-                  leftIcon={<Image src="/images/logos-icons/WC.png" w="2em" h="2em" mr="2" />}
-                  w="full"
-                  h="60px"
-                  justifyContent="left"
-                  variant="outline"
-                  borderColor="#ffffff"
-                  _hover={{ borderColor: '#000000' }}
-                  rounded="xl"
-                  fontWeight="normal"
-                >
-                  Wallet Connect
-                </Button>
-                <Spacer py={2} />
-
-                {/* /////////////////////////////////////////////////////////////////////////////////////// */}
-                {/* /////////////////////////////////////////////////////////////////////////////////////// */}
-                {/* Non Functional */}
-                <Button
-                  leftIcon={<Image src="/images/logos-icons/CBW.png" w="2em" h="2em" mr="2" />}
-                  w="full"
-                  h="60px"
-                  justifyContent="left"
-                  variant="outline"
-                  borderColor="#ffffff"
-                  _hover={{ borderColor: '#000000' }}
-                  rounded="xl"
-                  fontWeight="normal"
-                >
-                  Coinbase
-                </Button>
-                <Spacer py={2} />
-
-                {/* /////////////////////////////////////////////////////////////////////////////////////// */}
-                {/* /////////////////////////////////////////////////////////////////////////////////////// */}
-
-                <Button
-                  leftIcon={<Image src="/images/logos-icons/UD.png" w="2em" h="2em" mr="2" />}
-                  w="full"
-                  h="60px"
-                  justifyContent="left"
-                  variant="outline"
-                  borderColor="#ffffff"
-                  _hover={{ borderColor: '#000000' }}
-                  rounded="xl"
-                  fontWeight="normal"
-                  onClick={async () => {
-                    try {
-                      const authorization = await uauth.loginWithPopup()
-                      console.log(authorization)
-                    } catch (error) {
-                      console.error(error)
-                    }
-                    onClose()
-                  }}
-                >
-                  Unstoppable Domains
-                </Button>
-
-
-
-                {/* /////////////////////////////////////////////////////////////////////////////////////// */}
-                {/* /////////////////////////////////////////////////////////////////////////////////////// */}
-
-              </ModalBody>
-            </ModalContent>
-          </Modal>
-        </Box>}
+        <Button
+          // leftIcon={<Image src="/images/logos-icons/MM.png" w="2em" h="2em" mr="2" />}
+          w="full"
+          h="60px"
+          justifyContent="center"
+          variant="outline"
+          borderColor="#ffffff"
+          _hover={{ borderColor: '#000000' }}
+          rounded="2xl"
+          fontWeight="normal" onClick={async () => disconnect()}>Disconnect</Button>
       </Box>
-      
+      <Box className={styles.connect}>
+        {/* <ConnectButton type="button" disabled signingMessage="TaurosDAO Login" /> */}
+        <Button onClick={onOpen}>Connect Wallet</Button>
+        <Modal blockScrollOnMount={false} isOpen={isOpen} onClose={onClose} isCentered size="sm">
+          <ModalOverlay />
+          <ModalContent rounded="2xl">
+            <ModalHeader fontWeight="normal">Connect Wallet</ModalHeader>
+            <Divider />
+            <ModalCloseButton />
+            <ModalBody py={10}>
+
+              {/* /////////////////////////////////////////////////////////////////////////////////////// */}
+              {/* /////////////////////////////////////////////////////////////////////////////////////// */}
+
+              <Button
+                leftIcon={<Image src="/images/logos-icons/MM.png" w="2em" h="2em" mr="2" />}
+                w="full"
+                h="60px"
+                justifyContent="left"
+                variant="outline"
+                borderColor="#ffffff"
+                _hover={{ borderColor: '#000000' }}
+                rounded="xl"
+                fontWeight="normal"
+                onClick={() => handleAuth()}
+              >
+                Metamask (via moralis)
+              </Button>
+
+              <Spacer py={2} />
+              {/* /////////////////////////////////////////////////////////////////////////////////////// */}
+              {/* /////////////////////////////////////////////////////////////////////////////////////// */}
+              {/* Non Functional */}
+              <Button
+                leftIcon={<Image src="/images/logos-icons/WC.png" w="2em" h="2em" mr="2" />}
+                w="full"
+                h="60px"
+                justifyContent="left"
+                variant="outline"
+                borderColor="#ffffff"
+                _hover={{ borderColor: '#000000' }}
+                rounded="xl"
+                fontWeight="normal"
+                onClick={() => handleAuthWalletConnect()}
+
+              >
+                Wallet Connect
+              </Button>
+              <Spacer py={2} />
+
+              {/* /////////////////////////////////////////////////////////////////////////////////////// */}
+              {/* /////////////////////////////////////////////////////////////////////////////////////// */}
+              {/* Non Functional */}
+              <Button
+                leftIcon={<Image src="/images/logos-icons/CBW.png" w="2em" h="2em" mr="2" />}
+                w="full"
+                h="60px"
+                justifyContent="left"
+                variant="outline"
+                borderColor="#ffffff"
+                _hover={{ borderColor: '#000000' }}
+                rounded="xl"
+                fontWeight="normal"
+                onClick={() => handleAuthCoinbase()}
+              >
+                Coinbase
+              </Button>
+              <Spacer py={2} />
+
+              {/* /////////////////////////////////////////////////////////////////////////////////////// */}
+              {/* /////////////////////////////////////////////////////////////////////////////////////// */}
+
+              <Button
+                leftIcon={<Image src="/images/logos-icons/UD.png" w="2em" h="2em" mr="2" />}
+                w="full"
+                h="60px"
+                justifyContent="left"
+                variant="outline"
+                borderColor="#ffffff"
+                _hover={{ borderColor: '#000000' }}
+                rounded="xl"
+                fontWeight="normal"
+                onClick={async () => {
+                  try {
+                    const authorization = await uauth.loginWithPopup()
+                    console.log(authorization)
+                  } catch (error) {
+                    console.error(error)
+                  }
+                  onClose()
+                }}
+              >
+                Unstoppable Domains
+              </Button>
+
+
+
+              {/* /////////////////////////////////////////////////////////////////////////////////////// */}
+              {/* /////////////////////////////////////////////////////////////////////////////////////// */}
+
+            </ModalBody>
+          </ModalContent>
+        </Modal>
+      </Box>
     </Flex>
   );
 }
