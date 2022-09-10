@@ -9,6 +9,7 @@
     border: 2px solid transparent;
     padding: 4px 16px;
     transition: all 0.1s ease-out;
+    font-weight: 400;
   }
   
   .connect button:active {
