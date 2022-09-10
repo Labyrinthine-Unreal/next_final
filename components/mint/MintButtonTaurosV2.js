@@ -1,7 +1,7 @@
-import { useToast, Link, NumberInputStepper, Box, Spacer, NumberIncrementStepper, NumberDecrementStepper, NumberInputField, Text, FormControl, FormLabel, NumberInput } from "@chakra-ui/react"
+import { useToast, Link, Button, NumberInputStepper, Box, Spacer, NumberIncrementStepper, NumberDecrementStepper, NumberInputField, Text, FormControl, FormLabel, NumberInput } from "@chakra-ui/react"
 import { useEffect, useState, } from "react";
 import CustomContainer from "@components/CustomContainer";
-import { Button } from 'web3uikit';
+// import { Button } from 'web3uikit';
 // import { useMoralis, useWeb3ExecuteFunction } from 'react-moralis';
 import styles from "@styles/MintButton.module.css"
 import taurosABI from "../ABIs/taurosABI"
@@ -26,7 +26,7 @@ export default function MBT() {
 
 
   const contractConfig = {
-    addressOrName: '0xd5A9c93CcA520612ec72433352Acd0a81E37f6Cc',
+    addressOrName: '0x5391A4699873f5cb77649b978fF29E73B5Ad08F4',
     contractInterface: taurosABI,
     functionName: 'claimTauros',
     args: [1],
