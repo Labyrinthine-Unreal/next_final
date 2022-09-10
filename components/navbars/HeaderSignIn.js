@@ -176,6 +176,7 @@ export default function HeaderSignIn({ ...rest }) {
                   </Button>
 
                   <Spacer py={2} />
+                  
                   {/* /////////////////////////////////////////////////////////////////////////////////////// */}
                   {/* ///////////////////////////   TRUST WALLET   ////////////////////////////////////////// */}
                   
@@ -214,6 +215,25 @@ export default function HeaderSignIn({ ...rest }) {
                   <Spacer py={2} />
 
                   {/* /////////////////////////////////////////////////////////////////////////////////////// */}
+                  {/* ///////////////////////////////   COINBASE   ////////////////////////////////////////// */}
+                  
+                  <Button
+                    leftIcon={<Image src="/images/logos-icons/CBW.png" w="2em" h="2em" mr="2" />}
+                    w="full"
+                    h="60px"
+                    justifyContent="left"
+                    variant="outline"
+                    borderColor="#ffffff"
+                    _hover={{ borderColor: '#000000' }}
+                    rounded="xl"
+                    fontWeight="normal"
+                    onClick={() => handleAuthCoinbase()}
+                  >
+                    Coinbase Wallet
+                  </Button>
+                  <Spacer py={2} />
+
+                  {/* /////////////////////////////////////////////////////////////////////////////////////// */}
                   {/* ////////////////////////////   UNSTOPPABLE DOMAINS   ////////////////////////////////// */}
 
                   <Button
@@ -237,24 +257,6 @@ export default function HeaderSignIn({ ...rest }) {
                     }}
                   >
                     Unstoppable Domains
-                  </Button>
-
-                  {/* /////////////////////////////////////////////////////////////////////////////////////// */}
-                  {/* ///////////////////////////////   COINBASE   ////////////////////////////////////////// */}
-                  
-                  <Button
-                    leftIcon={<Image src="/images/logos-icons/CBW.png" w="2em" h="2em" mr="2" />}
-                    w="full"
-                    h="60px"
-                    justifyContent="left"
-                    variant="outline"
-                    borderColor="#ffffff"
-                    _hover={{ borderColor: '#000000' }}
-                    rounded="xl"
-                    fontWeight="normal"
-                    onClick={() => handleAuthCoinbase()}
-                  >
-                    Coinbase
                   </Button>
                   <Spacer py={2} />
 
