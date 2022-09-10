@@ -143,7 +143,7 @@ export default function HeaderSignIn({ ...rest }) {
       <Box className={styles.connect}>
       {isConnected ?
           <Center>
-              <Center display={{ base: "none", md: "flex" }} bg="#009688bb" color="#fff" border="1px" position="absolute" mr={60} h="40px" p={2} pr={10} rounded="3xl"><Icon mr={2} as={AiOutlineWallet} /> {getShortenAddress(address)}</Center>
+              <Center fontSize={14} fontWeight="semibold" display={{ base: "none", md: "flex" }} bg="#009688bb" color="#fff" border="1px" position="absolute" mr={60} h="40px" p={3} pr={10} rounded="3xl"><Icon fontSize={17} fontWeight="semibold" mr={2} as={AiOutlineWallet} /> {getShortenAddress(address)}</Center>
               <Button onClick={() => disconnect()}>Disconnect</Button>
           </Center> 
           :
