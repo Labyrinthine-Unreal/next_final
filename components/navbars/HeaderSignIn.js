@@ -158,7 +158,7 @@ export default function HeaderSignIn({ ...rest }) {
                 <ModalBody py={10}>
 
                   {/* /////////////////////////////////////////////////////////////////////////////////////// */}
-                  {/* /////////////////////////////////////////////////////////////////////////////////////// */}
+                  {/*////////////////////////////   METAMASK    ///////////////////////////////////////////// */}
 
                   <Button
                     leftIcon={<Image src="/images/logos-icons/MM.png" w="2em" h="2em" mr="2" />}
@@ -177,8 +177,26 @@ export default function HeaderSignIn({ ...rest }) {
 
                   <Spacer py={2} />
                   {/* /////////////////////////////////////////////////////////////////////////////////////// */}
+                  {/* ///////////////////////////   TRUST WALLET   ////////////////////////////////////////// */}
+                  
+                  <Button
+                    leftIcon={<Image src="/images/logos-icons/TWT.png" w="2em" h="2em" mr="2" />}
+                    w="full"
+                    h="60px"
+                    justifyContent="left"
+                    variant="outline"
+                    borderColor="#ffffff"
+                    _hover={{ borderColor: '#000000' }}
+                    rounded="xl"
+                    fontWeight="normal"
+                  >
+                    Trust Wallet
+                  </Button>
+                  <Spacer py={2} />
+
                   {/* /////////////////////////////////////////////////////////////////////////////////////// */}
-                  {/* Non Functional */}
+                  {/* ////////////////////////////   WALLET CONNECT   /////////////////////////////////////// */}
+
                   <Button
                     leftIcon={<Image src="/images/logos-icons/WC.png" w="2em" h="2em" mr="2" />}
                     w="full"
@@ -190,33 +208,13 @@ export default function HeaderSignIn({ ...rest }) {
                     rounded="xl"
                     fontWeight="normal"
                     onClick={() => handleAuthWalletConnect()}
-
                   >
                     Wallet Connect
                   </Button>
                   <Spacer py={2} />
 
                   {/* /////////////////////////////////////////////////////////////////////////////////////// */}
-                  {/* /////////////////////////////////////////////////////////////////////////////////////// */}
-                  {/* Non Functional */}
-                  <Button
-                    leftIcon={<Image src="/images/logos-icons/CBW.png" w="2em" h="2em" mr="2" />}
-                    w="full"
-                    h="60px"
-                    justifyContent="left"
-                    variant="outline"
-                    borderColor="#ffffff"
-                    _hover={{ borderColor: '#000000' }}
-                    rounded="xl"
-                    fontWeight="normal"
-                    onClick={() => handleAuthCoinbase()}
-                  >
-                    Coinbase
-                  </Button>
-                  <Spacer py={2} />
-
-                  {/* /////////////////////////////////////////////////////////////////////////////////////// */}
-                  {/* /////////////////////////////////////////////////////////////////////////////////////// */}
+                  {/* ////////////////////////////   UNSTOPPABLE DOMAINS   ////////////////////////////////// */}
 
                   <Button
                     leftIcon={<Image src="/images/logos-icons/UD.png" w="2em" h="2em" mr="2" />}
@@ -241,7 +239,24 @@ export default function HeaderSignIn({ ...rest }) {
                     Unstoppable Domains
                   </Button>
 
-
+                  {/* /////////////////////////////////////////////////////////////////////////////////////// */}
+                  {/* ///////////////////////////////   COINBASE   ////////////////////////////////////////// */}
+                  
+                  <Button
+                    leftIcon={<Image src="/images/logos-icons/CBW.png" w="2em" h="2em" mr="2" />}
+                    w="full"
+                    h="60px"
+                    justifyContent="left"
+                    variant="outline"
+                    borderColor="#ffffff"
+                    _hover={{ borderColor: '#000000' }}
+                    rounded="xl"
+                    fontWeight="normal"
+                    onClick={() => handleAuthCoinbase()}
+                  >
+                    Coinbase
+                  </Button>
+                  <Spacer py={2} />
 
                   {/* /////////////////////////////////////////////////////////////////////////////////////// */}
                   {/* /////////////////////////////////////////////////////////////////////////////////////// */}
