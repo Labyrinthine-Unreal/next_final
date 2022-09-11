@@ -45,9 +45,7 @@ export default function MBT() {
   const [mintLoading, setMintLoading] = useState(false);
   const isConnected = !!address;
   const [mintedTokenId, setMintedTokenId] = useState(1);
-  const feeData = useFeeData({
-    chainId: 4,
-  })
+ 
   
   const onMintClick = async () => {
     try {
