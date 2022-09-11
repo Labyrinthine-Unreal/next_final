@@ -26,7 +26,7 @@ export default function MBT() {
 
 
   const contractConfig = {
-    addressOrName: '0xd5A9c93CcA520612ec72433352Acd0a81E37f6Cc',
+    addressOrName: '0xa58Ad36d83e45b068864Ef2f74Ce951DCB3930aA',
     contractInterface: taurosABI,
     functionName: 'claimTauros',
     args: [amount, {value:ethers.utils.parseEther('0.05')}],
@@ -48,17 +48,20 @@ export default function MBT() {
   const feeData = useFeeData({
     chainId: 4,
   })
+  
   const onMintClick = async () => {
     try {
       setMintLoading(true);
+      if (isConnected){
       const tx = await mint({
         args: [
-          amount,
+          {value:ethers.utils.parseEther('0.05')},
           {
             gasLimit: 250000
           },
         ],
       });
+    }
       const receipt = await tx.wait();
       console.log('TX receipt', receipt);
       // @ts-ignore
@@ -70,39 +73,9 @@ export default function MBT() {
       setMintLoading(false);
     }
   };
-  // const { config } = usePrepareContractWrite({
-  //   addressOrName: '0xd5A9c93CcA520612ec72433352Acd0a81E37f6Cc',
-  //   contractInterface: taurosABI,
-  //   functionName: 'claimTauros',
-  //   overrides: {
-  //     value: ethers.utils.parseEther('0.05') * amount,
-  //   },
-  // })
-  // const { write } = useContractWrite(config)
 
-  // const { config } = usePrepareContractWrite({
-  //   addressOrName: '0xd5A9c93CcA520612ec72433352Acd0a81E37f6Cc',
-  //   contractInterface: taurosABI,
-  //   functionName: 'claimTauros',
-  //   overrides: {
-  //     value: ethers.utils.parseEther('0.05') * amount,
-  //   },
-  // })
-
-  // const { data, write } = useContractWrite(config)
-  // const { isLoading, isSuccess } = useWaitForTransaction({
-  //   hash: data?.hash,
-  // })
 
   // if (isConnected) {
-  //   return (
-  //     <div>
-  //       {/* Account content goes here */}
-  //       <MintNFT />
-  //     </div>
-  //   )
-  // }
-  if (isConnected) {
     return (
       <CustomContainer>
         <Box fontSize="xl" fontWeight="bold" align="right">
@@ -164,4 +137,4 @@ export default function MBT() {
       </CustomContainer>
     )
   }
-}
+// }
