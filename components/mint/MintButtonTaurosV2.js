@@ -54,6 +54,7 @@ export default function MBT() {
       setMintLoading(true);
       if (isConnected){
       const tx = await mint({
+        amount,
         args: [
           {value:ethers.utils.parseEther('0.05')},
           {
