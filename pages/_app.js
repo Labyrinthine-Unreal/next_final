@@ -16,7 +16,7 @@ const { provider, webSocketProvider } = configureChains(defaultChains, [publicPr
 const client = createClient({
   provider,
   webSocketProvider,
-  autoConnect: true,
+  autoConnect: false,
 });
 
 

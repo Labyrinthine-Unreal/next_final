@@ -1,5 +1,5 @@
-import { useToast, Link,Button, NumberInputStepper, Box, Spacer, NumberIncrementStepper, NumberDecrementStepper, NumberInputField, Text, FormControl, FormLabel, NumberInput } from "@chakra-ui/react"
-import { useEffect, useState, } from "react";
+import { useToast, Link,Button, NumberInputStepper, Box, Spacer, NumberIncrementStepper, NumberDecrementStepper, NumberInputField, Text, FormControl, FormLabel, NumberInput, useControllableState } from "@chakra-ui/react"
+import { useEffect, useState, useRef } from "react";
 import CustomContainer from "@components/CustomContainer";
 // import { Button } from 'web3uikit';
 // import { useMoralis, useWeb3ExecuteFunction } from 'react-moralis';
@@ -10,6 +10,7 @@ import { ethers } from "ethers";
 import { useAccount, useFeeData, useConnect, useSignMessage, useDisconnect } from 'wagmi';
 import { useContractRead, useContractWrite } from 'wagmi';
 import bigInt, { BigNumber } from "big-integer";
+import truncateJson from 'truncate-json'
 
 
 const truncate = (input, len) =>
@@ -19,17 +20,20 @@ const truncate = (input, len) =>
 export default function MBT() {
   const { address } = useAccount()
   const [amount, setAmount] = useState(1)
-  // const [value, setValue] = useControllableState({ defaultValue: 1 })
+  const amountInputRef = useRef()
+  const [value, setValue] = useControllableState({ defaultValue: 1 })
+  const price = '0.05'
+  const totalPrice = price * amount
 
   const handleChange = (value) => setAmount(value)
   const toast = useToast()
 
 
   const contractConfig = {
-    addressOrName: '0xa58Ad36d83e45b068864Ef2f74Ce951DCB3930aA',
+    addressOrName: '0x84C33588dbD7A8E62cF2C21bC606A08e9aeE9E61',
     contractInterface: taurosABI,
     functionName: 'claimTauros',
-    args: [amount, {value:ethers.utils.parseEther('0.05')}],
+    args: [amount, {value:ethers.utils.parseEther(price)}],
   };
 
 
@@ -52,14 +56,15 @@ export default function MBT() {
       setMintLoading(true);
       if (isConnected){
       const tx = await mint({
-        amount,
         args: [
-          {value:ethers.utils.parseEther('0.05')},
+          amount, {value: ethers.utils.parseEther(totalPrice.toString())},
           {
             gasLimit: 250000
           },
         ],
       });
+      await tx.wait()
+      amountInputRef.current.value = 0
     }
       const receipt = await tx.wait();
       console.log('TX receipt', receipt);
@@ -73,8 +78,6 @@ export default function MBT() {
     }
   };
 
-
-  // if (isConnected) {
     return (
       <CustomContainer>
         <Box fontSize="xl" fontWeight="bold" align="right">
@@ -98,7 +101,7 @@ export default function MBT() {
             <Spacer />
             <Button
               disabled={!isConnected || mintLoading}
-              marginTop='6'
+              // marginTop='6'
               onClick={onMintClick}
               textColor='white'
               bg='blue.500'
@@ -109,31 +112,30 @@ export default function MBT() {
               {isConnected ? '🎉 Mint' : '🎉 Mint (Connect Wallet)'}
             </Button>
             {mintError && (
-              <Text marginTop='4'>⛔️ Mint unsuccessful! Error message:</Text>
+              <Text marginTop='4' fontSize="16px">⛔️ Mint unsuccessful! Error message:</Text>
             )}
             {mintError && (
-              <pre style={{ marginTop: '8px', color: 'red' }}>
-                <code>{JSON.stringify(mintError, null, ' ')}</code>
+              <pre style={{ marginTop: '8px', color: 'red', fontSize: "16px" }}>
+                <code>{truncateJson(JSON.stringify(mintError, null, ' '),50).jsonString}</code>
               </pre>
             )}
             {mintLoading && <Text marginTop='2'>Minting... please wait</Text>}
-            {mintedTokenId && (
-              <Text marginTop='2'>
-                🥳 Mint successful! You can view your NFT{' '}
+            {mintedTokenId ? (
+              <Text mt={4} fontSize="16px">
+                🥳 Mint successful! View your NFT on{' '}
                 <Link
                   isExternal
                   href='https://opensea.io'
                   color='blue'
                   textDecoration='underline'
                 >
-                  here!
+                  OpenSea!
                 </Link>
               </Text>
-            )}
+            ) : null}
 
           </form>
         </Box>
       </CustomContainer>
     )
   }
-// }
