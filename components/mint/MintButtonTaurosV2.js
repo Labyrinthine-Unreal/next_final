@@ -25,7 +25,7 @@ export default function MBT() {
   const price = '0.05'
   const totalPrice = price * amount
 
-  const handleChange = (value) => setAmount(value)
+  function handleChange() {setAmount(value)}
   const toast = useToast()
 
 
