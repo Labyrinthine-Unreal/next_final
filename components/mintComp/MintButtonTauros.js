@@ -1,4 +1,4 @@
-import { Link, Box, Button, Text, FormControl, FormLabel, NumberInput, NumberInputField, NumberInputStepper, NumberIncrementStepper, NumberDecrementStepper, Spacer } from "@chakra-ui/react"
+import { Link, Box, Button, Text } from "@chakra-ui/react"
 import { useEffect, useState, } from "react";
 import { useDispatch, useSelector } from "react-redux"
 import { connect } from "@/src/redux2/blockchain/blockchainActions"
@@ -81,6 +81,8 @@ export default function MintButtonTauros({ user }) {
           setMintAmount(newMintAmount);
         };
 
+      
+
       const getData = () => {
         if (blockchain.account !== "" && blockchain.smartContract !== null) {
           dispatch(fetchData(blockchain.account));
@@ -132,20 +134,27 @@ export default function MintButtonTauros({ user }) {
             <Text textAlign="center">
               {feedback}
             </Text>
-            <FormControl my="4" maxW="210" minW="210">
-              <FormLabel htmlFor="amount" textAlign="right">
-                Amount to Mint
-              </FormLabel>
-
-              <NumberInput step={1} min={1} max={5} allowMouseWheel>
-                <NumberInputField id="amount" bg="gray.200" boxShadow="lg" />
-                <NumberInputStepper bg="teal.300">
-                  <NumberIncrementStepper borderLeft="none" onChange={incrementMintAmount} />
-                  <Spacer />
-                  <NumberDecrementStepper borderLeft="none" onChange={decrementMintAmount} />
-                </NumberInputStepper>
-              </NumberInput>
-            </FormControl>
+            <Box>
+              <Button lineHeight="3" disabled={claimingNft ? 1 : 0}
+                onClick={(e) => {
+                  e.preventDefault();
+                  decrementMintAmount();
+                }}
+              >
+                -
+              </Button>
+              <Text textAlign="center">
+                {mintAmount}
+              </Text>
+              <Button disabled={claimingNft ? 1 : 0}
+                onClick={(e) => {
+                  e.preventDefault();
+                  incrementMintAmount();
+                }}
+              >
+                +
+              </Button>
+            </Box>
             <Box>
               <Button
                 disabled={claimingNft ? 1 : 0}
@@ -228,7 +237,6 @@ export default function MintButtonTauros({ user }) {
 //       });
 //       const receipt = await tx.wait();
 //       console.log('TX receipt', receipt);
-      
 //       const mintedTokenId = await receipt.events[0].args[2].toString();
 //       setMintedTokenId(mintedTokenId); 
 //       console.log(setMintedTokenId(mintedTokenId))
