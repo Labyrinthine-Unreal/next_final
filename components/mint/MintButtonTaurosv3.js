@@ -25,12 +25,17 @@ export default function MBT() {
   const handleChange = (value) => setAmount(value)
   const toast = useToast()
 
+  const { data: PRICE } = useContractRead({
+    addressOrName: '0xa58Ad36d83e45b068864Ef2f74Ce951DCB3930aA',
+    contractInterface: taurosABI,
+    functionName: 'PRICE',
+  });
 
   const contractConfig = {
     addressOrName: '0xa58Ad36d83e45b068864Ef2f74Ce951DCB3930aA',
     contractInterface: taurosABI,
     functionName: 'claimTauros',
-    args: [amount, {value:ethers.utils.parseEther('0.05')}],
+    args: [amount, { value: PRICE?.toString() }],
   };
 
 
@@ -48,7 +53,6 @@ export default function MBT() {
 
   let onMintClick = async () => {
     try {
-      
       setMintLoading(true);
       if (isConnected){
       const tx = await mint({
