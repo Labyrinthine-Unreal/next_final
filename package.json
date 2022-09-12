@@ -38,6 +38,7 @@
     "redux": "^4.2.0",
     "redux-thunk": "^2.4.1",
     "styled-components": "^5.3.5",
+    "truncate-json": "^1.2.0",
     "wagmi": "^0.6.5",
     "web3": "^1.7.5",
     "web3-eth-contract": "^1.7.4",

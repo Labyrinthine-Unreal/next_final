@@ -1,103 +1,186 @@
-import {useToast,Button, NumberInputStepper, Box, Spacer, NumberIncrementStepper, NumberDecrementStepper, NumberInputField, Text, FormControl, FormLabel, NumberInput} from "@chakra-ui/react"
+import { Link, Box, Button, Text } from "@chakra-ui/react"
 import { useEffect, useState, } from "react";
-import CustomContainer from "@components/CustomContainer";
-// import { Button } from 'web3uikit';
-// import { useMoralis, useWeb3ExecuteFunction } from 'react-moralis';
-import styles from "@styles/MintButton.module.css"
+import { useDispatch, useSelector } from "react-redux"
+import { connect } from "../../src/redux/blockchain/blockchainActions"
+import { fetchData } from "../../src/redux/data/dataActions"
+import { usePrepareContractWrite, useWaitForTransaction } from 'wagmi'
+import { ethers } from "ethers";
+import { useAccount, useFeeData, useConnect, useSignMessage, useDisconnect } from 'wagmi';
+import { useContractRead, useContractWrite } from 'wagmi';
+import bigInt, { BigNumber } from "big-integer";
 
-// import taurosABI from "./ABIs/taurosABI.json";
-import estatesABI from "../ABIs/estatesABI"
 
 const truncate = (input, len) =>
   input.length > len ? `${input.substring(0, len)}...` : input;
 
-export default function MBE() {
-  const [amount, setAmount] = useState(1)
-  const handleChange = (value) => setAmount(value)
-  // const { authenticate, isAuthenticated, isAuthenticating, Moralis, user, account, logout } = useMoralis();
-  // const contractProcessor = useWeb3ExecuteFunction();
-  // const toast = useToast()
 
-  // useEffect(() => {
-  //   if (isAuthenticated) {
+export default function MBT() {
+  const { address } = useAccount()
+  const dispatch = useDispatch();
+  const blockchain = useSelector((state) => state.blockchain);
+  const data = useSelector((state) => state.data);
+  const [claimingNft, setClaimingNft] = useState(false);
+  const [feedback, setFeedback] = useState(false);
+  const [mintAmount, setMintAmount] = useState(1);
+  const isConnected = !!address;
+const { disconnect } = useDisconnect();
 
-  //   }
+  const [CONFIG, SET_CONFIG] = useState({
+    CONTRACT_ADDRESS: "",
+    SCAN_LINK: "",
+    NETWORK: {
+      NAME: "",
+      SYMBOL: "",
+      ID: 0,
+    },
+    NFT_NAME: "",
+    SYMBOL: "",
+    MAX_SUPPLY: 1,
+    WEI_COST: 0,
+    DISPLAY_COST: 0,
+    GAS_LIMIT: 0,
+    MARKETPLACE: "",
+    MARKETPLACE_LINK: "",
+    SHOW_BACKGROUND: false,
+  });
 
-  // }, [isAuthenticated])
-
-  // async function _mintEstates() {
-  //   let options = {
-  //     // msgValue: Moralis.Units.ETH("0.05"),
-  //     contractAddress: '0x6997640355E20515C541F7D93D662782e43823a4',
-  //     functionName: 'mintNFTs',
-  //     abi: estatesABI,
-  //     params: {
-  //       _count: 1 * amount,
-  //     }
-  //   }
-  //   await Moralis.enableWeb3()
-  //   await contractProcessor.fetch({
-  //     params: options,
-  //     onSuccess: () => {
-  //       toast({
-  //         title: 'Mint Successful',
-  //         description: "Minted Merca City Estate",
-  //         status: 'success',
-  //         duration: 9000,
-  //         isClosable: true,
-  //       })
-  //       console.log("Mint successful");
-  //     },
-  //     onError: (error) => {
-  //       toast({
-  //         title: 'Mint Failed.. User is Not Whitelisted or rejected the transaction',
-  //         description: console.log(error),
-  //         status: "error",
-  //         duration: '9000',
-  //         isClosable: true
-  //       })
-  //       console.log(error);
-  //     }
-  //   })
+  const claimNFTs = () => {
+    let cost = CONFIG.WEI_COST;
+    let gasLimit = CONFIG.GAS_LIMIT;
+    let totalCostWei = String(0 * mintAmount);
+    let totalGasLimit = String(250000);
+    // if(isConnected){
+    console.log("Cost: ", totalCostWei);
+    console.log("Gas limit: ", totalGasLimit);
+    setFeedback(`Minting your ${CONFIG.NFT_NAME}...`);
+    setClaimingNft(true);
+    blockchain.smartContract.methods
+      .claimEstates(mintAmount)
+      .send({
+        gasLimit: String(totalGasLimit),
+        to: CONFIG.CONTRACT_ADDRESS,
+        from: blockchain.account,
+        value: totalCostWei,
+      })
+      .once("error", (err) => {
+        console.log(err);
+        setFeedback("Sorry, something went wrong please try again later.");
+        setClaimingNft(false);
+      })
+      .then((receipt) => {
+        console.log(receipt);
+        setFeedback(
+          `Congratulations, the TaurosDAO Membership is yours! go visit Opensea.io to view it.`
+        );
+        setClaimingNft(false);
+        dispatch(fetchData(blockchain.account));
+      });
+  };
   // }
-  return (
-    <CustomContainer>
-      <Box fontSize="xl" fontWeight="bold" align="right">
-        <form className={styles.btn} onSubmit={async e => {
-          e.preventDefault()
-        }}>
-          <FormControl my="4" maxW="210" minW="210">
-            <FormLabel htmlFor="amount" textAlign="right">
-              Amount to Mint
-            </FormLabel>
-            <NumberInput step={1} min={1} max={10} onChange={handleChange} allowMouseWheel>
-              <NumberInputField  id="amount" value={amount} bg="gray.200" boxShadow="lg" />
-              <NumberInputStepper bg="teal.300">
-                <NumberIncrementStepper borderLeft="none" />
-                <Spacer />
-                <NumberDecrementStepper borderLeft="none" />
-              </NumberInputStepper>
-            </NumberInput>
-          </FormControl>
-          <Button onClick={() => {
-            if (isAuthenticated) { _mintEstates(); }
-          }} text={"Mint Estates"} theme={"primary"} />
+  const decrementMintAmount = () => {
+    let newMintAmount = mintAmount - 1;
+    if (newMintAmount < 1) {
+      newMintAmount = 1;
+    }
+    setMintAmount(newMintAmount);
+  };
 
-        </form>
+  const incrementMintAmount = () => {
+    let newMintAmount = mintAmount + 1;
+    if (newMintAmount > 5) {
+      newMintAmount = 5;
+    }
+    setMintAmount(newMintAmount);
+  };
+
+
+
+  const getData = () => {
+    if (blockchain.account !== "" && blockchain.smartContract !== null) {
+      dispatch(fetchData(blockchain.account));
+    }
+  };
+
+  const getConfig = async () => {
+    const configResponse = await fetch("../public/config/config.json", {
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+    });
+    const config = await configResponse.json();
+    SET_CONFIG(config);
+  };
+
+  useEffect(() => {
+    getConfig();
+  }, []);
+
+  useEffect(() => {
+    getData();
+  }, [blockchain.account])
+
+  if (isConnected) {
+    return (
+      <Box>
+
+        {blockchain.account === "" || blockchain.smartContract === null ? (
+          <Box>
+            <Button
+              onClick={(e) => {
+                e.preventDefault();
+                dispatch(connect());
+                getData();
+              }}
+            >
+              {address}
+            </Button>
+
+
+          </Box>
+        ) : (
+          <Box>
+            <Text textAlign="center">
+              {feedback}
+            </Text>
+            <Box>
+              <Button lineHeight="3" disabled={claimingNft ? 1 : 0}
+                onClick={(e) => {
+                  e.preventDefault();
+                  decrementMintAmount();
+                }}
+              >
+                -
+              </Button>
+              <Text textAlign="center">
+                {mintAmount}
+              </Text>
+              <Button disabled={claimingNft ? 1 : 0}
+                onClick={(e) => {
+                  e.preventDefault();
+                  incrementMintAmount();
+                }}
+              >
+                +
+              </Button>
+            </Box>
+            <Box>
+              <Button
+                disabled={claimingNft ? 1 : 0}
+                onClick={(e) => {
+                  e.preventDefault();
+                  claimNFTs();
+                  getData();
+                  address
+                }}
+              >
+                {claimingNft ? "Minting" : "MINT"}
+
+              </Button>
+            </Box>
+          </Box>
+        )}
       </Box>
-    </CustomContainer>
-  )
+    )
+  }
 }
-
-{/* Opensea button --> move to bottom of the page */ }
-{/* <Container>
-            <span>
-                <Button
-                  onClick={(e) => {
-                    window.open(CONFIG.MARKETPLACE_LINK, "_blank");
-                  }}
-                >
-                  {CONFIG.MARKETPLACE}
-                </Button>
-            </span>          
-          </Container>               */}
