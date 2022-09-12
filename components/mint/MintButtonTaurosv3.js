@@ -76,8 +76,8 @@ export default function MintButtonTauros({ user }) {
     
       const incrementMintAmount = () => {
         let newMintAmount = mintAmount + 1;
-        if (newMintAmount > 10) {
-          newMintAmount = 10;
+        if (newMintAmount > 5) {
+          newMintAmount = 5;
         }
         setMintAmount(newMintAmount);
       };
@@ -165,7 +165,7 @@ export default function MintButtonTauros({ user }) {
               color: "var(--accent-text)",
             }}
           >
-            {data.totalSupply} / 7110
+            {data.totalSupply} / 2000
           </s.TextTitle>
           <s.TextDescription
             style={{
@@ -179,7 +179,7 @@ export default function MintButtonTauros({ user }) {
           </s.TextDescription>
 
           <s.SpacerSmall />
-          {Number(data.totalSupply) >=7110 ? (
+          {Number(data.totalSupply) >=2000 ? (
             <>
               <s.TextTitle
                 style={{ textAlign: "center", color: "var(--accent-text)" }}
