@@ -1,7 +1,6 @@
-import {useToast, NumberInputStepper, Box, Spacer, NumberIncrementStepper, NumberDecrementStepper, NumberInputField, Text, FormControl, FormLabel, NumberInput} from "@chakra-ui/react"
+import {useToast, NumberInputStepper, Box, Spacer, NumberIncrementStepper, NumberDecrementStepper, NumberInputField, Text, FormControl, FormLabel, NumberInput, Button } from "@chakra-ui/react"
 import { useEffect, useState, } from "react";
 import CustomContainer from "@components/CustomContainer";
-import { Button } from 'web3uikit';
 import { useMoralis, useWeb3ExecuteFunction } from 'react-moralis';
 import styles from "@styles/MintButton.module.css"
 import taurosABI from "../ABIs/taurosABI"
@@ -83,9 +82,9 @@ export default function MBT() {
               </NumberInput>
           </FormControl>
           <Spacer />
-          <Button disabled onClick={() => {
+          <Button borderRadius="10px" fontSize="16px" fontWeight="semibold" color="white" onClick={() => {
             if (isAuthenticated) { _mintTauros(); }
-          }} text={"Mint Tauros"} theme={"primary"} />
+          }} theme={"primary"}>Mint Tauros</Button>
 
         </form>
       </Box>
