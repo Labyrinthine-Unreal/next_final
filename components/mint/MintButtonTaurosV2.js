@@ -83,7 +83,7 @@ export default function MBT() {
               </NumberInput>
           </FormControl>
           <Spacer />
-          <Button disabled onClick={() => {
+          <Button onClick={() => {
             if (isAuthenticated) { _mintTauros(); }
           }} text={"Mint Tauros"} theme={"primary"} />
 
