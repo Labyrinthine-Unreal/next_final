@@ -133,7 +133,7 @@ export default function MBT() {
                 bg: 'blue.700',
               }}
             >
-              {claimingNft ? "Minting" : "MINT"}
+              {mintLoading ? "Minting" : "MINT"}
             </Button>
           </Box>
         </Box>
