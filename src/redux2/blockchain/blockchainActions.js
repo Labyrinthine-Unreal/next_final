@@ -11,7 +11,7 @@ import { fetchData } from "../data/dataActions";
   walletlink: {
     package: CoinbaseWalletSDK, //coinbase wallet
     options: {
-      appName: "Timepiece Ape",
+      appName: "TaurosDAO",
       infuraId: INFURA_ID
     }
   },
