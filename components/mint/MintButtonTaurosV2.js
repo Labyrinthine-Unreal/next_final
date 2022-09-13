@@ -1,4 +1,4 @@
-import { Flex, Box, Button, Text, Spinner } from "@chakra-ui/react"
+import { Flex, Box, IconButton, Button, Text, Spinner } from "@chakra-ui/react"
 import { useEffect, useState, } from "react";
 import { useDispatch, useSelector } from "react-redux"
 import { connect } from "../../src/redux2/blockchain/blockchainActions"
@@ -8,6 +8,7 @@ import { ethers } from "ethers";
 import { useAccount, useFeeData, useConnect, useSignMessage, useDisconnect } from 'wagmi';
 import { useContractRead, useContractWrite } from 'wagmi';
 import bigInt, { BigNumber } from "big-integer";
+import { AddIcon, MinusIcon } from '@chakra-ui/icons'
 
 
 const truncate = (input, len) =>
@@ -148,26 +149,25 @@ export default function MBT() {
             <Text textAlign="center" pb={4} color="teal" fontWeight="normal">
               {feedback}
             </Text>
-            <Flex gap={10} align="center" justify="center" fontWeight="semibold">
-              <Button variant="outline" colorScheme="teal" borderRadius="full" disabled={claimingNft ? 1 : 0}
+            <Flex gap={10} align="center" justify="center" fontWeight="semibold" fontSize="22px" color="teal.800">
+              <IconButton variant="outline" colorScheme="teal" rounded="full" size="lg" disabled={claimingNft ? 1 : 0}
                 onClick={(e) => {
                   e.preventDefault();
                   decrementMintAmount();
                 }}
-              >
-                -
-              </Button>
+                icon={<MinusIcon />}
+              />
+                
               <Text textAlign="center">
                 {mintAmount}
               </Text>
-              <Button variant="outline" colorScheme="teal" borderRadius="full" disabled={claimingNft ? 1 : 0}
+              <IconButton variant="outline" colorScheme="teal" rounded="full" size="lg" disabled={claimingNft ? 1 : 0}
                 onClick={(e) => {
                   e.preventDefault();
                   incrementMintAmount();
                 }}
-              >
-                +
-              </Button>
+                icon={<AddIcon />}
+              />
             </Flex>
           <Box>
             <Button
