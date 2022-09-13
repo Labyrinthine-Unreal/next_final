@@ -1,4 +1,4 @@
-import { Link, Box, Button, Text, Spacer } from "@chakra-ui/react"
+import { Link, Box, Button, Text, Spacer,Container } from "@chakra-ui/react"
 import { useEffect, useState, } from "react";
 import { useDispatch, useSelector } from "react-redux"
 import { connect } from "../../src/redux2/blockchain/blockchainActions"
@@ -9,6 +9,7 @@ import { useAccount, useFeeData, useConnect, useSignMessage, useDisconnect } fro
 import { useContractRead, useContractWrite } from 'wagmi';
 import bigInt, { BigNumber } from "big-integer";
 import taurosABI from "../ABIs/taurosABI"
+import { ConnectButton } from '@rainbow-me/rainbowkit';
 
 
 const truncate = (input, len) =>
@@ -26,16 +27,19 @@ export default function MBT() {
   const isConnected = !!address;
   const { disconnect } = useDisconnect();
   const { data: PRICE } = useContractRead({
-    addressOrName: '0xa58Ad36d83e45b068864Ef2f74Ce951DCB3930aA',
+    addressOrName: '0xfb467198ce9724bd1DC69f91d1a5D5e7f77CB93E',
     contractInterface: taurosABI,
     functionName: 'PRICE',
   });
 
   const contractConfig = {
-    addressOrName: '0xa58Ad36d83e45b068864Ef2f74Ce951DCB3930aA',
+    addressOrName: '0xfb467198ce9724bd1DC69f91d1a5D5e7f77CB93E',
     contractInterface: taurosABI,
     functionName: 'claimTauros',
-    args: [mintAmount, { value: PRICE?.toString() }],
+    args: [mintAmount, 
+      { value: PRICE,         
+           gasLimit: 500000
+    }],
   };
 
 
@@ -47,19 +51,16 @@ export default function MBT() {
     ...config,
   });
   const [mintLoading, setMintLoading] = useState(false);
-  // const isConnected = !!address;
   const [mintedTokenId, setMintedTokenId] = useState(1);
   let onMintClick = async () => {
     try {
       setMintLoading(true);
       if (isConnected) {
-        const tx = await mint({
-          args: [
-            {
-              gasLimit: 500000
-            },
-          ],
-        });
+        console.log(contractConfig)
+        console.log(config)
+        console.log(mintAmount)
+        const tx = await mint(
+        );
         const receipt = await tx.wait();
         console.log('TX receipt', receipt);
         // @ts-ignore
@@ -81,6 +82,15 @@ export default function MBT() {
       newMintAmount = 1;
     }
     setMintAmount(newMintAmount);
+    // mint(         
+    //   {
+    //   //  newMintAmount*PRICE,
+    //    args: [
+    //      {
+    //        gasLimit: 500000
+    //      },
+    //    ],
+    //  })
   };
 
   const incrementMintAmount = () => {
@@ -89,12 +99,26 @@ export default function MBT() {
       newMintAmount = 5;
     }
     setMintAmount(newMintAmount);
+    // mint(         
+    //    {
+    //     // newMintAmount,
+    //     args: [
+    //       {
+    //         gasLimit: 500000
+    //       },
+    //     ],
+    //   })
+
+
   };
 
 
   // if (isConnected) {
   return (
     <Box>
+    <Container paddingY='10'>
+      <ConnectButton />
+    </Container>
 
         <Box>
           <Text textAlign="center">
@@ -141,4 +165,3 @@ export default function MBT() {
     </Box>
   )
 }
-// }
