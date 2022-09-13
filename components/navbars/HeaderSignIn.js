@@ -30,41 +30,41 @@ export default function HeaderSignIn({ ...rest }) {
 
   {/* /////////////////////////////////////////////////////////////////////////////////////// */ }
 
-  const handleAuthCoinbase = async () => {
-    const { account, chain } = await connectAsync({ connector: new CoinbaseWalletConnector({
-      options:
-      {
-          appName: "TaurosDAO.app",
-          jsonRpcUrl: 'https://rinkeby.infura.io/v3/5c9cb0b35a2742659dec6fc7680c16c4',
+  // const handleAuthCoinbase = async () => {
+  //   const { account, chain } = await connectAsync({ connector: new CoinbaseWalletConnector({
+  //     options:
+  //     {
+  //         appName: "TaurosDAO.app",
+  //         jsonRpcUrl: 'https://rinkeby.infura.io/v3/5c9cb0b35a2742659dec6fc7680c16c4',
 
-      }
-    }) });
-    const userData = { address: account, chain: chain.id, network: 'evm' };
-    console.log(userData)
-    onClose()
-  };
+  //     }
+  //   }) });
+  //   const userData = { address: account, chain: chain.id, network: 'evm' };
+  //   console.log(userData)
+  //   onClose()
+  // };
 
-  const handleAuth = async () => {
-    const { account, chain } = await connectAsync({ connector: new InjectedConnector() });
-    const userData = { address: account, chain: chain.id, network: 'evm' };
-    console.log(userData)
-    onClose()
-  };
+  // const handleAuth = async () => {
+  //   const { account, chain } = await connectAsync({ connector: new InjectedConnector() });
+  //   const userData = { address: account, chain: chain.id, network: 'evm' };
+  //   console.log(userData)
+  //   onClose()
+  // };
 
 
-  const handleAuthWalletConnect = async () => {
-    const { account, chain } = await connectAsync({ connector: new WalletConnectConnector({
-      options:
-      {
-        qrcode: true,
-      }
-    }) });
+  // const handleAuthWalletConnect = async () => {
+  // const { account, chain } = await connectAsync({ connector: new WalletConnectConnector({
+  //   options:
+  //   {
+  //     qrcode: true,
+  //   }
+  // }) });
 
-    
-    const userData = { address: account, chain: chain.id, network: 'evm' };
-    console.log(userData)
-    onClose()
-  };
+
+  //   const userData = { address: account, chain: chain.id, network: 'evm' };
+  //   console.log(userData)
+  //   onClose()
+  // };
   // const { data } = await axios.post('../../src/api/auth/request-message', userData, {
   //     headers: {
   //         'content-type': 'application/json',
@@ -88,8 +88,8 @@ export default function HeaderSignIn({ ...rest }) {
 
   const uauth = new UAuth({
     clientID: "524a7dd4-bbd6-4633-9257-a685979aef44",
-    redirectUri: "https://timely-faun-e34b96.netlify.app/",
-    scope: "openid wallet"
+    redirectUri: "https://next-final-cxyi7ght2-labyrinthineunreal.vercel.app/",
+    scope: "openid wallet email"
   })
 
 
@@ -103,11 +103,11 @@ export default function HeaderSignIn({ ...rest }) {
   {/* /////////////////////////////////////////////////////////////////////////////////////// */ }
   {/* /////////////////////////////////////////////////////////////////////////////////////// */ }
 
-  const connector = new WalletConnectConnector({
-    options: {
-      qrcode: true,
-    },
-  })
+  // const connector = new WalletConnectConnector({
+  //   options: {
+  //     qrcode: true,
+  //   },
+  // })
   {/* /////////////////////////////////////////////////////////////////////////////////////// */ }
   {/* /////////////////////////////////////////////////////////////////////////////////////// */ }
 
@@ -134,11 +134,11 @@ export default function HeaderSignIn({ ...rest }) {
       </Center>
       <Spacer />
       <Box className={styles.connect}>
-      {isConnected ?
-        <Box>
+        {isConnected ?
+          <Box>
             Connected to {address}
             <Button onClick={() => disconnect()}>Disconnect</Button>
-          </Box> 
+          </Box>
           :
           <Box>
             <Button onClick={onOpen}>Connect Wallet</Button>
@@ -152,7 +152,7 @@ export default function HeaderSignIn({ ...rest }) {
 
                   {/* /////////////////////////////////////////////////////////////////////////////////////// */}
                   {/* /////////////////////////////////////////////////////////////////////////////////////// */}
-
+                  {/* 
                   <Button
                     leftIcon={<Image src="/images/logos-icons/MM.png" w="2em" h="2em" mr="2" />}
                     w="full"
@@ -168,11 +168,12 @@ export default function HeaderSignIn({ ...rest }) {
                     Metamask (via moralis)
                   </Button>
 
-                  <Spacer py={2} />
+                  <Spacer py={2} /> */}
                   {/* /////////////////////////////////////////////////////////////////////////////////////// */}
                   {/* /////////////////////////////////////////////////////////////////////////////////////// */}
                   {/* Non Functional */}
-                  <Button
+
+                  {/* <Button
                     leftIcon={<Image src="/images/logos-icons/WC.png" w="2em" h="2em" mr="2" />}
                     w="full"
                     h="60px"
@@ -187,12 +188,13 @@ export default function HeaderSignIn({ ...rest }) {
                   >
                     Wallet Connect
                   </Button>
-                  <Spacer py={2} />
+                  <Spacer py={2} /> */}
 
                   {/* /////////////////////////////////////////////////////////////////////////////////////// */}
                   {/* /////////////////////////////////////////////////////////////////////////////////////// */}
                   {/* Non Functional */}
-                  <Button
+
+                  {/* <Button
                     leftIcon={<Image src="/images/logos-icons/CBW.png" w="2em" h="2em" mr="2" />}
                     w="full"
                     h="60px"
@@ -206,7 +208,7 @@ export default function HeaderSignIn({ ...rest }) {
                   >
                     Coinbase
                   </Button>
-                  <Spacer py={2} />
+                  <Spacer py={2} /> */}
 
                   {/* /////////////////////////////////////////////////////////////////////////////////////// */}
                   {/* /////////////////////////////////////////////////////////////////////////////////////// */}
@@ -234,16 +236,20 @@ export default function HeaderSignIn({ ...rest }) {
                     Unstoppable Domains
                   </Button>
 
+                  <Button onClick={async () => {
+                    await uauth.logout()
+                    console.log('Logged out with Unstoppable')
+                  }}>Logout</Button>
+                
 
+              {/* /////////////////////////////////////////////////////////////////////////////////////// */}
+              {/* /////////////////////////////////////////////////////////////////////////////////////// */}
 
-                  {/* /////////////////////////////////////////////////////////////////////////////////////// */}
-                  {/* /////////////////////////////////////////////////////////////////////////////////////// */}
-
-                </ModalBody>
-              </ModalContent>
+            </ModalBody>
+          </ModalContent>
             </Modal>
-          </Box>}
-      </Box>
-    </Flex>
+    </Box>}
+      </Box >
+    </Flex >
   );
 }

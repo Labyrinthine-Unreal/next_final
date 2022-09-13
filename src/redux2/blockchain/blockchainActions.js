@@ -1,9 +1,28 @@
 // constants
 import Web3EthContract from "web3-eth-contract";
 import Web3 from "web3";
-// log
+import Web3Modal from "web3modal";
+import CoinbaseWalletSDK from "@coinbase/wallet-sdk";
+import WalletConnectProvider from "@walletconnect/web3-provider";
 import { fetchData } from "../data/dataActions";
 
+ const  INFURA_ID = "fc097640a7f64d8a8385ab256db6a81a"
+ const providerOptions = {
+  walletlink: {
+    package: CoinbaseWalletSDK, //coinbase wallet
+    options: {
+      appName: "Timepiece Ape",
+      infuraId: INFURA_ID
+    }
+  },
+  walletconnect: {
+    package: WalletConnectProvider, // walletconnect
+    options: {
+      infuraId: INFURA_ID,
+      qrcode:true
+    }
+  }
+}
 const connectRequest = () => {
   return {
     type: "CONNECTION_REQUEST",
@@ -48,18 +67,40 @@ export const connect = () => {
       },
     });
     const CONFIG = await configResponse.json();
-    const { ethereum } = window;
-    const metamaskIsInstalled = ethereum && ethereum.isMetaMask;
-    if (metamaskIsInstalled) {
-      Web3EthContract.setProvider(ethereum);
-      let web3 = new Web3(ethereum);
       try {
-        const accounts = await ethereum.request({
-          method: "eth_requestAccounts",
+        const { ethereum } = window;
+        const web3Modal = new Web3Modal({
+          network: "rinkeby", // optional
+          cacheProvider: true, // optional
+          providerOptions // required
         });
-        const networkId = await ethereum.request({
-          method: "net_version",
-        });
+        
+        const provider = await web3Modal.connect();
+        
+        const web3 = new Web3(provider);
+        Web3EthContract.setProvider(provider);
+        
+        let networkId;
+        let accounts;
+      
+
+        if (provider.isCoinbaseWallet) {
+          networkId = await provider.getChainId()
+          accounts = await provider._addresses
+        } 
+        else if (provider.connected) {
+          networkId = await provider.chainId
+          accounts = await provider.accounts
+        }
+        else {
+          accounts = await provider.request({
+            method: "eth_requestAccounts",
+          });
+          networkId = await provider.request({
+            method: "net_version",
+          });
+        }
+             
         if (networkId == CONFIG.NETWORK.ID) {
           const SmartContractObj = new Web3EthContract(
             abi,
@@ -69,26 +110,24 @@ export const connect = () => {
             connectSuccess({
               account: accounts[0],
               smartContract: SmartContractObj,
-              web3: web3,
+              web3: web3
             })
           );
           // Add listeners start
-          ethereum.on("accountsChanged", (accounts) => {
+          provider.on("accountsChanged", (accounts) => {
             dispatch(updateAccount(accounts[0]));
           });
-          ethereum.on("chainChanged", () => {
-            window.location.reload();
-          });
+          // provider.on("chainChanged", () => {
+          //   window.location.reload();
+          // });
           // Add listeners end
         } else {
           dispatch(connectFailed(`Change network to ${CONFIG.NETWORK.NAME}.`));
         }
       } catch (err) {
         dispatch(connectFailed("Something went wrong."));
-      }
-    } else {
-      dispatch(connectFailed("Install Metamask."));
-    }
+        console.log(err)
+      } 
   };
 };
 
