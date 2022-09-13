@@ -1,4 +1,4 @@
-import { Box, Modal, ModalOverlay, ModalContent,Spacer, ModalHeader, ModalFooter, ModalBody, ModalCloseButton, Grid, GridItem } from "@chakra-ui/react";
+import { Box, Center, Modal, ModalOverlay, ModalContent,Spacer, ModalHeader, ModalFooter, ModalBody, ModalCloseButton, Grid, GridItem } from "@chakra-ui/react";
 import MBE from "../mint/MintButtonEstatesv2";
 import MBT from "../mint/MintButtonTaurosV2";
 export default function ProductModal({ isOpen, onClose, modalData }) {
@@ -7,7 +7,7 @@ export default function ProductModal({ isOpen, onClose, modalData }) {
   return (
     <Modal isOpen={isOpen} onClose={onClose} size="xl" isCentered>
       <ModalOverlay />
-      <ModalContent rounded="xl">
+      <ModalContent rounded="xl" h="420">
         <ModalCloseButton />
         <ModalHeader>{title == "MERCA CITY ESTATE" ? "dNFT Details" : "NFT Details"}</ModalHeader>
         <ModalBody>
@@ -28,17 +28,16 @@ export default function ProductModal({ isOpen, onClose, modalData }) {
           <GridItem rowSpan={2} colSpan={4} boxShadow="inner" pl="4" rounded="2xl" textColor="teal.700" textShadow='0.5px 0.5px gray'>
             <Box fontSize={{base: "14px", md: "20px"}} fontWeight="semibold">{title}</Box>
             <Box fontWeight="light" fontSize={{base: "13px", md: "18px"}}>
-              {/* <Box>{title == "MERCA CITY ESTATE" ? free : salePrice}</Box> */}
+              <Box>{title == "MERCA CITY ESTATE" ? free : salePrice}</Box>
             </Box>
           </GridItem>
         </Grid>
         </ModalBody>
         <ModalFooter>
           <Spacer />
-
-            <Box pb="10">
+            <Center pb={5}>
             {title == "MERCA CITY ESTATE" ? <MBE /> : <MBT />}
-            </Box>
+            </Center>
         </ModalFooter>
       </ModalContent>
     </Modal>

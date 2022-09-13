@@ -1,6 +1,6 @@
 {
-  "CONTRACT_ADDRESS": "0xa58Ad36d83e45b068864Ef2f74Ce951DCB3930aA",
-  "SCAN_LINK": "https://rinkeby.etherscan.io/address/0xa58Ad36d83e45b068864Ef2f74Ce951DCB3930aA",
+  "CONTRACT_ADDRESS": "0x84C33588dbD7A8E62cF2C21bC606A08e9aeE9E61",
+  "SCAN_LINK": "https://rinkeby.etherscan.io/address/0x84C33588dbD7A8E62cF2C21bC606A08e9aeE9E61",
   "NETWORK": {
     "NAME": "rEthereum",
     "SYMBOL": "rETH",
@@ -8,7 +8,7 @@
   },
   "NFT_NAME": "TaurosDAO",
   "SYMBOL": "TAUROS",
-  "MAX_SUPPLY": 7110,
+  "MAX_SUPPLY": 2000,
   "WEI_COST": 50000000000000000,
   "DISPLAY_COST": 0.05,
   "GAS_LIMIT": 250000,

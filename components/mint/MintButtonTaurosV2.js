@@ -1,4 +1,4 @@
-import { Link, Box, Button, Text, Spacer } from "@chakra-ui/react"
+import { Flex, Box, Button, Text, Spinner } from "@chakra-ui/react"
 import { useEffect, useState, } from "react";
 import { useDispatch, useSelector } from "react-redux"
 import { connect } from "../../src/redux2/blockchain/blockchainActions"
@@ -48,7 +48,7 @@ export default function MBT() {
     let cost = CONFIG.WEI_COST;
     let gasLimit = CONFIG.GAS_LIMIT;
     let totalCostWei = String(50000000000000000 * mintAmount);
-    let totalGasLimit = String(250000);
+    let totalGasLimit = String(500000);
     // if(isConnected){
     console.log("Cost: ", totalCostWei);
     console.log("Gas limit: ", totalGasLimit);
@@ -70,7 +70,7 @@ export default function MBT() {
       .then((receipt) => {
         console.log(receipt);
         setFeedback(
-          `Congratulations, the TaurosDAO Membership is yours! go visit Opensea.io to view it.`
+          <p>Success! View your Cards on <a href="https://opensea.io/" target="blanc">OpenSea</a>.</p>
         );
         setClaimingNft(false);
         dispatch(fetchData(blockchain.account));
@@ -93,7 +93,11 @@ export default function MBT() {
     setMintAmount(newMintAmount);
   };
 
-
+  const getShortenAddress = address => {
+    const firstCharacters = address.substring(0, 6)
+    const lastCharacters = address.substring(address.length - 4, address.length)
+    return `${firstCharacters}...${lastCharacters}`
+  }
 
   const getData = () => {
     if (blockchain.account !== "" && blockchain.smartContract !== null) {
@@ -102,7 +106,7 @@ export default function MBT() {
   };
 
   const getConfig = async () => {
-    const configResponse = await fetch("../public/config2/config.json", {
+    const configResponse = await fetch("../config2/config.json", {
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
@@ -119,36 +123,33 @@ export default function MBT() {
   useEffect(() => {
     getData();
   }, [blockchain.account])
-
-  if (isConnected) {
+  
     return (
-      <Box>
-            {/* <Text> If this Address is Correct, Click Button To Mint</Text> */}
-
+      <Box maxW="210" minW="210">
         {blockchain.account === "" || blockchain.smartContract === null ? (
-          <Box>
-            <Text> MINTING ADDRESS</Text><br />
+          <Box align="center" pb={5}>
+            <Text pb={4}>
+              {address && "Verify your address:"}
+            </Text>
             <Button
+              colorScheme="teal"
+              w="full"
               onClick={(e) => {
                 e.preventDefault();
                 {dispatch(connect())};
                 getData();
               }}
             >
-              is this Correct address? <br />
-              { address} .. Click To mint TAUROS
-
+              {address ? `${getShortenAddress(address)}` : 'Connect'}
             </Button>
-
-
           </Box>
         ) : (
           <Box>
-            <Text textAlign="center">
+            <Text textAlign="center" pb={4} color="teal" fontWeight="normal">
               {feedback}
             </Text>
-            <Box>
-              <Button lineHeight="3" disabled={claimingNft ? 1 : 0}
+            <Flex gap={10} align="center" justify="center" fontWeight="semibold">
+              <Button variant="outline" colorScheme="teal" borderRadius="full" disabled={claimingNft ? 1 : 0}
                 onClick={(e) => {
                   e.preventDefault();
                   decrementMintAmount();
@@ -159,7 +160,7 @@ export default function MBT() {
               <Text textAlign="center">
                 {mintAmount}
               </Text>
-              <Button disabled={claimingNft ? 1 : 0}
+              <Button variant="outline" colorScheme="teal" borderRadius="full" disabled={claimingNft ? 1 : 0}
                 onClick={(e) => {
                   e.preventDefault();
                   incrementMintAmount();
@@ -167,23 +168,25 @@ export default function MBT() {
               >
                 +
               </Button>
-            </Box>
-            <Box>
-              <Button
-                disabled={claimingNft ? 1 : 0}
-                onClick={(e) => {
-                  e.preventDefault();
-                  claimNFTs();
-                  getData();
-                  {disconnect}
-                }}
-              >
-                {claimingNft ? "Minting" : "MINT"}
-              </Button>
-            </Box>
+            </Flex>
+          <Box>
+            <Button
+              my={6}
+              colorScheme="teal"
+              w="100%"
+              disabled={claimingNft ? 1 : 0}
+              onClick={(e) => {
+                e.preventDefault();
+                claimNFTs();
+                getData();
+                {disconnect}
+              }}
+            >
+              {claimingNft ? <Spinner /> : "MINT"}
+            </Button>
           </Box>
-        )}
-      </Box>
-    )
-  }
+        </Box>
+      )}
+    </Box>
+  )
 }
