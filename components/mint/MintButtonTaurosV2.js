@@ -27,8 +27,8 @@ export default function MBT() {
 
   async function _mintTauros() {
     let options = {
-      contractAddress: '0x3afB351CeC55E029eDD69D445F3E0Cb57e5E7ed0',
-      functionName: 'mintNFTs',
+      contractAddress: '0xfb467198ce9724bd1DC69f91d1a5D5e7f77CB93E',
+      functionName: 'claimTauros',
       abi: taurosABI,
       msgValue: Moralis.Units.ETH("0.05")* amount,
 //       Moralis.Units.ETH("0.1")
