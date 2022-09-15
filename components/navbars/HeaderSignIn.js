@@ -55,11 +55,23 @@ export default function HeaderSignIn({ ...rest }) {
   }
 
   // UNSTOPPABLE DOMAINS
-  const uauth = new UAuth({
-    clientID: "524a7dd4-bbd6-4633-9257-a685979aef44",
-    redirectUri: "http://localhost:3000",
-    scope: "openid wallet"
-  })
+  const UDLogin = async () => {
+    const uauth = new UAuth({
+      clientID: "524a7dd4-bbd6-4633-9257-a685979aef44",
+      redirectUri: "http://localhost:3000",
+      scope: "openid wallet"
+    })
+    if (!isAuthenticated)
+      try {
+        const authorization = await uauth.loginWithPopup()
+        console.log(authorization)
+        console.log(authorization.idToken.sub)
+        console.log(authorization.idToken.wallet_address)
+      } catch (error) {
+        console.error(error)
+      }
+      onClose()
+  }
 
   if (typeof window !== 'undefined') {
     //`window` is available
@@ -203,15 +215,7 @@ export default function HeaderSignIn({ ...rest }) {
                     _hover={{ borderColor: '#000000' }}
                     rounded="xl"
                     fontWeight="normal"
-                    onClick={async () => {
-                      try {
-                        const authorization = await uauth.loginWithPopup()
-                        console.log(authorization)
-                      } catch (error) {
-                        console.error(error)
-                      }
-                      onClose()
-                    }}
+                    onClick={() => UDLogin()}
                 >
                     Unstoppable Domains
                 </Button>
