@@ -8,6 +8,7 @@ import Layout from "@components/navbars/Layout"
 import Footer from "@components/navbars/Footer"
 import theme from '@components/theme.fonts'
 
+
 function MyApp({ Component, pageProps }) {
   return(
     <Provider store={store}>

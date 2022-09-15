@@ -1,7 +1,6 @@
-import {useToast, NumberInputStepper, Box, Spacer, NumberIncrementStepper, NumberDecrementStepper, NumberInputField, Text, FormControl, FormLabel, NumberInput} from "@chakra-ui/react"
+import {useToast, Button, NumberInputStepper, Box, Spacer, NumberIncrementStepper, NumberDecrementStepper, NumberInputField, Text, FormControl, FormLabel, NumberInput} from "@chakra-ui/react"
 import { useEffect, useState, } from "react";
 import CustomContainer from "@components/CustomContainer";
-import { Button } from 'web3uikit';
 import { useMoralis, useWeb3ExecuteFunction } from 'react-moralis';
 import styles from "@styles/MintButton.module.css"
 
@@ -79,9 +78,14 @@ export default function MBE() {
               </NumberInputStepper>
             </NumberInput>
           </FormControl>
-          <Button disabled onClick={() => {
+          <Button 
+            disabled 
+            color="white" 
+            _hover={{bg: "teal.400"}} 
+            rounded="xl"
+            onClick={() => {
             if (isAuthenticated) { _mintEstates(); }
-          }} text={"Mint Estates"} theme={"primary"} />
+          }}>Mint</Button>
 
         </form>
       </Box>
