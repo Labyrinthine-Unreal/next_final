@@ -1,10 +1,11 @@
-import { Box, Flex, Center, Button, Icon, IconButton, Image, Spacer, Divider, useDisclosure, Modal, ModalOverlay, ModalContent, ModalHeader, ModalFooter, ModalBody, ModalCloseButton, ListIcon } from '@chakra-ui/react'
+import { Box, Flex, Center, Button, Icon, IconButton, Image, Spacer, Divider, useDisclosure, Modal, ModalOverlay, ModalContent, ModalHeader, ModalBody, ModalCloseButton } from '@chakra-ui/react'
 import { ImMenu } from 'react-icons/im'
 import styles from '@styles/SignIn.module.css'
 import { useMoralis } from "react-moralis"
 import UAuth from '@uauth/js';
 import {useState} from "react"
 import { AiOutlineWallet } from 'react-icons/ai'
+import connectors from './connectors'
 
 
 export default function HeaderSignIn({ ...rest }) {
@@ -55,21 +56,53 @@ export default function HeaderSignIn({ ...rest }) {
   }
 
   // UNSTOPPABLE DOMAINS
-  const uauth = new UAuth({
-    clientID: "524a7dd4-bbd6-4633-9257-a685979aef44",
-    redirectUri: "http://localhost:3000",
-    scope: "openid wallet"
-  })
-
-  if (typeof window !== 'undefined') {
-    //`window` is available
-    window.logout = async () => {
-      await uauth.logout()
-      console.log('Logged out with Unstoppable')
+  function createConnectHandler(connectorId) {
+    return async () => {
+      try {
+        const connector = connectors[connectorId]
+        console.log(connector)
+        await authenticate(connector)
+      } catch (error) {
+        console.error(error)
+      }
     }
   }
 
-  // Shorten Address
+  async function handleDisconnect() {
+    try {
+      logout()
+    } catch (error) {
+      console.error(error)
+    }
+  }
+
+
+
+  // const UDLogin = async () => {
+  //   const uauth = new UAuth({
+  //     clientID: "524a7dd4-bbd6-4633-9257-a685979aef44",
+  //     redirectUri: "http://localhost:3000",
+  //     scope: "openid wallet"
+  //   })
+  //   if (!isAuthenticated)
+  //     try {
+  //       const authorization = await uauth.loginWithPopup()
+  //       console.log(authorization)
+  //     } catch (error) {
+  //       console.error(error)
+  //     }
+  //     onClose()
+  // }
+
+  // if (typeof window !== 'undefined') {
+  //   //`window` is available
+  //   window.logout = async () => {
+  //     await uauth.logout()
+  //     console.log('Logged out with Unstoppable')
+  //   }
+  // }
+
+  // Shorten Address Display
   const getShortenAddress = address => {
     const firstCharacters = address.substring(0, 6)
     const lastCharacters = address.substring(address.length - 4, address.length)
@@ -116,7 +149,7 @@ export default function HeaderSignIn({ ...rest }) {
                 p={3} 
                 pr={10} 
                 rounded="3xl">
-                  <Icon fontSize={17} fontWeight="semibold" mr={2} as={AiOutlineWallet} />{getShortenAddress(address)}
+                  <Icon fontSize={17} fontWeight="semibold" mr={2} as={AiOutlineWallet} />{address}
               </Center>
               <Button onClick={() => {logout().then(r => console.log('logged off'))}}>Disconnect</Button>
            </Center>
@@ -172,28 +205,15 @@ export default function HeaderSignIn({ ...rest }) {
                 <Spacer py={2} />
 
                 {/* /////////////////////////////////////////////////////////////////////////////////////// */}
-                {/* ///////   COINBASE    ///////////////////////////////////////////////////////////////// */}
-                {/* Non Functional */}
-                {/* <Button
-                    leftIcon={<Image src="/images/logos-icons/CBW.png" w="2em" h="2em" mr="2" />}
-                    w="full"
-                    h="60px"
-                    justifyContent="left"
-                    variant="outline"
-                    borderColor="#ffffff"
-                    _hover={{ borderColor: '#000000' }}
-                    rounded="xl"
-                    fontWeight="normal"
-                    onClick={() => handleAuthCoinbase()}
-                  >
-                    Coinbase
-                  </Button>
-                  <Spacer py={2} /> */}
-
-                {/* /////////////////////////////////////////////////////////////////////////////////////// */}
                 {/* //////    UNSTOPPABLE DOMAINS   /////////////////////////////////////////////////////// */}
 
-                <Button
+                
+                {Object.keys(connectors).map(v => (
+                  <Button key={v} onClick={createConnectHandler(v)}>
+                    Connect to {v}
+                  </Button>
+                ))}
+                {/* <Button
                     leftIcon={<Image src="/images/logos-icons/UD.png" w="2em" h="2em" mr="2" />}
                     w="full"
                     h="60px"
@@ -203,18 +223,10 @@ export default function HeaderSignIn({ ...rest }) {
                     _hover={{ borderColor: '#000000' }}
                     rounded="xl"
                     fontWeight="normal"
-                    onClick={async () => {
-                      try {
-                        const authorization = await uauth.loginWithPopup()
-                        console.log(authorization)
-                      } catch (error) {
-                        console.error(error)
-                      }
-                      onClose()
-                    }}
+                    onClick={() => UDLogin()}
                 >
                     Unstoppable Domains
-                </Button>
+                </Button> */}
 
               </ModalBody>
             </ModalContent>
