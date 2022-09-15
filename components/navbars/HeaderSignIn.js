@@ -15,9 +15,20 @@ export default function HeaderSignIn({ ...rest }) {
 
   
   // METAMASK
-  const MMLogin = async () => authenticate({
-    signingMessage: "Tauros SignIN"
-  })
+  const MMLogin = async () => {
+    if (!isAuthenticated) {
+      await authenticate({
+        signingMessage: "Tauros Sign in"
+      })
+      .then(function(user) {
+        setAddress(user.get('ethAddress'))
+        console.log(user.get('ethAddress'))
+      })
+      .catch(function(error) {
+        console.log(error)
+      })
+    }
+  }
 
   // WALLETCONNECT
   const login = async () => {
@@ -34,7 +45,7 @@ export default function HeaderSignIn({ ...rest }) {
         ]
       })
           .then(function(user) {
-            setAddress(user.get('ethAddress'));
+            setAddress(user.get('ethAddress'))
             console.log(user.get("ethAddress"))
           })
           .catch(function(error) {
@@ -51,7 +62,7 @@ export default function HeaderSignIn({ ...rest }) {
   })
 
   if (typeof window !== 'undefined') {
-    //here `window` is available
+    //`window` is available
     window.logout = async () => {
       await uauth.logout()
       console.log('Logged out with Unstoppable')
@@ -105,7 +116,7 @@ export default function HeaderSignIn({ ...rest }) {
                 p={3} 
                 pr={10} 
                 rounded="3xl">
-                  <Icon fontSize={17} fontWeight="semibold" mr={2} as={AiOutlineWallet} />{address}
+                  <Icon fontSize={17} fontWeight="semibold" mr={2} as={AiOutlineWallet} />{getShortenAddress(address)}
               </Center>
               <Button onClick={() => {logout().then(r => console.log('logged off'))}}>Disconnect</Button>
            </Center>
