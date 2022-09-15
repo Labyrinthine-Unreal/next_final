@@ -2,6 +2,8 @@ import { Box, Flex, Center, Button, Text, IconButton, Image, Spacer, Divider, us
 import { ImMenu } from 'react-icons/im'
 import { ConnectButton } from 'web3uikit'
 import styles from '@styles/SignIn.module.css'
+import { useMoralis } from "react-moralis"
+
 // import { InjectedConnector } from 'wagmi/connectors/injected'
 // import { MetaMaskConnector } from 'wagmi/connectors/metaMask';
 // import { useAccount, useConnect, useSignMessage, useDisconnect } from 'wagmi';
@@ -19,6 +21,8 @@ import UAuth from '@uauth/js';
 export default function HeaderSignIn({ ...rest }) {
 
   const { isOpen, onOpen, onClose } = useDisclosure()
+  const { isAuthenticated, authenticate, user, logout, isLoggingOut } = useMoralis()
+  console.log(user.getUsername() ,' is signed in :)')
   // const { isConnected, address } = useAccount()
   // const { connectAsync } = useConnect()
   // const { disconnect } = useDisconnect()
@@ -60,7 +64,7 @@ export default function HeaderSignIn({ ...rest }) {
   //     }
   //   }) });
 
-    
+
   //   const userData = { address: account, chain: chain.id, network: 'evm' };
   //   console.log(userData)
   //   onClose()
@@ -134,26 +138,26 @@ export default function HeaderSignIn({ ...rest }) {
       </Center>
       <Spacer />
       {/* <Box className={styles.connect}> */}
-      
-        {/* <Box>
+
+      {/* <Box>
             Connected to {address}
             <Button onClick={() => disconnect()}>Disconnect</Button>
           </Box>  */}
-          {/* : */}
-          <Box>
-            <Button onClick={onOpen}>Connect Wallet</Button>
-            <Modal blockScrollOnMount={false} isOpen={isOpen} onClose={onClose} isCentered size="sm">
-              <ModalOverlay />
-              <ModalContent rounded="2xl">
-                <ModalHeader fontWeight="normal">Connect Wallet</ModalHeader>
-                <Divider />
-                <ModalCloseButton />
-                <ModalBody py={10}>
+      {/* : */}
+      <Box>
+        <Button onClick={onOpen}>Connect Wallet</Button>
+        <Modal blockScrollOnMount={false} isOpen={isOpen} onClose={onClose} isCentered size="sm">
+          <ModalOverlay />
+          <ModalContent rounded="2xl">
+            <ModalHeader fontWeight="normal">Connect Wallet</ModalHeader>
+            <Divider />
+            <ModalCloseButton />
+            <ModalBody py={10}>
 
-                  {/* /////////////////////////////////////////////////////////////////////////////////////// */}
-                  {/* /////////////////////////////////////////////////////////////////////////////////////// */}
+              {/* /////////////////////////////////////////////////////////////////////////////////////// */}
+              {/* /////////////////////////////////////////////////////////////////////////////////////// */}
 
-                  {/* <Button
+              {/* <Button
                     leftIcon={<Image src="/images/logos-icons/MM.png" w="2em" h="2em" mr="2" />}
                     w="full"
                     h="60px"
@@ -169,10 +173,10 @@ export default function HeaderSignIn({ ...rest }) {
                   </Button>
 
                   <Spacer py={2} /> */}
-                  {/* /////////////////////////////////////////////////////////////////////////////////////// */}
-                  {/* /////////////////////////////////////////////////////////////////////////////////////// */}
-                  {/* Non Functional */}
-                  {/* <Button
+              {/* /////////////////////////////////////////////////////////////////////////////////////// */}
+              {/* /////////////////////////////////////////////////////////////////////////////////////// */}
+              {/* Non Functional */}
+              {/* <Button
                     leftIcon={<Image src="/images/logos-icons/WC.png" w="2em" h="2em" mr="2" />}
                     w="full"
                     h="60px"
@@ -189,10 +193,10 @@ export default function HeaderSignIn({ ...rest }) {
                   </Button>
                   <Spacer py={2} /> */}
 
-                  {/* /////////////////////////////////////////////////////////////////////////////////////// */}
-                  {/* /////////////////////////////////////////////////////////////////////////////////////// */}
-                  {/* Non Functional */}
-                  {/* <Button
+              {/* /////////////////////////////////////////////////////////////////////////////////////// */}
+              {/* /////////////////////////////////////////////////////////////////////////////////////// */}
+              {/* Non Functional */}
+              {/* <Button
                     leftIcon={<Image src="/images/logos-icons/CBW.png" w="2em" h="2em" mr="2" />}
                     w="full"
                     h="60px"
@@ -208,43 +212,48 @@ export default function HeaderSignIn({ ...rest }) {
                   </Button>
                   <Spacer py={2} /> */}
 
-                  {/* /////////////////////////////////////////////////////////////////////////////////////// */}
-                  {/* /////////////////////////////////////////////////////////////////////////////////////// */}
+              {/* /////////////////////////////////////////////////////////////////////////////////////// */}
+              {/* /////////////////////////////////////////////////////////////////////////////////////// */}
 
-                  <Button
-                    leftIcon={<Image src="/images/logos-icons/UD.png" w="2em" h="2em" mr="2" />}
-                    w="full"
-                    h="60px"
-                    justifyContent="left"
-                    variant="outline"
-                    borderColor="#ffffff"
-                    _hover={{ borderColor: '#000000' }}
-                    rounded="xl"
-                    fontWeight="normal"
-                    onClick={async () => {
-                      try {
-                        const authorization = await uauth.loginWithPopup()
-                        console.log(authorization)
-                      } catch (error) {
-                        console.error(error)
-                      }
-                      onClose()
-                    }}
-                  >
-                    Unstoppable Domains
-                  </Button>
+              <Button
+                leftIcon={<Image src="/images/logos-icons/UD.png" w="2em" h="2em" mr="2" />}
+                w="full"
+                h="60px"
+                justifyContent="left"
+                variant="outline"
+                borderColor="#ffffff"
+                _hover={{ borderColor: '#000000' }}
+                rounded="xl"
+                fontWeight="normal"
+                onClick={async () => {
+                  try {
+                    const authorization = await uauth.loginWithPopup()
+                    console.log(authorization)
+                  } catch (error) {
+                    console.error(error)
+                  }
+                  onClose()
+                }}
+              >
+                Unstoppable Domains
+              </Button>
 
 
 
-                  {/* /////////////////////////////////////////////////////////////////////////////////////// */}
-                  {/* /////////////////////////////////////////////////////////////////////////////////////// */}
-                  <ConnectButton type="button" disabled signingMessage="TaurosDAO Login" />
+              {/* /////////////////////////////////////////////////////////////////////////////////////// */}
+              {/* /////////////////////////////////////////////////////////////////////////////////////// */}
+              <Button colorScheme="purple"
+                onClick={() => authenticate({
+                  signingMessage: "Tauros SignIN"
+                })}>
+                Metamask Login
+              </Button>
 
-                </ModalBody>
-              </ModalContent>
-            </Modal>
-          </Box>
-      
+            </ModalBody>
+          </ModalContent>
+        </Modal>
+      </Box>
+
     </Flex>
   );
 }
