@@ -15,7 +15,7 @@ export default function HeaderSignIn({ ...rest }) {
 
   
   // METAMASK
-  const signInMM = async () => authenticate({
+  const MMLogin = async () => authenticate({
     signingMessage: "Tauros SignIN"
   })
 
@@ -133,7 +133,7 @@ export default function HeaderSignIn({ ...rest }) {
                     _hover={{ borderColor: '#000000' }}
                     rounded="xl"
                     fontWeight="normal"
-                    onClick={() => signInMM()}
+                    onClick={() => MMLogin()}
                 >
                     Metamask Login
                 </Button>
