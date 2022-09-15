@@ -22,7 +22,7 @@ export default function HeaderSignIn({ ...rest }) {
 
   const { isOpen, onOpen, onClose } = useDisclosure()
   const { isAuthenticated, authenticate, user, logout, isLoggingOut } = useMoralis()
-  console.log(user.getUsername() ,' is signed in :)')
+  // console.log(user.getUsername() ,' is signed in :)')
   // const { isConnected, address } = useAccount()
   // const { connectAsync } = useConnect()
   // const { disconnect } = useDisconnect()
@@ -92,8 +92,8 @@ export default function HeaderSignIn({ ...rest }) {
 
   const uauth = new UAuth({
     clientID: "524a7dd4-bbd6-4633-9257-a685979aef44",
-    redirectUri: "https://timely-faun-e34b96.netlify.app/",
-    scope: "openid wallet"
+    redirectUri: "http://localhost:3000",
+    scope: "openid wallet email social"
   })
 
 
