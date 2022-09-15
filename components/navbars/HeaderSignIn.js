@@ -13,10 +13,19 @@ import Web3 from 'web3';
 import { providers } from 'ethers';
 import { Web3Provider } from '@ethersproject/providers';
 import UAuth from '@uauth/js';
+import {useState} from "react";
 // import axios from 'axios'
 // import { getSession, signOut } from 'next-auth/react';
 // import { WalletConnectConnector } from 'wagmi/connectors/walletConnect'
 // import { CoinbaseWalletConnector } from 'wagmi/connectors/coinbaseWallet'
+
+
+/*---------------------------------
+This file is a fucking mess.
+    - Brandon
+---------------------------------*/
+
+
 
 export default function HeaderSignIn({ ...rest }) {
 
@@ -115,49 +124,77 @@ export default function HeaderSignIn({ ...rest }) {
   {/* /////////////////////////////////////////////////////////////////////////////////////// */ }
   {/* /////////////////////////////////////////////////////////////////////////////////////// */ }
 
-  return (
-    <Flex
-      pl="7"
-      top="0"
-      height="20"
-      zIndex="1"
-      alignItems="center"
-      justifyContent={{ base: "space-between", md: "flex-end" }}
-      {...rest}
-    >
-      <IconButton
-        display={{ base: "flex", md: "none" }}
-        onClick={onOpen}
-        variant="outline"
-        aria-label="open menu"
-        icon={<ImMenu />}
-      />
-      <Center display={{ base: "none", md: "flex" }}>
-        <Image src="images/logos-icons/tauros_head.png" alt="Tauros_final" w="65px" h="85px" />
-        <Image pl={1} src="images/logos-icons/tauros_letters.png" alt="Tauros_final" w="180px" h="65px" />
-      </Center>
-      <Spacer />
-      {/* <Box className={styles.connect}> */}
+  const [userAddress, setAddress] = useState();
 
-      {/* <Box>
+
+  const login = async () => {
+    if (!isAuthenticated) {
+      await authenticate({
+        provider: "walletconnect",
+        mobileLinks: [
+          "rainbow",
+          "metamask",
+          "argent",
+          "trust",
+          "imtoken",
+          "pillar",
+        ]
+      })
+          .then(function(user) {
+            setAddress(user.get('ethAddress'));
+            console.log(user.get("ethAddress"))
+          })
+          .catch(function(error) {
+            console.log(error)
+          })
+    }
+  }
+
+  return (
+      <Flex
+          pl="7"
+          top="0"
+          height="20"
+          zIndex="1"
+          alignItems="center"
+          justifyContent={{ base: "space-between", md: "flex-end" }}
+          {...rest}
+      >
+        <IconButton
+            display={{ base: "flex", md: "none" }}
+            onClick={onOpen}
+            variant="outline"
+            aria-label="open menu"
+            icon={<ImMenu />}
+        />
+        <Center display={{ base: "none", md: "flex" }}>
+          <Image src="images/logos-icons/tauros_head.png" alt="Tauros_final" w="65px" h="85px" />
+          <Image pl={1} src="images/logos-icons/tauros_letters.png" alt="Tauros_final" w="180px" h="65px" />
+        </Center>
+        <Spacer />
+        {/* <Box className={styles.connect}> */}
+
+        {/* <Box>
             Connected to {address}
             <Button onClick={() => disconnect()}>Disconnect</Button>
           </Box>  */}
-      {/* : */}
-      <Box>
-        <Button onClick={onOpen}>Connect Wallet</Button>
-        <Modal blockScrollOnMount={false} isOpen={isOpen} onClose={onClose} isCentered size="sm">
-          <ModalOverlay />
-          <ModalContent rounded="2xl">
-            <ModalHeader fontWeight="normal">Connect Wallet</ModalHeader>
-            <Divider />
-            <ModalCloseButton />
-            <ModalBody py={10}>
+        {/* : */}
+        <Box>
+          <div>{userAddress}</div>
+          <Button onClick={onOpen}>Connect Wallet</Button>
+          <Button onClick={() => {logout().then(r => console.log('logged off'))}}>Logout</Button>
+          <Modal blockScrollOnMount={false} isOpen={isOpen} onClose={onClose} isCentered size="sm">
+            <ModalOverlay />
+            <ModalContent rounded="2xl">
+              <ModalHeader fontWeight="normal">Connect Wallet</ModalHeader>
+              <Divider />
+              <ModalCloseButton />
+              <ModalBody py={10}>
 
-              {/* /////////////////////////////////////////////////////////////////////////////////////// */}
-              {/* /////////////////////////////////////////////////////////////////////////////////////// */}
+                {/* /////////////////////////////////////////////////////////////////////////////////////// */}
+                {/* /////////////////////////////////////////////////////////////////////////////////////// */}
 
-              {/* <Button
+                {/* <Button
                     leftIcon={<Image src="/images/logos-icons/MM.png" w="2em" h="2em" mr="2" />}
                     w="full"
                     h="60px"
@@ -173,10 +210,10 @@ export default function HeaderSignIn({ ...rest }) {
                   </Button>
 
                   <Spacer py={2} /> */}
-              {/* /////////////////////////////////////////////////////////////////////////////////////// */}
-              {/* /////////////////////////////////////////////////////////////////////////////////////// */}
-              {/* Non Functional */}
-              {/* <Button
+                {/* /////////////////////////////////////////////////////////////////////////////////////// */}
+                {/* /////////////////////////////////////////////////////////////////////////////////////// */}
+                {/* Non Functional */}
+                {/* <Button
                     leftIcon={<Image src="/images/logos-icons/WC.png" w="2em" h="2em" mr="2" />}
                     w="full"
                     h="60px"
@@ -193,10 +230,10 @@ export default function HeaderSignIn({ ...rest }) {
                   </Button>
                   <Spacer py={2} /> */}
 
-              {/* /////////////////////////////////////////////////////////////////////////////////////// */}
-              {/* /////////////////////////////////////////////////////////////////////////////////////// */}
-              {/* Non Functional */}
-              {/* <Button
+                {/* /////////////////////////////////////////////////////////////////////////////////////// */}
+                {/* /////////////////////////////////////////////////////////////////////////////////////// */}
+                {/* Non Functional */}
+                {/* <Button
                     leftIcon={<Image src="/images/logos-icons/CBW.png" w="2em" h="2em" mr="2" />}
                     w="full"
                     h="60px"
@@ -212,48 +249,52 @@ export default function HeaderSignIn({ ...rest }) {
                   </Button>
                   <Spacer py={2} /> */}
 
-              {/* /////////////////////////////////////////////////////////////////////////////////////// */}
-              {/* /////////////////////////////////////////////////////////////////////////////////////// */}
+                {/* /////////////////////////////////////////////////////////////////////////////////////// */}
+                {/* /////////////////////////////////////////////////////////////////////////////////////// */}
 
-              <Button
-                leftIcon={<Image src="/images/logos-icons/UD.png" w="2em" h="2em" mr="2" />}
-                w="full"
-                h="60px"
-                justifyContent="left"
-                variant="outline"
-                borderColor="#ffffff"
-                _hover={{ borderColor: '#000000' }}
-                rounded="xl"
-                fontWeight="normal"
-                onClick={async () => {
-                  try {
-                    const authorization = await uauth.loginWithPopup()
-                    console.log(authorization)
-                  } catch (error) {
-                    console.error(error)
-                  }
-                  onClose()
-                }}
-              >
-                Unstoppable Domains
-              </Button>
+                <Button
+                    leftIcon={<Image src="/images/logos-icons/UD.png" w="2em" h="2em" mr="2" />}
+                    w="full"
+                    h="60px"
+                    justifyContent="left"
+                    variant="outline"
+                    borderColor="#ffffff"
+                    _hover={{ borderColor: '#000000' }}
+                    rounded="xl"
+                    fontWeight="normal"
+                    onClick={async () => {
+                      try {
+                        const authorization = await uauth.loginWithPopup()
+                        console.log(authorization)
+                      } catch (error) {
+                        console.error(error)
+                      }
+                      onClose()
+                    }}
+                >
+                  Unstoppable Domains
+                </Button>
+
+                <Button colorScheme="teal" onClick={() => login()}>
+                  WalletConnect
+                </Button>
 
 
 
-              {/* /////////////////////////////////////////////////////////////////////////////////////// */}
-              {/* /////////////////////////////////////////////////////////////////////////////////////// */}
-              <Button colorScheme="purple"
-                onClick={() => authenticate({
-                  signingMessage: "Tauros SignIN"
-                })}>
-                Metamask Login
-              </Button>
+                {/* /////////////////////////////////////////////////////////////////////////////////////// */}
+                {/* /////////////////////////////////////////////////////////////////////////////////////// */}
+                <Button colorScheme="purple"
+                        onClick={() => authenticate({
+                          signingMessage: "Tauros SignIN"
+                        })}>
+                  Metamask Login
+                </Button>
 
-            </ModalBody>
-          </ModalContent>
-        </Modal>
-      </Box>
+              </ModalBody>
+            </ModalContent>
+          </Modal>
+        </Box>
 
-    </Flex>
+      </Flex>
   );
 }
