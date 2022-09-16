@@ -55,7 +55,12 @@ export default function HeaderSignIn({ ...rest }) {
   return (
     <>
       {Object.keys(connectors).map(v => (
-        <Button key={v} onClick={createConnectHandler(v)}>
+        <Button 
+        leftIcon={<Image src="/images/logos-icons/UD.png" w="2em" h="2em" mr="2" />}
+        colorScheme="gray" 
+        rounded="2xl"
+        key={v} onClick={createConnectHandler(v)}>
+          
           Connect to {v}
         </Button>
       ))}
