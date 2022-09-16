@@ -12,7 +12,7 @@ UAuthMoralisConnector.setUAuthOptions({
   scope: 'openid wallet',
 
   // Injected and walletconnect connectors are required
-//   connectors: {injected, walletconnect},
+  connectors: {injected, walletconnect},
 })
 
 const uauth = {connector: UAuthMoralisConnector}
