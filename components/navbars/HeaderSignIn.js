@@ -100,24 +100,22 @@ export default function HeaderSignIn({ wallet, ...rest }) {
               <Divider />
               <ModalCloseButton />
               <ModalBody py={10}>
-                {Object.keys(connectors).map(v => (
-                  <Button
-                    // How to render a specific icon for each button?
-                    // leftIcon={<Image src="/images/logos-icons/UD.png" w="2em" h="2em" mr="2" />}
-                    w="full"
-                    h="60px"
-                    justifyContent="left"
-                    variant="outline"
-                    borderColor="#ffffff"
-                    _hover={{ borderColor: '#000000' }}
-                    rounded="xl"
-                    fontWeight="normal"
-                    onClick={createConnectHandler(v)}
-                    my={2}
-                  >
-                    {v}
-                  </Button>
-                ))}
+                {
+                  Object.keys(connectors).map((value) => {
+                    const walletIcon = `/images/logos-icons/${value}.png`;
+                    if (value === 'injected') value = 'MetaMask';
+                    if (value === 'walletconnect') value = 'WalletConnect';
+                    if (value === 'uauth') value = 'Unstoppable Domains';
+                    return(
+                        <Button
+                            key={value}
+                            leftIcon={<Image src={walletIcon} w="2em" h="2em" mr="2" />}
+                            onClick={createConnectHandler(value)}>
+                          Connect to {value}
+                        </Button>
+                    )
+                  })
+                }
                 </ModalBody>
             </ModalContent>
           </Modal>
