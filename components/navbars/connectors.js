@@ -1,8 +1,8 @@
 import {UAuthMoralisConnector} from '@uauth/moralis'
 
-export const injected = {}
+export const Metamask = {}
 
-export const walletconnect = {provider: 'walletconnect'}
+export const WalletConnect = {provider: 'walletconnect'}
 
 UAuthMoralisConnector.setUAuthOptions({
   clientID: "524a7dd4-bbd6-4633-9257-a685979aef44",
@@ -12,15 +12,15 @@ UAuthMoralisConnector.setUAuthOptions({
   scope: 'openid wallet',
 
   // Injected and walletconnect connectors are required
-  connectors: {injected, walletconnect},
+  connectors: {Metamask, WalletConnect},
 })
 
-const uauth = {connector: UAuthMoralisConnector}
+export const UnstoppableDomains = {connector: UAuthMoralisConnector}
 
 const connectors = {
-  injected,
-  walletconnect,
-  uauth,
+    Metamask,
+    WalletConnect,
+    UnstoppableDomains
 }
 
 export default connectors

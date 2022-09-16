@@ -9,7 +9,7 @@ import connectors from './connectors'
 import Wallets from './wallets'
 
 
-export default function HeaderSignIn({ ...rest }) {
+export default function HeaderSignIn({ wallet, ...rest }) {
 
   const [address, setAddress] = useState()
   const { isOpen, onOpen, onClose } = useDisclosure()
@@ -106,7 +106,7 @@ export default function HeaderSignIn({ ...rest }) {
                 {Object.keys(connectors).map(v => (
                   <Button 
                     key={v} 
-                    leftIcon={<Image src="/images/logos-icons/UD.png" w="2em" h="2em" mr="2" />}
+                    // leftIcon={<Image src="/images/logos-icons/UD.png" w="2em" h="2em" mr="2" />}
                     w="full"
                     h="60px"
                     justifyContent="left"
@@ -116,6 +116,7 @@ export default function HeaderSignIn({ ...rest }) {
                     rounded="xl"
                     fontWeight="normal"
                     onClick={createConnectHandler(v)}
+                    my={2}
                   >
                     {v}
                   </Button>
