@@ -35,9 +35,9 @@ export default function HeaderSignIn({ wallet, ...rest }) {
   }
 
   // Shorten Address Display
-  const getShortenAddress = address => {
-    const firstCharacters = address.substring(0, 6)
-    const lastCharacters = address.substring(address.length - 4, address.length)
+  const getShortenAddress = account => {
+    const firstCharacters = account.substring(0, 6)
+    const lastCharacters = account.substring(account.length - 4, account.length)
     return `${firstCharacters}...${lastCharacters}`
   }
 
@@ -116,7 +116,7 @@ export default function HeaderSignIn({ wallet, ...rest }) {
                             justifyContent="left"
                             variant="outline"
                             borderColor="#ffffff"
-                            _hover={{ bg: '#000000' }}
+                            _hover={{ borderColor: '#000000' }}
                             rounded="xl"
                             fontWeight="normal"
                             my={2}
