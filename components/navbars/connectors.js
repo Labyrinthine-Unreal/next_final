@@ -23,4 +23,5 @@ const connectors = {
     UnstoppableDomains
 }
 
+
 export default connectors

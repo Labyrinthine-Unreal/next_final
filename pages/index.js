@@ -60,12 +60,12 @@ export default function Home() {
             <Box textStyle="landingPageContent" mb={10} pb={0}>
                 <motion.div initial="initial" whileInView="whileInView" whileHover="hover" tap="whileTap">
                     <Collapse in={isOpen} startingHeight={60}>
-                        <Text>TaurosDAO is an exclusive community of artists and collectors founded in January 2022 by <Link href="https://www.labyrinthineunreal.io/" target="_blank" rel="noreferrer" style={{textDecoration: "none", color: "#2E7DAF", fontWeight: "400"}}>Labyrinthine Unreal</Link>. For purposes of governance and other membership privileges, members must hold at least one TAUROS Card. There are three types of Cards: <span style={{fontWeight: "400"}}>OG</span>, <span style={{fontWeight: "400"}}>Archon</span>, and <span style={{fontWeight: "400"}}>Guardian</span>. All OG Cards will receive an Estate. Afterwards, they have a 50% chance of receiving free airdrops of all future assets Labyrinthine Unreal and TaurosDAO produce. Archons and Guardians have a 25% and a 10% chance respectively. A part of the game tokens will be distributed to all members equally, regardless of type (for a more detailed overview of benefits and voting rights, check the <NextLink href="/members"><a style={{color: "#2E7DAF", fontWeight: "400"}}>members</a></NextLink> page).
+                        <Text>TaurosDAO is an exclusive community of artists and collectors founded in January 2022 by <Link href="https://www.labyrinthineunreal.io/" target="_blank" rel="noreferrer" style={{textDecoration: "none", color: "#2E7DAF", fontWeight: "400"}}>Labyrinthine Unreal</Link>. For purposes of governance and other membership privileges, members must hold at least one TAUROS Card. There are three types of Cards: <span style={{fontWeight: "400"}}>OG</span>, <span style={{fontWeight: "400"}}>Archon</span>, and <span style={{fontWeight: "400"}}>Guardian</span>. All OG Cards will receive an Estate in Merca City. Afterwards, OG members have a 50% chance of receiving free airdrops of all future assets Labyrinthine Unreal and TaurosDAO produce. Archons and Guardians have a 25% and a 10% chance respectively. A part of the game tokens will be distributed to all members (for a more detailed overview of benefits and voting rights, check the <NextLink href="/members"><a style={{color: "#2E7DAF", fontWeight: "400"}}>members</a></NextLink> page). Those who own both a Card and an Estate will receive a weapon specific to their rank.
                         </Text>
-                        
+
                         <Text ml={6} mt={5} p={5} rounded="lg" brightness="90%" borderColor="teal.700" maxW={800} _hover={{color: "teal.600", bg: "#eee", brightness: "100%", boxShadow: "dark-lg", transition: "transform 0.15s ease-in-out", transform: "scale3d(1.05, 1.05, 1.05)",}} style={{fontWeight: "400"}}>To be able to mint TAUROS, you must save your Ethereum wallet address with the Tauroslist below when it goes live. We will announce the date soon, so stay tuned!
                         </Text>
-                        
+
                         <Text pt={5}><span style={{fontWeight: "400"}}>Merca City</span> is an open world Metaverse/RTS Game, where TaurosDAO members, artists, designers, developers, gamers, and collectors may come together to play, experiment, and collaborate. <NextLink href="/estates"><a style={{color: "#2E7DAF", fontWeight: "400"}}>Estates</a></NextLink> are Merca City&apos;s genesis assets. The Estates NFT is dynamic, A.K.A. dNFT or <em>smart NFT</em>; its metadata and output animation changes based on live weather conditions pinpointing to a secret location. It reports temperature and visibility, and its animation depicts four weather conditions: sunny, overcast, rainy, and snowy.
                         </Text>
                     </Collapse>
@@ -78,8 +78,8 @@ export default function Home() {
             </Box>
 
             <Center><TaurosDAOIcon /></Center>
-            
-            
+
+
             {/* <SimpleGrid columns={{sm: 1, md: 3}} gap={4} mt={20} mb={10} pt={4} px={4}>
                 <Box className={styles.balances}>
                     <Heading pb={2} fontSize="18px" fontWeight="normal" color="#4A5568">TAUROS BALANCE</Heading>
@@ -90,7 +90,7 @@ export default function Home() {
                     <EstatesBalance fontWeight="normal" fontSize="xs" />
                 </Box>
             </SimpleGrid> */}
-            
+
         </Box>
 
         <Box pt={20} pb={20} align="center">
@@ -100,7 +100,7 @@ export default function Home() {
             spacing="4em"
             minH="full"
             variants={parentVariant}
-            animate={inView ? "animate" : "initial"} 
+            animate={inView ? "animate" : "initial"}
             ref={ref}
           >
             {products.map((product, i) => (

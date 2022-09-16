@@ -45,7 +45,7 @@ export default function SidebarDrawer({ onClose, ...rest }) {
                         // mb={4}
                     >
                         <Flex mt={4} mb={4} align="center">
-                    
+
                             <Flex>
                                 <Heading size="sm"><NavItem href="/" icon={ImHome} title="Dashboard"/></Heading>
                             </Flex>
@@ -64,4 +64,3 @@ export default function SidebarDrawer({ onClose, ...rest }) {
         </Flex>
     )
 }
-
