@@ -2,21 +2,17 @@ import { Box, Flex, Center, Button, Icon, IconButton, Image, Spacer, Divider, us
 import { ImMenu } from 'react-icons/im'
 import styles from '@styles/SignIn.module.css'
 import { useMoralis } from "react-moralis"
-import UAuth from '@uauth/js';
-import {useState} from "react"
 import { AiOutlineWallet } from 'react-icons/ai'
 import connectors from './connectors'
-import Wallets from './wallets'
 
 
 export default function HeaderSignIn({ wallet, ...rest }) {
 
-  const [address, setAddress] = useState()
   const { isOpen, onOpen, onClose } = useDisclosure()
   const { isAuthenticated, authenticate, account, logout, isLoggingOut } = useMoralis()
 
 
-  // UNSTOPPABLE DOMAINS
+  // CONNECT WALLET
   function createConnectHandler(connectorId) {
     return async () => {
       try {
@@ -29,6 +25,7 @@ export default function HeaderSignIn({ wallet, ...rest }) {
     }
   }
 
+  // LOGOUT
   async function handleDisconnect() {
     try {
       logout()
@@ -104,8 +101,8 @@ export default function HeaderSignIn({ wallet, ...rest }) {
               <ModalCloseButton />
               <ModalBody py={10}>
                 {Object.keys(connectors).map(v => (
-                  <Button 
-                    key={v} 
+                  <Button
+                    // How to render a specific icon for each button?
                     // leftIcon={<Image src="/images/logos-icons/UD.png" w="2em" h="2em" mr="2" />}
                     w="full"
                     h="60px"
