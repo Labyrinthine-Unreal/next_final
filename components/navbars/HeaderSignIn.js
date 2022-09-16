@@ -62,6 +62,7 @@ export default function HeaderSignIn({ ...rest }) {
         const connector = connectors[connectorId]
         console.log(connector)
         await authenticate(connector)
+        // console.log(authenticate.isToken.sub)
       } catch (error) {
         console.error(error)
       }
