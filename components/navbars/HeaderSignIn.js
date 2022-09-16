@@ -59,7 +59,7 @@ export default function HeaderSignIn({ ...rest }) {
     const uauth = new UAuth({
       clientID: "524a7dd4-bbd6-4633-9257-a685979aef44",
       redirectUri: "http://localhost:3000",
-      scope: "openid wallet"
+      scope: "openid wallet email:optional"
     })
     if (!isAuthenticated)
       try {
