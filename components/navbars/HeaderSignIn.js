@@ -76,8 +76,9 @@ export default function HeaderSignIn({ wallet, ...rest }) {
                 fontWeight="semibold" 
                 display={{ base: "none", md: "flex" }} 
                 bg="#009688bb" 
-                color="#fff" border="1px" 
-                _hover={{bg: "red"}} 
+                color="#fff" 
+                border="1px" 
+                _hover={{bg: "teal.400"}} 
                 position="absolute" 
                 mr={60} 
                 h="40px" 
@@ -100,24 +101,33 @@ export default function HeaderSignIn({ wallet, ...rest }) {
               <Divider />
               <ModalCloseButton />
               <ModalBody py={10}>
-                {Object.keys(connectors).map(v => (
-                  <Button
-                    // How to render a specific icon for each button?
-                    // leftIcon={<Image src="/images/logos-icons/UD.png" w="2em" h="2em" mr="2" />}
-                    w="full"
-                    h="60px"
-                    justifyContent="left"
-                    variant="outline"
-                    borderColor="#ffffff"
-                    _hover={{ borderColor: '#000000' }}
-                    rounded="xl"
-                    fontWeight="normal"
-                    onClick={createConnectHandler(v)}
-                    my={2}
-                  >
-                    {v}
-                  </Button>
-                ))}
+              {
+                  Object.keys(connectors).map((value) => {
+                    const walletIcon = `/images/logos-icons/${value}.png`;
+                    let walletName;
+                    if (value === 'Metamask') walletName = 'Metamask';
+                    if (value === 'WalletConnect') walletName = 'Wallet Connect';
+                    if (value === 'UnstoppableDomains') walletName = 'Unstoppable Domains';
+                    return(
+                        <Button
+                            key={value}
+                            w="full"
+                            h="60px"
+                            justifyContent="left"
+                            variant="outline"
+                            borderColor="#ffffff"
+                            _hover={{ bg: '#000000' }}
+                            rounded="xl"
+                            fontWeight="normal"
+                            my={2}
+                            leftIcon={<Image src={walletIcon} w="2em" h="2em" mr="2" />}
+                            onClick={createConnectHandler(value)}
+                          >
+                          {value}
+                        </Button>
+                    )
+                  })
+                }
                 </ModalBody>
             </ModalContent>
           </Modal>
