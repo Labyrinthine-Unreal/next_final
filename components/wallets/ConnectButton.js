@@ -1,7 +1,7 @@
 import { Box, Button, Image, Divider, useDisclosure, Modal, ModalOverlay, ModalContent, ModalHeader, ModalBody, ModalCloseButton } from '@chakra-ui/react'
 import styles from '@styles/SignIn.module.css'
 import { useMoralis } from "react-moralis"
-import connectors from '../navbars/connectors'
+import connectors from './connectors'
 
 
 export default function Connect() {

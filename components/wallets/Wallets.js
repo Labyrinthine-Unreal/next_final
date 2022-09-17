@@ -1,8 +1,8 @@
 import { Box } from '@chakra-ui/react'
 import styles from '@styles/SignIn.module.css'
 import { useMoralis } from "react-moralis"
-import Connect from './Connect'
-import Disconnect from './Disconnect'
+import Connect from './ConnectButton'
+import Disconnect from './DisconnectButton'
 
 
 export default function Wallets() {
