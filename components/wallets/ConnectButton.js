@@ -27,7 +27,6 @@ export default function Connect() {
   // ITERATE THROUGH WALLETS IN THE connectors.js file, RENAME, AND ASSIGN A LOGO TO EACH
   return (
     <Box className={styles.connect}>
-        <Box>
         <Button onClick={onOpen}>Connect Wallet</Button>
         <Modal blockScrollOnMount={false} isOpen={isOpen} onClose={onClose} isCentered size="sm">
         <ModalOverlay />
@@ -66,7 +65,6 @@ export default function Connect() {
             </ModalBody>
         </ModalContent>
         </Modal>
-        </Box>
     </Box>
   )
 }

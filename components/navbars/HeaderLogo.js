@@ -2,9 +2,7 @@ import { Flex, Center, IconButton, Image, useDisclosure } from '@chakra-ui/react
 import { ImMenu } from 'react-icons/im'
 
 
-export default function HeaderLogo() {
-
-  const { onOpen } = useDisclosure()
+export default function HeaderLogo({ onOpen }) {
 
   return (
 

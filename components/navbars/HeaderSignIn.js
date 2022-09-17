@@ -1,6 +1,6 @@
 import { Flex, Spacer } from '@chakra-ui/react'
 import HeaderLogo from './HeaderLogo'
-import Wallets from '../wallets/Wallets'
+import Wallets from '../wallets/renderWallets'
 
 
 export default function HeaderSignIn({ ...rest }) {
