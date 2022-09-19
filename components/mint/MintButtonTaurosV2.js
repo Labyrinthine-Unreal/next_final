@@ -37,7 +37,7 @@ export default function MBT() {
     }
 
     // possibly check for if user is authenticated and set
-    await Moralis.enableWeb3();
+//     await Moralis.enableWeb3();
     // if not
     await contractProcessor.fetch({
       params: options,
