@@ -26,8 +26,8 @@ export default function MBT() {
 
   async function _mintTauros() {
     let options = {
-      contractAddress: '0x3afB351CeC55E029eDD69D445F3E0Cb57e5E7ed0',
-      functionName: 'mintNFTs',
+      contractAddress: '0x653AA12D95E687D14ae6d2AFd41B2ebC5923F7e0',
+      functionName: 'claimTauros',
       abi: taurosABI,
       msgValue: Moralis.Units.ETH("0.05")* amount,
 //       Moralis.Units.ETH("0.1")
@@ -37,7 +37,7 @@ export default function MBT() {
     }
 
     // possibly check for if user is authenticated and set
-    // await Moralis.enableWeb3();
+    await Moralis.enableWeb3();
     // if not
     await contractProcessor.fetch({
       params: options,
