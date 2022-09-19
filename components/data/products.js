@@ -4,8 +4,8 @@ const properties = [
         imageUrl: 'videos/OGCard.m4v',
         imageAlt: 'TAUROS Token',
         title: 'TAUROS MEMBERSHIP CARD',
-        presalePrice: '1st 1000 Cards: 0.05 ETH',
-        salePrice: '2nd 1000 Cards: 0.08 ETH',
+        presalePrice: 'Initial price: 0.05 ETH',
+        salePrice: 'After 1000 mints: 0.08 ETH',
         description: (<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>),
         active: (<p style={{color: "#2E7DAF"}}>Minting is not active</p>)
     },

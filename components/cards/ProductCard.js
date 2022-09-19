@@ -54,7 +54,7 @@ export default function ProductCard({ product, setModalData }) {
             <Box>{salePrice}</Box> */}
         </Box>
       </Box>
-      <Box pl={6} pb={2}>
+      <Box pl={6} pb={3} fontSize="sm">
       {title == "TAUROS MEMBERSHIP CARD" && presalePrice}
       <br />
       {title == "TAUROS MEMBERSHIP CARD" && salePrice}
