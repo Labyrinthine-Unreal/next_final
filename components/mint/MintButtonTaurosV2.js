@@ -17,6 +17,15 @@ export default function MBT() {
   const { authenticate, isAuthenticated, isAuthenticating, Moralis, user, account, logout } = useMoralis();
   const contractProcessor = useWeb3ExecuteFunction();
   // const [value, setValue] = useControllableState({ defaultValue: 1 })
+
+  const PRICE = {
+    contractAddress: "0x8424d438B2033F64521823E2D55CD21331eB6987",
+    functionName: "PRICE",
+    abi: taurosABI,
+  };
+
+  // const message = await Moralis.executeFunction(PRICE);
+  
   useEffect(() => {
     if (isAuthenticated) {
 
@@ -26,10 +35,11 @@ export default function MBT() {
 
   async function _mintTauros() {
     let options = {
-      contractAddress: '0x653AA12D95E687D14ae6d2AFd41B2ebC5923F7e0',
+      contractAddress: '0x8424d438B2033F64521823E2D55CD21331eB6987',
       functionName: 'claimTauros',
       abi: taurosABI,
-      msgValue: Moralis.Units.ETH("0.05")* amount,
+      msgValue: await Moralis.executeFunction(PRICE) * amount,
+      // Moralis.Units.ETH("0.05")* amount,
 //       Moralis.Units.ETH("0.1")
       params: {
         _count: amount,
@@ -37,7 +47,7 @@ export default function MBT() {
     }
 
     // possibly check for if user is authenticated and set
-//     await Moralis.enableWeb3();
+    // await Moralis.enableWeb3();
     // if not
     await contractProcessor.fetch({
       params: options,
@@ -85,7 +95,7 @@ export default function MBT() {
           </FormControl>
           <Spacer />
           <Button 
-            disabled
+            // disabled
             color="white" 
             _hover={{bg: "teal.400"}} 
             rounded="xl"
