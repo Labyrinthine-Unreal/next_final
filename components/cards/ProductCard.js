@@ -54,7 +54,11 @@ export default function ProductCard({ product, setModalData }) {
             <Box>{salePrice}</Box> */}
         </Box>
       </Box>
-      {title == "TAUROS MEMBERSHIP CARD" && <AllowList />}
+      <Box pl={6} pb={2}>
+      {title == "TAUROS MEMBERSHIP CARD" && presalePrice}
+      <br />
+      {title == "TAUROS MEMBERSHIP CARD" && salePrice}
+      </Box>
     </Box>
   );
 }

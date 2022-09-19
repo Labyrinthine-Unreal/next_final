@@ -32,10 +32,16 @@ export default function MembersPage() {
                                 <Text color="gray.700">First and foremost, governance tokens grant holders the right to vote on important decisions and the direction the project may take in the future. In the case of TaurosDAO, TAUROS cards are also our governance tokens. It&apos;s simple: 1 TAUROS means 1 vote, regardless of card type.</Text>
 
                                 <ListItem pt={6} fontWeight="semibold">Airdrops</ListItem>
-                                <Text color="gray.700">A set amount of assets created by TaurosDAO are initially airdropped to existing members. All OG cards will receive an Estate airdrop. Afterwards, they have a 50% chance to receive a random airdrop of all Labyrinthine Unreal and TaurosDAO future assets. Archons and Guardians have a 25% and 10% chance respectively, plus all the other perks of membership (such as, pass for all private or ticketed events and sales, governance, artist and collector benefits, etc.). A part of Merca City&apos;s game tokens will be distributed to all TAUROS holders. The rest will be distributed to Estate owners based on tasks completed and/or time spent in the game.</Text>
+                                <Text color="gray.700">A set amount of all future assets created by Labyrinthine Unreal and TaurosDAO are initially airdropped randomly to existing members according to the rate below:</Text>
+                                <UnorderedList style={{listStyle: "none", textAlign: "center", paddingBottom: "10px"}}>
+                                    <ListItem fontWeight="normal">OG CARDS: 50%</ListItem>
+                                    <ListItem fontWeight="normal">ARCHON CARDS: 25%</ListItem>
+                                    <ListItem fontWeight="normal">GUARDIAN CARDS: 10%</ListItem>
+                                </UnorderedList>
+                                <Text>All OG cards will receive an Estate airdrop. All cards receive all the other perks of membership, regardless of card type (such as, pass for all private or ticketed events and sales, governance, artist and collector benefits, etc.). A part of Merca City&apos;s game tokens will also be distributed to all TAUROS holders. The rest will be distributed to Estate owners based on tasks completed and/or time spent in the game. Those who own both a Card and an Estate will receive a weapon specific to their rank in Merca City. These are the only weapons of their kind and each has a special power appropriate to OGs, Archons, or Guardians.</Text>
 
                                 <ListItem pt={6} fontWeight="semibold">Various Allowists, Rewards, and third party Airdrops</ListItem>
-                                <Text color="gray.700">TaurosDAO Members need not apply for allowlists ever again; if you hold a TAUROS token you are always automatically listed and can be among the first to mint. However, being part of a thriving community brings many other opportunities beyond the community itself. Other projects constantly seek collaboration and partnership with TaurosDAO. We expect airdrops from other projects to be common.</Text>
+                                <Text color="gray.700">TaurosDAO Members need not apply for allowlists; if you hold a TAUROS token you are always automatically listed and can be among the first to mint. However, being part of a thriving community brings many other opportunities beyond the community itself. Other projects constantly seek collaboration and partnership with TaurosDAO. We expect airdrops from other projects to be common.</Text>
                             </UnorderedList>
                         </TabPanel>
                         <TabPanel>
