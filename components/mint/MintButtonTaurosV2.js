@@ -74,7 +74,7 @@ export default function MBT() {
               Amount to Mint
             </FormLabel>
 
-            <NumberInput step={1} min={1} max={10} onChange={handleChange} allowMouseWheel>
+            <NumberInput step={1} min={1} max={10} defaultValue={1} onChange={handleChange} allowMouseWheel>
               <NumberInputField  id="amount" value={amount} bg="gray.200" boxShadow="lg" />
               <NumberInputStepper bg="teal.300">
                 <NumberIncrementStepper borderLeft="none" />
