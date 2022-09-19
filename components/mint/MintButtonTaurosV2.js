@@ -95,7 +95,7 @@ export default function MBT() {
           </FormControl>
           <Spacer />
           <Button 
-            // disabled
+            disabled
             color="white" 
             _hover={{bg: "teal.400"}} 
             rounded="xl"
