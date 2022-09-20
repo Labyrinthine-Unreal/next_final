@@ -29,8 +29,8 @@ export default function Disconnect() {
 
 
   useEffect(() => {
-    Moralis.authenticate()
-    // Moralis.enableWeb3()
+    // Moralis.authenticate()
+    Moralis.enableWeb3()
     
     }, [isAuthenticated])
 
