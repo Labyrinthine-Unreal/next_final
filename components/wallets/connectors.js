@@ -6,9 +6,8 @@ export const WalletConnect = {provider: 'walletconnect'}
 
 UAuthMoralisConnector.setUAuthOptions({
   clientID: "524a7dd4-bbd6-4633-9257-a685979aef44",
-  redirectUri: "http://localhost:3000",
+  redirectUri: "https://632a14e1eadc580761efca5c--elegant-meninsky-9a3a3c.netlify.app/",
   scope: "openid wallet email:optional",
-
 
   // Injected and walletconnect connectors are required
   connectors: {Metamask, WalletConnect},
