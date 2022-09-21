@@ -5,7 +5,7 @@ export const Metamask = {}
 export const WalletConnect = {provider: 'walletconnect'}
 
 UAuthMoralisConnector.setUAuthOptions({
-  clientID: process.env.NEXT_PUBLIC_CLIENT_ID,
+  clientID: "ca98bdff-2938-4810-8813-68062d12997b",
   redirectUri: "https://taurosdao.app/",
 
   // Scope must include openid and wallet
