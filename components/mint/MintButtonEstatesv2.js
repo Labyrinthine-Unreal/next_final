@@ -1,22 +1,28 @@
-import {useToast, Button, NumberInputStepper, Box, Spacer, NumberIncrementStepper, NumberDecrementStepper, NumberInputField, Text, FormControl, FormLabel, NumberInput} from "@chakra-ui/react"
+import {useToast, NumberInputStepper, Button, Box, Spacer, NumberIncrementStepper, NumberDecrementStepper, NumberInputField, Text, FormControl, FormLabel, NumberInput} from "@chakra-ui/react"
 import { useEffect, useState, } from "react";
 import CustomContainer from "@components/CustomContainer";
 import { useMoralis, useWeb3ExecuteFunction } from 'react-moralis';
 import styles from "@styles/MintButton.module.css"
-
-// import taurosABI from "./ABIs/taurosABI.json";
-import estatesABI from "../ABIs/estatesABI"
+import taurosABI from "../ABIs/taurosABI"
 
 const truncate = (input, len) =>
   input.length > len ? `${input.substring(0, len)}...` : input;
 
-export default function MBE() {
+export default function MBT() {
+
   const [amount, setAmount] = useState(1)
   const handleChange = (value) => setAmount(value)
-  const { authenticate, isAuthenticated, isAuthenticating, Moralis, user, account, logout } = useMoralis();
-  const contractProcessor = useWeb3ExecuteFunction();
   const toast = useToast()
 
+  const { authenticate, isAuthenticated, isAuthenticating, Moralis, user, account, logout } = useMoralis();
+  const contractProcessor = useWeb3ExecuteFunction();
+
+  const PRICE = {
+    contractAddress: "0xcB57284Eb119Ee60A67227381E2Ebb4284Ff4f3c",
+    functionName: "PRICE",
+    abi: taurosABI,
+  };
+  
   useEffect(() => {
     if (isAuthenticated) {
 
@@ -24,23 +30,28 @@ export default function MBE() {
 
   }, [isAuthenticated])
 
-  async function _mintEstates() {
+  async function _mintTauros() {
     let options = {
-      // msgValue: Moralis.Units.ETH("0.05"),
-      contractAddress: '0x6997640355E20515C541F7D93D662782e43823a4',
-      functionName: 'mintNFTs',
-      abi: estatesABI,
+      contractAddress: '0xcB57284Eb119Ee60A67227381E2Ebb4284Ff4f3c',
+      functionName: 'claimTauros',
+      abi: taurosABI,
+      msgValue: await Moralis.executeFunction(PRICE) * amount,
+      // Moralis.Units.ETH("0.05")* amount,
+//       Moralis.Units.ETH("0.1")
       params: {
-        _count: 1 * amount,
+        _count: amount,
       }
     }
-    await Moralis.enableWeb3()
+
+    // possibly check for if user is authenticated and set
+    // await Moralis.enableWeb3();
+    // if not
     await contractProcessor.fetch({
       params: options,
       onSuccess: () => {
         toast({
           title: 'Mint Successful',
-          description: "Minted Merca City Estate",
+          description: "Minted TAUROS",
           status: 'success',
           duration: 9000,
           isClosable: true,
@@ -49,7 +60,7 @@ export default function MBE() {
       },
       onError: (error) => {
         toast({
-          title: 'Mint Failed.. User is Not Whitelisted or rejected the transaction',
+          title: 'Mint Failed.. User rejected the transaction or not enough Ether To Purchase TAUROS',
           description: console.log(error),
           status: "error",
           duration: '9000',
@@ -69,39 +80,30 @@ export default function MBE() {
             <FormLabel htmlFor="amount" textAlign="right">
               Amount to Mint
             </FormLabel>
-            <NumberInput step={1} min={1} max={10} onChange={handleChange} allowMouseWheel>
+
+            <NumberInput step={1} min={1} max={10} defaultValue={1} onChange={handleChange} allowMouseWheel>
               <NumberInputField  id="amount" value={amount} bg="gray.200" boxShadow="lg" />
               <NumberInputStepper bg="teal.300">
                 <NumberIncrementStepper borderLeft="none" />
                 <Spacer />
                 <NumberDecrementStepper borderLeft="none" />
-              </NumberInputStepper>
-            </NumberInput>
+                </NumberInputStepper>
+              </NumberInput>
           </FormControl>
+          <Spacer />
           <Button 
-            disabled 
+            // disabled
             color="white" 
             _hover={{bg: "teal.400"}} 
             rounded="xl"
             onClick={() => {
-            if (isAuthenticated) { _mintEstates(); }
-          }}>Mint</Button>
+            if (isAuthenticated) { _mintTauros(); }
+          }}>
+            Mint
+          </Button>
 
         </form>
       </Box>
     </CustomContainer>
   )
 }
-
-{/* Opensea button --> move to bottom of the page */ }
-{/* <Container>
-            <span>
-                <Button
-                  onClick={(e) => {
-                    window.open(CONFIG.MARKETPLACE_LINK, "_blank");
-                  }}
-                >
-                  {CONFIG.MARKETPLACE}
-                </Button>
-            </span>          
-          </Container>               */}

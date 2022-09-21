@@ -16,15 +16,12 @@ export default function MBT() {
 
   const { authenticate, isAuthenticated, isAuthenticating, Moralis, user, account, logout } = useMoralis();
   const contractProcessor = useWeb3ExecuteFunction();
-  // const [value, setValue] = useControllableState({ defaultValue: 1 })
 
   const PRICE = {
-    contractAddress: "0x7851636992b86719cC47bC674A7010aBe7c9A973",
+    contractAddress: "0x043AaA81ec3D2c4190EB10385aF92090df1ce8db",
     functionName: "PRICE",
     abi: taurosABI,
   };
-
-  // const message = await Moralis.executeFunction(PRICE);
   
   useEffect(() => {
     if (isAuthenticated) {
@@ -35,7 +32,7 @@ export default function MBT() {
 
   async function _mintTauros() {
     let options = {
-      contractAddress: '0x7851636992b86719cC47bC674A7010aBe7c9A973',
+      contractAddress: '0x043AaA81ec3D2c4190EB10385aF92090df1ce8db',
       functionName: 'claimTauros',
       abi: taurosABI,
       msgValue: await Moralis.executeFunction(PRICE) * amount,
