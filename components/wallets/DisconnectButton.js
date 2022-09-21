@@ -11,7 +11,7 @@ export default function Disconnect() {
   const { refetchUserData,isInitialized, isUserUpdating, userError,isAuthenticated, authenticate,Moralis, account, user,logout, isLoggingOut } = useMoralis()
   // DISCONNECT
   async function handleDisconnect() {
-    console.log(Moralis.User.current())
+    // console.log(Moralis.User.current())
     // console.log(isInitialized)
     try {
       logout()
@@ -73,7 +73,7 @@ if (isAuthenticated){
             {/* {refetchUserData()} */}
             {getShortenAddress(account)}
             {console.log(account)}
-            {/* {user.su} */}
+            {/* {String(user.sub)} */}
             
             </Center>}
             <Button onClick={handleDisconnect} >Disconnect</Button>
