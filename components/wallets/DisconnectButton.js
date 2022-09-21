@@ -83,8 +83,9 @@ if (isAuthenticated){
             >
             <Icon display={{ base: "none", md: "flex" }} fontSize={17} fontWeight="semibold" mr={2} as={AiOutlineWallet} />
             
-            {shortWallet}
-            {theConnectedUser}
+            {/* {shortWallet}
+            {theConnectedUser} */}
+            {theConnectedUser ? theConnectedUser:shortWallet}
             
             </Center>}
             <Button onClick={handleDisconnect} >Disconnect</Button>
