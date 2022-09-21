@@ -9,7 +9,7 @@ UAuthMoralisConnector.setUAuthOptions({
   redirectUri: "https://taurosdao.app/",
 
   // Scope must include openid and wallet
-  scope: 'openid wallet',
+  scope: 'openid wallet', 
 
   // Injected and walletconnect connectors are required
   connectors: {Metamask, WalletConnect},
