@@ -7,7 +7,9 @@ export const WalletConnect = {provider: 'walletconnect'}
 UAuthMoralisConnector.setUAuthOptions({
   clientID: "fb5ec86c-5321-4d70-af6a-844c45816685",
   redirectUri: "https://taurosdao.app/",
-  scope: "openid wallet"
+  scope: "openid wallet email:optional" ,
+
+  connectors: {Metamask, WalletConnect},
 })
 
 export const UnstoppableDomains = {connector: UAuthMoralisConnector}
