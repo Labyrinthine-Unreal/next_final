@@ -9,6 +9,16 @@ import { UAuthMoralisConnector } from '@uauth/moralis';
 
 export default function Disconnect() {
   const { refetchUserData,isInitialized, isUserUpdating, userError,isAuthenticated, authenticate,Moralis, account, user,logout, isLoggingOut } = useMoralis()
+  
+  // Displays the change of the UD domain name @theConnectedUser, or wallet address.
+  const [theConnectedUser, setConnectedUser] = useState();
+  const [shortWallet, setWalletAddress] = useState();
+
+  useEffect(() => {
+    // Sets wallet display upon a change in account.
+    getShortenAddress(account);
+  }, [account])
+  
   // DISCONNECT
   async function handleDisconnect() {
     // console.log(Moralis.User.current())
@@ -25,8 +35,8 @@ export default function Disconnect() {
     try {
       const uAuthMoralisConnector = new UAuthMoralisConnector()
       uAuthMoralisConnector.uauth.user().then((user) => {
-        console.log(user.sub);
-        console.log(user)
+        // Sets useState of UD domain name.
+        setConnectedUser(user.sub);
       }).catch((error) => {
         console.log(error)
       });
@@ -43,11 +53,13 @@ export default function Disconnect() {
   //   }, [isAuthenticated])
 
   // Shorten Address Display
-  const getShortenAddress = account => {
+  function getShortenAddress(account) {
+    console.log(`test1: ${account}`);
     if (typeof account === "string") {
+      console.log(`test2: ${account}`);
       const firstCharacters = account.substring(0, 6)
       const lastCharacters = account.substring(account.length - 4, account.length)
-      return `${firstCharacters}...${lastCharacters}`
+      setWalletAddress(`${firstCharacters}...${lastCharacters}`);
     }
   }
 if (isAuthenticated){
@@ -70,10 +82,9 @@ if (isAuthenticated){
             rounded="3xl"
             >
             <Icon display={{ base: "none", md: "flex" }} fontSize={17} fontWeight="semibold" mr={2} as={AiOutlineWallet} />
-            {/* {refetchUserData()} */}
-            {getShortenAddress(account)}
-            {console.log(account)}
-            {/* {String(user.sub)} */}
+            
+            {shortWallet}
+            {theConnectedUser}
             
             </Center>}
             <Button onClick={handleDisconnect} >Disconnect</Button>
