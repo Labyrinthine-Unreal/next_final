@@ -15,7 +15,6 @@ export default function Connect() {
     return async () => {
       try {
         const connector = connectors[connectorId]
-        console.log(connector)
         await authenticate(connector)
       } catch (error) {
         console.error(error)
