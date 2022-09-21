@@ -3,6 +3,8 @@ import styles from '@styles/SignIn.module.css'
 import { useMoralis } from "react-moralis"
 import { AiOutlineWallet } from 'react-icons/ai'
 import { useEffect, useState, } from "react";
+import connectors from './connectors'
+import { UAuthMoralisConnector } from '@uauth/moralis';
 
 
 export default function Disconnect() {
@@ -10,8 +12,7 @@ export default function Disconnect() {
   // DISCONNECT
   async function handleDisconnect() {
     console.log(Moralis.User.current())
-    console.log(isInitialized)
-    
+    // console.log(isInitialized)
     try {
       logout()
       // refetchUserData()
@@ -20,19 +21,26 @@ export default function Disconnect() {
     }
   }
 
+  function getUdUserInfo() {
+    try {
+      const uAuthMoralisConnector = new UAuthMoralisConnector()
+      uAuthMoralisConnector.uauth.user().then((user) => {
+        console.log(user.sub);
+        console.log(user)
+      }).catch((error) => {
+        console.log(error)
+      });
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
   // useEffect(() => {
-  //   const isAuth = () => (!isAuthenticated ? router.push("/") : authenticate);
-  //   isInitialized && isAuth();
-  //   console.log(isAuthenticated);
-  //   console.log(account)
-  // }, [isInitialized, isAuthenticated]);
-
-
-  useEffect(() => {
-    Moralis.authenticate()
-    Moralis.enableWeb3()
+  //   // Moralis.authenticate()
+  //   // Moralis.enableWeb3()
+  //   Moralis.User.current()
     
-    }, [isAuthenticated])
+  //   }, [isAuthenticated])
 
   // Shorten Address Display
   const getShortenAddress = account => {
@@ -42,7 +50,8 @@ export default function Disconnect() {
       return `${firstCharacters}...${lastCharacters}`
     }
   }
-
+if (isAuthenticated){
+  getUdUserInfo();
   return (
     <Box className={styles.connect}>
         <Center>
@@ -64,10 +73,12 @@ export default function Disconnect() {
             {/* {refetchUserData()} */}
             {getShortenAddress(account)}
             {console.log(account)}
+            {/* {user.su} */}
             
             </Center>}
             <Button onClick={handleDisconnect} >Disconnect</Button>
         </Center>
     </Box>
   )
+            }
 }

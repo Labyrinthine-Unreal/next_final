@@ -7,14 +7,12 @@ import { useEffect, useState, } from "react";
 
 
 export default function Wallets() {
-  const { isAuthenticated,Moralis } = useMoralis()
-  // Moralis.enableWeb3()
-  //   useEffect(async() => {
-  //   if (isAuthenticated) {
-
-  //   }
-
-  // }, [isAuthenticated])
+  const { isAuthenticated } = useMoralis()
+    // useEffect(() => {
+    // Moralis.authenticate()
+    // Moralis.enableWeb3()
+    
+    // }, [isAuthenticated])
 
   return (
     <Box className={styles.connect}>
