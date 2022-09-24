@@ -7,11 +7,33 @@ import { UAuthMoralisConnector } from '@uauth/moralis';
 
 
 export default function Disconnect() {
-  const { refetchUserData, isInitialized, isUserUpdating, userError, isAuthenticated, authenticate,Moralis, account, user,logout, isLoggingOut } = useMoralis()
+  const { refetchUserData, isInitialized, isUserUpdating, userError, isAuthenticated, 
+    authenticate, Moralis, account, user, logout, isLoggingOut } = useMoralis();
   
   // Displays the change of the UD domain name @theConnectedUser, or wallet address.
   const [theConnectedUser, setConnectedUser] = useState();
   const [shortWallet, setWalletAddress] = useState();
+
+
+  // Gets state in local storage and sets it after refresh 
+  useEffect(() => {
+    const sessionWallet = window.localStorage.getItem('WALLET_ADDRESS');
+    if (sessionWallet != null) {
+      setWalletAddress(sessionWallet);
+      console.log(sessionWallet);   
+    }
+  }, [isInitialized])
+
+  // Sets state after authentication 
+  useEffect(() => {
+    if (account != null) {
+    const sessionWallet = getShortenAddress(account);
+    window.localStorage.setItem('WALLET_ADDRESS', sessionWallet);
+    setWalletAddress(sessionWallet);
+    console.log(sessionWallet);    
+    }        
+  }, [account])
+
   
   // DISCONNECT
   async function handleDisconnect() {
@@ -41,21 +63,18 @@ export default function Disconnect() {
     if (typeof account === "string") {
       const firstCharacters = account.substring(0, 6)
       const lastCharacters = account.substring(account.length - 4, account.length)
-      setWalletAddress(`${firstCharacters}...${lastCharacters}`);
+      return `${firstCharacters}...${lastCharacters}`;
     }
   }
 
-  useEffect(() => {
-    // Sets wallet display upon a change in account.
-    getShortenAddress(account);
-  }, [account])
+  
   
 if (isAuthenticated){
   getUdUserInfo();
   return (
     <Flex className={styles.connect}>
         <Center>
-            {account && <Center 
+            {<Center 
             fontSize={14} 
             fontWeight="semibold" 
             bg="#009688bb" 
@@ -72,6 +91,7 @@ if (isAuthenticated){
             rounded="3xl"
             >
             <Icon display={{ base: "none", md: "flex" }} fontSize={17} fontWeight="semibold" mr={2} as={AiOutlineWallet} />
+
             {theConnectedUser ? theConnectedUser : shortWallet }
             
             </Center>}
