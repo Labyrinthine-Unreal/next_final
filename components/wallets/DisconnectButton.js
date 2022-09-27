@@ -18,10 +18,14 @@ export default function Disconnect() {
   // Gets state in local storage and sets it after refresh 
   useEffect(() => {
     const sessionWallet = window.localStorage.getItem('WALLET_ADDRESS');
+    const userDomain = window.localStorage.getItem('UD_DOMAIN');
     if (sessionWallet != null) {
       setWalletAddress(sessionWallet);
-      console.log(sessionWallet);   
+    };
+    if (userDomain != null) {
+      setConnectedUser(userDomain);      
     }
+    
   }, [isInitialized])
 
   // Sets state after authentication 
@@ -38,7 +42,9 @@ export default function Disconnect() {
   // DISCONNECT
   async function handleDisconnect() {
     try {
-      logout()
+      logout();
+      window.localStorage.removeItem('WALLET_ADDRESS');
+      window.localStorage.removeItem('UD_DOMAIN');
     } catch (error) {
       console.error(error)
     }
@@ -46,9 +52,10 @@ export default function Disconnect() {
 
   function getUdUserInfo() {
     try {
-      const uAuthMoralisConnector = new UAuthMoralisConnector()
+      const uAuthMoralisConnector = new UAuthMoralisConnector();
       uAuthMoralisConnector.uauth.user().then((user) => {
         // Sets useState of UD domain name.
+        window.localStorage.setItem('UD_DOMAIN', user.sub);
         setConnectedUser(user.sub);
       }).catch((error) => {
         console.log(error)
