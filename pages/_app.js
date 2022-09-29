@@ -14,7 +14,7 @@ function MyApp({ Component, pageProps }) {
     <Provider store={store}>
       <ChakraProvider theme={theme}>
       <React.StrictMode />
-        <MoralisProvider appId="dqkfmKHCu1vl17sLEOFgJ9RnwsJyrMgsqNLKTgQE"  serverUrl="https://d8tdshnwaepb.usemoralis.com:2053/server">
+        <MoralisProvider appId="ny6Iude7WFwg2QaZtvDK7zQC81e9uKRIeaCkFNxM"  serverUrl="https://htogiwbd7il5.usemoralis.com:2053/server">
           <Box>
             <Layout>
             <Box maxW="1000" align="center" py={20}>
