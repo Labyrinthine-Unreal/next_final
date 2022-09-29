@@ -13,6 +13,7 @@ function MyApp({ Component, pageProps }) {
   return(
     <Provider store={store}>
       <ChakraProvider theme={theme}>
+      <React.StrictMode />
         <MoralisProvider appId="dqkfmKHCu1vl17sLEOFgJ9RnwsJyrMgsqNLKTgQE"  serverUrl="https://d8tdshnwaepb.usemoralis.com:2053/server">
           <Box>
             <Layout>
