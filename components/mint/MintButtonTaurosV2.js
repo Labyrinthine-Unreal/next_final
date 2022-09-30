@@ -40,7 +40,7 @@ export default function MBT() {
       abi: taurosABI,
       msgValue: await Moralis.executeFunction(PRICE) * amount,
       // Moralis.Units.ETH("0.05")* amount,
-//       Moralis.Units.ETH("0.1")
+//       Moralis.Units.ETH("0.08")
       params: {
         _count: amount,
       }
@@ -94,8 +94,7 @@ export default function MBT() {
               </NumberInput>
           </FormControl>
           <Spacer />
-          <Button 
-            disabled
+          <Button
             color="white" 
             _hover={{bg: "teal.400"}} 
             rounded="xl"

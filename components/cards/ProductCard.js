@@ -47,7 +47,7 @@ export default function ProductCard({ product, setModalData }) {
           <Box fontWeight="semibold" as="h4" lineHeight="tight">
             {title}
           </Box>
-          <Text>Mint is not active</Text>
+          {title == "TAUROS MEMBERSHIP CARD" ? <Text>Mint is live</Text> : <Text>Mint is not active</Text>}
             {/* <Box>{free}</Box>
             <Box>{presalePrice}</Box>
             <Box>{salePrice}</Box> */}
