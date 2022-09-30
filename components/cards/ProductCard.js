@@ -1,32 +1,5 @@
 import { Box, Text } from '@chakra-ui/react'
 
-var countDownDate = new Date("Sep 30, 2022 10:00:00").getTime();
-
-var x = setInterval(function() {
-
-  // Get today's date and time
-  var now = new Date().getTime();
-    
-  // Find the distance between now and the count down date
-  var distance = countDownDate - now;
-    
-  // Time calculations for days, hours, minutes and seconds
-  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-    
-  // Output the result in an element with id="demo"
-  document.getElementById("demo").innerHTML = days + "d " + hours + "h "
-  + minutes + "m " + seconds + "s ";
-    
-  // If the count down is over, write some text 
-  if (distance < 0) {
-    clearInterval(x);
-    document.getElementById("demo").innerHTML = "Mint is Live";
-  }
-}, 1000);
-
 export default function ProductCard({ product, setModalData }) {
   const { imageUrl, imageAlt, title, free, presalePrice, salePrice, active } = product;
 
@@ -74,7 +47,7 @@ export default function ProductCard({ product, setModalData }) {
           <Box fontWeight="semibold" as="h4" lineHeight="tight">
             {title}
           </Box>
-          {title == "TAUROS MEMBERSHIP CARD"? <Text id="demo"></Text> : <Text>Mint is not active</Text>}
+          <Text>Mint is not active</Text>
             {/* <Box>{free}</Box>
             <Box>{presalePrice}</Box>
             <Box>{salePrice}</Box> */}
