@@ -11,7 +11,7 @@ export default function AboutPage() {
                 <title>
                     TaurosDAO | About
                 </title>
-                <meta name="description" content="Welcome to TaurosDAO" keywords="NFT, nftart, digitalart, digitalartist, mint, taurosdao, labyrinthine, game, cryptocurrency, crypto, ethereum, membership, art, gallery, 3D, airdrop, airdrops, virtual real estate, plots, estate, estates, mask, masks, initiation, collection, marketplace, metaverse, MMORTS, exploration, mystery, podcast, bitcoin, token, coin, altcoin, voting, dao" />
+                <meta name="description" content="Welcome to TaurosDAO" keywords="NFT, nftart, digitalart, digitalartist, mint, taurosdao, labyrinthine, game, cryptocurrency, crypto, ethereum, membership, art, metaverse, MMORTS, exploration, token, coin, altcoin, dao, multiplayer, simulation, sim, ecosystem" />
             </Head>
             
             <Heading textStyle="title" fontSize="3xl"><About /></Heading>
