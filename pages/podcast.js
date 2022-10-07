@@ -12,7 +12,7 @@ export default function EventsPage() {
                 <title>
                     TaurosDAO | Podcast
                 </title>
-                <meta name="description" content="Welcome to TaurosDAO" keywords="NFT, nftart, digitalart, digitalartist, mint, taurosdao, membership, art, gallery, 3D, metaverse, podcast, dao" />
+                <meta name="description" content="Welcome to TaurosDAO | A collaboration podcast series between TaurosDAO and Frontier Podcast bringing you the latest from the NFT Art World. The series focuses on established and emerging 1/1 artists in the NFT Space. Airs weekly." keywords="NFT, nftart, digitalart, digitalartist, mint, taurosdao, membership, art, gallery, 3D, metaverse, podcast, dao" />
             </Head>
 
             <Heading textStyle="title" fontSize="3xl">

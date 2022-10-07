@@ -52,7 +52,7 @@ export default function Home() {
             <title>
                 TaurosDAO | Dashboard
             </title>
-            <meta name="description" content="Welcome to TaurosDAO" keywords="NFT, nftart, mint, taurosdao, labyrinthine, game, cryptocurrency, crypto, ethereum, membership, airdrop, airdrops, virtual real estate, plots, estate, estates, mask, masks, initiation, collection, marketplace, metaverse, MMORTS, exploration, mystery, bitcoin, token, coin, altcoin, voting, dao" />
+            <meta name="description" content="Welcome to TaurosDAO, an exclusive community of artists and collectors founded in January 2022 by Labyrinthine Unreal." keywords="NFT, nftart, mint, taurosdao, labyrinthine, game, cryptocurrency, crypto, ethereum, membership, airdrop, airdrops, virtual real estate, plots, estate, estates, mask, masks, initiation, collection, marketplace, metaverse, MMORTS, exploration, mystery, bitcoin, token, coin, altcoin, voting, dao" />
         </Head>
 
         <Heading textStyle="title" fontSize="3xl"><Title /></Heading>

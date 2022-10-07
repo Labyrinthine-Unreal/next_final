@@ -18,7 +18,7 @@ export default function EventsPage() {
                 <title>
                     TaurosDAO | Events
                 </title>
-                <meta name="description" content="Welcome to TaurosDAO" keywords="NFT, nftart, digitalart, digitalartist, mint, taurosdao, labyrinthine, game, art, gallery, 3D, airdrop, metaverse, podcast, dao" />
+                <meta name="description" content="Welcome to TaurosDAO | 9 Weeks Art Gallery series. Theme: Dante&apos;s Inferno. TaurosDAO partners with Frontier Podcast for a series of shows focusing on 1/1 artists in the NFT space." keywords="NFT, nftart, digitalart, digitalartist, mint, taurosdao, labyrinthine, game, art, gallery, 3D, airdrop, metaverse, podcast, dao" />
             </Head>
 
             <Heading fontSize="3xl" textStyle="title">

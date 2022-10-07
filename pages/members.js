@@ -10,7 +10,7 @@ export default function MembersPage() {
                 <title>
                     TaurosDAO | Members
                 </title>
-                <meta name="description" content="Welcome to TaurosDAO" keywords="NFT, nftart, digitalart, digitalartist, mint, taurosdao, labyrinthine, game, cryptocurrency, crypto, ethereum, membership, art, gallery, 3D, airdrop, airdrops, virtual real estate, plots, estate, estates, mask, masks, initiation, collection, marketplace, metaverse, MMORTS, exploration, mystery, podcast, bitcoin, token, coin, altcoin, voting, governance, investors, artists, collectors, benefits, rewards, allowlist, whitelist, contests, dao" />
+                <meta name="description" content="Welcome to TaurosDAO | TaurosDAO Membership Cards (TAUROS) confer a number of benefits on members. Governance, staking, passive income, airdrops, and various allowlists are only a few of them. Depending on whether you are an investor, an artist, a collector, or all of the above, you may look forward to a number of privileges from TaurosDAO membership." keywords="NFT, nftart, digitalart, digitalartist, mint, taurosdao, labyrinthine, game, cryptocurrency, crypto, ethereum, membership, art, gallery, 3D, airdrop, airdrops, virtual real estate, plots, estate, estates, mask, masks, initiation, collection, marketplace, metaverse, MMORTS, exploration, mystery, podcast, bitcoin, token, coin, altcoin, voting, governance, investors, artists, collectors, benefits, rewards, allowlist, whitelist, contests, dao" />
             </Head>
 
             <Heading textStyle="title" fontSize="3xl">
@@ -18,7 +18,7 @@ export default function MembersPage() {
             </Heading>
             <Box textStyle="content">
                 <Text>
-                    TaurosDAO Membership Cards (TAUROS) confer a number of benefits on members. Governance, airdrops, and various allowlists are only a few of them. Depending on whether you are an investor, an artist, a collector, or all of the above, you may look forward to a number of privileges from TaurosDAO membership. For a detailed breakdown, see the table below and click on each of the three categories.
+                    TaurosDAO Membership Cards (TAUROS) confer a number of benefits on members. Governance, staking, passive income, airdrops, and various allowlists are only a few of them. Depending on whether you are an investor, an artist, a collector, or all of the above, you may look forward to a number of privileges from TaurosDAO membership. For a detailed breakdown, see the table below and click on each of the three categories.
                 </Text>
                 <Tabs pt={10}>
                     <TabList>

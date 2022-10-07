@@ -12,7 +12,7 @@ export default function GalleriesPage() {
                 <title>
                     TaurosDAO | Art Galleries
                 </title>
-                <meta name="description" content="Welcome to TaurosDAO" keywords="NFT, nftart, digitalart, digitalartist, mint, taurosdao, membership, art, gallery, 3D, metaverse, dao" />
+                <meta name="description" content="Welcome to TaurosDAO | 9 Weeks Art Gallery series. Theme: Dante&apos;s Inferno. Panopticon: Darkness in Light" keywords="NFT, nftart, digitalart, digitalartist, mint, taurosdao, membership, art, gallery, 3D, metaverse, dao" />
             </Head>
 
             <Heading textStyle="title" fontSize="3xl">
