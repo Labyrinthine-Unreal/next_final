@@ -8,7 +8,7 @@ const voting = "Voting"
 const events = "Events"
 const estates = "Estates"
 const galleries = "Art Galleries"
-const podcasts = "Frontier Podcast"
+const podcasts = "Far Off Podcast"
 const districts = "Districts"
 const blog = "Blog"
 

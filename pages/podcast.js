@@ -20,7 +20,7 @@ export default function EventsPage() {
             </Heading>
             
             <Text textStyle="landingPageContent">
-                A collaboration podcast series between TaurosDAO and Frontier Podcast bringing you the latest from the NFT Art World. The series focuses on established and emerging 1/1 artists in the NFT Space. Airs weekly.
+                A collaboration podcast series between TaurosDAO and Far Off Podcast bringing you the latest from the NFT Art World. The series focuses on established and emerging 1/1 artists in the NFT Space. Airs weekly.
             </Text>
 
             <Box pt={10} align="center">

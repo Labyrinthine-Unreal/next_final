@@ -1,8 +1,8 @@
 const currentEventsData = [
     {
         title: 'Artist Series Podcast',
-        croppedDescription: (<>TaurosDAO | Frontier...</>),
-        description: (<>TaurosDAO partners with Frontier Podcast for a series of shows focusing on 1/1 artists<br /><br />Airing on Tuesdays and Fridays<br /><br />TaurosDAO members may contact us on <a style={{color: "#2E7DAF"}} href='https://discord.com/invite/labyrinthine' target="blank">Discord</a> to schedule an interview</>),
+        croppedDescription: (<>TaurosDAO | Far Off...</>),
+        description: (<>TaurosDAO partners with Far Off Podcast for a series of shows focusing on 1/1 artists<br /><br />Airing on Tuesdays and Fridays<br /><br />TaurosDAO members may contact us on <a style={{color: "#2E7DAF"}} href='https://discord.com/invite/labyrinthine' target="blank">Discord</a> to schedule an interview</>),
         buttonText: 'All Podcasts',
         imageUrl: 'images/podcasts/RagingTaz.jpg',
         imageAlt: 'TAUROS Card',
