@@ -10,10 +10,10 @@ import { Box, Heading, Spacer, Text, Flex, SimpleGrid } from '@chakra-ui/react'
 
 export default function MuseumPage() {
     const { unityProvider, isLoaded, requestFullscreen, loadingProgression } = useUnityContext({
-        loaderUrl: "unity/build/WebGL/WebGL/Build/test3.loader.js",
-        dataUrl: "unity/build/WebGL/WebGL/Build/test3.data",
-        frameworkUrl: "unity/build/WebGL/WebGL/Build/test3.framework.js",
-        codeUrl: "unity/build/WebGL/WebGL/Build/test3.wasm",
+        loaderUrl: "unity/build/WebGL/WebGL/Build/New folder.loader.js",
+        dataUrl: "unity/build/WebGL/WebGL/Build/New folder.data",
+        frameworkUrl: "unity/build/WebGL/WebGL/Build/New folder.framework.js",
+        codeUrl: "unity/build/WebGL/WebGL/Build/New folder.wasm",
     });
 
     function handleClickEnterFullscreen() {
