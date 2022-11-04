@@ -14,7 +14,8 @@ import {useToast, NumberInputStepper, Box, Button, Spacer, NumberIncrementSteppe
 export default function MuseumPage() {
     const { authenticate, isAuthenticated, isAuthenticating, Moralis, user, account, logout } = useMoralis();
     const contractProcessor = useWeb3ExecuteFunction();
-
+    const handleChange = (value) => setAmount(value)
+    const toast = useToast()
     const PRICE = {
         contractAddress: "0x1A0F33bBc5c7bA83f490cdB6C13ee50e1C851908",
         functionName: "PRICE",
