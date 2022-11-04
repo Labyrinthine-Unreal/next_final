@@ -7,7 +7,7 @@ import { Box, Heading, Spacer, Text, Flex, SimpleGrid,Button } from '@chakra-ui/
 import styles from "@styles/MintButton.module.css";
 import taurosABI from "../components/ABIs/taurosABI";
 import CustomContainer from "@components/CustomContainer";
-import {useToast, NumberInputStepper, Button, Box, Spacer, NumberIncrementStepper, NumberDecrementStepper, NumberInputField, Text, FormControl, FormLabel, NumberInput,FormControl} from "@chakra-ui/react"
+import {useToast, NumberInputStepper, Button, Box, Spacer, NumberIncrementStepper, NumberDecrementStepper, NumberInputField, Text, FormControl, FormLabel, NumberInput} from "@chakra-ui/react"
 
 // import "./BetaPage.css";
 
