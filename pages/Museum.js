@@ -5,7 +5,7 @@ import { useMoralis, useWeb3ExecuteFunction } from 'react-moralis';
 import { useEffect, useState, useRef } from "react";
 import { Box, Heading, Spacer, Text, Flex, SimpleGrid,Button } from '@chakra-ui/react'
 import styles from "@styles/MintButton.module.css"
-import taurosABI from "../ABIs/taurosABI"
+import taurosABI from "../components/ABIs/taurosABI"
 // import "./BetaPage.css";
 
 export default function MuseumPage() {
