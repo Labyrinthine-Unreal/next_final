@@ -1,10 +1,9 @@
 import React, { Component, Fragment } from "react";
 import { AiOutlineFullscreen } from "react-icons/ai";
 import { Unity, useUnityContext } from "react-unity-webgl";
-import Button from "@chakra-ui/react";
 import { useMoralis, useWeb3ExecuteFunction } from 'react-moralis';
 import { useEffect, useState, useRef } from "react";
-import { Box, Heading, Spacer, Text, Flex, SimpleGrid } from '@chakra-ui/react'
+import { Box, Heading, Spacer, Text, Flex, SimpleGrid,Button } from '@chakra-ui/react'
 
 // import "./BetaPage.css";
 
