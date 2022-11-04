@@ -3,11 +3,11 @@ import { AiOutlineFullscreen } from "react-icons/ai";
 import { Unity, useUnityContext } from "react-unity-webgl";
 import { useMoralis, useWeb3ExecuteFunction } from 'react-moralis';
 import { useEffect, useState, useRef } from "react";
-import { Box, Heading, Spacer, Text, Flex, SimpleGrid} from '@chakra-ui/react';
+import {Heading, Flex, SimpleGrid} from '@chakra-ui/react';
 import styles from "@styles/MintButton.module.css";
 import taurosABI from "../components/ABIs/taurosABI";
 import CustomContainer from "@components/CustomContainer";
-import {useToast, NumberInputStepper, Box, Spacer, NumberIncrementStepper, NumberDecrementStepper, NumberInputField, Text, FormControl, FormLabel, NumberInput} from "@chakra-ui/react"
+import {useToast, NumberInputStepper, Box, Button, Spacer, NumberIncrementStepper, NumberDecrementStepper, NumberInputField, Text, FormControl, FormLabel, NumberInput} from "@chakra-ui/react"
 
 // import "./BetaPage.css";
 
