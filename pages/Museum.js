@@ -101,12 +101,8 @@ export default function MuseumPage() {
                         <p>Loading... ({loadingPercentage}%)</p>
                     </div>
                 )}
-                <button onClick={handleClickEnterFullscreen}><Text>Enter <br />Fullscreen</Text></button>
-                <Spacer /> <br />
-                <Unity className="unity" unityProvider={unityProvider} style={{ width: 900, height: 600 }} />
-            </Box>
             {/* <CustomContainer> */}
-                <Box fontSize="xl" fontWeight="bold" align="right">
+            <Box fontSize="xl" fontWeight="bold" align="right">
                     <form className={styles.btn} onSubmit={async e => {
                         e.preventDefault()
                     }}>
@@ -137,7 +133,11 @@ export default function MuseumPage() {
 
                     </form>
                 </Box>
-            {/* </CustomContainer> */}
+            {/* </CustomContainer> */}               
+                <button onClick={handleClickEnterFullscreen}><Text>Enter <br />Fullscreen</Text></button>
+                <Spacer /> <br />
+                <Unity className="unity" unityProvider={unityProvider} style={{ width: 900, height: 600 }} />
+            </Box>
         </Fragment>
 
     );
