@@ -4,7 +4,7 @@ const blogData = [
     {
         title: (<p id="panopticon">Panopticon: <em>Darkness in Light</em></p>),
         date: "aug. 15, 2022",
-        author: "elytron frass",
+        author: "",
         blogContent: (<p>As a concept, the panopticon presents itself in the form of a central observational tower encircled by prison cells. From the inscrutable tower, a guard can observe every inmate in their cells. Some believe in an art which, not only attains its own agency, but stares back at its gazing admirers. Panopticon: <em>Darkness in Light</em>, is a digitized gift to those seeking the echelon in art voyeurism, where art is laid fetishistically bare as vulnerable specimen, but also infects by turning the occulted gaze of the observer in on itself.
         <br /><br />
         <video

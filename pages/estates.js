@@ -24,7 +24,7 @@ export default function EstatesPage() {
     //     threshold: 0.5,
     //     triggerOnce: false
     //   });
-            
+
     return (
         <Box>
             <Head>
@@ -41,7 +41,7 @@ export default function EstatesPage() {
                 <Text>
                     Merca City is a World Building Metaverse/MMORTS Game bootstrapped with its own cryptocurrency economy. Players can fully own their assets, build and upgrade them, team up, form factions and alliances, and even raiding parties or full blown armies. Estates are their primary holdings in Merca City. Adjacent Estates may be joined to form larger areas.<br /><br />There is no difference between the Estates, except for their location and, over time, what players decide to do with them. Estates&apos; locations will be decided in a series of settling contests for each district upon launch of Merca City.<br /><br />Settlers can build whatever they wish in their Estates, or at least as far as the size allows. Below is a list of possible use cases, but players may find unmentioned uses for them:
                 </Text>
-                
+
                 <Tabs pt={10}>
                     <TabList>
                         <Tab>Uses</Tab>
@@ -115,18 +115,18 @@ export default function EstatesPage() {
                     </TabPanels>
                 </Tabs>
             </Box>
-                    
-                <Center 
-                    py={20} 
-                    // variants={VideoVariants} 
-                    // animate={inView ? "visible" : "hidden"} 
+
+                <Center
+                    py={20}
+                    // variants={VideoVariants}
+                    // animate={inView ? "visible" : "hidden"}
                     // transition={{ duration: 2, ease: "easeOut" }}
                     // ref={ref}
                     // className="magic"
                 >
-                    <video 
+                    <video
                         className={styles.estatesTrailer}
-                        src="videos/Cloudy.mp4" 
+                        src="videos/Cloudy.mp4"
                         alt="Merca-City-Map"
                         controls
                         objectfit="cover"
@@ -137,7 +137,7 @@ export default function EstatesPage() {
             <Heading id="districts" pt={10} fontSize="3xl" textStyle="title">
                 <Districts />
             </Heading>
-            
+
             <Box textStyle="content">
                 <Text>
                     There are six districts in the city, each specialized in a specific area. Even in times of peace there is always tension between the two military districts, Bravio and Pangaea, as they vie for the favor of Ritus, the financial district, and dominance over other resource rich districts of the city. For its part, Ritus ruthlessly plays this rivalry to its own advantage. The other districts align themselves now with one now with the other, as the power balance shifts.<br /><br />To complicate things further, there is an underground labyrinth below Merca City, where these enmities extend and mutate to unpredictable and wild new combinations. These subterranean spaces are ideal for the smuggler underclass of Merca City, and a growing insurgency struggling to overthrow the inescapable rule of Bravio and Pangaea.
@@ -152,7 +152,7 @@ export default function EstatesPage() {
                         <Text color="gray.700" ml={6}>Rich in lumber. A dense strip of swamp forest called The Great Wetlands along its southern coast provides a natural barrier that makes Bacchanalia unassailable by sea. Outcasts find protection in its thick, impenetrable woods in the company of those known as the Swamp People, who have never been assimilated in the more civilized citizenry of Merca City. Red light and designer drug zones are its main attraction and a second source of income. Tourists travel to Bacchanalia to experience some of the most potent hallucinatory experimental drugs in the metaverse, and often risk losing all their savings to the hookers, hustlers, drug dealers, and sometimes, the thieves and cutthroats of the unruly district. Its drugs are sought out by more than tourists, though. Bravio and Pangaea are pursuing their own military experiments, each attempting to produce the invicible soldier, impervious to pain, exhaustion, or the hardship of the elements. Some of these experimental drugs have made their way from the lab to the street, probably sold by rogue soldiers themselves, or maybe just another story or marketing technique. Whatever the truth, ambrozialol is one of the most sought after and hard to find drugs in Merca City, and accordingly one of the most expensive.</Text>
                         <ListItem spacing={3} fontWeight="semibold" pt={5}>
                             <ListIcon as={ImEarth} />
-                            Bravio 
+                            Bravio
                         </ListItem>
                         <Text color="gray.700" ml={6}>Military and industrial district. The mightiest power in Merca City, its ambitions to dominate the whole territory curbed only by the opposing armies of Pangaea and the cunning of Ritus. Its many factions were all joined into one long ago, thus bringing an end to petty local disagreements, and an unmatched ability to efficiently mobilize great numbers on the fly. Its powerful navy controls most of the western and northwestern coastlines, and is always on high alert in the rocky southern shores where Bacchanalia's pirate speedboats roam wild. However, maintaining a massive navy requires several natural resources, and this usually means striking an uneasy balance with the resource rich districts of Bacchanalia and Morea. Bravio is always in an arms&apos; race with Pangaea, simultaneously sponsoring several programs led by Tauros scientists to improve its technology, including bodyhack and cyborg programs, AI and ML research, etc. Rumors that Bravio is on the verge of creating the ultimate supersoldier have been circulating in Merca City for some time, but in the wild any experimentations with self-enhancing drugs claimed to come from its labs seem to have unpredictable effects. Whether some key to unclock their full potential is required remains unclear.</Text>
                         <ListItem spacing={3} fontWeight="semibold" pt={5}>
@@ -162,17 +162,17 @@ export default function EstatesPage() {
                         <Text color="gray.700" ml={6}>Rugged terrain, rich in quarries, oil, and gold ores. Its inhabitants seem to take little interest in the social and political affairs of Merca City, save for their trade of raw materials. However, spending much of their time in Morea&apos;s endless mines, they have become masters of navigation in the labyrinthine spaces that span the city and can easily circumvent any trade sanctions imposed from time to time by the two military powers above. It is a known fact that if you need to smuggle anything across the heavily guarded district borders, you need to pay one of Morea&apos;s <em>goatmen</em>, as its inhabitants are often derogatorily called owing to their shabby appearance.</Text>
                         <ListItem spacing={3} fontWeight="semibold" pt={5}>
                             <ListIcon as={ImEarth} />
-                            Pangaea 
+                            Pangaea
                         </ListItem>
                         <Text color="gray.700" ml={6}>Pangaea, the other military district of Merca City, is Bravio's historical archenemy. Differently from Bravio, however, Pangaea&apos;s many tribal factions were never consolidated, and they often find themselves squabbling among themselves. Nevertheless, this does not mean that it is easy to conquer, for when these wild tribes all unite against a common foe, their fierce asymmetric warfare and urban guerrilla tactics are unpredictable and hard to defend against. Bravio has invaded Pangaea twice in the past, but it could never control its territories for long, suffering more losses after than during the invasion. On the other hand, open source technology, quick and efficient voting mechanisms, and a perceived common threat, give Pangaea the ability to often mobilize just as well as the most unified systems.</Text>
                         <ListItem spacing={3} fontWeight="semibold" pt={5}>
                             <ListIcon as={ImEarth} />
-                            Ritus 
+                            Ritus
                         </ListItem>
                         <Text color="gray.700" ml={6}>No one has ever waged open war on the mighty financial district, for that would bring upon their heads the wrath of all of Merca City&apos;s other districts who, as much as they resent its injustices and unfair practices, need its financial services. For every resource, rare item, or gemstone found, mined, or outright stolen in Merca City must first pass through and validated by Ritus in order to be minted as an NFT and traded in the open market. There are always discontent citizens, but for the most part the interests of all are aligned and everyone is invested in Ritus in one way or another, including pirates and smugglers, who could not trade their ill gotten goods without their underhanded deals with its corrupt officials. In the recesses of the Labyrinth however, an insurgency is brewing, although no one knows if these are separate individuals, one faction or many.</Text>
                         <ListItem spacing={3} fontWeight="semibold" pt={5}>
                             <ListIcon as={ImEarth} />
-                            Tauros 
+                            Tauros
                         </ListItem>
                         <Text color="gray.700" ml={6}>Artistic and artisanal district. For the most part, Tauros is a quiet district inhabited by an artisanal class, artists and developers. Similar to Ritus, Tauros also provides vital services to Merca City, although they are of a different nature. It is here that most of the OG brainpower is located, and where the most varied assets, including weapons and defense systems may be produced and sold to the highest bidder. Individuals and factions from all of Merca City&apos;s districts, travel to the Tauros famous marketplace to discover and purchase the latest gadgets and accessories, and often even order custom items that cannot yet be found anywhere else.</Text>
                     </List>
