@@ -19,7 +19,7 @@ export default function MBT() {
   // const [value, setValue] = useControllableState({ defaultValue: 1 })
 
   const PRICE = {
-    contractAddress: "0x4d4217aF7517a1E2d860b9fd09e2738Bc7B94743",
+    contractAddress: "0x516794999075fc142e60fa7770C9Fc7a3545Bb26",
     functionName: "PRICE",
     abi: taurosABI,
   };
@@ -35,7 +35,7 @@ export default function MBT() {
 
   async function _mintTauros() {
     let options = {
-      contractAddress: '0x4d4217aF7517a1E2d860b9fd09e2738Bc7B94743',
+      contractAddress: '0x516794999075fc142e60fa7770C9Fc7a3545Bb26',
       functionName: 'mint',
       abi: taurosABI,
       msgValue: await Moralis.executeFunction(PRICE) * amount,
