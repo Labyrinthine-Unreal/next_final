@@ -4,7 +4,7 @@ import styles from "@styles/Events.module.css"
 
 export default function CurrentEventsCard({ currentEvent }) {
     const { title, croppedDescription, description, buttonText, imageUrl, imageAlt, href, externalUrl } = currentEvent;
-    
+
     return (
         <Box>
             <Box className={styles.container}>

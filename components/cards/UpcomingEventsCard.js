@@ -6,7 +6,7 @@ export default function UpcomingEventsCard({ upcomingEvent }) {
     const { video, title, modalTitle, croppedDescription, description, buttonText, imageUrl, imageAlt, href, externalUrl } = upcomingEvent;
 
     const { isOpen, onOpen, onClose } = useDisclosure()
-    
+
     return (
         <Box>
             <Box className={styles.container}>
@@ -25,15 +25,15 @@ export default function UpcomingEventsCard({ upcomingEvent }) {
                     </Box>
                 </Box>
                 <Box className={styles.btn}>
-                    {title == "Curated Art Gallery" ? 
+                    {title == "Curated Art Gallery" ?
                         <Button onClick={onOpen} borderRadius="0" _hover={{opacity: "0.7"}} size="sm" variant="outline">
                             <NextLink style={{textDecoration: "none"}} href="/blog" as={`${href}`} passHref><Link>{buttonText}</Link></NextLink>
-                        </Button> : 
-                        
-                        <Button onClick={onOpen} borderRadius="0" _hover={{opacity: "0.7"}} size="sm" variant="outline">    
+                        </Button> :
+
+                        <Button onClick={onOpen} borderRadius="0" _hover={{opacity: "0.7"}} size="sm" variant="outline">
                             {buttonText}
                             <Modal isCentered size="xl" isOpen={isOpen} onClose={onClose} transition="6">
-                            
+
                             <ModalOverlay />
                             <ModalContent>
                                 <ModalHeader>{modalTitle}</ModalHeader>
@@ -52,7 +52,7 @@ export default function UpcomingEventsCard({ upcomingEvent }) {
                                 </ModalFooter>
                             </ModalContent>
                         </Modal></Button>}
-                    
+
                 </Box>
             </Box>
         </Box>

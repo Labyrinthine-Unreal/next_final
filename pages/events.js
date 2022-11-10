@@ -11,7 +11,7 @@ import '@fontsource/tangerine'
 
 
 export default function EventsPage() {
-    
+
     return (
         <Box>
             <Head>
