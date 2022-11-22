@@ -21,7 +21,7 @@ const MotionSimpleGrid = motion(SimpleGrid)
 const MotionBox = motion(Box)
 const MotionIconButton = motion(IconButton)
 
-export default function Home() {
+export default function Home() { 
   const [modalData, setModalData] = useState(null)
   const { isOpen, onToggle } = useDisclosure()
 
