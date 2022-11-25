@@ -9,7 +9,7 @@ import { useState, useEffect } from "react";
 import { useMoralis, useWeb3ExecuteFunction } from "react-moralis";
 import User from "../components/User";
 import { useRouter } from "next/router";
-import { Spacer } from "@chakra-ui/react/dist/chakra-ui-react.cjs";
+// import { Spacer } from "@chakra-ui/react";
 
 
 export default function Auctions() {
@@ -194,7 +194,7 @@ export default function Auctions() {
       <div className="AuctionsContent">
         <div className="AuctionsContentL">
           Current auctions For Chosen Date
-          <Spacer />
+          {/* <Spacer /> */}
           {AuctionsList &&
             AuctionsList.map((e, i) => {
               return (
