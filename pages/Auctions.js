@@ -1,5 +1,5 @@
 import React from "react";
-import "@styles/Auctions.module.css"
+// import "@styles/Auctions.module.css"
 import { Link } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import logo from "../components/images/logo.png";

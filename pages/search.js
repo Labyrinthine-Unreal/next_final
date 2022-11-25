@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import "@styles/Home.module.css"
+// import "@styles/Home.module.css"
 import { Link } from "@chakra-ui/react";
 // import {Link} from "next/link"
 import bg from "../components/images/frontpagebg.png";
