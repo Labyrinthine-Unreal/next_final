@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Flex, IconButton, Divider, Heading, Center } from '@chakra-ui/react'
 import { ImMenu, ImEarth, ImHome, ImCalendar, ImUsers, ImBlog } from 'react-icons/im'
-import { MdSummarize, MdBallot } from 'react-icons/md'
+import { MdSummarize, MdBallot,GrGallery } from 'react-icons/md'
 import NavItem from './NavItem'
 import styles from '@styles/Sidebar.module.css'
 
@@ -61,8 +61,8 @@ export default function Sidebar() {
                 <NavItem navSize={navSize} href="members" icon={ImUsers} title="Members" />
                 <NavItem navSize={navSize} href="voting" icon={MdBallot} title="Voting" />
                 <NavItem navSize={navSize} href="events" icon={ImCalendar} title="Events" />
-                {/* <NavItem navSize={navSize} href="galleries" icon={GrGallery} title="Galleries" />
-                <NavItem navSize={navSize} href="podcast" icon={ImPodcast} title="Podcast" /> */}
+                <NavItem navSize={navSize} href="Auctions" icon={GrGallery} title="Auctions" />
+                {/* <NavItem navSize={navSize} href="podcast" icon={ImPodcast} title="Podcast" /> */}
                 <NavItem navSize={navSize} href="estates" icon={ImEarth} title="Estates" />
                 <NavItem navSize={navSize} href="blog" icon={ImBlog} title="Blog" />
             </Flex>
