@@ -70,14 +70,18 @@ export default function Auctions() {
 
   useEffect(() => {
     async function fetchAuctionsList() {
-      await Moralis.start({ serverUrl:"https://d8tdshnwaepb.usemoralis.com:2053/server", appId:"dqkfmKHCu1vl17sLEOFgJ9RnwsJyrMgsqNLKTgQE"  });
+      await Moralis.start({ 
+        serverUrl:"https://d8tdshnwaepb.usemoralis.com:2053/server", 
+        appId:"dqkfmKHCu1vl17sLEOFgJ9RnwsJyrMgsqNLKTgQE", 
+        masterKey:"nCOMVxCN1LDmsbmor74UPEhALoUYG0XrFvvtMQdR"  
+      });
 
       const auctions = Moralis.Object.extend("Auctions");
-      const query = new Moralis.Query(auctions);
-      query.equalTo("city",searchFilters.destination);
+      const state = new Moralis.Query(auctions);
+      state.startsWith("city","Bacchanalia");
       
-      const result = await query.find();
-      // console.log(query.equalTo("city",searchFilters.destination))
+      const result = await state.find();
+      console.log(state)
 
 
       let cords = [];
