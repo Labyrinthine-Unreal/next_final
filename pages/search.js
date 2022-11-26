@@ -24,7 +24,7 @@ export default function Search(){
   const router = useRouter();
   const [Enter, setEnter] = useState(new Date());
   const [Exit, setExit] = useState(new Date());
-  const [destination, setDestination] = useState("Baccanaliah");
+  const [destination, setDestination] = useState("Bacchanalia");
   const [shouldRedirect, setShouldRedirect] = useState(false);
 
   if (shouldRedirect){
@@ -34,18 +34,15 @@ export default function Search(){
 
   return (
     <>
-
-      <div className="container" style ={{backgroundImage: `url(${bg})`}}>
         <div className="containterGradient">
-          
         </div>
 
-      </div>
+      {/* </div> */}
 
       {/* <div className="topBanner">
         <div>
           <img className="logo" src={logo} alt="" />
-        </div>
+        // </div>
         <div className="tabs"> */}
           {/* <div className="selected"> */}
           
@@ -55,12 +52,6 @@ Locations For Auctions
 Featured Auctions
       Interactive online experiences </Grid>
 
-
-        {/* </div> */}
-        {/* <div className="lrContainers"> */}
-          {/* <ConnectButton /> */}
-        {/* </div> */}
-      {/* </div> */}
     <div className="tabContent">
       <div className="searchFields">
         <div className="inputs">
@@ -72,7 +63,7 @@ Featured Auctions
 
               {
                 id: "bac",
-                label:"bacchanalia"
+                label:"Bacchanalia"
               },
               {
                 id:"rit",
@@ -115,17 +106,6 @@ Featured Auctions
           </div>
 
         </Link>  
-          {/* <Link to={"/auctions"}  state ={{
-          destination: destination,
-          Enter: Enter,
-          Exit: Exit
-        }}>  */}
-
-        {/* <button onClick={()=>{
-          setShouldRedirect(true)
-          
-        }}
-        > Redirect </button> */}
          
       </div>
     </div>

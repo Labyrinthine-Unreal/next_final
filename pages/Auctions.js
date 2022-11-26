@@ -14,34 +14,36 @@ import { useRouter } from "next/router";
 
 export default function Auctions() {
   const router = useRouter();
-  // const { state: searchFilters } = useLocation();
+  const { query: searchFilters } = useRouter();
   
   // const [highLight, setHighLight] = useState();
-  // const { Moralis, account } = useMoralis();
-  // const [auctionsList, setauctionsList] = useState();
-  // const [coOrdinates, setCoOrdinates] = useState([]);
+  
+  const { Moralis, account } = useMoralis();
+  const [auctionsList, setAuctionsList] = useState();
+
+  const [coOrdinates, setCoOrdinates] = useState([]);
   // const contractProcessor = useWeb3ExecuteFunction();
   // const dispatch = useNotification();
-  const AuctionsList = [
-    {
-      attributes: {
-        city: "Bacchanalia",
-        descriptionOne: "Auction 1",
-        descriptionTwo: "Woof woof for me please",
-        imgUrl:
-          "https://ipfs.io/ipfs/QmRZv2uTXKEnjghLGeMp2x8UY6x3sx3tfjDd5vyu3SBzBS?filename=gallery.png",
-        lat: "40.716862",
-        long: "-73.999005",
-        name: "Bacchanalia",
-        pricePerDay: "0.05",
-      },
-    },
-  ];
+  // const AuctionsList = [
+  //   {
+  //     attributes: {
+  //       city: "Bacchanalia",
+  //       descriptionOne: "Auction 1",
+  //       descriptionTwo: "Woof woof for me please",
+  //       imgUrl:
+  //         "https://ipfs.io/ipfs/QmRZv2uTXKEnjghLGeMp2x8UY6x3sx3tfjDd5vyu3SBzBS?filename=gallery.png",
+  //       lat: "40.716862",
+  //       long: "-73.999005",
+  //       name: "Bacchanalia",
+  //       pricePerDay: "0.05",
+  //     },
+  //   },
+  // ];
 
   // const handleSuccess= () => {
   //   dispatch({
   //     type: "success",
-  //     message: `Nice! You are going to ${searchFilters.destination}!!`,
+  //     message: `Nice! Your bid has been placed ${searchFilters.destination}!!`,
   //     title: "Booking Succesful",
   //     position: "topL",
   //   });
@@ -66,25 +68,30 @@ export default function Auctions() {
   // };
 
 
-  // useEffect(() => {
-  //   async function fetchauctionsList() {
-  //     const auctions = Moralis.Object.extend("auctions");
-  //     const query = new Moralis.Query(auctions);
-  //     query.equalTo("city", searchFilters.destination);
+  useEffect(() => {
+    async function fetchAuctionsList() {
+      await Moralis.start({ serverUrl:"https://d8tdshnwaepb.usemoralis.com:2053/server", appId:"dqkfmKHCu1vl17sLEOFgJ9RnwsJyrMgsqNLKTgQE"  });
 
-  //     const result = await query.find();
+      const auctions = Moralis.Object.extend("Auctions");
+      const query = new Moralis.Query(auctions);
+      query.equalTo("city",searchFilters.destination);
+      
+      const result = await query.find();
+      // console.log(query.equalTo("city",searchFilters.destination))
+
 
       let cords = [];
-      AuctionsList.forEach((e) => {
+      result.forEach((e) => {
         cords.push({ lat: e.attributes.lat, lng: e.attributes.long });
       });
+      console.log(cords)
 
-  //     setCoOrdinates(cords);
-  //     setauctionsList(result);
-  //   }
+      setCoOrdinates(cords);
+      setAuctionsList(result);
+    }
 
-  //   fetchauctionsList();
-  // }, [searchFilters]);
+    fetchAuctionsList();
+  }, [searchFilters]);
 
 
   // const bookauction = async function (start, end, id, dayPrice) {
@@ -147,14 +154,9 @@ export default function Auctions() {
         <div>
 
 
-          {/* <Link to="/">
-            <img className="logo" src={logo} alt="logo"></img>
-          </Link> */}
-
-
         </div>
         <div className="searchReminder">
-{/*         <div className="filter">{searchFilters.destination}</div> */}
+        <div className="filter">{searchFilters.destination}</div>
           <div className="vl" />
           <div className="filter">
 {/* {`
@@ -195,8 +197,8 @@ export default function Auctions() {
         <div className="AuctionsContentL">
           Current auctions For Chosen Date
           {/* <Spacer /> */}
-          {AuctionsList &&
-            AuctionsList.map((e, i) => {
+          {auctionsList &&
+            auctionsList.map((e, i) => {
               return (
                 <>
                   <hr className="line2" />
@@ -238,7 +240,7 @@ export default function Auctions() {
             })}
         </div>
         <div className="auctionsContentR">
-          <AuctionsMap locations={cords} />
+          <AuctionsMap locations={coOrdinates} />
         </div>
       </div>
     </>

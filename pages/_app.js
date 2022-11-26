@@ -7,6 +7,7 @@ import { Provider } from "react-redux";
 import Layout from "@components/navbars/Layout"
 import Footer from "@components/navbars/Footer"
 import theme from '@components/theme.fonts'
+import { BrowserRouter as Router } from 'react-router-dom'
 
 
 function MyApp({ Component, pageProps }) {
@@ -14,7 +15,7 @@ function MyApp({ Component, pageProps }) {
     <Provider store={store}>
       <ChakraProvider theme={theme}>
       <React.StrictMode />
-        <MoralisProvider appId="ny6Iude7WFwg2QaZtvDK7zQC81e9uKRIeaCkFNxM"  serverUrl="https://htogiwbd7il5.usemoralis.com:2053/server">
+        <MoralisProvider appId="dqkfmKHCu1vl17sLEOFgJ9RnwsJyrMgsqNLKTgQE"  serverUrl="https://d8tdshnwaepb.usemoralis.com:2053/server">
           <Box>
             <Layout>
             <Box maxW="1000" align="center" py={20}>
