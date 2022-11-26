@@ -112,7 +112,7 @@ export default function Auctions() {
       ],
       params: {
         id: id,
-        newBookings: arr,
+        newAuctions: arr,
       },
       msgValue: Moralis.Units.ETH(dayPrice * arr.length),
     }
