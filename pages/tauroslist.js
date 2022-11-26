@@ -1,4 +1,4 @@
-import {useToast, NumberInputStepper, Button, Box, Spacer, NumberIncrementStepper, NumberDecrementStepper, NumberInputField, Text, FormControl, FormLabel, NumberInput} from "@chakra-ui/react"
+import {useToast, NumberInputStepper, Button, Box, Spacer, NumberIncrementStepper,Input, NumberDecrementStepper, NumberInputField, Text, FormControl, FormLabel, NumberInput} from "@chakra-ui/react"
 import { useEffect, useState, } from "react";
 import CustomContainer from "@components/CustomContainer";
 import { useMoralis, useWeb3ExecuteFunction } from 'react-moralis';
@@ -8,10 +8,15 @@ import { Card } from "web3uikit";
 const truncate = (input, len) =>
   input.length > len ? `${input.substring(0, len)}...` : input;
 
-export default function TaurosMarket() {
+export default function TaurosList() {
 
-  const [amount, setAmount] = useState(1)
-  const handleChange = (value) => setAmount(value)
+  const [price, setprice] = useState(1)
+  const [tokenId, setTokenId] = useState(0)
+  const [contractAddress, setContractAddress] = useState("")
+  const handleChange = (value) => setprice(value)
+  const handleChangeID = (value) => setTokenId(value)
+  const handleChangeContract = (value) => setContractAddress(value)
+
   const toast = useToast()
 
   const { authenticate, isAuthenticated, isAuthenticating, Moralis, user, account, logout } = useMoralis();
@@ -33,19 +38,19 @@ export default function TaurosMarket() {
 
   }, [isAuthenticated])
 
-  async function _purchaseItem() {
+  async function _listItem() {
     let options = {
       contractAddress: '0x1619Bc10F166C6A6Fd38e7aD8045d7aA6547D044',
-      functionName: 'purchase',
+      functionName: 'addListing',
       abi: marketABI,
-      msgValue: 
-    //   await Moralis.executeFunction(PRICE) * amount,
-      Moralis.Units.ETH("0.00000000005")* amount,
+    //   msgValue: 
+    //   await Moralis.executeFunction(PRICE) * price,
+    //   Moralis.Units.ETH("0.00000000005")* price,
 //       Moralis.Units.ETH("0.08")
       params: {
-        contractAddr: '0x966D9A79778f671dA2236b72Ced31D3585fcF6bD',
-        tokenId: 0,
-        amount: amount
+        price: price,
+        contractAddr: contractAddress,
+        tokenId: tokenId,
       }
     }
 
@@ -56,17 +61,17 @@ export default function TaurosMarket() {
       params: options,
       onSuccess: () => {
         toast({
-          title: 'Purchase Successful',
-          description: "Purchased Item",
+          title: 'Listed Successful',
+          description: "Item has been listed",
           status: 'success',
           duration: 9000,
           isClosable: true,
         })
-        console.log("Purchase successful");
+        console.log("Item Listed successful");
       },
       onError: (error) => {
         toast({
-          title: 'Purchase Failed.. User rejected the transaction or not enough Ether To Purchase TAUROS',
+          title: 'Listing Failed.. User rejected the transaction or not enough Ether To Purchase TAUROS',
           description: console.log(error),
           status: "error",
           duration: '9000',
@@ -84,12 +89,28 @@ export default function TaurosMarket() {
           e.preventDefault()
         }}>
           <FormControl my="4" maxW="210" minW="210">
-            <FormLabel htmlFor="amount" textAlign="right">
-              Amount to Buy
+          <FormLabel htmlFor="price" textAlign="right">
+              set contract address you wish to list
             </FormLabel>
+            <Input onChange={(e) =>setContractAddress(e.target.value)} />
 
-            <NumberInput step={1} min={1} max={10} defaultValue={1} onChange={handleChange} allowMouseWheel>
-              <NumberInputField  id="amount" value={amount} bg="gray.200" boxShadow="lg" />
+            <FormLabel htmlFor="price" textAlign="right">
+              set Price
+            </FormLabel>
+            <NumberInput step={100000000000000000} min={1} max={100000000000000000000} defaultValue={0} onChange={handleChange} allowMouseWheel>
+              <NumberInputField  id="price" value={price} bg="gray.200" boxShadow="lg" />
+              <NumberInputStepper bg="teal.300">
+                <NumberIncrementStepper borderLeft="none" />
+                <Spacer />
+                <NumberDecrementStepper borderLeft="none" />
+                </NumberInputStepper>
+              </NumberInput>
+
+              <FormLabel htmlFor="tokenId" textAlign="right">
+              set tokenID from Contract
+            </FormLabel>
+              <NumberInput step={1} min={0} max={10} defaultValue={0} onChange={handleChangeID} allowMouseWheel>
+              <NumberInputField  id="tokenId" value={tokenId} bg="gray.200" boxShadow="lg" />
               <NumberInputStepper bg="teal.300">
                 <NumberIncrementStepper borderLeft="none" />
                 <Spacer />
@@ -103,9 +124,9 @@ export default function TaurosMarket() {
             _hover={{bg: "teal.400"}} 
             rounded="xl"
             onClick={() => {
-            if (isAuthenticated) { _purchaseItem(); }
+            if (isAuthenticated) { _listItem(); }
           }}>
-            Buy NFT from TaurosDAO
+            List NFT from TaurosDAO
           </Button>
 
         </form>
