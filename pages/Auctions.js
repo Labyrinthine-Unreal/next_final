@@ -1,15 +1,9 @@
 import React from "react";
-// import "@styles/Auctions.module.css"
-import { Link } from "react-router-dom";
-import { useLocation } from "react-router-dom";
-import logo from "../components/images/logo.png";
-import { ConnectButton, Icon, Button, useNotification } from "web3uikit";
+import { Icon, Button, useNotification } from "web3uikit";
 import AuctionsMap from "../components/AuctionsMap";
 import { useState, useEffect } from "react";
 import { useMoralis, useWeb3ExecuteFunction } from "react-moralis";
-import User from "../components/User";
 import { useRouter } from "next/router";
-// import { Spacer } from "@chakra-ui/react";
 
 
 export default function Auctions() {
@@ -22,23 +16,8 @@ export default function Auctions() {
   const [auctionsList, setAuctionsList] = useState();
 
   const [coOrdinates, setCoOrdinates] = useState([]);
-  // const contractProcessor = useWeb3ExecuteFunction();
+  const contractProcessor = useWeb3ExecuteFunction();
   // const dispatch = useNotification();
-  // const AuctionsList = [
-  //   {
-  //     attributes: {
-  //       city: "Bacchanalia",
-  //       descriptionOne: "Auction 1",
-  //       descriptionTwo: "Woof woof for me please",
-  //       imgUrl:
-  //         "https://ipfs.io/ipfs/QmRZv2uTXKEnjghLGeMp2x8UY6x3sx3tfjDd5vyu3SBzBS?filename=gallery.png",
-  //       lat: "40.716862",
-  //       long: "-73.999005",
-  //       name: "Bacchanalia",
-  //       pricePerDay: "0.05",
-  //     },
-  //   },
-  // ];
 
   // const handleSuccess= () => {
   //   dispatch({
@@ -98,58 +77,58 @@ export default function Auctions() {
   }, [searchFilters]);
 
 
-  // const bookauction = async function (start, end, id, dayPrice) {
+  const bookauction = async function (start, end, id, dayPrice) {
     
-  //   for (
-  //     var arr = [], dt = new Date(start);
-  //     dt <= end;
-  //     dt.setDate(dt.getDate() + 1)
-  //   ) {
-  //     arr.push(new Date(dt).toISOString().slice(0, 10)); // yyyy-mm-dd
-  //   }
+    for (
+      var arr = [], dt = new Date(start);
+      dt <= end;
+      dt.setDate(dt.getDate() + 1)
+    ) {
+      arr.push(new Date(dt).toISOString().slice(0, 10)); // yyyy-mm-dd
+    }
 
-  //   let options = {
-  //     contractAddress: "0xd3bF0B852C0229f0651969670Cd5A8C9442F2910",
-  //     functionName: "addAucionsBooked",
-  //     abi: [
-  //       {
-  //         "inputs": [
-  //           {
-  //             "internalType": "uint256",
-  //             "name": "id",
-  //             "type": "uint256"
-  //           },
-  //           {
-  //             "internalType": "string[]",
-  //             "name": "newAuctions",
-  //             "type": "string[]"
-  //           }
-  //         ],
-  //         "name": "addAuctionsBooked",
-  //         "outputs": [],
-  //         "stateMutability": "payable",
-  //         "type": "function"
-  //       }
-  //     ],
-  //     params: {
-  //       id: id,
-  //       newBookings: arr,
-  //     },
-  //     msgValue: Moralis.Units.ETH(dayPrice * arr.length),
-  //   }
-  //   console.log(arr);
+    let options = {
+      contractAddress: "0xfEedE245161879423441D8735CFaaa086318Cc1e",
+      functionName: "addAuctionsBooked",
+      abi: [
+        {
+          "inputs": [
+            {
+              "internalType": "uint256",
+              "name": "id",
+              "type": "uint256"
+            },
+            {
+              "internalType": "string[]",
+              "name": "newAuctions",
+              "type": "string[]"
+            }
+          ],
+          "name": "addAuctionsBooked",
+          "outputs": [],
+          "stateMutability": "payable",
+          "type": "function"
+        }
+      ],
+      params: {
+        id: id,
+        newBookings: arr,
+      },
+      msgValue: Moralis.Units.ETH(dayPrice * arr.length),
+    }
+    console.log(arr);
 
-  //   await contractProcessor.fetch({
-  //     params: options,
-  //     onSuccess: () => {
-  //       handleSuccess();
-  //     },
-  //     onError: (error) => {
-  //       handleError(error.data.message)
-  //     }
-  //   });
+    await contractProcessor.fetch({
+      params: options,
+      // onSuccess: () => {
+      //   handleSuccess();
+      // },
+      // onError: (error) => {
+      //   handleError(error.data.message)
+      // }
+    });
 
-  // }
+  }
 
 
   return (
@@ -192,14 +171,14 @@ export default function Auctions() {
           {/* {account &&
           <User account={account} />
         } */}
-          {/* <ConnectButton /> */}
         </div>
       </div>
 
       <hr className="line" />
       <div className="AuctionsContent">
         <div className="AuctionsContentL">
-          Current auctions For Chosen Date
+          |Current auctions For Chosen Date|
+          <ul></ul>
           {/* <Spacer /> */}
           {auctionsList &&
             auctionsList.map((e, i) => {
@@ -219,18 +198,16 @@ export default function Auctions() {
                       </div>
                       <div className="bottomButton">
                         <Button 
-                        // onClick={() => {
-                        //   if(account){
-                        //   bookauction(
-                        //     searchFilters.Enter,
-                        //     searchFilters.Exit,
-                        //     e.attributes.uid_decimal.value.$numberDecimal,
-                        //     Number(e.attributes.pricePerDay_decimal.value.$numberDecimal)
-                        //   )}else{
-                        //     handleNoAccount()
-                        //   }
-                        // }
-                        // }
+                        onClick={() => {
+                          if(account){
+                          bookauction(
+                            searchFilters.Enter,
+                            searchFilters.Exit,
+                            e.attributes.uid_decimal.value.$numberDecimal,
+                            Number(e.attributes.pricePerDay_decimal.value.$numberDecimal)
+                          )}
+                        }
+                        }
                         text="Enter Auction" />
                         <div className="price">
                           <Icon fill="#808080" size={20} svg="eth" />

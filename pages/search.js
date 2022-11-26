@@ -1,11 +1,6 @@
 import React, { useEffect } from "react";
-// import "@styles/Home.module.css"
 import { Link } from "@chakra-ui/react";
-// import {Link} from "next/link"
-import bg from "../components/images/frontpagebg.png";
-// import {bg} from "../images/frontpagebg"
-import logo from "../components/images/logo.png";
-import { ConnectButton,Icon,  Select, DatePicker,Input, Button } from  "web3uikit";
+import {Icon,  Select, DatePicker,Input, Button } from  "web3uikit";
 import {useState} from "react";
 import { useRouter } from 'next/router'
 import { Box, Flex,Grid } from "@chakra-ui/react"
@@ -27,9 +22,9 @@ export default function Search(){
   const [destination, setDestination] = useState("Bacchanalia");
   const [shouldRedirect, setShouldRedirect] = useState(false);
 
-  if (shouldRedirect){
-    return <Redirect to="/Auctions" />;
-  }
+  // if (shouldRedirect){
+  //   return <Redirect to="/Auctions" />;
+  // }
 
 
   return (
@@ -40,17 +35,14 @@ export default function Search(){
       {/* </div> */}
 
       {/* <div className="topBanner">
-        <div>
-          <img className="logo" src={logo} alt="" />
-        // </div>
         <div className="tabs"> */}
           {/* <div className="selected"> */}
           
           <Grid gap={2000} autoFlow="row">
-Locations For Auctions
-            {/* </div> */}
-Featured Auctions
-      Interactive online experiences </Grid>
+          |Locations For Auctions|
+{/* Featured Auctions |
+      Interactive online experiences */}
+      </Grid> 
 
     <div className="tabContent">
       <div className="searchFields">
@@ -65,10 +57,10 @@ Featured Auctions
                 id: "bac",
                 label:"Bacchanalia"
               },
-              {
-                id:"rit",
-                label:"Ritus"
-              },
+              // {
+              //   id:"rit",
+              //   label:"Ritus"
+              // },
             ]}
            />
         </div>
