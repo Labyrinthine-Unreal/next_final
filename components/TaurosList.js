@@ -145,10 +145,10 @@ export default function TaurosList() {
                 </Card.Body>
             </Card>
             </Center>
-            <NFTBalance
+            {/* <NFTBalance
                 address="0x2b776B6418A7aE859C5e630aFa3FB59E82b49fa8"
                 chain="eth"
-            />
+            /> */}
         </CustomContainer>
 
     )
