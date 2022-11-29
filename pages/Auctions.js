@@ -195,7 +195,7 @@ export default function Auctions() {
                               </div> */}
                            
                               <FormLabel htmlFor="tokenId" textAlign="right">
-                                set ID field to: {e.attributes.descriptionTwo} to purchase {e.attributes.descriptionOne} for {/* {e.attributes.pricePerDay} */} 0.5 Ξ 
+                                set ID field to: {e.attributes.descriptionTwo} to purchase {e.attributes.descriptionOne} for {/* {e.attributes.pricePerDay} */} 0.5Ξ 
                               </FormLabel>
                               <NumberInput step={1} min={0} max={10} defaultValue={0} onChange={handleChangeID} allowMouseWheel>
                                 <NumberInputField id="tokenId" value={tokenId} bg="gray.200" boxShadow="lg" />
