@@ -173,7 +173,8 @@ export default function Auctions() {
                 return (
                   <>
                     <Card style={{ width: '18rem' }}>
-                      <Card.Title>Purchase Gallery from TaurosDAO wallet</Card.Title>
+                      <Spacer />
+                      {/* <Card.Title>Purchase Gallery from TaurosDAO wallet</Card.Title> */}
                       <Card.Body>
                         <Box fontSize="xl" fontWeight="bold" align="right">
                           <form
@@ -186,15 +187,15 @@ export default function Auctions() {
                               <img className="auctionImg" src={e.attributes.imgUrl}></img>
                               {/* <div className="auctionInfo"> */}
                               <div className="auctionTitle">{e.attributes.name}</div>
-                              <div className="auctionDesc">
+                              {/* <div className="auctionDesc"> */}
                                 {e.attributes.descriptionOne}
-                              </div>
+                              {/* </div> */}
                               {/* <div className="auctionDesc">
                                 {e.attributes.descriptionTwo}
                               </div> */}
                            
                               <FormLabel htmlFor="tokenId" textAlign="right">
-                                set ID: {e.attributes.descriptionTwo} to purchase {e.attributes.descriptionOne} Gallery 
+                                set ID field to: {e.attributes.descriptionTwo} to purchase {e.attributes.descriptionOne} for {/* {e.attributes.pricePerDay} */} 0.5 Ξ 
                               </FormLabel>
                               <NumberInput step={1} min={0} max={10} defaultValue={0} onChange={handleChangeID} allowMouseWheel>
                                 <NumberInputField id="tokenId" value={tokenId} bg="gray.200" boxShadow="lg" />
@@ -219,9 +220,9 @@ export default function Auctions() {
                                   }
                                 }
                                 }
-                                text="Enter Auction" />
+                                text="Purchase Gallery" />
                               <div className="price">
-                                {/* {e.attributes.pricePerDay} */} 0.5 Ξ 
+                                {/* {e.attributes.pricePerDay} // 0.5 Ξ  */}
                                 {/* <Icon fill="#808080" size={20} svg="eth" /> */}
 
                               </div>
