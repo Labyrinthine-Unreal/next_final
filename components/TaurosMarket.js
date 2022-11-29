@@ -86,6 +86,8 @@ export default function TaurosMarket() {
 
 
         {/* Gallery Component */}
+
+        
         {/* <Galleria1 /> */}
 
 
