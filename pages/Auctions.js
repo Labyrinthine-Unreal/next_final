@@ -113,8 +113,8 @@ export default function Auctions() {
         amount: amount //purchase one gallery per transaction
       },
       msgValue: 
-      // await Moralis.executeFunction(PRICE)
-      Moralis.Units.ETH("0.000005") //TODO UPDATE PRICE PER TOKEN ID,
+      await Moralis.executeFunction(PRICE)
+      // Moralis.Units.ETH("0.5") //TODO UPDATE PRICE PER TOKEN ID,
     }
     // console.log(arr);
 
