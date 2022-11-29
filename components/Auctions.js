@@ -40,7 +40,7 @@ export default function Auctions() {
         masterKey: "nCOMVxCN1LDmsbmor74UPEhALoUYG0XrFvvtMQdR"
       });
 
-      const auctions = Moralis.Object.extend("FinalLists2");
+      const auctions = Moralis.Object.extend("finalLists2");
       const state = new Moralis.Query(auctions);
       // state.startsWith("city","Bacchanalia");
 
@@ -79,7 +79,7 @@ export default function Auctions() {
     // }
 
     let options = {
-      contractAddress: "0xEB05b6fc90335F6eAe24f02711cbE994682Ca4bc",
+      contractAddress: "0x9f053e6AF1D65C7d552064f9e8bc7d8a7474Cf7e",
       functionName: "purchase",
       abi: [
         {
@@ -181,7 +181,7 @@ export default function Auctions() {
 
                               <img className="auctionImg" src={e.attributes.imgUrl}></img>
                               {/* <div className="auctionInfo"> */}
-                              <div className="auctionTitle">{e.attributes.name}</div>
+                              {/* <div className="auctionTitle">{e.attributes.name}</div> */}
                               <div className="auctionDesc">
                                 {e.attributes.descriptionOne}
                               </div>
