@@ -77,58 +77,64 @@ export default function Auctions() {
   }, [searchFilters]);
 
 
-  // const bookauction = async function (start, end, id, dayPrice) {
+  const bookauction = async function (start, end, id, dayPrice) {
     
-  //   for (
-  //     var arr = [], dt = new Date(start);
-  //     dt <= end;
-  //     dt.setDate(dt.getDate() + 1)
-  //   ) {
-  //     arr.push(new Date(dt).toISOString().slice(0, 10)); // yyyy-mm-dd
-  //   }
+    // for (
+    //   var arr = [], dt = new Date(start);
+    //   dt <= end;
+    //   dt.setDate(dt.getDate() + 1)
+    // ) {
+    //   arr.push(new Date(dt).toISOString().slice(0, 10)); // yyyy-mm-dd
+    // }
 
-  //   let options = {
-  //     contractAddress: "0xfEedE245161879423441D8735CFaaa086318Cc1e",
-  //     functionName: "addAuctionsBooked",
-  //     abi: [
-  //       {
-  //         "inputs": [
-  //           {
-  //             "internalType": "uint256",
-  //             "name": "id",
-  //             "type": "uint256"
-  //           },
-  //           {
-  //             "internalType": "string[]",
-  //             "name": "newAuctions",
-  //             "type": "string[]"
-  //           }
-  //         ],
-  //         "name": "addAuctionsBooked",
-  //         "outputs": [],
-  //         "stateMutability": "payable",
-  //         "type": "function"
-  //       }
-  //     ],
-  //     params: {
-  //       id: id,
-  //       newAuctions: arr,
-  //     },
-  //     msgValue: Moralis.Units.ETH(dayPrice * arr.length),
-  //   }
-  //   console.log(arr);
+    let options = {
+      contractAddress: "0xf3e54ad0e107037EB06808545B490AA108515570",
+      functionName: "purchase",
+      abi: [
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "contractAddr",
+              "type": "address"
+            },
+            {
+              "internalType": "uint256",
+              "name": "tokenId",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "amount",
+              "type": "uint256"
+            }
+          ],
+          "name": "purchase",
+          "outputs": [],
+          "stateMutability": "payable",
+          "type": "function"
+        }
+      ],
+      params: {
+        contractAddr: "0xE80F06000c4a9f4846D408134a0Fd541BaCD709F",
+        tokenId: 1,
+        amount: 1
+      },
+      msgValue: Moralis.Units.ETH(dayPrice*amount),
+    }
+    console.log(arr);
 
-  //   await contractProcessor.fetch({
-  //     params: options,
-  //     // onSuccess: () => {
-  //     //   handleSuccess();
-  //     // },
-  //     // onError: (error) => {
-  //     //   handleError(error.data.message)
-  //     // }
-  //   });
+    await contractProcessor.fetch({
+      params: options,
+      // onSuccess: () => {
+      //   handleSuccess();
+      // },
+      // onError: (error) => {
+      //   handleError(error.data.message)
+      // }
+    });
 
-  // }
+  }
 
 
   return (
