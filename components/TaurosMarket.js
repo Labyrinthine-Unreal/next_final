@@ -6,6 +6,7 @@ import styles from "@styles/MintButton.module.css"
 import marketABI from "../components/ABIs/marketABI"
 import { NFTBalance } from "web3uikit";
 import Card from 'react-bootstrap/Card';
+import Galleria1 from "./Galleries/Gallerias";
 // import threeD from '@components/3d'
 const truncate = (input, len) =>
   input.length > len ? `${input.substring(0, len)}...` : input;
@@ -68,7 +69,7 @@ export default function TaurosMarket() {
       },
       onError: (error) => {
         toast({
-          title: 'Purchase Failed.. User rejected the transaction or not enough Ether To Purchase TAUROS',
+          title: 'Purchase Failed.. User rejected the transaction or not enough Ether To Purchase Gallery',
           description: console.log(error),
           status: "error",
           duration: '9000',
@@ -81,6 +82,14 @@ export default function TaurosMarket() {
   return (
     <CustomContainer>
       <Center>
+
+
+
+        {/* Gallery Component */}
+        {/* <Galleria1 /> */}
+
+
+
         <Card style={{ width: '18rem' }}>
           <Card.Title>Purchase Gallery from TaurosDAO wallet</Card.Title>
           <Card.Img variant="top" src="https://ipfs.io/ipfs/QmRZv2uTXKEnjghLGeMp2x8UY6x3sx3tfjDd5vyu3SBzBS?filename=gallery.png" />
