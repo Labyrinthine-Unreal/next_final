@@ -189,14 +189,12 @@ export default function Auctions() {
                               <div className="auctionDesc">
                                 {e.attributes.descriptionOne}
                               </div>
-                              <div className="auctionDesc">
+                              {/* <div className="auctionDesc">
                                 {e.attributes.descriptionTwo}
-                              </div>
-                              <div className="auctionDesc">
-                                {e.attributes.id}
-                              </div>
+                              </div> */}
+                           
                               <FormLabel htmlFor="tokenId" textAlign="right">
-                                set ID to {e.attributes.descriptionTwo} to purchase Gallery
+                                set ID: {e.attributes.descriptionTwo} to purchase {e.attributes.descriptionOne} Gallery 
                               </FormLabel>
                               <NumberInput step={1} min={0} max={10} defaultValue={0} onChange={handleChangeID} allowMouseWheel>
                                 <NumberInputField id="tokenId" value={tokenId} bg="gray.200" boxShadow="lg" />
@@ -223,8 +221,9 @@ export default function Auctions() {
                                 }
                                 text="Enter Auction" />
                               <div className="price">
-                                <Icon fill="#808080" size={20} svg="eth" />
-                                {e.attributes.pricePerDay}
+                                {/* {e.attributes.pricePerDay} */} 0.5 Ξ 
+                                {/* <Icon fill="#808080" size={20} svg="eth" /> */}
+
                               </div>
                             </div>
                           </form>
