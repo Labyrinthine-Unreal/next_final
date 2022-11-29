@@ -12,7 +12,7 @@ export default function Auctions() {
   
   // const [highLight, setHighLight] = useState();
   
-  const { Moralis, account } = useMoralis();
+  const { Moralis, account, isAuthenticated } = useMoralis();
   const [auctionsList, setAuctionsList] = useState();
 
   const [coOrdinates, setCoOrdinates] = useState([]);
@@ -45,7 +45,12 @@ export default function Auctions() {
   //     position: "topL",
   //   });
   // };
+  useEffect(() => {
+    if (isAuthenticated) {
 
+    }
+
+  }, [isAuthenticated])
 
   useEffect(() => {
     async function fetchAuctionsList() {
@@ -117,12 +122,12 @@ export default function Auctions() {
       ],
       params: {
         contractAddr: "0xE80F06000c4a9f4846D408134a0Fd541BaCD709F",
-        tokenId: 1,
-        amount: 1
+        tokenId: 1,///TODO: Set State Variable of Token ID
+        amount: 1 //purchase one gallery per transaction
       },
-      msgValue: Moralis.Units.ETH(dayPrice*amount),
+      msgValue: Moralis.Units.ETH("0.000005") //TODO UPDATE PRICE PER TOKEN ID,
     }
-    console.log(arr);
+    // console.log(arr);
 
     await contractProcessor.fetch({
       params: options,
@@ -173,11 +178,11 @@ export default function Auctions() {
             <Icon fill="#ffffff" size={20} svg="search" />
           </div>
         </div>
-        <div className="lrContainers">
-          {/* {account &&
+        {/* <div className="lrContainers">
+          {account &&
           <User account={account} />
-        } */}
-        </div>
+        } 
+        </div> */}
       </div>
 
       <hr className="line" />
@@ -205,10 +210,10 @@ export default function Auctions() {
                       <div className="bottomButton">
                         <Button 
                         onClick={() => {
-                          if(account){
+                          if (isAuthenticated){
                           bookauction(
-                            searchFilters.Enter,
-                            searchFilters.Exit,
+                            // searchFilters.Enter,
+                            // searchFilters.Exit,
                             e.attributes.uid_decimal.value.$numberDecimal,
                             Number(e.attributes.pricePerDay_decimal.value.$numberDecimal)
                           )}
