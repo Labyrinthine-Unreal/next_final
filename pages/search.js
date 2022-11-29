@@ -17,8 +17,8 @@ function Redirect({to}){
 
 export default function Search(){ 
   const router = useRouter();
-  const [Enter, setEnter] = useState(new Date());
-  const [Exit, setExit] = useState(new Date());
+  // const [Enter, setEnter] = useState(new Date());
+  // const [Exit, setExit] = useState(new Date());
   const [destination, setDestination] = useState("Bacchanalia");
   const [shouldRedirect, setShouldRedirect] = useState(false);
 
@@ -47,7 +47,7 @@ export default function Search(){
     <div className="tabContent">
       <div className="searchFields">
         <div className="inputs">
-          location
+          {/* location
           <Select 
             defaultOptionIndex={0}
             onChange={(data) => setDestination(data.label)}
@@ -62,35 +62,35 @@ export default function Search(){
               //   label:"Ritus"
               // },
             ]}
-           />
+           /> */}
         </div>
         <div className="vl"/>
 
         
 
-        <div className="inputs">
+        {/* <div className="inputs">
           Auction Start
           <DatePicker 
             id="Enter"
             onChange={(event)=> setEnter(event.date)}
           />
         </div>
-        <div className="vl"/>
+        <div className="vl"/> */}
           
 
 
-        <div className="inputs">
+        {/* <div className="inputs">
           Auction End
           <DatePicker 
             id="Exit"
             onChange={(event)=> setExit(event.date)}
           />
-        </div>
+        </div> */}
         <div className="vl"/>
            <Link href={'/Auctions'}  state ={{
-          destination: destination,
-          Enter: Enter,
-          Exit: Exit
+          // destination: destination,
+          // Enter: Enter,
+          // Exit: Exit
         }}>  
 
          <div className="searchButton">
@@ -103,9 +103,9 @@ export default function Search(){
     </div>
        <div className="randomLocation">
          <div className="title">Not Finding What You Are Looking For ?</div>
-         <div className="text">
+         {/* <div className="text">
            Let us decide a random Auction For You
-         </div>
+         </div> */}
 
          <Button  
            text = "Explore Auctions"

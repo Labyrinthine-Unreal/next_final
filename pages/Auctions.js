@@ -55,21 +55,21 @@ export default function Auctions() {
         masterKey:"nCOMVxCN1LDmsbmor74UPEhALoUYG0XrFvvtMQdR"  
       });
 
-      const auctions = Moralis.Object.extend("Auctions");
+      const auctions = Moralis.Object.extend("Listings1");
       const state = new Moralis.Query(auctions);
-      state.startsWith("city","Bacchanalia");
+      // state.startsWith("city","Bacchanalia");
       
       const result = await state.find();
       console.log(state)
 
 
-      let cords = [];
-      result.forEach((e) => {
-        cords.push({ lat: e.attributes.lat, lng: e.attributes.long });
-      });
-      console.log(cords)
+      // let cords = [];
+      // result.forEach((e) => {
+      //   cords.push({ lat: e.attributes.lat, lng: e.attributes.long });
+      // });
+      // console.log(cords)
 
-      setCoOrdinates(cords);
+      // setCoOrdinates(cords);
       setAuctionsList(result);
     }
 
@@ -77,58 +77,58 @@ export default function Auctions() {
   }, [searchFilters]);
 
 
-  const bookauction = async function (start, end, id, dayPrice) {
+  // const bookauction = async function (start, end, id, dayPrice) {
     
-    for (
-      var arr = [], dt = new Date(start);
-      dt <= end;
-      dt.setDate(dt.getDate() + 1)
-    ) {
-      arr.push(new Date(dt).toISOString().slice(0, 10)); // yyyy-mm-dd
-    }
+  //   for (
+  //     var arr = [], dt = new Date(start);
+  //     dt <= end;
+  //     dt.setDate(dt.getDate() + 1)
+  //   ) {
+  //     arr.push(new Date(dt).toISOString().slice(0, 10)); // yyyy-mm-dd
+  //   }
 
-    let options = {
-      contractAddress: "0xfEedE245161879423441D8735CFaaa086318Cc1e",
-      functionName: "addAuctionsBooked",
-      abi: [
-        {
-          "inputs": [
-            {
-              "internalType": "uint256",
-              "name": "id",
-              "type": "uint256"
-            },
-            {
-              "internalType": "string[]",
-              "name": "newAuctions",
-              "type": "string[]"
-            }
-          ],
-          "name": "addAuctionsBooked",
-          "outputs": [],
-          "stateMutability": "payable",
-          "type": "function"
-        }
-      ],
-      params: {
-        id: id,
-        newAuctions: arr,
-      },
-      msgValue: Moralis.Units.ETH(dayPrice * arr.length),
-    }
-    console.log(arr);
+  //   let options = {
+  //     contractAddress: "0xfEedE245161879423441D8735CFaaa086318Cc1e",
+  //     functionName: "addAuctionsBooked",
+  //     abi: [
+  //       {
+  //         "inputs": [
+  //           {
+  //             "internalType": "uint256",
+  //             "name": "id",
+  //             "type": "uint256"
+  //           },
+  //           {
+  //             "internalType": "string[]",
+  //             "name": "newAuctions",
+  //             "type": "string[]"
+  //           }
+  //         ],
+  //         "name": "addAuctionsBooked",
+  //         "outputs": [],
+  //         "stateMutability": "payable",
+  //         "type": "function"
+  //       }
+  //     ],
+  //     params: {
+  //       id: id,
+  //       newAuctions: arr,
+  //     },
+  //     msgValue: Moralis.Units.ETH(dayPrice * arr.length),
+  //   }
+  //   console.log(arr);
 
-    await contractProcessor.fetch({
-      params: options,
-      // onSuccess: () => {
-      //   handleSuccess();
-      // },
-      // onError: (error) => {
-      //   handleError(error.data.message)
-      // }
-    });
+  //   await contractProcessor.fetch({
+  //     params: options,
+  //     // onSuccess: () => {
+  //     //   handleSuccess();
+  //     // },
+  //     // onError: (error) => {
+  //     //   handleError(error.data.message)
+  //     // }
+  //   });
 
-  }
+  // }
 
 
   return (
@@ -139,7 +139,7 @@ export default function Auctions() {
 
         </div>
         <div className="searchReminder">
-        <div className="filter">{searchFilters.destination}</div>
+        {/* <div className="filter">{searchFilters.destination}</div> */}
           <div className="vl" />
           <div className="filter">
 {/* {`
@@ -189,7 +189,7 @@ export default function Auctions() {
                   <div className="auctionDiv">
                     <img className="auctionImg" src={e.attributes.imgUrl}></img>
                     <div className="auctionInfo">
-                      <div className="auctionTitle">{e.attributes.name}</div>
+                      {/* <div className="auctionTitle">{e.attributes.name}</div> */}
                       <div className="auctionDesc">
                         {e.attributes.descriptionOne}
                       </div>
@@ -220,9 +220,9 @@ export default function Auctions() {
               );
             })}
         </div>
-        <div className="auctionsContentR">
+        {/* <div className="auctionsContentR">
           <AuctionsMap locations={coOrdinates} />
-        </div>
+        </div> */}
       </div>
     </>
   );
