@@ -7,6 +7,7 @@ import { useRouter } from "next/router";
 import Card from 'react-bootstrap/Card';
 import { useToast, Center, NumberInputStepper,  Box, Spacer, NumberIncrementStepper, Input, NumberDecrementStepper, NumberInputField, Text, FormControl, FormLabel, NumberInput } from "@chakra-ui/react"
 import galleryABI from "@components/ABIs/galleryABI.json";
+// import Auctions from "@components/Auctions";
 
 export default function Auctions() {
   const router = useRouter();
@@ -145,6 +146,9 @@ export default function Auctions() {
 
 
   return (
+//     <CustomContainer>
+//     <Auctions />
+// </CustomContainer>
     <>
       <div className="topBanner">
         <div>
@@ -192,7 +196,7 @@ export default function Auctions() {
                                 {e.attributes.id}
                               </div>
                               <FormLabel htmlFor="tokenId" textAlign="right">
-                                set tokenID from Contract
+                                set ID to {e.attributes.descriptionTwo} to purchase Gallery
                               </FormLabel>
                               <NumberInput step={1} min={0} max={10} defaultValue={0} onChange={handleChangeID} allowMouseWheel>
                                 <NumberInputField id="tokenId" value={tokenId} bg="gray.200" boxShadow="lg" />

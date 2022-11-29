@@ -40,7 +40,7 @@ export default function Auctions() {
         masterKey: "nCOMVxCN1LDmsbmor74UPEhALoUYG0XrFvvtMQdR"
       });
 
-      const auctions = Moralis.Object.extend("finalLists2");
+      const auctions = Moralis.Object.extend("FinalLists2");
       const state = new Moralis.Query(auctions);
       // state.startsWith("city","Bacchanalia");
 
@@ -79,7 +79,7 @@ export default function Auctions() {
     // }
 
     let options = {
-      contractAddress: "0x9f053e6AF1D65C7d552064f9e8bc7d8a7474Cf7e",
+      contractAddress: "0xEB05b6fc90335F6eAe24f02711cbE994682Ca4bc",
       functionName: "purchase",
       abi: [
         {
@@ -145,6 +145,9 @@ export default function Auctions() {
 
 
   return (
+//     <CustomContainer>
+//     <Auctions />
+// </CustomContainer>
     <>
       <div className="topBanner">
         <div>
@@ -161,8 +164,9 @@ export default function Auctions() {
       </div>
           
           */}
+          <Center>
           |Current auctions For Chosen Date|
-          <FormControl my="4" maxW="210" minW="210">
+          <FormControl my="4" maxW="210" minW="140">
 
             {auctionsList &&
               auctionsList.map((e, i) => {
@@ -181,7 +185,7 @@ export default function Auctions() {
 
                               <img className="auctionImg" src={e.attributes.imgUrl}></img>
                               {/* <div className="auctionInfo"> */}
-                              {/* <div className="auctionTitle">{e.attributes.name}</div> */}
+                              <div className="auctionTitle">{e.attributes.name}</div>
                               <div className="auctionDesc">
                                 {e.attributes.descriptionOne}
                               </div>
@@ -192,7 +196,7 @@ export default function Auctions() {
                                 {e.attributes.id}
                               </div>
                               <FormLabel htmlFor="tokenId" textAlign="right">
-                                set tokenID from Contract
+                                set ID to purchase Gallery
                               </FormLabel>
                               <NumberInput step={1} min={0} max={10} defaultValue={0} onChange={handleChangeID} allowMouseWheel>
                                 <NumberInputField id="tokenId" value={tokenId} bg="gray.200" boxShadow="lg" />
@@ -233,6 +237,7 @@ export default function Auctions() {
                 );
               })}
           </FormControl>
+          </Center>
         </div>
         {/* <div className="auctionsContentR">
           <AuctionsMap locations={coOrdinates} />
