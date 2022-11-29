@@ -6,6 +6,7 @@ import { useMoralis, useWeb3ExecuteFunction } from "react-moralis";
 import { useRouter } from "next/router";
 import Card from 'react-bootstrap/Card';
 import { useToast, Center, NumberInputStepper,  Box, Spacer, NumberIncrementStepper, Input, NumberDecrementStepper, NumberInputField, Text, FormControl, FormLabel, NumberInput } from "@chakra-ui/react"
+import galleryABI from "@components/ABIs/galleryABI.json";
 
 export default function Auctions() {
   const router = useRouter();
@@ -39,7 +40,7 @@ export default function Auctions() {
         masterKey: "nCOMVxCN1LDmsbmor74UPEhALoUYG0XrFvvtMQdR"
       });
 
-      const auctions = Moralis.Object.extend("Listings1");
+      const auctions = Moralis.Object.extend("finalLists1");
       const state = new Moralis.Query(auctions);
       // state.startsWith("city","Bacchanalia");
 
@@ -60,11 +61,11 @@ export default function Auctions() {
     fetchAuctionsList();
   }, [searchFilters]);
 
-  // const PRICE = {
-  //   contractAddress: "0x1A0F33bBc5c7bA83f490cdB6C13ee50e1C851908",
-  //   functionName: "PRICE",
-  //   abi: taurosABI,
-  // };
+  const PRICE = {
+    contractAddress: "0xE80F06000c4a9f4846D408134a0Fd541BaCD709F",
+    functionName: "price",
+    abi: galleryABI,
+  };
 
 
   const bookauction = async function (id, dayPrice) {
@@ -78,7 +79,7 @@ export default function Auctions() {
     // }
 
     let options = {
-      contractAddress: "0xf3e54ad0e107037EB06808545B490AA108515570",
+      contractAddress: "0xdBB82543cebc4dB366e90425e2869cc371784D03",
       functionName: "purchase",
       abi: [
         {
@@ -106,11 +107,12 @@ export default function Auctions() {
         }
       ],
       params: {
-        contractAddr: "0xE80F06000c4a9f4846D408134a0Fd541BaCD709F",
+        contractAddr: "0x7A7A72e01d11dfF45deF0BBBDE6919007F6A87bf",
         tokenId: tokenId,///TODO: Set State Variable of Token ID
         amount: amount //purchase one gallery per transaction
       },
-      msgValue: Moralis.Units.ETH("0.000005") //TODO UPDATE PRICE PER TOKEN ID,
+      msgValue: await Moralis.executeFunction(PRICE)
+      // Moralis.Units.ETH("0.000005") //TODO UPDATE PRICE PER TOKEN ID,
     }
     // console.log(arr);
 
