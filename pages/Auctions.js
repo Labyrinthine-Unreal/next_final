@@ -57,7 +57,7 @@ export default function Auctions() {
       // TaurosDAO Lists a new Gallery for sale
       //Search API key for the appropriate Dataset from MoralisDB
       const auctions = Moralis.Object.extend("FinalLists2");
-      // Query new Gallery Listings Listings
+      // Query new Gallery Listings 
       const state = new Moralis.Query(auctions);
 
       const result = await state.find();
@@ -165,7 +165,7 @@ export default function Auctions() {
   return (
     /// Failed Component///
 
-    // This Component Appears on the left side for some reason.. Weird bug
+    // This Component Appears on the right side for some reason.. Weird bug
 
     //     <CustomContainer>
     //     <Auctions />
