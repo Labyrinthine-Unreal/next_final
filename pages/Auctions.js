@@ -5,17 +5,26 @@ import { useState, useEffect } from "react";
 import { useMoralis, useWeb3ExecuteFunction } from "react-moralis";
 import { useRouter } from "next/router";
 import Card from 'react-bootstrap/Card';
-import { useToast, Center, NumberInputStepper,  Box, Spacer, NumberIncrementStepper, Input, NumberDecrementStepper, NumberInputField, Text, FormControl, FormLabel, NumberInput } from "@chakra-ui/react"
+import { useToast, Center, NumberInputStepper, Box, Spacer, NumberIncrementStepper, Input, NumberDecrementStepper, NumberInputField, Text, FormControl, FormLabel, NumberInput } from "@chakra-ui/react"
 import galleryABI from "@components/ABIs/galleryABI.json";
 // import Auctions from "@components/Auctions";
 
 export default function Auctions() {
+
+  //useRouter() in place of useLocation()
   const router = useRouter();
+  //query in place of state
   const { query: searchFilters } = useRouter();
 
+
+
+
+  // highlight location via Google Maps API (refer to @components/AuctionsMap.js)
   // const [highLight, setHighLight] = useState();
 
   const { Moralis, account, isAuthenticated } = useMoralis();
+
+  // Fetch listing information from MoralisDB / TaurosExchange => Gallery ERC1155 contract
   const [auctionsList, setAuctionsList] = useState();
   const [amount, setAmount] = useState(1);
   const handleChange = (value) => setAmount(value);
@@ -34,6 +43,7 @@ export default function Auctions() {
   }, [isAuthenticated])
 
   useEffect(() => {
+    //Initialize API / fetch Gallery Listings
     async function fetchAuctionsList() {
       await Moralis.start({
         serverUrl: "https://d8tdshnwaepb.usemoralis.com:2053/server",
@@ -41,14 +51,18 @@ export default function Auctions() {
         masterKey: "nCOMVxCN1LDmsbmor74UPEhALoUYG0XrFvvtMQdR"
       });
 
+
+      // Refer to @compoents/TaurosList.js
+      // TaurosDAO Lists a new Gallery for sale
+      //Search API key for the appropriate Dataset from MoralisDB
       const auctions = Moralis.Object.extend("FinalLists2");
+      // Query new Gallery Listings Listings
       const state = new Moralis.Query(auctions);
-      // state.startsWith("city","Bacchanalia");
 
       const result = await state.find();
       console.log(state)
 
-
+      // CoOrdinates via Google Maps API
       // let cords = [];
       // result.forEach((e) => {
       //   cords.push({ lat: e.attributes.lat, lng: e.attributes.long });
@@ -56,30 +70,29 @@ export default function Auctions() {
       // console.log(cords)
 
       // setCoOrdinates(cords);
+
+      // Fill Data
       setAuctionsList(result);
     }
-
+    //Fetch New Gallery Listings
     fetchAuctionsList();
   }, [searchFilters]);
 
+
+  //Gallery Contract 
+  //Price (TokenId = 0) => 0.5ETH
   const PRICE = {
     contractAddress: "0xE80F06000c4a9f4846D408134a0Fd541BaCD709F",
     functionName: "price",
     abi: galleryABI,
   };
 
-
+  // Purchase Gallery
   const bookauction = async function (id, dayPrice) {
 
-    // for (
-    //   var arr = [], dt = new Date(start);
-    //   dt <= end;
-    //   dt.setDate(dt.getDate() + 1)
-    // ) {
-    //   arr.push(new Date(dt).toISOString().slice(0, 10)); // yyyy-mm-dd
-    // }
 
     let options = {
+      //Tauros Exchange Contract
       contractAddress: "0xEB05b6fc90335F6eAe24f02711cbE994682Ca4bc",
       functionName: "purchase",
       abi: [
@@ -108,15 +121,18 @@ export default function Auctions() {
         }
       ],
       params: {
+        //ERC1155 Gallery Contract 
         contractAddr: "0xfF8f3567ca17A493C9a984fcA88B0323E5B9EE52",
-        tokenId: tokenId,///TODO: Set State Variable of Token ID
+        // tokenId(Bacchanalia = 0 , Ritus = 1)
+        tokenId: tokenId,
         amount: amount //purchase one gallery per transaction
       },
-      msgValue: 
-      await Moralis.executeFunction(PRICE)
+      msgValue:
+        // Gallery Contract Price
+        await Moralis.executeFunction(PRICE)
+
       // Moralis.Units.ETH("0.5") //TODO UPDATE PRICE PER TOKEN ID,
     }
-    // console.log(arr);
 
     await contractProcessor.fetch({
       params: options,
@@ -146,15 +162,20 @@ export default function Auctions() {
 
 
   return (
-//     <CustomContainer>
-//     <Auctions />
-// </CustomContainer>
+    /// Failed Component///
+
+    // This Component Appears on the left side for some reason.. Weird bug
+
+    //     <CustomContainer>
+    //     <Auctions />
+    // </CustomContainer>
+
     <>
       <div className="topBanner">
         <div>
           {/* 
        
-          
+          // Search Icon
           </div>
           <div className="vl" />
           <div className="searchFiltersIcon">
@@ -165,37 +186,39 @@ export default function Auctions() {
       </div>
           
           */}
-          |Current auctions For Chosen Date|
+          |Current Galleries For Sale|
           <FormControl my="4" maxW="210" minW="210">
-
+            {/* Map Queried Listings And fill in data respective to contract */}
             {auctionsList &&
               auctionsList.map((e, i) => {
                 return (
                   <>
                     <Card style={{ width: '18rem' }}>
                       <Spacer />
-                      {/* <Card.Title>Purchase Gallery from TaurosDAO wallet</Card.Title> */}
+                      {/* Fetch Description Gallery Name (Galleria/The Box) From MoralisDB */}
+
+                      <Card.Title>Purchase {e.attributes.name} </Card.Title>
                       <Card.Body>
                         <Box fontSize="xl" fontWeight="bold" align="right">
                           <form
-                          //  className={styles.btn}
-                           onSubmit={async e => {
-                            e.preventDefault()
-                          }}>
+                            onSubmit={async e => {
+                              e.preventDefault()
+                            }}>
                             <FormControl my="4" maxW="210" minW="210">
 
+                              {/* Fetch ImageURL (Galleria/The Box) From MoralisDB */}
                               <img className="auctionImg" src={e.attributes.imgUrl}></img>
-                              {/* <div className="auctionInfo"> */}
+
+                              {/* Fetch Description Gallery Name (Galleria/The Box) From MoralisDB */}
                               <div className="auctionTitle">{e.attributes.name}</div>
-                              {/* <div className="auctionDesc"> */}
-                                {e.attributes.descriptionOne}
-                              {/* </div> */}
-                              {/* <div className="auctionDesc">
-                                {e.attributes.descriptionTwo}
-                              </div> */}
-                           
+
+                              {/* Fetch Description One From MoralisDB */}
+                              {e.attributes.descriptionOne}
+
+
                               <FormLabel htmlFor="tokenId" textAlign="right">
-                                set ID field to: {e.attributes.descriptionTwo} to purchase {e.attributes.descriptionOne} for {/* {e.attributes.pricePerDay} */} 0.5Ξ 
+                                {/* set Token ID to purchase the appropriate Gallery */}
+                                set ID field to: {e.attributes.descriptionTwo} to purchase {e.attributes.descriptionOne} for {/* {e.attributes.pricePerDay} */} 0.5Ξ
                               </FormLabel>
                               <NumberInput step={1} min={0} max={10} defaultValue={0} onChange={handleChangeID} allowMouseWheel>
                                 <NumberInputField id="tokenId" value={tokenId} bg="gray.200" boxShadow="lg" />
@@ -212,8 +235,7 @@ export default function Auctions() {
                                 onClick={() => {
                                   if (isAuthenticated) {
                                     bookauction(
-                                      // searchFilters.Enter,
-                                      // searchFilters.Exit,
+                                      // Fetch Price
                                       e.attributes.uid_decimal.value.$numberDecimal,
                                       Number(e.attributes.pricePerDay_decimal.value.$numberDecimal)
                                     )
@@ -222,8 +244,6 @@ export default function Auctions() {
                                 }
                                 text="Purchase Gallery" />
                               <div className="price">
-                                {/* {e.attributes.pricePerDay} // 0.5 Ξ  */}
-                                {/* <Icon fill="#808080" size={20} svg="eth" /> */}
 
                               </div>
                             </div>
@@ -232,7 +252,6 @@ export default function Auctions() {
                       </Card.Body>
 
                     </Card>
-                    {/* </div> */}
                   </>
                 );
               })}
