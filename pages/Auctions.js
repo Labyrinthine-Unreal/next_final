@@ -7,6 +7,7 @@ import { useRouter } from "next/router";
 import Card from 'react-bootstrap/Card';
 import { useToast, Center, NumberInputStepper, Box, Spacer, NumberIncrementStepper, Input, NumberDecrementStepper, NumberInputField, Text, FormControl, FormLabel, NumberInput } from "@chakra-ui/react"
 import galleryABI from "@components/ABIs/galleryABI.json";
+//Failed component render, Displays on right hand side 
 // import Auctions from "@components/Auctions";
 
 export default function Auctions() {
