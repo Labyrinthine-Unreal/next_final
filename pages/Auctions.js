@@ -236,6 +236,7 @@ export default function Auctions() {
                                   if (isAuthenticated) {
                                     bookauction(
                                       // Fetch Price
+                                      // User Purchased Gallery
                                       e.attributes.uid_decimal.value.$numberDecimal,
                                       Number(e.attributes.pricePerDay_decimal.value.$numberDecimal)
                                     )
@@ -257,7 +258,9 @@ export default function Auctions() {
               })}
           </FormControl>
         </div>
+// display Gallery Location via Google Maps API
         {/* <div className="auctionsContentR">
+        // @components/AuctionsMap.js
           <AuctionsMap locations={coOrdinates} />
         </div> */}
       </div>
