@@ -244,7 +244,7 @@ export default function Auctions() {
                                   }
                                 }
                                 }
-                                text="Purchase Gallery" />
+                                text="Buy" {...e.attributes.name} />
                               <div className="price">
 
                               </div>
