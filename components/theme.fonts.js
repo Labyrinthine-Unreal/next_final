@@ -20,7 +20,7 @@ const theme = extendTheme({
     },
 
     landingPageContent: {
-      boxShadow: "0 4px 12px 0 rgba(0, 0, 0, 0.05)", 
+      boxShadow: "0 4px 12px 0 rgba(0, 0, 0, 0.05)",
       rounded: "lg",
       py: "8",
       px: "4",
@@ -28,7 +28,7 @@ const theme = extendTheme({
     },
 
     content: {
-      boxShadow: "0 4px 12px 0 rgba(0, 0, 0, 0.05)", 
+      boxShadow: "0 4px 12px 0 rgba(0, 0, 0, 0.05)",
       rounded: "lg",
       py: "8",
       px: "4",
@@ -38,7 +38,7 @@ const theme = extendTheme({
     },
 
     blogContent: {
-      boxShadow: "0 4px 12px 0 rgba(0, 0, 0, 0.05)", 
+      boxShadow: "0 4px 12px 0 rgba(0, 0, 0, 0.05)",
       rounded: "lg",
       pt: "8",
       pb: "2",
@@ -58,4 +58,3 @@ const theme = extendTheme({
 })
 
 export default theme
-
