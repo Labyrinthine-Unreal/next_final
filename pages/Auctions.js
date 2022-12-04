@@ -261,13 +261,13 @@ export default function Auctions() {
               })}
           </FormControl>
         </div>
-// display Gallery Location via Google Maps API
+{/* display Gallery Location via Google Maps API */}
         {/* <div className="auctionsContentR">
         // @components/AuctionsMap.js
           <AuctionsMap locations={coOrdinates} />
         </div> */}
 
-// Display all NFT's user owns
+{/* Display User's NFT Balance */}
         <NFTBalance
           address={account}
           chain="eth"
