@@ -1,4 +1,4 @@
-import { Box, Text } from '@chakra-ui/react'
+import { Box } from '@chakra-ui/react'
 
 export default function ProductCard({ product, setModalData }) {
   const { imageUrl, imageAlt, title, free, presalePrice, salePrice, active } = product;

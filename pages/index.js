@@ -4,12 +4,9 @@ import { cardVariant, parentVariant } from '@components/animations/motion'
 import products from '@components/data/products/'
 import ProductCard from '@components/cards/ProductCard'
 import ProductModal from '@components/cards/ProductModal'
-import { Box, Center, SimpleGrid, Text, Link, Heading, Collapse, useDisclosure, IconButton } from '@chakra-ui/react'
+import { Box, Flex, Center, Grid, HStack, SimpleGrid, Text, Link, Heading, Collapse, useDisclosure, IconButton } from '@chakra-ui/react'
 import Head from 'next/head'
 import NextLink from 'next/link'
-import EstatesBalance from '@components/mint/EstatesBalance'
-import EstatesClaimed from '@components/mint/EstatesClaimed'
-import TaurosBalance from '@components/mint/TaurosBalance'
 import styles from '@styles/MintButton.module.css'
 import { TbArrowBigDownLines, TbArrowBigUpLines } from 'react-icons/tb'
 import Title, { LU } from '@components/animations/AnimatedTitles'
@@ -58,6 +55,7 @@ export default function Home() {
         <Heading textStyle="title" fontSize="3xl"><Title /></Heading>
 
         <Box alignContent="center">
+
             <Box textStyle="landingPageContent" mb={10} pb={0}>
                 <motion.div initial="initial" whileInView="whileInView" whileHover="hover" tap="whileTap">
                     <Collapse in={isOpen} startingHeight={60}>
@@ -80,25 +78,28 @@ export default function Home() {
 
             <Center><TaurosDAOIcon /></Center>
 
-
-            {/* <SimpleGrid columns={{sm: 1, md: 3}} gap={4} mt={20} mb={10} pt={4} px={4}>
-                <Box className={styles.balances}>
-                    <Heading pb={2} fontSize="18px" fontWeight="normal" color="#4A5568">TAUROS BALANCE</Heading>
-                    <TaurosBalance />
-                </Box>
-                <Box className={styles.balances}>
-                    <Heading pb={2} fontSize="18px" fontWeight="normal" color="#4A5568">ESTATES BALANCE</Heading>
-                    <EstatesBalance fontWeight="normal" fontSize="xs" />
-                </Box>
-            </SimpleGrid> */}
-
         </Box>
-
-        <Box pt={20} pb={20} align="center">
-          <MotionSimpleGrid
+        
+        <Box p={20} align="center" overflowX="scroll"
+          css={{
+            '&::-webkit-scrollbar': {
+              height: '5px',
+            },
+            '&::-webkit-scrollbar-track': {
+              height: '5px',
+              background: "white",
+            },
+            '&::-webkit-scrollbar-thumb': {
+              background: "teal",
+              borderRadius: '16px',
+            },
+          }}
+          >
+          <MotionSimpleGrid 
+            display="flex"
             mt="4"
-            minChildWidth="250px"
-            spacing="4em"
+            minWidth={{ base: "1500px", md: "2000px" }}
+            spacing="10em"
             minH="full"
             variants={parentVariant}
             animate={inView ? "animate" : "initial"}
