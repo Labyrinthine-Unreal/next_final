@@ -5,13 +5,11 @@ import { useState, useEffect } from "react";
 import { useMoralis, useWeb3ExecuteFunction } from "react-moralis";
 import { useRouter } from "next/router";
 import Card from 'react-bootstrap/Card';
-import { useToast, Center, NumberInputStepper, Box, Spacer, NumberIncrementStepper, Input, NumberDecrementStepper, NumberInputField, Text, FormControl, FormLabel, NumberInput } from "@chakra-ui/react"
+import { useToast, Heading, Center, NumberInputStepper, Box, Spacer, NumberIncrementStepper, Input, NumberDecrementStepper, NumberInputField, Text, FormControl, FormLabel, NumberInput } from "@chakra-ui/react"
 import galleryABI from "@components/ABIs/galleryABI.json";
 import { NFTBalance } from "web3uikit"
-
-//Failed component render, Displays on right hand side 
-// import Auctions from "@components/Auctions";
-
+import User from "@components/User";
+import { nftBalances } from "@components/animations/AnimatedTitles";
 export default function Auctions() {
 
   //useRouter() in place of useLocation()
@@ -25,7 +23,7 @@ export default function Auctions() {
   // highlight location via Google Maps API (refer to @components/AuctionsMap.js)
   // const [highLight, setHighLight] = useState();
 
-  const { Moralis, account, isAuthenticated } = useMoralis();
+  const { Moralis, account, isAuthenticated, user } = useMoralis();
 
   // Fetch listing information from MoralisDB / TaurosExchange => Gallery ERC1155 contract
   const [auctionsList, setAuctionsList] = useState();
@@ -36,7 +34,7 @@ export default function Auctions() {
   const handleChangeID = (value) => setTokenId(value)
   const toast = useToast()
 
-  // const [coOrdinates, setCoOrdinates] = useState([]);
+  const [coOrdinates, setCoOrdinates] = useState([]);
   const contractProcessor = useWeb3ExecuteFunction();
   useEffect(() => {
     if (isAuthenticated) {
@@ -58,21 +56,21 @@ export default function Auctions() {
       // Refer to @compoents/TaurosList.js
       // TaurosDAO Lists a new Gallery for sale
       //Search API key for the appropriate Dataset from MoralisDB
-      const auctions = Moralis.Object.extend("FinalLists2");
-      // Query new Gallery Listings 
+      const auctions = Moralis.Object.extend("ListingCreated");
+      // Query new Gallery Listings Listings
       const state = new Moralis.Query(auctions);
 
       const result = await state.find();
       console.log(state)
 
       // CoOrdinates via Google Maps API
-      // let cords = [];
-      // result.forEach((e) => {
-      //   cords.push({ lat: e.attributes.lat, lng: e.attributes.long });
-      // });
-      // console.log(cords)
+      let cords = [];
+      result.forEach((e) => {
+        cords.push({ lat: e.attributes.lat, lng: e.attributes.long });
+      });
+      console.log(cords)
 
-      // setCoOrdinates(cords);
+      setCoOrdinates(cords);
 
       // Fill Data
       setAuctionsList(result);
@@ -96,7 +94,7 @@ export default function Auctions() {
 
     let options = {
       //Tauros Exchange Contract
-      contractAddress: "0xEB05b6fc90335F6eAe24f02711cbE994682Ca4bc",
+      contractAddress: "0x1bD8e23b07ED6366BACc3fF42276Be49d4bBA083",
       functionName: "purchase",
       abi: [
         {
@@ -125,7 +123,7 @@ export default function Auctions() {
       ],
       params: {
         //ERC1155 Gallery Contract 
-        contractAddr: "0xfF8f3567ca17A493C9a984fcA88B0323E5B9EE52",
+        contractAddr: "0xa51DD6b83fcda7C3A5b45aF454c9A561893f08dF",
         // tokenId(Bacchanalia = 0 , Ritus = 1)
         tokenId: tokenId,
         amount: amount //purchase one gallery per transaction
@@ -161,13 +159,15 @@ export default function Auctions() {
       }
     })
 
+    console.log(account)
+
   }
 
 
   return (
     /// Failed Component///
 
-    // This Component Appears on the right side for some reason.. Weird bug
+    // This Component Appears on the left side for some reason.. Weird bug
 
     //     <CustomContainer>
     //     <Auctions />
@@ -198,9 +198,10 @@ export default function Auctions() {
                   <>
                     <Card style={{ width: '18rem' }}>
                       <Spacer />
-                      {/* Fetch Description Gallery Name (Galleria/The Box) From MoralisDB */}
-
-                      <Card.Title>Purchase {e.attributes.name} </Card.Title>
+                      {/* Fetch Description Gallery Name (Galleria/The Cube) From MoralisDB */}
+                      <div>Latitude: {e.attributes.lat}</div>
+                      Longitude: {e.attributes.long}
+                      {/* <Card.Title> Purchase {e.attributes.name} </Card.Title> */}
                       <Card.Body>
                         <Box fontSize="xl" fontWeight="bold" align="right">
                           <form
@@ -216,12 +217,13 @@ export default function Auctions() {
                               <div className="auctionTitle">{e.attributes.name}</div>
 
                               {/* Fetch Description One From MoralisDB */}
-                              {e.attributes.descriptionOne}
+                              <div> {e.attributes.descriptionOne}</div>
+                              
 
 
                               <FormLabel htmlFor="tokenId" textAlign="right">
                                 {/* set Token ID to purchase the appropriate Gallery */}
-                                set ID field to: {e.attributes.descriptionTwo} to purchase {e.attributes.descriptionOne} for {/* {e.attributes.pricePerDay} */} 0.5Ξ
+                                purchase {e.attributes.descriptionOne} for {/* {e.attributes.pricePerDay} */} 0.5Ξ
                               </FormLabel>
                               <NumberInput step={1} min={0} max={10} defaultValue={0} onChange={handleChangeID} allowMouseWheel>
                                 <NumberInputField id="tokenId" value={tokenId} bg="gray.200" boxShadow="lg" />
@@ -236,45 +238,40 @@ export default function Auctions() {
 
                               <Button
                                 onClick={() => {
-                                  if (isAuthenticated) {
-                                    bookauction(
+                                  if (isAuthenticated) 
+                                  {bookauction(
                                       // Fetch Price
-                                      // User Purchased Gallery
                                       e.attributes.uid_decimal.value.$numberDecimal,
                                       Number(e.attributes.pricePerDay_decimal.value.$numberDecimal)
-                                    )
-                                  }
-                                }
-                                }
+                                    )}
+                                }}
                                 text="Buy" {...e.attributes.name} />
                               <div className="price">
-
                               </div>
                             </div>
                           </form>
                         </Box>
                       </Card.Body>
-
                     </Card>
                   </>
                 );
               })}
           </FormControl>
         </div>
-{/* display Gallery Location via Google Maps API */}
+
+
         {/* <div className="auctionsContentR">
-        // @components/AuctionsMap.js
           <AuctionsMap locations={coOrdinates} />
         </div> */}
 
-{/* Display User's NFT Balance */}
-        <NFTBalance
+
+        {/* <nftBalances /> Animation Title Failure */}
+
+        {/* Display User's NFT Balance */}
+        {/* <NFTBalance
           address={account}
           chain="eth"
-        />
-//         <Center>
-        {/* <h1>{account}</h1> */}
-//         </Center>
+        /> */}
       </div>
     </>
   );
