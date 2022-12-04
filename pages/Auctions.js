@@ -267,6 +267,7 @@ export default function Auctions() {
           <AuctionsMap locations={coOrdinates} />
         </div> */}
 
+// Display all NFT's user owns
         <NFTBalance
           address={account}
           chain="eth"
