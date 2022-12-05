@@ -1,8 +1,8 @@
 import { Box, Modal, ModalOverlay, ModalContent,Spacer, ModalHeader, ModalFooter, ModalBody, ModalCloseButton, Grid, GridItem } from "@chakra-ui/react";
 import MBE from "../mint/MintButtonEstatesv2";
 import MBT from "../mint/MintButtonTaurosV2";
-import Galleria0 from "@components/mint/galleriaGallery";
-import Galleria1 from "@components/mint/CubeGallery";
+// import Galleria0 from "../mint/galleriaGallery";
+// import Galleria1 from "../mint/CubeGallery";
 export default function ProductModal({ isOpen, onClose, modalData }) {
   const { title, free, presalePrice, salePrice, imageUrl, imageAlt, description, unclaimed, glb } = modalData || {};
 
