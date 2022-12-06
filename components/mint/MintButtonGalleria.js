@@ -78,7 +78,7 @@ export default function Galleria0() {
   //Price (TokenId = 1) => 0.8ETH
   const PRICE = {
     contractAddress: "0xE80F06000c4a9f4846D408134a0Fd541BaCD709F",
-    functionName: "price1",
+    functionName: "price",
     abi: galleriesABI,
   };
 
