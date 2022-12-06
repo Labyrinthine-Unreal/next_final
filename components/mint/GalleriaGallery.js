@@ -164,68 +164,64 @@ export default function Galleria0() {
   return (
 
     <>
-      <div className="topBanner">
-        <div>
-          {/* |Current Galleries For Sale| */}
-          <FormControl my="4" maxW="210" minW="210">
-            {/* Map Queried Listings And fill in data respective to contract */}
-            {auctionsList &&
-              auctionsList.map((e, i) => {
-                return (
-                  <>
-                    <Spacer />
-                    {/* Fetch Description Gallery Name (Galleria/The Cube) From MoralisDB */}
-                    <div>Latitude: {e.attributes.lat}</div>
-                    Longitude: {e.attributes.long}
-                    <Box fontSize="xl" fontWeight="bold" align="right">
-                      <form
-                        onSubmit={async e => {
-                          e.preventDefault()
-                        }}>
-                        <FormControl my="4" maxW="210" minW="210">
+      {/* |Current Galleries For Sale| */}
+      <FormControl my="4" maxW="210" minW="210">
+        {/* Map Queried Listings And fill in data respective to contract */}
+        {auctionsList &&
+          auctionsList.map((e, i) => {
+            return (
+              <>
+                <Spacer />
+                {/* Fetch Description Gallery Name (Galleria/The Cube) From MoralisDB */}
+                <div>Latitude: {e.attributes.lat}</div>
+                Longitude: {e.attributes.long}
+                <Box fontSize="xl" fontWeight="bold" align="right">
+                  <form
+                    onSubmit={async e => {
+                      e.preventDefault()
+                    }}>
+                    <FormControl my="4" maxW="210" minW="210">
+                      {/* Fetch ImageURL (Galleria/The Box) From MoralisDB */}
+                      {/* <img className="auctionImg" src={e.attributes.imgUrl}></img> */}
 
-                          {/* Fetch ImageURL (Galleria/The Box) From MoralisDB */}
-                          {/* <img className="auctionImg" src={e.attributes.imgUrl}></img> */}
+                      {/* Fetch Description Gallery Name (Galleria/The Box) From MoralisDB */}
+                      {/* <div className="auctionTitle">{e.attributes.name}</div> */}
 
-                          {/* Fetch Description Gallery Name (Galleria/The Box) From MoralisDB */}
-                          {/* <div className="auctionTitle">{e.attributes.name}</div> */}
+                      {/* Fetch Description One From MoralisDB */}
+                      {/* <div> {e.attributes.descriptionOne}</div> */}
 
-                          {/* Fetch Description One From MoralisDB */}
-                          <div> {e.attributes.descriptionOne}</div>
+                      {/* purchase {e.attributes.descriptionOne} for {e.attributes.pricePerDay} 0.5Ξ */}
 
-                          <FormLabel htmlFor="amount" textAlign="right">
-                            {/* purchase {e.attributes.descriptionOne} for {e.attributes.pricePerDay} 0.5Ξ */}
-                          </FormLabel>
-                          <NumberInput step={1} min={1} max={10} defaultValue={0} onChange={handleChange} allowMouseWheel>
-                            <NumberInputField id="amount" value={amount} bg="gray.200" boxShadow="lg" />
-                            <NumberInputStepper bg="teal.300">
-                              <NumberIncrementStepper borderLeft="none" />
-                              <Spacer />
-                              <NumberDecrementStepper borderLeft="none" />
-                            </NumberInputStepper>
-                          </NumberInput>
-                        </FormControl>
-                        <Button
-                          onClick={() => {
-                            if (isAuthenticated) {
-                              bookauction(
-                                // Fetch Price
-                                e.attributes.uid_decimal.value.$numberDecimal,
-                                Number(e.attributes.pricePerDay_decimal.value.$numberDecimal)
-                              )
-                            }
-                          }}
-                          text="Buy" {...e.attributes.name} />
+                      {/* <FormLabel htmlFor="amount" textAlign="right"> Purchase Gallery
+                          </FormLabel> */}
 
-                      </form>
-                    </Box>
-                  </>
-                );
-              })}
-          </FormControl>
-        </div>
+                      <NumberInput step={1} min={1} max={10} defaultValue={1} onChange={handleChange} allowMouseWheel>
+                        <NumberInputField id="amount" value={amount} bg="gray.200" boxShadow="lg" />
+                        <NumberInputStepper bg="teal.300">
+                          <NumberIncrementStepper borderLeft="none" />
+                          <Spacer />
+                          <NumberDecrementStepper borderLeft="none" />
+                        </NumberInputStepper>
+                      </NumberInput>
+                    </FormControl>
+                    <Button
+                      onClick={() => {
+                        if (isAuthenticated) {
+                          bookauction(
+                            // Fetch Price
+                            e.attributes.uid_decimal.value.$numberDecimal,
+                            Number(e.attributes.pricePerDay_decimal.value.$numberDecimal)
+                          )
+                        }
+                      }}
+                      text="Buy" {...e.attributes.name} />
 
-      </div>
+                  </form>
+                </Box>
+              </>
+            );
+          })}
+      </FormControl>
     </>
   );
 };
