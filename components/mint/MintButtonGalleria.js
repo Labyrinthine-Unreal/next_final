@@ -4,12 +4,9 @@ import { Icon, Button, useNotification } from "web3uikit";
 import { useState, useEffect } from "react";
 import { useMoralis, useWeb3ExecuteFunction } from "react-moralis";
 import { useRouter } from "next/router";
-import Card from 'react-bootstrap/Card';
 import { useToast, Heading, Center, NumberInputStepper, Box, Spacer, NumberIncrementStepper, Input, NumberDecrementStepper, NumberInputField, Text, FormControl, FormLabel, NumberInput } from "@chakra-ui/react"
 import galleriesABI from "@components/ABIs/galleriesABI.json";
-import { NFTBalance } from "web3uikit"
-// import User from "@components/User";
-import { nftBalances } from "@components/animations/AnimatedTitles";
+
 export default function Galleria0() {
 
   //useRouter() in place of useLocation()
@@ -40,41 +37,41 @@ export default function Galleria0() {
 
   }, [isAuthenticated])
 
-  useEffect(() => {
-    //Initialize API / fetch Gallery Listings
-    async function fetchAuctionsList() {
-      await Moralis.start({
-        serverUrl: "https://d8tdshnwaepb.usemoralis.com:2053/server",
-        appId: "dqkfmKHCu1vl17sLEOFgJ9RnwsJyrMgsqNLKTgQE",
-        masterKey: "nCOMVxCN1LDmsbmor74UPEhALoUYG0XrFvvtMQdR"
-      });
+  //   useEffect(() => {
+  //     //Initialize API / fetch Gallery Listings
+  //     async function fetchAuctionsList() {
+  //       await Moralis.start({
+  //         serverUrl: "https://d8tdshnwaepb.usemoralis.com:2053/server",
+  //         appId: "dqkfmKHCu1vl17sLEOFgJ9RnwsJyrMgsqNLKTgQE",
+  //         masterKey: "nCOMVxCN1LDmsbmor74UPEhALoUYG0XrFvvtMQdR"
+  //       });
 
 
-      // Refer to @compoents/TaurosList.js
-      // TaurosDAO Lists a new Gallery for sale
-      //Search API key for the appropriate Dataset from MoralisDB
-      const auctions = Moralis.Object.extend("ListingCreated");
-      // Query new Gallery Listings Listings
-      const state = new Moralis.Query(auctions);
+  //       // Refer to @compoents/TaurosList.js
+  //       // TaurosDAO Lists a new Gallery for sale
+  //       //Search API key for the appropriate Dataset from MoralisDB
+  //       const auctions = Moralis.Object.extend("ListingCreated");
+  //       // Query new Gallery Listings Listings
+  //       const state = new Moralis.Query(auctions);
 
-      const result = await state.find();
-      console.log(state)
+  //       const result = await state.find();
+  //       console.log(state)
 
-      // CoOrdinates via Google Maps API
-      let cords = [];
-      result.forEach((e) => {
-        cords.push({ lat: e.attributes.lat, lng: e.attributes.long });
-      });
-      console.log(cords)
+  //       // CoOrdinates via Google Maps API
+  //       let cords = [];
+  //       result.forEach((e) => {
+  //         cords.push({ lat: e.attributes.lat, lng: e.attributes.long });
+  //       });
+  //       console.log(cords)
 
-      setCoOrdinates(cords);
+  //       setCoOrdinates(cords);
 
-      // Fill Data
-      setAuctionsList(result);
-    }
-    //Fetch New Gallery Listings
-    fetchAuctionsList();
-  }, [searchFilters]);
+  //       // Fill Data
+  //       setAuctionsList(result);
+  //     }
+  //     //Fetch New Gallery Listings
+  //     fetchAuctionsList();
+  //   }, [searchFilters]);
 
 
   //Gallery Contract 
@@ -167,60 +164,50 @@ export default function Galleria0() {
       {/* |Current Galleries For Sale| */}
       <FormControl my="4" maxW="210" minW="210">
         {/* Map Queried Listings And fill in data respective to contract */}
-        {auctionsList &&
-          auctionsList.map((e, i) => {
-            return (
-              <>
-                <Spacer />
-                {/* Fetch Description Gallery Name (Galleria/The Cube) From MoralisDB */}
-                <div>Latitude: {e.attributes.lat}</div>
-                Longitude: {e.attributes.long}
-                <Box fontSize="xl" fontWeight="bold" align="right">
-                  <form
-                    onSubmit={async e => {
-                      e.preventDefault()
-                    }}>
-                    <FormControl my="4" maxW="210" minW="210">
-                      {/* Fetch ImageURL (Galleria/The Box) From MoralisDB */}
-                      {/* <img className="auctionImg" src={e.attributes.imgUrl}></img> */}
+        {/* {auctionsList &&
+          auctionsList.map((e, i) => { */}
+        {/* return ( */}
+        <>
+          {/* <Spacer /> */}
+          {/* Fetch DLatitude/Longitude of Gallery Location From MoralisDB */}
+          {/* <div>Latitude: {e.attributes.lat}</div>
+                Longitude: {e.attributes.long} */}
+          <Box fontSize="xl" fontWeight="bold" align="right">
+            <form
+              onSubmit={async e => {
+                e.preventDefault()
+              }}>
+              {/* Fetch ImageURL (Galleria/The Box) From MoralisDB */}
+              {/* <img className="auctionImg" src={e.attributes.imgUrl}></img> */}
 
-                      {/* Fetch Description Gallery Name (Galleria/The Box) From MoralisDB */}
-                      {/* <div className="auctionTitle">{e.attributes.name}</div> */}
+              {/* Fetch Description Gallery Name (Galleria/The Box) From MoralisDB */}
+              {/* <div className="auctionTitle">{e.attributes.name}</div> */}
 
-                      {/* Fetch Description One From MoralisDB */}
-                      {/* <div> {e.attributes.descriptionOne}</div> */}
+              {/* Fetch Description One From MoralisDB */}
+              {/* <div> {e.attributes.descriptionOne}</div> */}
 
-                      {/* purchase {e.attributes.descriptionOne} for {e.attributes.pricePerDay} 0.5Ξ */}
+              {/* purchase {e.attributes.descriptionOne} for {e.attributes.pricePerDay} 0.5Ξ */}
 
-                      {/* <FormLabel htmlFor="amount" textAlign="right"> Purchase Gallery
+              {/* <FormLabel htmlFor="amount" textAlign="right"> Purchase Gallery
                           </FormLabel> */}
-
-                      <NumberInput step={1} min={1} max={10} defaultValue={1} onChange={handleChange} allowMouseWheel>
-                        <NumberInputField id="amount" value={amount} bg="gray.200" boxShadow="lg" />
-                        <NumberInputStepper bg="teal.300">
-                          <NumberIncrementStepper borderLeft="none" />
-                          <Spacer />
-                          <NumberDecrementStepper borderLeft="none" />
-                        </NumberInputStepper>
-                      </NumberInput>
-                    </FormControl>
-                    <Button
-                      onClick={() => {
-                        if (isAuthenticated) {
-                          bookauction(
-                            // Fetch Price
-                            e.attributes.uid_decimal.value.$numberDecimal,
-                            Number(e.attributes.pricePerDay_decimal.value.$numberDecimal)
-                          )
-                        }
-                      }}
-                      text="Buy" {...e.attributes.name} />
-
-                  </form>
-                </Box>
-              </>
-            );
-          })}
+              <FormControl my="4" maxW="210" minW="210">
+                <NumberInput step={1} min={1} max={10} defaultValue={1} onChange={handleChange} allowMouseWheel>
+                  <NumberInputField id="amount" value={amount} bg="gray.200" boxShadow="lg" />
+                  <NumberInputStepper bg="teal.300">
+                    <NumberIncrementStepper borderLeft="none" />
+                    <Spacer />
+                    <NumberDecrementStepper borderLeft="none" />
+                  </NumberInputStepper>
+                </NumberInput>
+              </FormControl>
+              <Button onClick={() => {
+                if (isAuthenticated) { bookauction(); }
+              }} text={"Buy"} theme={"primary"} />
+            </form>
+          </Box>
+        </>
+        {/* ); */}
+        {/* })} */}
       </FormControl>
     </>
   );
