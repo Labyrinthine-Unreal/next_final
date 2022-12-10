@@ -1,67 +1,27 @@
 import { Box, Button, Image, Divider, useDisclosure, Modal, ModalOverlay, ModalContent, ModalHeader, ModalBody, ModalCloseButton } from '@chakra-ui/react'
 import styles from '@styles/SignIn.module.css'
-import { useMoralis } from "react-moralis"
+// import { useMoralis } from "react-moralis"
 import connectors from './connectors'
 import { useAccount, useConnect } from 'wagmi'
-import { connect } from "@src/redux/blockchain/blockchainActions";
-import { fetchData } from "@src/redux/data/dataActions";
-import { useDispatch, useSelector } from "react-redux";
 import {useEffect, useState} from "react";
 
 export default function Connect() {
 
   const { isOpen, onOpen, onClose } = useDisclosure()
-  const { isAuthenticated, authenticate, account, logout, isLoggingOut } = useMoralis()
-
+  const { connect, connectors, error, isLoading, pendingConnector } = useConnect()
   // CONNECT WALLET
-  function createConnectHandler(connectorId) {
-    return async () => {
-      try {
-        const connector = connectors[connectorId]
-        await authenticate(connector)
-      } catch (error) {
-        console.error(error)
-      }
-    }
-  }
-  //______________________________________________________|__________________________________________________\\
-  //                                                       |                                                   \\
-  const dispatch = useDispatch();
-  const blockchain = useSelector((state) => state.blockchain);
-  const data = useSelector((state) => state.data);
+  // function createConnectHandler(connectorId) {
+  //   return async () => {
+  //     try {
+  //       const connector = connectors[connectorId]
+  //       await authenticate(connector)
+  //     } catch (error) {
+  //       console.error(error)
+  //     }
+  //   }
+  // }
 
-  const getData = () => {
-    if (blockchain.account !== "" && blockchain.smartContract !== null) {
-      dispatch(fetchData(blockchain.account));
-    }
-  };
-  const getConfig = async () => {
-    const configResponse = await fetch("/config/config.json", {
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-      },
-    });
-    const config = await configResponse.json();
-    // SET_CONFIG(config);
-    console.log(config)
-  };
-
-  // get Contract config
-  useEffect(() => {
-    getConfig();
-    console.log(getConfig());
-  }, []);
-
-  // Fetch user data
-  useEffect(() => {
-    getData();
-  }, [blockchain.account]);
-
-  //______________________________________________________|__________________________________________________\\
-  //    
   // POPUP WALLET CONNECT MENU WITH WALLET OPTIONS
-  // ITERATE THROUGH WALLETS IN THE connectors.js file, RENAME, AND ASSIGN A LOGO TO EACH
   return (
 
     <Box className={styles.connect}>
@@ -73,7 +33,25 @@ export default function Connect() {
           <Divider />
           <ModalCloseButton />
           <ModalBody py={10}>
-            {
+
+            {/* Initialize WAGMI providers connections */}
+          {connectors.map((connector) => (
+        <Button
+          disabled={!connector.ready}
+          key={connector.id}
+          onClick={() => connect({ connector })}
+        >
+          {connector.name}
+          {!connector.ready && ' (unsupported)'}
+          {isLoading &&
+            connector.id === pendingConnector?.id &&
+            ' (connecting)'}
+        </Button>
+      ))}
+
+{/* ITERATE THROUGH WALLETS IN THE connectors.js file, RENAME, AND ASSIGN A LOGO TO EACH */}
+
+            {/* {
               Object.keys(connectors).map((value) => {
                 const walletIcon = `/images/logos-icons/${value}.png`;
                 let walletName;
@@ -100,18 +78,7 @@ export default function Connect() {
                 )
               })
 
-            }
-            {/* Initialize Provider */}
-            {/* On Connection... User will be able to mint XezomDAO ERC721,can replace with ERC20 */}
-            <Button
-              onClick={(e) => {
-                e.preventDefault();
-                dispatch(connect());
-                getData();
-              }}
-            >
-              CONNECT
-            </Button>
+            } */}
           </ModalBody>
         </ModalContent>
       </Modal>
