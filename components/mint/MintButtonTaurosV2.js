@@ -1,111 +1,194 @@
-import {useToast, NumberInputStepper, Button, Box, Spacer, NumberIncrementStepper, NumberDecrementStepper, NumberInputField, Text, FormControl, FormLabel, NumberInput} from "@chakra-ui/react"
-import { useEffect, useState, } from "react";
-import CustomContainer from "@components/CustomContainer";
-import { useMoralis, useWeb3ExecuteFunction } from 'react-moralis';
-import styles from "@styles/MintButton.module.css"
-import taurosABI from "../ABIs/taurosABI"
+import React, {useEffect, useState} from "react";
+import {useDispatch, useSelector} from "react-redux";
+import {fetchData} from "@src/redux/data/dataActions";
+import {Button, Container,Box, Link, Spacer, Text} from "@chakra-ui/react";
 
 const truncate = (input, len) =>
-  input.length > len ? `${input.substring(0, len)}...` : input;
+    input.length > len ? `${input.substring(0, len)}...` : input;
 
 export default function MBT() {
+    const dispatch = useDispatch();
+    const blockchain = useSelector((state) => state.blockchain);
+    const data = useSelector((state) => state.data);
+    const [claimingNft, setClaimingNft] = useState(false);
+    const [feedback, setFeedback] = useState(false);
+    const [mintAmount, setMintAmount] = useState(1);
+    
+    const [CONFIG, SET_CONFIG] = useState({
+        CONTRACT_ADDRESS: "",
+        SCAN_LINK: "",
+        NETWORK: {
+            NAME: "",
+            SYMBOL: "",
+            ID: 0,
+        },
+        NFT_NAME: "",
+        SYMBOL: "",
+        MAX_SUPPLY: 1,
+        WEI_COST: 0,
+        DISPLAY_COST: 0,
+        GAS_LIMIT: 0,
+        MARKETPLACE: "",
+        MARKETPLACE_LINK: "",
+        SHOW_BACKGROUND: false,
+    });
 
-  const [amount, setAmount] = useState(1)
-  const handleChange = (value) => setAmount(value)
-  const toast = useToast()
+    const claimNFTs = () => {
+        let cost = CONFIG.WEI_COST;
+        let gasLimit = CONFIG.GAS_LIMIT;
+        let totalCostWei = String(cost * mintAmount);
+        let totalGasLimit = String(gasLimit * mintAmount);
+        console.log("Cost: ", totalCostWei);
+        console.log("Gas limit: ", totalGasLimit);
+        <Text>setFeedback(`Minting your ${CONFIG.NFT_NAME}...`)</Text>;
+        setClaimingNft(true);
+        blockchain.smartContract.methods
+            .mint(mintAmount) //mintAmount, "https://ipfs.io/ipfs/Qmf5ArUFQyuYBd591Ext3Z4WzXjWzxAd8vciF6dfbmC1P6?filename=gh.gif"
+            .send({
+                gasLimit: String(totalGasLimit),
+                to: CONFIG.CONTRACT_ADDRESS,
+                from: blockchain.account,
+                value: totalCostWei,
+            })
+            .once("error", (err) => {
+                console.log(err);
+                setFeedback(<Text>"Mint Failed"</Text>);
+                setClaimingNft(false);
+            })
+            .then((receipt) => {
+                console.log(receipt);
+                setFeedback(
+                    <Text>`Nice , You are now a member of the ${CONFIG.NFT_NAME}`</Text>
+                );
+                setClaimingNft(false);
+                dispatch(fetchData(blockchain.account));
+            });
+    };
 
-  const { authenticate, isAuthenticated, isAuthenticating, Moralis, user, account, logout } = useMoralis();
-  const contractProcessor = useWeb3ExecuteFunction();
-  // const [value, setValue] = useControllableState({ defaultValue: 1 })
+    const decrementMintAmount = () => {
+        let newMintAmount = mintAmount - 1;
+        if (newMintAmount < 1) {
+            newMintAmount = 1;
+        }
+        setMintAmount(newMintAmount);
+    };
 
-  const PRICE = {
-    contractAddress: "0x1A0F33bBc5c7bA83f490cdB6C13ee50e1C851908",
-    functionName: "PRICE",
-    abi: taurosABI,
-  };
+    const incrementMintAmount = () => {
+        let newMintAmount = mintAmount + 1;
+        if (newMintAmount > 10) {
+            newMintAmount = 10;
+        }
+        setMintAmount(newMintAmount);
+    };
 
-  // const message = await Moralis.executeFunction(PRICE);
-  
-  useEffect(() => {
-    if (isAuthenticated) {
+    const getData = () => {
+        if (blockchain.account !== "" && blockchain.smartContract !== null) {
+            dispatch(fetchData(blockchain.account));
+        }
+    };
 
-    }
+    const getConfig = async () => {
+        const configResponse = await fetch("/config/config.json", {
+            headers: {
+                "Content-Type": "application/json",
+                Accept: "application/json",
+            },
+        });
+        const config = await configResponse.json();
+        SET_CONFIG(config);
+    };
 
-  }, [isAuthenticated])
+    useEffect(() => {
+        getConfig();
+    }, []);
 
-  async function _mintTauros() {
-    let options = {
-      contractAddress: '0x1A0F33bBc5c7bA83f490cdB6C13ee50e1C851908',
-      functionName: 'claimTauros',
-      abi: taurosABI,
-      msgValue: await Moralis.executeFunction(PRICE) * amount,
-      // Moralis.Units.ETH("0.05")* amount,
-//       Moralis.Units.ETH("0.08")
-      params: {
-        _count: amount,
-      }
-    }
+    useEffect(() => {
+        getData();
+    }, [blockchain.account]);
+    console.log(blockchain.account)
 
-    // possibly check for if user is authenticated and set
-    // await Moralis.enableWeb3();
-    // if not
-    await contractProcessor.fetch({
-      params: options,
-      onSuccess: () => {
-        toast({
-          title: 'Mint Successful',
-          description: "Minted TAUROS",
-          status: 'success',
-          duration: 9000,
-          isClosable: true,
-        })
-        console.log("Mint successful");
-      },
-      onError: (error) => {
-        toast({
-          title: 'Mint Failed.. User rejected the transaction or not enough Ether To Purchase TAUROS',
-          description: console.log(error),
-          status: "error",
-          duration: '9000',
-          isClosable: true
-        })
-        console.log(error);
-      }
-    })
-  }
-  return (
-    <CustomContainer>
-      <Box fontSize="xl" fontWeight="bold" align="right">
-        <form className={styles.btn} onSubmit={async e => {
-          e.preventDefault()
-        }}>
-          <FormControl my="4" maxW="210" minW="210">
-            <FormLabel htmlFor="amount" textAlign="right">
-              Amount to Mint
-            </FormLabel>
+    return (
+        <Box>
+            <a href={CONFIG.MARKETPLACE_LINK}>
+            </a>
+            <Spacer />
 
-            <NumberInput step={1} min={1} max={10} defaultValue={1} onChange={handleChange} allowMouseWheel>
-              <NumberInputField  id="amount" value={amount} bg="gray.200" boxShadow="lg" />
-              <NumberInputStepper bg="teal.300">
-                <NumberIncrementStepper borderLeft="none" />
-                <Spacer />
-                <NumberDecrementStepper borderLeft="none" />
-                </NumberInputStepper>
-              </NumberInput>
-          </FormControl>
-          <Spacer />
-          <Button
-            color="white" 
-            _hover={{bg: "teal.400"}} 
-            rounded="xl"
-            onClick={() => {
-            if (isAuthenticated) { _mintTauros(); }
-          }}>
-            Mint
-          </Button>
+            <Text>
+                {data.totalSupply} / {CONFIG.MAX_SUPPLY}
+            </Text>
+            <Text>
+                <Link target={"_blank"} href={CONFIG.SCAN_LINK}>
+                    {truncate(CONFIG.CONTRACT_ADDRESS, 15)}
+                </Link>
+            </Text>
+            { }
+            <Spacer />
+            {Number(data.totalSupply) >= CONFIG.MAX_SUPPLY ? (
+                <>
+                    The sale has ended.
+                    <Text>
+                        You can still find {CONFIG.NFT_NAME} on
+                    </Text>
+                </>
+            ) : (
+                <>
+                    {blockchain.account === "" ||
+                        blockchain.smartContract === null ? (
+                        <Container>
+                            {blockchain.errorMsg !== "" ? (
+                                <>
+                                    <Text>
+                                        {blockchain.errorMsg}
+                                    </Text>
+                                </>
+                            ) : null}
+                        </Container>
+                    ) : (
+                        <>
 
-        </form>
-      </Box>
-    </CustomContainer>
-  )
+                            {feedback}
+
+                            {/* Increase Mint Amount */}
+                            <Button
+                                disabled={claimingNft ? 1 : 0}
+                                onClick={(e) => {
+                                    e.preventDefault();
+                                    incrementMintAmount();
+                                }}
+                            >
+                                ▲
+                            </Button>
+                            {/* Display Mint Amount */}
+                            <Spacer />
+                            {mintAmount}
+                            <Spacer />
+                            {/* Decrease Mint Amount */}
+                            <Button disabled={claimingNft ? 1 : 0} onClick={(e) => {
+                                e.preventDefault();
+                                decrementMintAmount();
+                            }}
+                            >
+                                ▼
+                            </Button>
+
+                            <Button
+                                disabled={claimingNft ? 1 : 0}
+                                onClick={(e) => {
+                                    e.preventDefault();
+
+                                    claimNFTs();
+                                    getData();
+                                }}
+                            >
+                                <Text> {claimingNft ? "MINTING" : "MINT"}</Text>
+                            </Button>
+                        </>
+                    )}
+                </>
+            )}
+            <Spacer />
+            </Box>
+    );
 }
+
+

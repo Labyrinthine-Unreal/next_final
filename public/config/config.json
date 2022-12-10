@@ -1,18 +1,18 @@
 {
-  "CONTRACT_ADDRESS": "0x25cff20e9fb576b76768d4ce69c66578b7f7ac5d",
-  "SCAN_LINK": "https://rinkeby.etherscan.io/address/0x25cff20e9fb576b76768d4ce69c66578b7f7ac5d",
+  "CONTRACT_ADDRESS": "0x60b86029Bc6D77a7734B58Bc4625f9fF4F98196e",
+  "SCAN_LINK": "https://goerli.etherscan.io/address/0x60b86029Bc6D77a7734B58Bc4625f9fF4F98196e",
   "NETWORK": {
-    "NAME": "rEthereum",
-    "SYMBOL": "rETH",
-    "ID": 4
+    "NAME": "gEthereum",
+    "SYMBOL": "gETH",
+    "ID": 5
   },
-  "NFT_NAME": "TaurosDAO Estates",
-  "SYMBOL": "ESTATE",
+  "NFT_NAME": "TaurosDAO",
+  "SYMBOL": "TAUROS",
   "MAX_SUPPLY": 7110,
-  "WEI_COST": 0.00000000000000000,
-  "DISPLAY_COST": 0.00,
+  "WEI_COST": 50000000000000000,
+  "DISPLAY_COST": 0.05,
   "GAS_LIMIT": 250000,
   "MARKETPLACE": "Opensea",
-  "MARKETPLACE_LINK": "https://testnets.opensea.io/collection/lumask-hs4b6vnfpg",
+  "MARKETPLACE_LINK": "https://testnets.opensea.io/",
   "SHOW_BACKGROUND": true
 }

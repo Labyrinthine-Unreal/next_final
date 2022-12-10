@@ -1,7 +1,6 @@
-import {useToast, NumberInputStepper, Box, Spacer, NumberIncrementStepper, NumberDecrementStepper, NumberInputField, Text, FormControl, FormLabel, NumberInput} from "@chakra-ui/react"
+import {useToast, NumberInputStepper, Button, Box, Spacer, NumberIncrementStepper, NumberDecrementStepper, NumberInputField, Text, FormControl, FormLabel, NumberInput} from "@chakra-ui/react"
 import { useEffect, useState, } from "react";
 import CustomContainer from "@components/CustomContainer";
-import { Button } from 'web3uikit';
 import { useMoralis, useWeb3ExecuteFunction } from 'react-moralis';
 import styles from "@styles/MintButton.module.css"
 import taurosABI from "../ABIs/taurosABI"
@@ -18,6 +17,15 @@ export default function MBT() {
   const { authenticate, isAuthenticated, isAuthenticating, Moralis, user, account, logout } = useMoralis();
   const contractProcessor = useWeb3ExecuteFunction();
   // const [value, setValue] = useControllableState({ defaultValue: 1 })
+
+  const PRICE = {
+    contractAddress: "0x1A0F33bBc5c7bA83f490cdB6C13ee50e1C851908",
+    functionName: "PRICE",
+    abi: taurosABI,
+  };
+
+  // const message = await Moralis.executeFunction(PRICE);
+  
   useEffect(() => {
     if (isAuthenticated) {
 
@@ -27,17 +35,20 @@ export default function MBT() {
 
   async function _mintTauros() {
     let options = {
-      contractAddress: '0x4CA308C37B2EadF9e685642746C3f8ba80F4deC2',
-      functionName: 'mintNFTs',
+      contractAddress: '0x1A0F33bBc5c7bA83f490cdB6C13ee50e1C851908',
+      functionName: 'claimTauros',
       abi: taurosABI,
-      msgValue: Moralis.Units.ETH("0.05")* amount,
-//       Moralis.Units.ETH("0.1")
+      msgValue: await Moralis.executeFunction(PRICE) * amount,
+      // Moralis.Units.ETH("0.05")* amount,
+//       Moralis.Units.ETH("0.08")
       params: {
         _count: amount,
       }
     }
 
-    await Moralis.enableWeb3()
+    // possibly check for if user is authenticated and set
+    // await Moralis.enableWeb3();
+    // if not
     await contractProcessor.fetch({
       params: options,
       onSuccess: () => {
@@ -73,7 +84,7 @@ export default function MBT() {
               Amount to Mint
             </FormLabel>
 
-            <NumberInput step={1} min={1} max={10} onChange={handleChange} allowMouseWheel>
+            <NumberInput step={1} min={1} max={10} defaultValue={1} onChange={handleChange} allowMouseWheel>
               <NumberInputField  id="amount" value={amount} bg="gray.200" boxShadow="lg" />
               <NumberInputStepper bg="teal.300">
                 <NumberIncrementStepper borderLeft="none" />
@@ -83,9 +94,15 @@ export default function MBT() {
               </NumberInput>
           </FormControl>
           <Spacer />
-          <Button onClick={() => {
+          <Button
+            color="white" 
+            _hover={{bg: "teal.400"}} 
+            rounded="xl"
+            onClick={() => {
             if (isAuthenticated) { _mintTauros(); }
-          }} text={"Mint Tauros"} theme={"primary"} />
+          }}>
+            Mint
+          </Button>
 
         </form>
       </Box>
