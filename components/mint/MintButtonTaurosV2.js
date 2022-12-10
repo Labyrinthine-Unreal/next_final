@@ -5,7 +5,7 @@ import { useToast, Heading, Center, NumberInputStepper, Box, Spacer, NumberIncre
 import styles from "@styles/MintButton.module.css"
 import Web3 from "web3";
 export default function MBT() {
-  const [amount, setAmount] = React.useState(0)
+  const [amount, setAmount] = React.useState(1)
   const handleChange = (value) => setAmount(value)
   // Fetch user address
   const { address } = useAccount()
