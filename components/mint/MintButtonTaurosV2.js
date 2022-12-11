@@ -17,7 +17,7 @@ export default function MBT() {
 
   // Initialze claimTauros Contract write
   const { config, error } = usePrepareContractWrite({
-    address: '0x002f68bB4A0d2c0a68B20631581F2C9085f84D65',
+    address: '0x1A0F33bBc5c7bA83f490cdB6C13ee50e1C851908',
     abi: [
       {
         name: 'claimTauros',
