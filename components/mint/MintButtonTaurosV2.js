@@ -35,7 +35,7 @@ export default function MBT() {
       // Override Price 
       value: String(price * amount),
     },
-    // Amount to mint
+    // Amount to minta
     args: [amount],
   })
   console.log(config)

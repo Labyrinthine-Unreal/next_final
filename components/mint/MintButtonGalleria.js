@@ -43,7 +43,7 @@ export default function MBG() {
     },
 
     // Gallery Contract, GalleryID, amount to Purchase
-    args: [contract, tokenId, amount],
+    args: [contract, tokenId, amount], // Must be in sequence of params passed to contractWrite
   })
   console.log(config)
   console.log(error)
