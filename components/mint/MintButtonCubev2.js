@@ -2,9 +2,9 @@ import React from "react";
 import { usePrepareContractWrite, useAccount, useContractWrite } from 'wagmi'
 import { ethers } from "ethers";
 import { useToast, Heading, Center, NumberInputStepper, Box, Spacer, NumberIncrementStepper, Button, Input, NumberDecrementStepper, NumberInputField, Text, FormControl, FormLabel, NumberInput } from "@chakra-ui/react"
-
+import Web3 from "web3";
 export default function MBC() {
-    //Set Gallery TokenID
+    //Set Gallery Auction TokenId
     const [tokenId, setTokenId] = React.useState(0)
     // Set Gallery Contract
     const [contract, setContract] = React.useState('0x7A9b67f2b11440aEDfF6861325e7cC5d5b25675C')
@@ -14,6 +14,7 @@ export default function MBC() {
     // Fetch User Address
     const { address } = useAccount()
     console.log(address)
+    const price = Web3.utils.fromWei("800000000000000000", "wei")
 
     // Initialize Gallery Purchase 
     const { config, error } = usePrepareContractWrite({
@@ -27,8 +28,8 @@ export default function MBC() {
                 stateMutability: 'payable',
                 inputs:
                     [
-                        { internalType: 'uint256', name: 'tokenId', type: 'uint256' },
                         { internalType: 'address', name: 'contractAddr', type: 'address' },
+                        { internalType: 'uint256', name: 'tokenId', type: 'uint256' },
                         { internalType: 'uint256', name: 'amount', type: 'uint256' },
                     ],
                 outputs: [],
@@ -36,7 +37,10 @@ export default function MBC() {
         ],
         functionName: 'purchase',
         // Set Value of Gallery
-        value: ethers.utils.parseEther('0.5'),
+        overrides: {
+            // Override Price 
+            value: String(price),
+        },
 
         // Gallery Contract, GalleryID, amount to Purchase
         args: [contract, tokenId, amount],
@@ -57,10 +61,11 @@ export default function MBC() {
     return (
         <>
             {/* Purchase Cube */}
-            <Button disabled={!write} onClick={() => write?.()}>Purchase Gallery</Button>
-            {/* {error && (
-        <div>{error.message}</div>
-      )} */}
+
+            <Button disabled={!write} onClick={() => write?.()}>Buy</Button>
+            {error && (
+                <div>{error.message}</div>
+            )}
         </>
 
     )
