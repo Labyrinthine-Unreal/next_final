@@ -3,8 +3,6 @@ import { MoralisProvider } from "react-moralis"
 import React, { Children } from "react";
 import "@styles/reset.css"
 import store from "@src/redux/store";
-// import store2 from "@src/redux2/store2";
-
 import { Provider } from "react-redux";
 import Layout from "@components/navbars/Layout"
 import Footer from "@components/navbars/Footer"
@@ -19,7 +17,7 @@ import { CoinbaseWalletConnector } from 'wagmi/connectors/coinbaseWallet'
 import { InjectedConnector } from 'wagmi/connectors/injected'
 import { MetaMaskConnector } from 'wagmi/connectors/metaMask'
 import { WalletConnectConnector } from 'wagmi/connectors/walletConnect'
- 
+
 const { provider, webSocketProvider, chains } = configureChains(
   [mainnet],
   [
@@ -30,6 +28,7 @@ const { provider, webSocketProvider, chains } = configureChains(
   // { targetQuorum: 2 },
 )
 
+// Necessary for Wagmi Client Provider /* Do Not Delete or client will not work*/
 const client = createClient({
   autoConnect: true,
   connectors: [
@@ -62,27 +61,24 @@ const client = createClient({
 function MyApp({ Component, pageProps }) {
   return (
 
-      <Provider store={store}>
-
-          <WagmiConfig client={client}>
-
-
-            <ChakraProvider theme={theme}>
-              <React.StrictMode />
-              <MoralisProvider appId="ny6Iude7WFwg2QaZtvDK7zQC81e9uKRIeaCkFNxM" serverUrl="https://htogiwbd7il5.usemoralis.com:2053/server">
-                <Box>
-                  <Layout>
-                    <Box maxW="1000" align="center" py={20}>
-                      <Box textAlign="left">
-                        <Component {...pageProps} />
-                      </Box>
-                    </Box>
-                  </Layout>
+    <Provider store={store}>
+      <WagmiConfig client={client}>
+        <ChakraProvider theme={theme}>
+          <React.StrictMode />
+          <MoralisProvider appId="ny6Iude7WFwg2QaZtvDK7zQC81e9uKRIeaCkFNxM" serverUrl="https://htogiwbd7il5.usemoralis.com:2053/server">
+            <Box>
+              <Layout>
+                <Box maxW="1000" align="center" py={20}>
+                  <Box textAlign="left">
+                    <Component {...pageProps} />
+                  </Box>
                 </Box>
-              </MoralisProvider>
-            </ChakraProvider>
-     </WagmiConfig>
-      </Provider>
+              </Layout>
+            </Box>
+          </MoralisProvider>
+        </ChakraProvider>
+      </WagmiConfig>
+    </Provider>
 
 
   )

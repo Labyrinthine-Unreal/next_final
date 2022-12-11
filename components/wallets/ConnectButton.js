@@ -1,40 +1,100 @@
-import { Box, Button, Image, Divider, useDisclosure, Modal, ModalOverlay, ModalContent, ModalHeader, ModalBody, ModalCloseButton, Spacer } from '@chakra-ui/react'
+import { Box, Center, Icon, Button, Image, Divider, useDisclosure, Modal, ModalOverlay, ModalContent, ModalHeader, ModalBody, ModalCloseButton, Spacer } from '@chakra-ui/react'
 import styles from '@styles/SignIn.module.css'
-// import { useMoralis } from "react-moralis"
-import connectors from './connectors'
-import { useAccount,useEnsAvatar, useDisconnect, useConnect } from 'wagmi'
-import { useEffect, useState } from "react";
+import { useAccount, useEnsAvatar, useDisconnect, useConnect } from 'wagmi'
+import { MetaMaskConnector } from 'wagmi/connectors/metaMask'
+import { WalletConnectConnector } from 'wagmi/connectors/walletConnect';
+import { configureChains, } from 'wagmi'
+import { mainnet, goerli } from 'wagmi/chains'
+import { publicProvider } from 'wagmi/providers/public'
+import { infuraProvider } from 'wagmi/providers/infura'
+import { AiOutlineWallet } from 'react-icons/ai'
+import { useState, useEffect } from 'react';
 
 export default function Connect() {
-  const { address, connector, isConnected } = useAccount()
+  
+  const [shortWallet, setWalletAddress] = useState();
+  const { address, isConnected } = useAccount()
   const { disconnect } = useDisconnect()
   const { isOpen, onOpen, onClose } = useDisclosure()
-  const { connect, connectors, error, isLoading, pendingConnector } = useConnect()
-  
-  // CONNECT WALLET
-  // function createConnectHandler(connectorId) {
-  //   return async () => {
-  //     try {
-  //       const connector = connectors[connectorId]
-  //       await authenticate(connector)
-  //     } catch (error) {
-  //       console.error(error)
-  //     }
-  //   }
-  // }
+  const { connectAsync } = useConnect()
 
-  // POPUP WALLET CONNECT MENU WITH WALLET OPTIONS
+  const { chains } = configureChains(
+    [mainnet],
+    [
+      // alchemyProvider({ apiKey: 'hu9KmpMxud_8q6Tlskrt42zOpiGy-9xN' }),
+      infuraProvider({ apiKey: '5c9cb0b35a2742659dec6fc7680c16c4' }),
+      publicProvider()
+    ],
+    // { targetQuorum: 2 },
+  )
+
+  const handleMM = async () => {
+    const { account, chain } = await connectAsync({ connector: new MetaMaskConnector() });
+  };
+
+  const handleWC = async () => {
+    const { account, chain } = await connectAsync({
+      connector: new WalletConnectConnector({
+        chains,
+        options: {
+          qrcode: true,
+        },
+      })
+    })
+  };
+
+  // Sets state after authentication 
+  useEffect(() => {
+    if (address != null) {
+      const sessionWallet = getShortenAddress(address);
+      // window.localStorage.setItem('WALLET_ADDRESS', sessionWallet);
+      setWalletAddress(sessionWallet);
+      console.log(sessionWallet);
+    }
+  }, [address])
+
+  // Shorten Address Display
+  function getShortenAddress(address) {
+    if (typeof address === "string") {
+      const firstCharacters = address.substring(0, 6)
+      const lastCharacters = address.substring(address.length - 4, address.length)
+      return `${firstCharacters}...${lastCharacters}`;
+    }
+  }
+
   if (isConnected) {
     return (
       <div>
-        {/* <img src={ensAvatar} alt="ENS Avatar" /> */}
-        {/* <div>{ensName ? `${ensName} (${address})` : address}</div> */}
-        {/* <div>Connected to {connector.name}</div> */}
-        <Button onClick={disconnect}>{address}</Button>
+        {/* Display user Address on Connect */}
+        {/* Style On Connect */}
+        <Center>
+          {<Center
+            fontSize={14}
+            fontWeight="semibold"
+            bg="#009688bb"
+            color="#fff"
+            border="1px"
+            _hover={{ bg: "teal.400" }}
+            position="absolute"
+            w="fit-content"
+            h="40px"
+            right={110}
+            py={3}
+            pl={3}
+            pr={8}
+            rounded="3xl"
+          >
+            <Icon display={{ base: "none", md: "flex" }} fontSize={17} fontWeight="semibold" mr={2} as={AiOutlineWallet} />
+            {/* Display text 'Disconnect' next to Address (Green Bubble) */}
+           {shortWallet}
+          </Center>}
+          <Button onClick={disconnect}> Disconnect</Button>
+
+        </Center>
       </div>
     )
   }
- 
+
   return (
 
     <Box className={styles.connect}>
@@ -47,65 +107,40 @@ export default function Connect() {
           <ModalCloseButton />
           <ModalBody py={10}>
 
-            {/* Initialize WAGMI providers connections */}
-            
-            {connectors.map((connector,value) => (
+            {/* Initialize MetaMask WAGMI providers connections */}
+            <Button
+              w="full"
+              h="60px"
+              justifyContent="left"
+              variant="outline"
+              borderColor="#008080"
+              _hover={{ borderColor: '#000000' }}
+              rounded="xl"
+              fontWeight="normal"
+              my={2}
+              onClick={handleMM}
+              leftIcon={<Image src='/images/logos-icons/metamask.png' w="2em" h="2em" mr="2" />}
+            >
+              Metamask
+            </Button>
 
+            {/* Initialize WalletConnect WAGMI providers connections */}
+            <Button
+              w="full"
+              h="60px"
+              justifyContent="left"
+              variant="outline"
+              borderColor="#008080"
+              _hover={{ borderColor: '#000000' }}
+              rounded="xl"
+              fontWeight="normal"
+              my={2}
+              onClick={handleWC}
+              leftIcon={<Image src='/images/logos-icons/WalletConnect.png' w="2em" h="2em" mr="2" />}
+            >
+              WalletConnect
+            </Button>
 
-              <Button
-                w="full"
-                h="60px"
-                justifyContent="left"
-                variant="outline"
-                borderColor="#008080"
-                _hover={{ borderColor: '#000000' }}
-                rounded="xl"
-                fontWeight="normal"
-                my={2}
-                disabled={!connector.ready}
-                key={connector.id}
-                onClick={() => connect({ connector })}
-                // leftIcon={<Image src={walletIcon} w="2em" h="2em" mr="2" />}
-
-              >
-                {connector.name}
-                {!connector.ready && ' (unsupported)'}
-                {isLoading &&
-                  connector.id === pendingConnector?.id &&
-                  ' (connecting)'}
-              </Button>
-            ))}
-
-            {/* ITERATE THROUGH WALLETS IN THE connectors.js file, RENAME, AND ASSIGN A LOGO TO EACH */}
-
-            {/* {
-              Object.keys(connectors).map((value) => {
-                const walletIcon = `/images/logos-icons/${value}.png`;
-                let walletName;
-                if (value === 'Metamask') walletName = 'Metamask';
-                if (value === 'WalletConnect') walletName = 'Wallet Connect';
-                if (value === 'UnstoppableDomains') walletName = 'Unstoppable Domains';
-                return (
-                  <Button
-                    key={value}
-                    w="full"
-                    h="60px"
-                    justifyContent="left"
-                    variant="outline"
-                    borderColor="#ffffff"
-                    _hover={{ borderColor: '#000000' }}
-                    rounded="xl"
-                    fontWeight="normal"
-                    my={2}
-                    leftIcon={<Image src={walletIcon} w="2em" h="2em" mr="2" />}
-                    onClick={createConnectHandler(value)}
-                  >
-                    {value}
-                  </Button>
-                )
-              })
-
-            } */}
           </ModalBody>
         </ModalContent>
       </Modal>
