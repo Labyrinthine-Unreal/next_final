@@ -15,6 +15,7 @@ export default function MBG() {
   const { address } = useAccount()
   console.log(address)
   const price = Web3.utils.fromWei("500000000000000000", "wei")
+  const toast = useToast()
 
   // Initialize Gallery Purchase 
   const { config, error } = usePrepareContractWrite({
@@ -51,8 +52,25 @@ export default function MBG() {
   // Write to Marketplace Contract
   const { write } = useContractWrite({
     ...config,
-    onSuccess(data) {
-      console.log('Success', data)
+    onSuccess(data){
+      toast({
+        title: 'Mint Successful',
+        description: "Minted TAUROS",
+        status: 'success',
+        duration: 9000,
+        isClosable: true,
+      })
+      console.log("Mint successful");
+    },
+    onError(error) {
+      toast({
+        title: 'Mint Failed.. User rejected the transaction or not enough Ether To Purchase TAUROS',
+        description: console.log(error),
+        status: "error",
+        duration: '9000',
+        isClosable: true
+      })
+      console.log(error);
     },
     onMutate({ args }) {
       console.log('Mutate', { args })

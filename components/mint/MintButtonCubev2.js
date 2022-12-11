@@ -10,6 +10,7 @@ export default function MBC() {
     const [contract, setContract] = React.useState('0x7A9b67f2b11440aEDfF6861325e7cC5d5b25675C')
     // Set Amount to Purchase *User only mints 1*
     const [amount, setAmount] = React.useState(1)
+    const toast = useToast()
 
     // Fetch User Address
     const { address } = useAccount()
@@ -51,6 +52,26 @@ export default function MBC() {
     // Write to Marketplace Contract
     const { write } = useContractWrite({
         ...config,
+        onSuccess(data){
+            toast({
+              title: 'Mint Successful',
+              description: "Minted TAUROS",
+              status: 'success',
+              duration: 9000,
+              isClosable: true,
+            })
+            console.log("Mint successful");
+          },
+          onError(error) {
+            toast({
+              title: 'Mint Failed.. User rejected the transaction or not enough Ether To Purchase TAUROS',
+              description: console.log(error),
+              status: "error",
+              duration: '9000',
+              isClosable: true
+            })
+            console.log(error);
+          },
         onMutate({ args }) {
             console.log('Mutate', { args })
         }
