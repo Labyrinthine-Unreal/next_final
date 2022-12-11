@@ -37,7 +37,7 @@ const client = createClient({
     new CoinbaseWalletConnector({
       chains,
       options: {
-        appName: 'wagmi',
+        appName: 'TaurosDAO',
       },
     }),
     new WalletConnectConnector({
