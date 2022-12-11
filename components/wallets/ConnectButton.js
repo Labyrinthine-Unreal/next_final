@@ -2,7 +2,7 @@ import { Box, Button, Image, Divider, useDisclosure, Modal, ModalOverlay, ModalC
 import styles from '@styles/SignIn.module.css'
 // import { useMoralis } from "react-moralis"
 import connectors from './connectors'
-import { useAccount,useDisconnect, useConnect } from 'wagmi'
+import { useAccount,useEnsAvatar, useDisconnect, useConnect } from 'wagmi'
 import { useEffect, useState } from "react";
 
 export default function Connect() {
@@ -10,6 +10,7 @@ export default function Connect() {
   const { disconnect } = useDisconnect()
   const { isOpen, onOpen, onClose } = useDisclosure()
   const { connect, connectors, error, isLoading, pendingConnector } = useConnect()
+  
   // CONNECT WALLET
   // function createConnectHandler(connectorId) {
   //   return async () => {
@@ -27,10 +28,10 @@ export default function Connect() {
   if (isConnected) {
     return (
       <div>
-        {/* <img src={ensAvatar} alt="ENS Avatar" /> */}
+        <img src={ensAvatar} alt="ENS Avatar" />
         {/* <div>{ensName ? `${ensName} (${address})` : address}</div> */}
         {/* <div>Connected to {connector.name}</div> */}
-        <button onClick={disconnect}>{address}</button>
+        <Button onClick={disconnect}>{address}</Button>
       </div>
     )
   }
@@ -56,7 +57,7 @@ export default function Connect() {
                 h="60px"
                 justifyContent="left"
                 variant="outline"
-                borderColor="#ffffff"
+                borderColor="#008080"
                 _hover={{ borderColor: '#000000' }}
                 rounded="xl"
                 fontWeight="normal"
