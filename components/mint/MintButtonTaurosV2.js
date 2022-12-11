@@ -10,6 +10,7 @@ export default function MBT() {
   // Fetch user address
   const { address } = useAccount()
   console.log(address)
+  const toast = useToast()
 
   //Tauros Price : TODO fetch price from Contract for automatic update
   const price = Web3.utils.fromWei("50000000000000000", "wei")
@@ -44,9 +45,29 @@ export default function MBT() {
   // Contract Write
   const { data, write } = useContractWrite({
     ...config,
+    onSuccess(data){
+      toast({
+        title: 'Mint Successful',
+        description: "Minted TAUROS",
+        status: 'success',
+        duration: 9000,
+        isClosable: true,
+      })
+      console.log("Mint successful");
+    },
+    onError(error) {
+      toast({
+        title: 'Mint Failed.. User rejected the transaction or not enough Ether To Purchase TAUROS',
+        description: console.log(error),
+        status: "error",
+        duration: '9000',
+        isClosable: true
+      })
+      console.log(error);
+    },
     onMutate({ args }) {
       console.log('Mutate', { args })
-    }
+    },
   })
   console.log(data)
   console.log(write)

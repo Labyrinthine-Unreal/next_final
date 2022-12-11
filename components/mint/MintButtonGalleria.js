@@ -51,6 +51,9 @@ export default function MBG() {
   // Write to Marketplace Contract
   const { write } = useContractWrite({
     ...config,
+    onSuccess(data) {
+      console.log('Success', data)
+    },
     onMutate({ args }) {
       console.log('Mutate', { args })
     }
