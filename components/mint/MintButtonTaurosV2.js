@@ -100,9 +100,9 @@ export default function MBT() {
           <Button disabled={!write} onClick={() => write?.()}>
             Mint
           </Button>
-          <Box>{error && (
+          {/* <Box>{error && (
             <div>{error.message}</div>
-          )}</Box>
+          )}</Box> */}
         </form>
       </Box>
     </>

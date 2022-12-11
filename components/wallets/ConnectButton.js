@@ -24,7 +24,6 @@ export default function Connect() {
   // }
 
   // POPUP WALLET CONNECT MENU WITH WALLET OPTIONS
-
   if (isConnected) {
     return (
       <div>
@@ -49,7 +48,8 @@ export default function Connect() {
           <ModalBody py={10}>
 
             {/* Initialize WAGMI providers connections */}
-            {connectors.map((connector) => (
+            
+            {connectors.map((connector,value) => (
 
 
               <Button
