@@ -28,7 +28,7 @@ export default function Connect() {
   if (isConnected) {
     return (
       <div>
-        <img src={ensAvatar} alt="ENS Avatar" />
+        {/* <img src={ensAvatar} alt="ENS Avatar" /> */}
         {/* <div>{ensName ? `${ensName} (${address})` : address}</div> */}
         {/* <div>Connected to {connector.name}</div> */}
         <Button onClick={disconnect}>{address}</Button>
