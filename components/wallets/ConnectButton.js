@@ -1,12 +1,13 @@
-import { Box, Button, Image, Divider, useDisclosure, Modal, ModalOverlay, ModalContent, ModalHeader, ModalBody, ModalCloseButton } from '@chakra-ui/react'
+import { Box, Button, Image, Divider, useDisclosure, Modal, ModalOverlay, ModalContent, ModalHeader, ModalBody, ModalCloseButton, Spacer } from '@chakra-ui/react'
 import styles from '@styles/SignIn.module.css'
 // import { useMoralis } from "react-moralis"
 import connectors from './connectors'
-import { useAccount, useConnect } from 'wagmi'
-import {useEffect, useState} from "react";
+import { useAccount,useDisconnect, useConnect } from 'wagmi'
+import { useEffect, useState } from "react";
 
 export default function Connect() {
-
+  const { address, connector, isConnected } = useAccount()
+  const { disconnect } = useDisconnect()
   const { isOpen, onOpen, onClose } = useDisclosure()
   const { connect, connectors, error, isLoading, pendingConnector } = useConnect()
   // CONNECT WALLET
@@ -22,6 +23,18 @@ export default function Connect() {
   // }
 
   // POPUP WALLET CONNECT MENU WITH WALLET OPTIONS
+
+  if (isConnected) {
+    return (
+      <div>
+        {/* <img src={ensAvatar} alt="ENS Avatar" /> */}
+        {/* <div>{ensName ? `${ensName} (${address})` : address}</div> */}
+        {/* <div>Connected to {connector.name}</div> */}
+        <button onClick={disconnect}>{address}</button>
+      </div>
+    )
+  }
+ 
   return (
 
     <Box className={styles.connect}>
@@ -35,21 +48,34 @@ export default function Connect() {
           <ModalBody py={10}>
 
             {/* Initialize WAGMI providers connections */}
-          {connectors.map((connector) => (
-        <Button
-          disabled={!connector.ready}
-          key={connector.id}
-          onClick={() => connect({ connector })}
-        >
-          {connector.name}
-          {!connector.ready && ' (unsupported)'}
-          {isLoading &&
-            connector.id === pendingConnector?.id &&
-            ' (connecting)'}
-        </Button>
-      ))}
+            {connectors.map((connector) => (
 
-{/* ITERATE THROUGH WALLETS IN THE connectors.js file, RENAME, AND ASSIGN A LOGO TO EACH */}
+
+              <Button
+                w="full"
+                h="60px"
+                justifyContent="left"
+                variant="outline"
+                borderColor="#ffffff"
+                _hover={{ borderColor: '#000000' }}
+                rounded="xl"
+                fontWeight="normal"
+                my={2}
+                disabled={!connector.ready}
+                key={connector.id}
+                onClick={() => connect({ connector })}
+                // leftIcon={<Image src={walletIcon} w="2em" h="2em" mr="2" />}
+
+              >
+                {connector.name}
+                {!connector.ready && ' (unsupported)'}
+                {isLoading &&
+                  connector.id === pendingConnector?.id &&
+                  ' (connecting)'}
+              </Button>
+            ))}
+
+            {/* ITERATE THROUGH WALLETS IN THE connectors.js file, RENAME, AND ASSIGN A LOGO TO EACH */}
 
             {/* {
               Object.keys(connectors).map((value) => {
