@@ -9,9 +9,28 @@ import { publicProvider } from 'wagmi/providers/public'
 import { infuraProvider } from 'wagmi/providers/infura'
 import { AiOutlineWallet } from 'react-icons/ai'
 import { useState, useEffect } from 'react';
+import connectors from './connectors'
+import { useMoralis } from "react-moralis"
 
 export default function Connect() {
-  
+
+
+  const { isAuthenticated, authenticate, account, logout, isLoggingOut } = useMoralis()
+
+
+  // CONNECT WALLET
+  function createConnectHandler(connectorId) {
+    return async () => {
+      try {
+        const connector = connectors[connectorId]
+        console.log(connector)
+        await authenticate(connector)
+      } catch (error) {
+        console.error(error)
+      }
+    }
+  }
+
   const [shortWallet, setWalletAddress] = useState();
   const { address, isConnected } = useAccount()
   const { disconnect } = useDisconnect()
@@ -106,7 +125,6 @@ export default function Connect() {
           <Divider />
           <ModalCloseButton />
           <ModalBody py={10}>
-
             {/* Initialize MetaMask WAGMI providers connections */}
             <Button
               w="full"
@@ -140,7 +158,32 @@ export default function Connect() {
             >
               WalletConnect
             </Button>
-
+            {/* Initialize Unstoppable Domains Connector */}
+            {
+                Object.keys(connectors).map((value) => {
+                const walletIcon = `/images/logos-icons/${value}.png`;
+                let walletName;
+                if (value === 'UnstoppableDomains') walletName = 'Unstoppable Domains';
+                return(
+                    <Button
+                        key={value}
+                        w="full"
+                        h="60px"
+                        justifyContent="left"
+                        variant="outline"
+                        borderColor="#ffffff"
+                        _hover={{ borderColor: '#000000' }}
+                        rounded="xl"
+                        fontWeight="normal"
+                        my={2}
+                        leftIcon={<Image src={walletIcon} w="2em" h="2em" mr="2" />}
+                        onClick={createConnectHandler(value)}
+                        >
+                        {value}
+                    </Button>
+                )
+                })
+            }
           </ModalBody>
         </ModalContent>
       </Modal>

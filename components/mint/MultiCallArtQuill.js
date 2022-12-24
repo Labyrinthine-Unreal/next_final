@@ -3,11 +3,11 @@ import { usePrepareContractWrite, useAccount, useContractWrite } from 'wagmi'
 import { ethers } from "ethers";
 import { useToast, Heading, Center, NumberInputStepper, Box, Spacer, NumberIncrementStepper, Button, Input, NumberDecrementStepper, NumberInputField, Text, FormControl, FormLabel, NumberInput } from "@chakra-ui/react"
 import Web3 from "web3";
-export default function MBG() {
+export default function MCAQ() {
   //Set Gallery Auction TokenId
-  const [tokenId, setTokenId] = React.useState(1)
+  const [tokenId, setTokenId] = React.useState(0)
   // Set Gallery Contract
-  const [contract, setContract] = React.useState('0x7A9b67f2b11440aEDfF6861325e7cC5d5b25675C')
+  const [contract, setContract] = React.useState('0xCc9486302BA525f65Be11aF64341d77E93Ae1195')
   // Set Amount to Purchase *User only mints 1*
   const [amount, setAmount] = React.useState(1)
 
@@ -20,7 +20,7 @@ export default function MBG() {
   // Initialize Gallery Purchase 
   const { config, error } = usePrepareContractWrite({
     // Set Marketplace Contract
-    address: '0xC9d3C8E9a04df301162980a37b637ab380284976',
+    address: '0x6A7bD8DB46A03cf7D215c26682f107777F716502',
     // Pass Marketplace Contract params
     abi: [
       {
@@ -40,11 +40,12 @@ export default function MBG() {
     // Set Value of Gallery
     overrides: {
       // Override Price 
-      value: String(price),
+      value: price,
+      gasLimit:250000
     },
 
     // Gallery Contract, GalleryID, amount to Purchase
-    args: [contract, tokenId, amount], // Must be in sequence of params passed to contractWrite
+    args: [contract,tokenId, amount], // Must be in sequence of params passed to contractWrite
   })
   console.log(config)
   console.log(error)
@@ -54,17 +55,17 @@ export default function MBG() {
     ...config,
     onSuccess(data){
       toast({
-        title: 'Mint Successful',
-        description: "Minted TAUROS",
+        title: 'Purchased ArtQuill',
+        description: "Gallery Purchased",
         status: 'success',
         duration: 9000,
         isClosable: true,
       })
-      console.log("Mint successful");
+      console.log("Purchase successful");
     },
     onError(error) {
       toast({
-        title: 'Mint Failed.. User rejected the transaction or not enough Ether To Purchase TAUROS',
+        title: 'Purchase Failed.. User rejected the transaction or not enough Ether To Purchase TAUROS',
         description: console.log(error),
         status: "error",
         duration: '9000',

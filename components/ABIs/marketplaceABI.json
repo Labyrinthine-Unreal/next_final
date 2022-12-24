@@ -34,12 +34,6 @@
 			{
 				"indexed": false,
 				"internalType": "string",
-				"name": "descriptionTwo",
-				"type": "string"
-			},
-			{
-				"indexed": false,
-				"internalType": "string",
 				"name": "imgUrl",
 				"type": "string"
 			},
@@ -66,29 +60,47 @@
 		"type": "event"
 	},
 	{
-		"anonymous": false,
 		"inputs": [
 			{
-				"indexed": false,
-				"internalType": "uint256",
-				"name": "id",
-				"type": "uint256"
+				"internalType": "string",
+				"name": "name",
+				"type": "string"
 			},
 			{
-				"indexed": false,
-				"internalType": "address",
-				"name": "booker",
-				"type": "address"
+				"internalType": "string",
+				"name": "lat",
+				"type": "string"
 			},
 			{
-				"indexed": false,
+				"internalType": "string",
+				"name": "long",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "descriptionOne",
+				"type": "string"
+			},
+			{
 				"internalType": "string",
 				"name": "imgUrl",
 				"type": "string"
+			},
+			{
+				"internalType": "uint256",
+				"name": "pricePerDay",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "tokenId",
+				"type": "uint256"
 			}
 		],
-		"name": "newDatesBooked",
-		"type": "event"
+		"name": "addAuctions",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
 	},
 	{
 		"inputs": [
@@ -114,11 +126,6 @@
 			},
 			{
 				"internalType": "string",
-				"name": "descriptionTwo",
-				"type": "string"
-			},
-			{
-				"internalType": "string",
 				"name": "imgUrl",
 				"type": "string"
 			},
@@ -138,7 +145,7 @@
 				"type": "uint256"
 			}
 		],
-		"name": "addAuctions",
+		"name": "addMultiCallAuction",
 		"outputs": [],
 		"stateMutability": "nonpayable",
 		"type": "function"
@@ -211,6 +218,29 @@
 		"type": "function"
 	},
 	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "tokenId",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "amount",
+				"type": "uint256"
+			},
+			{
+				"internalType": "address",
+				"name": "contractAddr",
+				"type": "address"
+			}
+		],
+		"name": "mulitcallPurchase",
+		"outputs": [],
+		"stateMutability": "payable",
+		"type": "function"
+	},
+	{
 		"inputs": [],
 		"name": "owner",
 		"outputs": [
@@ -225,11 +255,6 @@
 	},
 	{
 		"inputs": [
-			{
-				"internalType": "address",
-				"name": "contractAddr",
-				"type": "address"
-			},
 			{
 				"internalType": "uint256",
 				"name": "tokenId",

@@ -1,7 +1,7 @@
 import React from "react";
 import { useMoralis, useWeb3ExecuteFunction } from "react-moralis";
-import Galleria0 from "@components/mint/MintButtonGalleria";
-import Galleria1 from "@components/mint/MintButtonCube";
+import MCAQ from "@components/mint/MultiCallArtQuill";
+import MCC from "@components/mint/MultiCallCube";
 
 import CustomContainer from "@components/CustomContainer";
 
@@ -11,11 +11,11 @@ export default function ButtonDisplayTest() {
   return (
     <>
     <CustomContainer>\
-        <Galleria0/>
+        <MCAQ/>
         </CustomContainer>
 
         <CustomContainer>\
-        <Galleria1/>
+        <MCC/>
         </CustomContainer>
     </>
   );

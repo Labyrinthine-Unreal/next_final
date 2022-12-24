@@ -18,8 +18,6 @@ UAuthMoralisConnector.setUAuthOptions({
 export const UnstoppableDomains = {connector: UAuthMoralisConnector}
 
 const connectors = {
-    Metamask,
-    WalletConnect,
     UnstoppableDomains
 }
 
