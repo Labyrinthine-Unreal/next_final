@@ -80,6 +80,7 @@ export default function Home() {
 
         </Box>
         
+        <Box p={20} align="center">
         {/* <Box p={20} align="center" overflowX="scroll"
           css={{
             '&::-webkit-scrollbar': {
@@ -116,7 +117,7 @@ export default function Home() {
               onClose={() => setModalData(null)}
               modalData={modalData}
             />
-        {/* </Box> */}
+        </Box>
 
         <Heading textStyle="title" pt={20}>
           <LU />
