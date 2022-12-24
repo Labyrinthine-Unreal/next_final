@@ -79,7 +79,8 @@ export default function Home() {
             <Center><TaurosDAOIcon /></Center>
 
         </Box>
-        <Box align="center">
+        
+        <Box p={20} align="center">
         {/* <Box p={20} align="center" overflowX="scroll"
           css={{
             '&::-webkit-scrollbar': {
