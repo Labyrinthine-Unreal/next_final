@@ -80,7 +80,7 @@ export default function Home() {
 
         </Box>
         
-        <Box p={20} align="center">
+        <Box align="center">
         {/* <Box p={20} align="center" overflowX="scroll"
           css={{
             '&::-webkit-scrollbar': {
