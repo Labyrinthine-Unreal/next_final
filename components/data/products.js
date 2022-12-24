@@ -18,26 +18,26 @@ const properties = [
         free: 'FREE w/ TAUROS',
         active: (<p>Mint is not active</p>)
     },
-    {
-        key: 2,
-        imageUrl: 'videos/rainy.mp4',
-        imageAlt: 'Estate Animation',
-        title: 'MERCA CITY ESTATE',
-        presalePrice: 'Presale: 0.1 ETH',
-        salePrice: 'Sale: 0.15 ETH',
-        free: 'FREE w/ TAUROS',
-        active: (<p>Mint is not active</p>)
-    },
-    {
-        key: 2,
-        imageUrl: 'videos/rainy.mp4',
-        imageAlt: 'Estate Animation',
-        title: 'MERCA CITY ESTATE',
-        presalePrice: 'Presale: 0.1 ETH',
-        salePrice: 'Sale: 0.15 ETH',
-        free: 'FREE w/ TAUROS',
-        active: (<p>Mint is not active</p>)
-    },
+    // {
+    //     key: 2,
+    //     imageUrl: 'videos/rainy.mp4',
+    //     imageAlt: 'Estate Animation',
+    //     title: 'MERCA CITY ESTATE',
+    //     presalePrice: 'Presale: 0.1 ETH',
+    //     salePrice: 'Sale: 0.15 ETH',
+    //     free: 'FREE w/ TAUROS',
+    //     active: (<p>Mint is not active</p>)
+    // },
+    // {
+    //     key: 2,
+    //     imageUrl: 'videos/rainy.mp4',
+    //     imageAlt: 'Estate Animation',
+    //     title: 'MERCA CITY ESTATE',
+    //     presalePrice: 'Presale: 0.1 ETH',
+    //     salePrice: 'Sale: 0.15 ETH',
+    //     free: 'FREE w/ TAUROS',
+    //     active: (<p>Mint is not active</p>)
+    // },
 ]
 
 export default properties
