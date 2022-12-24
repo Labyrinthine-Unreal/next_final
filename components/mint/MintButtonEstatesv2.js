@@ -1,107 +1,95 @@
-import {useToast, Button, NumberInputStepper, Box, Spacer, NumberIncrementStepper, NumberDecrementStepper, NumberInputField, Text, FormControl, FormLabel, NumberInput} from "@chakra-ui/react"
-import { useEffect, useState, } from "react";
-import CustomContainer from "@components/CustomContainer";
-import { useMoralis, useWeb3ExecuteFunction } from 'react-moralis';
-import styles from "@styles/MintButton.module.css"
+import React from "react";
+import { usePrepareContractWrite, useAccount, useContractWrite } from 'wagmi'
+import { ethers } from "ethers";
+import { useToast, Heading, Center, NumberInputStepper, Box, Spacer, NumberIncrementStepper, Button, Input, NumberDecrementStepper, NumberInputField, Text, FormControl, FormLabel, NumberInput } from "@chakra-ui/react"
+import Web3 from "web3";
+export default function PBM() {
+    //Set Gallery Auction TokenId
+    const [tokenId, setTokenId] = React.useState(0) //replace to 51
+    // Set Gallery Contract
+    // const [contract, setContract] = React.useState('0x449f661c53aE0611a24c2883a910A563A7e42489') 
+    // Set Amount to Purchase *User only mints 1*
+    const [amount, setAmount] = React.useState(1)
+    const toast = useToast()
 
-// import taurosABI from "./ABIs/taurosABI.json";
-import estatesABI from "../ABIs/estatesABI"
+    // Fetch User Address
+    const { address } = useAccount()
+    console.log(address)
+    const price = Web3.utils.fromWei("5000000", "wei")
 
-const truncate = (input, len) =>
-  input.length > len ? `${input.substring(0, len)}...` : input;
+    // Initialize Gallery Purchase 
+    const { config, error } = usePrepareContractWrite({
+        // Set Marketplace Contract
+        address: '0xA21A74dd2f355bDe47AF5A15E6C20F705d5E7888',
+        // Pass Marketplace Contract params
+        abi: [
+            {
+                name: 'purchase_BlueMoon',
+                type: 'function',
+                stateMutability: 'payable',
+                inputs:
+                    [
+                        { internalType: 'uint256', name: 'tokenId', type: 'uint256' },
+                        { internalType: 'uint256', name: 'amount', type: 'uint256' },
+                    ],
+                outputs: [],
+            },
+        ],
+        functionName: 'purchase_BlueMoon',
+        // Set Value of Gallery
+        overrides: {
+            // Override Price 
+            value: price,
+            gasLimit:250000
+        },
 
-export default function MBE() {
-  const [amount, setAmount] = useState(1)
-  const handleChange = (value) => setAmount(value)
-  const { authenticate, isAuthenticated, isAuthenticating, Moralis, user, account, logout } = useMoralis();
-  const contractProcessor = useWeb3ExecuteFunction();
-  const toast = useToast()
-
-  useEffect(() => {
-    if (isAuthenticated) {
-
-    }
-
-  }, [isAuthenticated])
-
-  async function _mintEstates() {
-    let options = {
-      // msgValue: Moralis.Units.ETH("0.05"),
-      contractAddress: '0x6997640355E20515C541F7D93D662782e43823a4',
-      functionName: 'mintNFTs',
-      abi: estatesABI,
-      params: {
-        _count: 1 * amount,
-      }
-    }
-    await Moralis.enableWeb3()
-    await contractProcessor.fetch({
-      params: options,
-      onSuccess: () => {
-        toast({
-          title: 'Mint Successful',
-          description: "Minted Merca City Estate",
-          status: 'success',
-          duration: 9000,
-          isClosable: true,
-        })
-        console.log("Mint successful");
-      },
-      onError: (error) => {
-        toast({
-          title: 'Mint Failed.. User is Not Whitelisted or rejected the transaction',
-          description: console.log(error),
-          status: "error",
-          duration: '9000',
-          isClosable: true
-        })
-        console.log(error);
-      }
+        // Gallery Contract, GalleryID, amount to Purchase
+        args: [tokenId, amount],
     })
-  }
-  return (
-    <CustomContainer>
-      <Box fontSize="xl" fontWeight="bold" align="right">
-        <form className={styles.btn} onSubmit={async e => {
-          e.preventDefault()
-        }}>
-          <FormControl my="4" maxW="210" minW="210">
-            <FormLabel htmlFor="amount" textAlign="right">
-              Amount to Mint
-            </FormLabel>
-            <NumberInput step={1} min={1} max={10} onChange={handleChange} allowMouseWheel>
-              <NumberInputField  id="amount" value={amount} bg="gray.200" boxShadow="lg" />
-              <NumberInputStepper bg="teal.300">
-                <NumberIncrementStepper borderLeft="none" />
-                <Spacer />
-                <NumberDecrementStepper borderLeft="none" />
-              </NumberInputStepper>
-            </NumberInput>
-          </FormControl>
-          <Button 
-            disabled 
-            color="white" 
-            _hover={{bg: "teal.400"}} 
-            rounded="xl"
-            onClick={() => {
-            if (isAuthenticated) { _mintEstates(); }
-          }}>Mint</Button>
+    console.log(config)
+    console.log(error)
 
-        </form>
-      </Box>
-    </CustomContainer>
-  )
+    // Write to Marketplace Contract
+    const { write } = useContractWrite({
+        ...config,
+        onSuccess(data){
+            toast({
+              title: 'Purchase Successful',
+              description: "Purchased Blue Moon Gallery",
+              status: 'success',
+              duration: 9000,
+              isClosable: true,
+            })
+            console.log("Purchase successful");
+          },
+          onError(error) {
+            toast({
+              title: 'Blue Moon Purchase Failed.. User Rejected Transaction Or Not Enough Ether To Purchase Gallery',
+              description: console.log(error),
+              status: "error",
+              duration: '9000',
+              isClosable: true
+            })
+            console.log(error);
+          },
+        onMutate({ args }) {
+            console.log('Mutate', { args })
+        }
+    })
+    console.log(write)
+
+
+    return (
+        <>
+            {/* Purchase Blue Moon */}
+
+            <Button disabled={!write} onClick={() => write?.()}>Buy BlueMoon</Button>
+            {/* {error && (
+                <div>{error.message}</div>
+            )} */}
+        </>
+
+    )
 }
 
-{/* Opensea button --> move to bottom of the page */ }
-{/* <Container>
-            <span>
-                <Button
-                  onClick={(e) => {
-                    window.open(CONFIG.MARKETPLACE_LINK, "_blank");
-                  }}
-                >
-                  {CONFIG.MARKETPLACE}
-                </Button>
-            </span>          
-          </Container>               */}
+

@@ -38,7 +38,7 @@ export default function Connect() {
   const { connectAsync } = useConnect()
 
   const { chains } = configureChains(
-    [mainnet],
+    [goerli],
     [
       // alchemyProvider({ apiKey: 'hu9KmpMxud_8q6Tlskrt42zOpiGy-9xN' }),
       infuraProvider({ apiKey: '5c9cb0b35a2742659dec6fc7680c16c4' }),

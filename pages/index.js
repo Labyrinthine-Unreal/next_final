@@ -80,7 +80,7 @@ export default function Home() {
 
         </Box>
         
-        <Box p={20} align="center" overflowX="scroll"
+        {/* <Box p={20} align="center" overflowX="scroll"
           css={{
             '&::-webkit-scrollbar': {
               height: '5px',
@@ -94,7 +94,7 @@ export default function Home() {
               borderRadius: '16px',
             },
           }}
-          >
+          > */}
           <MotionSimpleGrid 
             display="flex"
             mt="4"
@@ -116,7 +116,7 @@ export default function Home() {
               onClose={() => setModalData(null)}
               modalData={modalData}
             />
-        </Box>
+        {/* </Box> */}
 
         <Heading textStyle="title" pt={20}>
           <LU />

@@ -3,6 +3,8 @@ import { usePrepareContractWrite, useAccount, useContractWrite } from 'wagmi'
 import { ethers } from "ethers";
 import { useToast, Heading, Center, NumberInputStepper, Box, Spacer, NumberIncrementStepper, Button, Input, NumberDecrementStepper, NumberInputField, Text, FormControl, FormLabel, NumberInput } from "@chakra-ui/react"
 import Web3 from "web3";
+import styles from "@styles/MintButton.module.css"
+
 export default function PBM() {
     //Set Gallery Auction TokenId
     const [tokenId, setTokenId] = React.useState(51)
@@ -83,7 +85,7 @@ export default function PBM() {
         <>
             {/* Purchase Blue Moon */}
 
-            <Button disabled={!write} onClick={() => write?.()}>Buy BlueMoon</Button>
+            <Button  disabled={!write} onClick={() => write?.()}>Buy BlueMoon</Button>
             {/* {error && (
                 <div>{error.message}</div>
             )} */}
