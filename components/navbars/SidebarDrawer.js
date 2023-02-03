@@ -54,11 +54,11 @@ export default function SidebarDrawer({ onClose, ...rest }) {
                     </Flex>
                 <NavItem href="about" icon={MdSummarize} title="About" />
                 <NavItem href="members" icon={ImUsers} title="Members" />
-                <NavItem href="voting" icon={MdBallot} title="Voting" />
+                <NavItem href="governance" icon={MdBallot} title="Governance" />
                 <NavItem href="events" icon={ImCalendar} title="Events" />
                 {/* <NavItem href="galleries" icon={GrGallery} title="Galleries" />
                 <NavItem href="podcast" icon={ImPodcast} title="Podcast" /> */}
-                <NavItem href="estates" icon={ImEarth} title="Estates" />
+                {/* <NavItem href="estates" icon={ImEarth} title="Estates" /> */}
                 <NavItem href="blog" icon={ImBlog} title="Blog" />
             </Flex>
         </Flex>

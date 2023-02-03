@@ -4,7 +4,7 @@ const welcome = "Welcome to Taurosdao"
 const lu = "Labyrinthine Unreal"
 const about = "About"
 const members = "Members"
-const voting = "Voting"
+const governance = "Governance"
 const events = "Events"
 const estates = "Estates"
 const galleries = "Art Galleries"
@@ -107,7 +107,7 @@ function Members() {
     )
 }
 
-function Voting() {
+function Governance() {
 
     return (
         <motion.div
@@ -116,7 +116,7 @@ function Voting() {
             initial="hidden"
             whileInView="visible"
         >
-        {voting.split("").map((char, index) => {
+        {governance.split("").map((char, index) => {
             return (
                 <motion.span key={char + '-' + index} variants={letter}>
                     {char}
@@ -247,7 +247,7 @@ function Blog() {
     )
 }
 
-export { LU, About, Members, Voting, Events, Estates, Galleries, Podcasts, Districts, Blog }
+export { LU, About, Members, Governance, Events, Estates, Galleries, Podcasts, Districts, Blog }
 
 
 
