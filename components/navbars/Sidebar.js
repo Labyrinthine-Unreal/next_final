@@ -11,7 +11,7 @@ export default function Sidebar() {
         <Flex
             className={styles.hideScroll}
             display={{ base: "none", md: "block" }}
-            top={20}
+            top="160px"
             pos="fixed"
             left="5"
             h="85vh"
@@ -57,7 +57,7 @@ export default function Sidebar() {
                         <Divider display={navSize == "small" ? "none" : "flex"} />
                     </Flex>
                 
-                <NavItem navSize={navSize} href="about" icon={MdSummarize} title="About" />
+                {/* <NavItem navSize={navSize} href="about" icon={MdSummarize} title="About" /> */}
                 <NavItem navSize={navSize} href="members" icon={ImUsers} title="Members" />
                 <NavItem navSize={navSize} href="governance" icon={MdBallot} title="Governance" />
                 <NavItem navSize={navSize} href="events" icon={ImCalendar} title="Events" />
