@@ -59,11 +59,11 @@ export default function Sidebar() {
                 
                 <NavItem navSize={navSize} href="about" icon={MdSummarize} title="About" />
                 <NavItem navSize={navSize} href="members" icon={ImUsers} title="Members" />
-                <NavItem navSize={navSize} href="voting" icon={MdBallot} title="Voting" />
+                <NavItem navSize={navSize} href="governance" icon={MdBallot} title="Governance" />
                 <NavItem navSize={navSize} href="events" icon={ImCalendar} title="Events" />
                 {/* <NavItem navSize={navSize} href="galleries" icon={GrGallery} title="Galleries" />
                 <NavItem navSize={navSize} href="podcast" icon={ImPodcast} title="Podcast" /> */}
-                <NavItem navSize={navSize} href="estates" icon={ImEarth} title="Estates" />
+                {/* <NavItem navSize={navSize} href="estates" icon={ImEarth} title="Estates" /> */}
                 <NavItem navSize={navSize} href="blog" icon={ImBlog} title="Blog" />
             </Flex>
 
