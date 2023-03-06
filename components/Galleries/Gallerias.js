@@ -9,10 +9,10 @@ export default function Museum() {
 
 
     const { unityProvider, isLoaded, requestFullscreen, loadingProgression } = useUnityContext({
-        loaderUrl: "unity/build/WebGL/WebGL/Build/MuseumGL.loader.js",
-        dataUrl: "unity/build/WebGL/WebGL/Build/MuseumGL.data",
-        frameworkUrl: "/unity/build/WebGL/WebGL/Build/MuseumGL.framework.js",
-        codeUrl: "unity/build/WebGL/WebGL/Build/MuseumGL.wasm",
+        loaderUrl: "unity/build/WebGL/WebGL/Build/WebGL.loader.js",
+        dataUrl: "unity/build/WebGL/WebGL/Build/WebGL.data",
+        frameworkUrl: "/unity/build/WebGL/WebGL/Build/WebGL.framework.js",
+        codeUrl: "unity/build/WebGL/WebGL/Build/WebGL.wasm",
     });
 
 
