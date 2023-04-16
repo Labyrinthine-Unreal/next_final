@@ -23,27 +23,3 @@ Used to set the network: https://chainlist.org/
 */
 
 window.web3ChainId = 1;
-
-// Onboard JS chain config objects
-
-// interface Chain {
-//   namespace?: 'evm';
-//   id: ChainId;
-//   rpcUrl: string;
-//   label: string;
-//   token: TokenSymbol;
-//   color?: string;
-//   icon?: string;
-//   providerConnectionInfo?: ConnectionInfo;
-//   publicRpcUrl?: string;
-//   blockExplorerUrl?: string;
-// }
-
-window.networks = [
-  {
-    id: 1,
-    label: "Ethereum",
-    token: "ETH",
-    rpcUrl: `https://mainnet.infura.io/v3/fc097640a7f64d8a8385ab256db6a81a`,
-  }
-]
