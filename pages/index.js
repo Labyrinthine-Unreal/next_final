@@ -4,7 +4,7 @@ import { cardVariant, parentVariant } from '@components/animations/motion'
 import products from '@components/data/products/'
 import ProductCard from '@components/cards/ProductCard'
 import ProductModal from '@components/cards/ProductModal'
-import { Box, Flex, Center, Grid, HStack, SimpleGrid, Text, Link, Heading, Collapse, useDisclosure, IconButton } from '@chakra-ui/react'
+import { Box, Flex, Center, Grid, HStack, SimpleGrid, Text, Link, Heading, Collapse, useDisclosure, IconButton, UnorderedList, ListItem } from '@chakra-ui/react'
 import Head from 'next/head'
 import NextLink from 'next/link'
 import styles from '@styles/MintButton.module.css'
@@ -55,15 +55,28 @@ export default function Home() {
         <Heading textStyle="title" fontSize="3xl"><Title /></Heading>
 
         <Box alignContent="center">
-            <Box textStyle="landingPageContent" mb={10} pb={0}>
+            <Box textStyle="landingPageContent" mb={10} pb={0} px={20}>
                 <motion.div initial="initial" whileInView="whileInView" whileHover="hover" tap="whileTap">
-                    <Collapse in={isOpen} startingHeight={60}>
-                        <Text>TaurosDAO is a decentralized autonomous organization (DAO) that brings together a community of artists, collectors, developers, and designers. Launched in January 2022, it is currently managed by The Ontological Game Team. The organization focuses on organizing virtual events, collecting notable works of art, and designing, creating, curating, and managing art galleries for its members and collectors. The goal of TaurosDAO is to provide a platform for artists to showcase and sell their work, and for collectors to discover and acquire rare and outstanding new pieces.</Text>
+                    <Collapse in={isOpen} startingHeight={220}>
+                        <Text pb={5}>Welcome to TaurosDAO, and thanks for stopping by! We're thrilled to have you here.</Text>
 
-                        {/* <Text ml={6} mt={5} p={5} rounded="lg" brightness="90%" borderColor="teal.700" maxW={800} _hover={{color: "teal.600", bg: "#eee", brightness: "100%", boxShadow: "dark-lg", transition: "transform 0.15s ease-in-out", transform: "scale3d(1.05, 1.05, 1.05)",}} style={{fontWeight: "400"}}>To be able to mint TAUROS, you must save your Ethereum wallet address with the Tauroslist below when it goes live. We will announce the date soon, so stay tuned!
-                        </Text> */}
+                        <Text pb={5}>We're a unique community of artists, collectors, developers, and designers, all brought together by a love of art and a vision for the future. Launched in 2022 by the innovative minds of The Ontological Game Team, we're reshaping the way art is created, curated, and collected in the digital world.</Text>
 
-                        <Text pt={5}>For purposes of governance and other membership privileges, members must hold at least one TAUROS Card. There are three types of Cards: <span style={{fontWeight: "400"}}>OG</span>, <span style={{fontWeight: "400"}}>Archon</span>, and <span style={{fontWeight: "400"}}>Guardian</span>. For an overview of their benefits and voting rights, check the <NextLink href="/members"><a style={{color: "#2E7DAF", fontWeight: "400"}}>members</a></NextLink> page. For info on Merca City or Labyrinthine Unreal, visit our <Link href="https://docs.labyrinthineunreal.io/" target="_blank" rel="noreferrer" style={{textDecoration: "none", color: "#2E7DAF", fontWeight: "400"}}>docs</Link>.</Text>
+                        <Text pb={5}>Here's what we're all about:</Text>
+
+                        <UnorderedList fontSize="15px">
+                                <ListItem><span style={{fontWeight: "600"}}>Virtual Events:</span> We host exciting virtual events that bring our community together.</ListItem>
+                                <ListItem><span style={{fontWeight: "600"}}>Art Collections:</span> We cherish and collect extraordinary pieces of art that amaze and inspire.</ListItem>
+                                <ListItem><span style={{fontWeight: "600"}}>Art Galleries:</span> We create, manage, and curate digital galleries to showcase our members' incredible works.</ListItem>
+                        </UnorderedList>
+
+                        <Text py={5}>But TaurosDAO is more than just a platform. It's a movement, where artists have the freedom to showcase their creativity, and collectors can discover and acquire exceptional pieces of art.</Text>
+
+                        <Text pb={5}>Want to get more involved? Awesome! You'll need a TAUROS Card. They come in three types - <span style={{fontWeight: "400"}}>OG</span>, <span style={{fontWeight: "400"}}>Archon</span>, and <span style={{fontWeight: "400"}}>Guardian</span>. Each comes with its own benefits and voting rights in our organization's governance. Check out the <NextLink href="/members"><a style={{color: "#2E7DAF", fontWeight: "400"}}>members</a></NextLink> page for more details.</Text>
+
+                        <Text pb={5}>Keen to explore more about us? Dive into Merca City or navigate through Labyrinthine Unreal in our <Link href="https://docs.labyrinthineunreal.io/" target="_blank" rel="noreferrer" style={{textDecoration: "none", color: "#2E7DAF", fontWeight: "400"}}>docs</Link> section.</Text>
+
+                        <Text>We can't wait to see you around!</Text>
 
                         {/* <Text pt={5}><span style={{fontWeight: "400"}}>Merca City</span> is an open world Metaverse/Blockchain MMORPG (or BMMORPG), where TaurosDAO members, artists, designers, developers, gamers, and collectors may come together to play, experiment, and collaborate. <NextLink href="/estates"><a style={{color: "#2E7DAF", fontWeight: "400"}}>Estates</a></NextLink> are Merca City&apos;s genesis assets. The Estates NFT is dynamic, A.K.A. dNFT or <em>smart NFT</em>; its metadata and output animation changes based on live weather conditions pinpointing to a secret location. It reports temperature and visibility, and its animation depicts four weather conditions: sunny, overcast, rainy, and snowy.
                         </Text> */}
