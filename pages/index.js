@@ -4,7 +4,7 @@ import { cardVariant, parentVariant } from '@components/animations/motion'
 import products from '@components/data/products/'
 import ProductCard from '@components/cards/ProductCard'
 import ProductModal from '@components/cards/ProductModal'
-import { Box, Flex, Center, Grid, HStack, SimpleGrid, Text, Link, Heading, Collapse, useDisclosure, IconButton, UnorderedList, ListItem } from '@chakra-ui/react'
+import { Box, Flex, Center, Spacer, Grid, HStack, SimpleGrid, Text, Link, Heading, Collapse, useDisclosure, IconButton, UnorderedList, ListItem } from '@chakra-ui/react'
 import Head from 'next/head'
 import NextLink from 'next/link'
 import styles from '@styles/MintButton.module.css'
@@ -68,6 +68,8 @@ export default function Home() {
                                 <ListItem><span style={{fontWeight: "600"}}>Virtual Events:</span> We host exciting virtual events that bring our community together.</ListItem>
                                 <ListItem><span style={{fontWeight: "600"}}>Art Collections:</span> We cherish and collect extraordinary pieces of art that amaze and inspire.</ListItem>
                                 <ListItem><span style={{fontWeight: "600"}}>Art Galleries:</span> We create, manage, and curate digital galleries to showcase our members' incredible works.</ListItem>
+                                <ListItem><span style={{fontWeight: "600"}}>Tech Innovations:</span> We harness blockchain and web3 technologies to deliver advanced digital solutions, including smart contracts, DeFi applications, and DApps.</ListItem>
+                                <ListItem><span style={{fontWeight: "600"}}>Metaverse Development:</span> We craft unique Metaverse real estate and immersive digital experiences, from 3-D digital art galleries to engaging Metaverse events.</ListItem>
                         </UnorderedList>
 
                         <Text py={5}>But TaurosDAO is more than just a platform. It's a movement, where artists have the freedom to showcase their creativity, and collectors can discover and acquire exceptional pieces of art.</Text>
@@ -77,31 +79,21 @@ export default function Home() {
                         <Text pb={5}>Keen to explore more about us? Dive into Merca City or navigate through Labyrinthine Unreal in our <Link href="https://docs.labyrinthineunreal.io/" target="_blank" rel="noreferrer" style={{textDecoration: "none", color: "#2E7DAF", fontWeight: "400"}}>docs</Link> section.</Text>
 
                         <Text>We can't wait to see you around!</Text>
-
-                        {/* <Text pt={5}><span style={{fontWeight: "400"}}>Merca City</span> is an open world Metaverse/Blockchain MMORPG (or BMMORPG), where TaurosDAO members, artists, designers, developers, gamers, and collectors may come together to play, experiment, and collaborate. <NextLink href="/estates"><a style={{color: "#2E7DAF", fontWeight: "400"}}>Estates</a></NextLink> are Merca City&apos;s genesis assets. The Estates NFT is dynamic, A.K.A. dNFT or <em>smart NFT</em>; its metadata and output animation changes based on live weather conditions pinpointing to a secret location. It reports temperature and visibility, and its animation depicts four weather conditions: sunny, overcast, rainy, and snowy.
-                        </Text> */}
+                        
                     </Collapse>
-                    <Box align="right" px={4}>
+                    <Flex px={4}>
                         <MotionIconButton variants={buttonVariants}  className={styles.arrow} w="50" h="50" onClick={onToggle} variant="unstyled" color="black" >
                             {isOpen ?  <TbArrowBigUpLines w="20" h="20" /> : <TbArrowBigDownLines w="20" h="20" />}
                         </MotionIconButton>
-                    </Box>
+                        <Spacer />
+                    <MotionIconButton variants={buttonVariants}  className={styles.arrow} w="50" h="50" onClick={onToggle} variant="unstyled" color="black" >
+                            {isOpen ?  <TbArrowBigUpLines w="20" h="20" /> : <TbArrowBigDownLines w="20" h="20" />}
+                        </MotionIconButton>
+                    </Flex>
                 </motion.div>
             </Box>
 
             <Center><TaurosDAOIcon /></Center>
-
-
-            {/* <SimpleGrid columns={{sm: 1, md: 3}} gap={4} mt={20} mb={10} pt={4} px={4}>
-                <Box className={styles.balances}>
-                    <Heading pb={2} fontSize="18px" fontWeight="normal" color="#4A5568">TAUROS BALANCE</Heading>
-                    <TaurosBalance />
-                </Box>
-                <Box className={styles.balances}>
-                    <Heading pb={2} fontSize="18px" fontWeight="normal" color="#4A5568">ESTATES BALANCE</Heading>
-                    <EstatesBalance fontWeight="normal" fontSize="xs" />
-                </Box>
-            </SimpleGrid> */}
 
         </Box>
 
@@ -127,18 +119,6 @@ export default function Home() {
               modalData={modalData}
             />
         </Box>
-
-        {/* <Heading textStyle="title" pt={20}>
-          <LU />
-        </Heading> */}
-
-        {/* <Text textStyle="landingPageContent">
-            Labyrinthine Unreal is the undergound space of Merca City. Players may move between worlds through hidden portals that can be accessed from a personal tablet (each player is equipped with one at the beginning of the game). However, to activate the portals, players need one of the Labyrinthine Unreal Initiation Masks; for no mortal may enter the Labyrinth without one!
-            <br /><br />
-            Characters undergo a transformation as they move between worlds; thus, the character one plays is not exactly the same in both worlds, although there are similarities that carry across, for example a character&apos;s gait and other recognizable traits. Their identity becomes hidden under a mask in the Labyrinth. This is the perfect environment to form teams and factions that span both worlds, as well as infiltrate and undermine enemy factions.
-            <br /><br />
-            <span style={{fontWeight: "400"}}>Initiation Masks</span> are the genesis assets of Labyrinthine Unreal, and the players&apos; ticket to the private alpha stage of the game. OGs have a 50% chance of receiving a free Initiation Mask for each token they own. Archons have a 25% and Guardians a 10% chance. All TAUROS holders are automatically whitelisted for the sale, and those who own both a Mask and an Estate may move freely between worlds. Initiates will also be the first to receive the game&apos;s native token as rewards for completing tasks and/or solving various puzzles. The Labyrinth&apos;s game token is different from that of Merca City.
-        </Text> */}
     </Box>
   );
 }
