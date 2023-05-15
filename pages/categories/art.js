@@ -2,7 +2,7 @@
 import TopicList from '@root/components/topicComponents/TopicList';
 import faunadb from 'faunadb';
 import React from 'react';
-import Header from '@root/components/layout/Header';
+import Header from '@components/Header';
 // import { useAuth } from '@clerk/nextjs';
 // import { ClerkProvider, useUser, SignIn, SignedOut, SignedIn, SignInButton, UserButton } from '@clerk/nextjs'
 import withCategoryStyles from '@root/components/cards/withCategoryStyles';

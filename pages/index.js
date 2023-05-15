@@ -1,4 +1,4 @@
-import Header from '../components/Header';
+import Header from '@components/Header';
 import WelcomeSection from '../components/sections/WelcomeSection';
 import ArtCollectiveSection from '@components/sections/ArtCollectiveSection';
 import TaurosCards from '@components/cards/TaurosCards';
