@@ -68,7 +68,7 @@ const CreateNewProposal = () => {
   return (
     <>
     <Header/>
-    {String(data)}
+    DAO Balance: {String(data)}
     <div>
       {newPost ? (
         <div>

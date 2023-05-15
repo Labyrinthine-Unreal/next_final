@@ -1,7 +1,7 @@
 // src/components/cards/NFTModal.js
 import { Box, Modal, ModalOverlay, ModalContent,Spacer, ModalHeader, ModalFooter, ModalBody, ModalCloseButton, Grid, GridItem } from "@chakra-ui/react";
-import MBE from "../mint/MintButtonEstatesV2";
-import MBT from "../mint/MintButtonTaurosV2";
+import MBE from "@components/mint/MintButtonEstatesv2";
+import MBT from "@components/mint/MintButtonTaurosV2";
 export default function ProductModal({ isOpen, onClose, modalData }) {
   const { title, free, presalePrice, salePrice, imageUrl, imageAlt, description, unclaimed, glb } = modalData || {};
 
