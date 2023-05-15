@@ -1,0 +1,80 @@
+.container {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .topicHeading {
+    width: 100%;
+    height: 90px;
+    display: flex;
+    padding-left: 145px;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.5em;
+    font-weight: 300;
+    color: grey;
+    background-color: #ececec;
+    border: 0.1px solid #ccc;
+    box-sizing: border-box;
+  }
+
+.topicTable {
+    width: 100%;
+    border: 0.1px solid #ddd;
+    padding: 30px 0;
+    background-color: white;
+    margin: 20px 0;
+  }
+  
+  .leftColumn {
+    width: 200px;
+    padding: 10px;
+    vertical-align: top;
+    text-align: center;
+    border-right: 1px solid #ddd;
+    color: gray;
+    font-size: small;
+  }
+
+  .leftColumn span {
+    font-weight: 500;
+  }
+  
+  .rightColumn {
+    padding: 20px;
+  }
+
+  .titleBlock {
+    margin-bottom: 10px;
+  }
+
+  .title {
+    font-size: 1.2em;
+    font-weight: 500;
+    color: #46494f;
+  }
+  
+  .date {
+    color: gray;
+    font-size: small;
+  }
+
+  .tableContainer {
+    display: flex;
+    width: 80%;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .editButton {
+    margin: 20px 0 50px;;
+    padding: 10px 20px;
+    border: none;
+    background-color: #46494f;
+    color: white;
+    cursor: pointer;
+  }
+  

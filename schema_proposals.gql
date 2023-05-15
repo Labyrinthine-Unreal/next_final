@@ -1,0 +1,10 @@
+type proposals{
+    user: String
+    proposal: String
+    content: String
+     slug: String
+ }
+ 
+ type Query {
+  proposals_by_id_test: [proposals!]
+ }

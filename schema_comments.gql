@@ -1,0 +1,18 @@
+type topics_test{
+   user: String
+   topic: String
+   content: String
+    slug: String
+}
+
+type Query {
+ topics_by_id_test: [topics_test!]
+}
+
+type comments_test{
+ date: String
+ comment: topics_test!
+ forumID: String
+ slug: String
+ user: String
+}

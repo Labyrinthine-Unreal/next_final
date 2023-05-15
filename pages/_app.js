@@ -18,6 +18,10 @@ import { InjectedConnector } from 'wagmi/connectors/injected'
 import { MetaMaskConnector } from 'wagmi/connectors/metaMask'
 import { WalletConnectConnector } from 'wagmi/connectors/walletConnect'
 import { extendTheme } from "@chakra-ui/react";
+import { ApolloProvider, ApolloClient, InMemoryCache } from "@apollo/client";
+import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
+import { useRouter } from 'next/router';
+
 const { provider, webSocketProvider, chains } = configureChains(
   [mainnet],
   [
@@ -27,6 +31,14 @@ const { provider, webSocketProvider, chains } = configureChains(
   ],
   // { targetQuorum: 2 },
 )
+
+const Aclient = new ApolloClient({
+  cache: new InMemoryCache(),
+  uri: "https://graphql.us.fauna.com/graphql",
+  headers: {
+    authorization: `Bearer ${"fnAFDZGm3pAASZlfCHemrt0fvXUPK1gb0ZqnbR6f"}`, //FaunaAdmin != manager_role
+  },
+});
 
 // Necessary for Wagmi Client Provider /* Do Not Delete or client will not work*/
 const client = createClient({
@@ -70,25 +82,26 @@ const theme = extendTheme({
 });
 function MyApp({ Component, pageProps }) {
   return (
-
-    <Provider store={store}>
-      <WagmiConfig client={client}>
-        <ChakraProvider theme={theme}>
-          <React.StrictMode />
-          <MoralisProvider appId="ny6Iude7WFwg2QaZtvDK7zQC81e9uKRIeaCkFNxM" serverUrl="https://htogiwbd7il5.usemoralis.com:2053/server">
-            {/* <Box> */}
+    <ApolloProvider client={Aclient}>
+      <Provider store={store}>
+        <WagmiConfig client={client}>
+          <ChakraProvider theme={theme}>
+            <React.StrictMode />
+            <MoralisProvider appId="ny6Iude7WFwg2QaZtvDK7zQC81e9uKRIeaCkFNxM" serverUrl="https://htogiwbd7il5.usemoralis.com:2053/server">
+              {/* <Box> */}
               {/* <Layout> */}
-                {/* <Box maxW="1000" align="center" py={20}> */}
-                  {/* <Box textAlign="left"> */}
-                    <Component {...pageProps} />
-                  {/* </Box> */}
-                {/* </Box> */}
+              {/* <Box maxW="1000" align="center" py={20}> */}
+              {/* <Box textAlign="left"> */}
+              <Component {...pageProps} />
+              {/* </Box> */}
+              {/* </Box> */}
               {/* </Layout> */}
-            {/* </Box> */}
-          </MoralisProvider>
-        </ChakraProvider>
-      </WagmiConfig>
-    </Provider>
+              {/* </Box> */}
+            </MoralisProvider>
+          </ChakraProvider>
+        </WagmiConfig>
+      </Provider>
+    </ApolloProvider>
 
 
   )

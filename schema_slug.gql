@@ -1,0 +1,15 @@
+
+type proposals{
+    user: String
+    proposal: String
+    content: String
+     slug: String
+     date: String
+ }
+ 
+
+ type Query {  proposals_by_slug(slug: String!): proposals }
+
+ type Query {
+  proposals_by_id: [proposals!]
+ }
