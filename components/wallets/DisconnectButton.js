@@ -102,7 +102,7 @@ if (isAuthenticated){
             {theConnectedUser ? theConnectedUser : shortWallet }
             
             </Center>}
-            <Button onClick={handleDisconnect}>Disconnect</Button>
+            <Button onClick={handleDisconnect}>t</Button>
         </Center>
     </Flex>
   )

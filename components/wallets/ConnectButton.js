@@ -22,7 +22,7 @@ export default function Connect() {
     [mainnet],
     [
       // alchemyProvider({ apiKey: 'hu9KmpMxud_8q6Tlskrt42zOpiGy-9xN' }),
-      infuraProvider({ apiKey: '5c9cb0b35a2742659dec6fc7680c16c4' }),
+      infuraProvider({ apiKey: '4cb849430aaa4b82bb8360011eb397e9' }),
       publicProvider()
     ],
     // { targetQuorum: 2 },
@@ -98,7 +98,12 @@ export default function Connect() {
   return (
 
     <Box className={styles.connect}>
-      <Button onClick={onOpen}>Connect Wallet</Button>
+      <Button onClick={onOpen}
+      background="linear-gradient(45deg, #FFD700, #DAA520)" 
+      color="black"
+       _hover={{background: "linear-gradient(45deg, #DAA520, #FFD700)"}} 
+       ml="4"
+      >Connect Wallet</Button>
       <Modal blockScrollOnMount={false} isOpen={isOpen} onClose={onClose} isCentered size="sm">
         <ModalOverlay />
         <ModalContent rounded="2xl">
