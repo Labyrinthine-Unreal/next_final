@@ -5,7 +5,7 @@ import React, { useState } from 'react';
 import { useAuth, useUser } from '@clerk/nextjs';
 import withCategoryStyles from '@root/components/cards/withCategoryStyles';
 import parse from 'html-react-parser';
-import Header from '@root/components/layout/Header';
+import Header from '@components/Header';
 import { useAccount, useEnsAvatar, useDisconnect, useConnect } from 'wagmi'
 
 const UpdatePrevTopic = () => {
