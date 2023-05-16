@@ -74,7 +74,7 @@ const Forum = () => {
     <>
     <Header />
     <Center>
-    <h1>Must own One TaurosDAO to mint</h1>
+    <h1>Must own One TaurosDAO to Propose and Vote</h1>
     </Center>
     </>
   );
