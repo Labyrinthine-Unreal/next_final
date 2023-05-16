@@ -6,7 +6,7 @@ import { useAuth } from '@clerk/nextjs';
 // import { ClerkProvider, useUser, SignIn, SignedOut, SignedIn, SignInButton, UserButton } from '@clerk/nextjs'
 import withCategoryStyles from '@root/components/cards/withCategoryStyles';
 import { useRouter } from 'next/router';
-import { useAccount, useEnsAvatar, useDisconnect, useConnect } from 'wagmi'
+import { useAccount, useEnsAvatar, useDisconnect, useConnect, useContractRead} from 'wagmi'
 import Header from '@components/Header';
 const Forum = () => {
   // const secret = Clerk.session.getToken({ template: 'fauna' })
