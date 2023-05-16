@@ -1,3 +1,4 @@
+// src/components/sections/ServiceSection.js
 import { Box, Grid, Heading, Text, Image } from "@chakra-ui/react";
 import Paragraph from "../textStyles/Paragraph";
 
@@ -57,7 +58,7 @@ const services = [
 
 export default function OurServicesSection() {
     return (
-        <Box px={{ base: '8', md: '16', lg: '32' }} py={{ base: '8', md: '16', lg: '32' }} bgColor="rgb(149, 255, 238)">
+        <Box px={{ base: '8', md: '16', lg: '32' }} py={{ base: '8', md: '16', lg: '32' }} bgColor="rgb(233, 246, 244)">
             <Box maxW="600" mx="start">
                 <Heading
                     fontFamily="Rufina, serif"

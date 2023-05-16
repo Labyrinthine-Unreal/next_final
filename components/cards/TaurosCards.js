@@ -6,7 +6,7 @@ import cardsData from './cardsData'
 import NFTCard from './NFTCard'
 import NFTModal from './NFTModal'
 import { useInView } from 'react-intersection-observer'
-import { Box, SimpleGrid, useDisclosure, IconButton } from '@chakra-ui/react'
+import { Box, SimpleGrid, Heading, useDisclosure, IconButton } from '@chakra-ui/react'
 // import styles from '@styles/MintButton.module.css'
 // import TaurosDAOIcon from '@components/TaurosDAOIcon'
 
@@ -57,6 +57,15 @@ const buttonVariants = {
             left="0"
             right="0"
         />
+        <Heading 
+            px={{ base: '8', md: '16', lg: '32' }} 
+            fontFamily="Rufina, serif"
+            fontSize={{ base: "2xl", md: "3xl", lg: "4xl" }}
+            fontWeight="bold"
+            color="black"
+        >
+            Membership Cards
+        </Heading>
         <Box py={20} px={40} align="center">
             <MotionSimpleGrid
                 mt="4"

@@ -8,6 +8,7 @@ import withCategoryStyles from '@root/components/cards/withCategoryStyles';
 import { useRouter } from 'next/router';
 import { useAccount, useEnsAvatar, useDisconnect, useConnect, useContractRead} from 'wagmi'
 import Header from '@components/Header';
+
 const Forum = () => {
   // const secret = Clerk.session.getToken({ template: 'fauna' })
   // console.log(secret)

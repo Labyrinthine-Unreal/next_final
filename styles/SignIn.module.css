@@ -5,7 +5,7 @@
   margin: 0 16px;
   white-space: nowrap;
   align-items: center;
-  border-radius: 20px;
+  border-radius: 5px;
   border: 2px solid transparent;
   padding: 4px 16px;
   transition: all 0.1s ease-out;
@@ -19,4 +19,4 @@
 
 .disconnect Menu {
   background-color: none;
-}
+} 

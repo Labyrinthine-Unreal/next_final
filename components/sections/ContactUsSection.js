@@ -1,7 +1,8 @@
+// src/components/sections/ContactUsSection.js
 import { Box, Flex, Grid, FormControl, FormLabel, Input, Textarea, Button, Text, Spacer, useColorModeValue } from "@chakra-ui/react";
 
 export default function ContactUsSection() {
-    const bg = useColorModeValue("rgb(233, 246, 244)", "gray.800");
+    const bg = useColorModeValue("rgb(149, 255, 238)", "gray.800");
     const color = useColorModeValue("black", "white");
 
     return (

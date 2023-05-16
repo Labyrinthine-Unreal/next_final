@@ -17,7 +17,7 @@ export default function ProductModal({ isOpen, onClose, modalData }) {
           templateRows='repeat(4, 1fr)'
           templateColumns='repeat(9, 1fr)'
         >
-          <GridItem rowSpan={3} colSpan={2}>
+          <GridItem rowSpan={3} colSpan={5}>
             <video
                     controls
                     src={imageUrl}

@@ -21,8 +21,7 @@ export default function Header() {
       <Spacer />
       <Box fontSize="20" pr="6">
         <Link p="2" href="/members" _hover={{ color: "teal" }}>Members</Link>
-        <Link p="2" href="/galleries" _hover={{ color: "teal" }}>Galleries</Link>
-        <Link p="2" href="/categories/proposals" _hover={{ color: "teal" }}>TaruosDAO proposals</Link>
+        <Link p="2" href="/categories/governance" _hover={{ color: "teal" }}>Governance</Link>
       </Box>
       <Box>
         <IconButton as="a" href="https://twitter.com/taurosdao" target="blank" aria-label="Twitter" icon={<FaTwitter />} mx="1" variant="ghost" isRound={true} fontSize="26px" _hover={{ color: "teal" }} />
