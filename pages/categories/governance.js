@@ -8,6 +8,7 @@ import withCategoryStyles from '@root/components/cards/withCategoryStyles';
 import { useRouter } from 'next/router';
 import { useAccount, useEnsAvatar, useDisconnect, useConnect, useContractRead} from 'wagmi'
 import Header from '@components/Header';
+import { Center } from '@chakra-ui/react';
 
 const Forum = () => {
   // const secret = Clerk.session.getToken({ template: 'fauna' })
@@ -21,7 +22,7 @@ const Forum = () => {
   // if (!isLoaded || !address) {
   //   return null;
   // }
-  const { address } = useAccount()
+  const { address,isConnected } = useAccount()
 
   const {data, isError, isLoading,isSuccess}= useContractRead({
     address: '0x1A0F33bBc5c7bA83f490cdB6C13ee50e1C851908',
@@ -57,11 +58,35 @@ const Forum = () => {
     router.push('/categories/create-new-topic');
   };
   
+  console.log()
+  if (!isConnected && data<1)
+  return (
+    <>
+    <Header />
+    <Center>
+    <h1>Please connect wallet to access Governance</h1>
+    </Center>
+    </>
+  );
+
+  if (isConnected && data<1)
+  return (
+    <>
+    <Header />
+    <Center>
+    <h1>Must own One TaurosDAO to mint</h1>
+    </Center>
+    </>
+  );
+
+  if (isConnected && data>=1) 
   return (
     
     <div>
       <Header />
+      <Center>
       DAO Balance: {String(data)}
+      </Center>
       <h1>Proposals</h1>
       <button onClick={handleNewTopic}>Start a New Proposal</button>
       <TopicList/>
