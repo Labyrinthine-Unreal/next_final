@@ -13,7 +13,7 @@ export default function Header() {
       py="4"
       align="center"
       justify="space-between"
-      zIndex={1}
+      zIndex={2}
     >
       <Box>
         <Image src="/images/logos/TaurosDAO-logo.png" width="300px" height="auto" alt="TaurosDAO Logo" />
