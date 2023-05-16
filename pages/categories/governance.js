@@ -58,28 +58,27 @@ const Forum = () => {
     router.push('/categories/create-new-topic');
   };
   
-  console.log()
-  if (!isConnected && data<1)
-  return (
-    <>
-    <Header />
-    <Center>
-    <h1>Please connect wallet to access Governance</h1>
-    </Center>
-    </>
-  );
+  // if (!isConnected && data<1)
+  // return (
+  //   <>
+  //   <Header />
+  //   <Center>
+  //   <h1>Please connect wallet to access Governance</h1>
+  //   </Center>
+  //   </>
+  // );
 
-  if (isConnected && data<1)
-  return (
-    <>
-    <Header />
-    <Center>
-    <h1>Must own One TaurosDAO to Propose and Vote</h1>
-    </Center>
-    </>
-  );
+  // if (isConnected && data<1)
+  // return (
+  //   <>
+  //   <Header />
+  //   <Center>
+  //   <h1>Must own One TaurosDAO to Propose and Vote</h1>
+  //   </Center>
+  //   </>
+  // );
 
-  if (isConnected && data>=1) 
+  // if (isConnected && data>=1) 
   return (
     
     <div>
