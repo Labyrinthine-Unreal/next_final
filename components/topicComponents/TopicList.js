@@ -72,7 +72,7 @@ export default function TopicList() {
                       <FontAwesomeIcon icon={faFile} />
                     </td>
                     <td>
-                      <Link href={`/topics/${item.slug}`}>
+                      <Link p="2" _hover={{ color: "teal" }} href={`/topics/${item.slug}`}>
                         <span className={styles.topicLink}>
                           <div className={styles.topicTitle}>{item.proposal}</div>
                           <div className={styles.topicAuthor}>Posted by {item.user} at {item.date}</div>
