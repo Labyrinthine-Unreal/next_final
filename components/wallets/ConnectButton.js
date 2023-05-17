@@ -4,7 +4,7 @@ import { useAccount, useEnsAvatar, useDisconnect, useConnect } from 'wagmi'
 import { MetaMaskConnector } from 'wagmi/connectors/metaMask'
 import { WalletConnectConnector } from 'wagmi/connectors/walletConnect';
 import { configureChains, } from 'wagmi'
-import { mainnet, goerli } from 'wagmi/chains'
+import { mainnet, goerli,sepolia } from 'wagmi/chains'
 import { publicProvider } from 'wagmi/providers/public'
 import { infuraProvider } from 'wagmi/providers/infura'
 import { AiOutlineWallet } from 'react-icons/ai'
@@ -19,7 +19,7 @@ export default function Connect() {
   const { connectAsync } = useConnect()
 
   const { chains } = configureChains(
-    [mainnet],
+    [mainnet,goerli,sepolia],
     [
       // alchemyProvider({ apiKey: 'hu9KmpMxud_8q6Tlskrt42zOpiGy-9xN' }),
       infuraProvider({ apiKey: '4cb849430aaa4b82bb8360011eb397e9' }),

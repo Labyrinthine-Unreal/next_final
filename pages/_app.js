@@ -11,7 +11,7 @@ import { createClient, configureChains, } from 'wagmi'
 import { publicProvider } from 'wagmi/providers/public'
 import { alchemyProvider } from 'wagmi/providers/alchemy'
 import { infuraProvider } from 'wagmi/providers/infura'
-import { mainnet, goerli } from 'wagmi/chains'
+import { mainnet, goerli,sepolia } from 'wagmi/chains'
 import { WagmiConfig } from 'wagmi'
 import { CoinbaseWalletConnector } from 'wagmi/connectors/coinbaseWallet'
 import { InjectedConnector } from 'wagmi/connectors/injected'
@@ -23,7 +23,7 @@ import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 import { useRouter } from 'next/router';
 
 const { provider, webSocketProvider, chains } = configureChains(
-  [mainnet],
+  [mainnet,goerli,sepolia],
   [
     // alchemyProvider({ apiKey: 'hu9KmpMxud_8q6Tlskrt42zOpiGy-9xN' }),
     infuraProvider({ apiKey: '4cb849430aaa4b82bb8360011eb397e9' }),
