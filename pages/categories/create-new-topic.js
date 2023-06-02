@@ -21,7 +21,7 @@ const CreateNewProposal = () => {
   const { address } = useAccount()
 
   const {data, isError, isLoading,isSuccess}= useContractRead({
-    address: '0x1A0F33bBc5c7bA83f490cdB6C13ee50e1C851908',
+    address: '0x5524B7a189545F03214Fbf23ee3D489d8F01EA2F',
     abi: [
         {
           name: 'balanceOf',

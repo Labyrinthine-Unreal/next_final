@@ -23,7 +23,7 @@ import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 import { useRouter } from 'next/router';
 
 const { provider, webSocketProvider, chains } = configureChains(
-  [mainnet,goerli,sepolia],
+  [goerli],
   [
     // alchemyProvider({ apiKey: 'hu9KmpMxud_8q6Tlskrt42zOpiGy-9xN' }),
     infuraProvider({ apiKey: '4cb849430aaa4b82bb8360011eb397e9' }),

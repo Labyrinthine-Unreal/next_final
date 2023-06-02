@@ -9,7 +9,12 @@ import { useRouter } from 'next/router';
 import { useAccount, useEnsAvatar, useDisconnect, useConnect, useContractRead} from 'wagmi'
 import Header from '@components/Header';
 import { Center } from '@chakra-ui/react';
-
+import Stake from '@components/mint/stakeDAO';
+import Unstake from '@components/mint/DAOunstake';
+import STAU from '@components/mint/stake20';
+import WTH from '@components/mint/WithdrawTAU';
+import UI from '@components/mint/erc20balance';
+import CR from '@components/mint/claimRewards';
 const Forum = () => {
   // const secret = Clerk.session.getToken({ template: 'fauna' })
   // console.log(secret)
@@ -25,7 +30,7 @@ const Forum = () => {
   const { address,isConnected } = useAccount()
 
   const {data, isError, isLoading,isSuccess}= useContractRead({
-    address: '0x1A0F33bBc5c7bA83f490cdB6C13ee50e1C851908',
+    address: '0x9D591b482B162077f44169D6cD1b85bb4f4f80A2',
     abi: [
         {
           name: 'balanceOf',
@@ -81,10 +86,18 @@ const Forum = () => {
   // if (isConnected && data>=1) 
   return (
     
+    
     <div>
+      <UI />
+      <Stake />
+      <Unstake />
+      <STAU />
+      
       <Header />
       <Center>
       DAO Balance: {String(data)}
+      <WTH />
+      <CR />
       </Center>
       <h1>Proposals</h1>
       <button onClick={handleNewTopic}>Start a New Proposal</button>

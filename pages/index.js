@@ -13,6 +13,7 @@ export default function HomePage() {
       <WelcomeSection />
       <ArtCollectiveSection />
       <TaurosCards />
+
       <OurServicesSection />
       <ContactUsSection />
       <Footer />

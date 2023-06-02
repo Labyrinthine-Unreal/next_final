@@ -9,6 +9,7 @@ import { publicProvider } from 'wagmi/providers/public'
 import { infuraProvider } from 'wagmi/providers/infura'
 import { AiOutlineWallet } from 'react-icons/ai'
 import { useState, useEffect } from 'react';
+import faunadb from 'faunadb';
 
 export default function Connect() {
   
@@ -17,9 +18,11 @@ export default function Connect() {
   const { disconnect } = useDisconnect()
   const { isOpen, onOpen, onClose } = useDisclosure()
   const { connectAsync } = useConnect()
+  const q = faunadb.query;
+  const client = new faunadb.Client({ secret: "fnAFDZGm3pAASZlfCHemrt0fvXUPK1gb0ZqnbR6f", keepAlive: true });
 
   const { chains } = configureChains(
-    [mainnet,goerli,sepolia],
+    [goerli],
     [
       // alchemyProvider({ apiKey: 'hu9KmpMxud_8q6Tlskrt42zOpiGy-9xN' }),
       infuraProvider({ apiKey: '4cb849430aaa4b82bb8360011eb397e9' }),
@@ -61,6 +64,17 @@ export default function Connect() {
       return `${firstCharacters}...${lastCharacters}`;
     }
   }
+
+  var createP = client.query(
+    q.Create(
+      q.Collection('tauros_user_tracking'),
+      { data: { user: address } }
+    )
+  )
+  createP.then(function (response) {
+    console.log(response.ref);
+  })
+
 
   if (isConnected) {
     return (

@@ -1,41 +1,43 @@
 import React from "react";
-import { usePrepareContractWrite, useFeeData, useContractWrite, useAccount } from 'wagmi'
+import { usePrepareContractWrite, useFeeData, useContractWrite,useContractRead, useAccount } from 'wagmi'
 import { ethers } from "ethers";
 import { useToast, Heading, Center, NumberInputStepper, Box, Spacer, NumberIncrementStepper, Button, Input, NumberDecrementStepper, NumberInputField, Text, FormControl, FormLabel, NumberInput } from "@chakra-ui/react"
 import styles from "@styles/MintButton.module.css"
 import Web3 from "web3";
-export default function MBT() {
-  const [amount, setAmount] = React.useState(1)
+export default function STAU() {
+  const [amount1, setAmount] = React.useState(1111)
   const handleChange = (value) => setAmount(value)
+  // const [amount2] = Web3.utils.toBN(amount1) 
+  const amount = Web3.utils.toWei(String(amount1),"ether")
+
   // Fetch user address
   const { address } = useAccount()
   console.log(address)
   const toast = useToast()
+  //$CIR Price : TODO fetch price from Contract for automatic update
+//   const price = Web3.utils.toWei("0.0005", "ether")
 
-  //Tauros Price : TODO fetch price from Contract for automatic update
-  const price = Web3.utils.fromWei("50000000000000000", "wei")
-
-  // Initialze claimTauros Contract write
+  // Initialze claimBCC Contract write
   const { config, error } = usePrepareContractWrite({
-    address: '0x5524B7a189545F03214Fbf23ee3D489d8F01EA2F',
+    address: '0x2816e4B49a9d7ae07720a922a7A805F9fA5876c4',
     abi: [
       {
-        name: 'claimTauros',
+        name: 'deposit',
         type: 'function',
-        stateMutability: 'payable',
+        stateMutability: 'nonpayable',
         inputs:
           [
             //Contract Params
-            { internalType: 'uint256', name: '_count', type: 'uint256' },
+            { internalType: 'uint256', name: '_amount', type: 'uint256' },
           ],
         outputs: [],
       },
     ],
-    functionName: 'claimTauros',
+    functionName: 'deposit',
     overrides: {
-      // Override Price 
-      value: String(price * amount),
-    },
+        // Override Price 
+        gasLimit: 270000,
+      },
     // Amount to minta
     args: [amount],
   })
@@ -47,17 +49,17 @@ export default function MBT() {
     ...config,
     onSuccess(data){
       toast({
-        title: 'Mint Successful',
-        description: "Minted TAUROS",
+        title: 'Stake Successful',
+        description: "Staked $CIR :)",
         status: 'success',
         duration: 9000,
         isClosable: true,
       })
-      console.log("Mint successful");
+      console.log("Stake successful");
     },
     onError(error) {
       toast({
-        title: 'Mint Failed.. User rejected the transaction or not enough Ether To Purchase TAUROS',
+        title: 'Stake Failed.. User rejected the transaction or not enough Gas To Stake $CIR',
         description: console.log(error),
         status: "error",
         duration: '9000',
@@ -71,7 +73,9 @@ export default function MBT() {
   })
   console.log(data)
   console.log(write)
-  console.log(price * amount)
+  console.log(amount)
+  
+  
 
 
   return (
@@ -83,12 +87,12 @@ export default function MBT() {
         }}>
           <FormControl my="4" maxW="210" minW="210">
             <FormLabel htmlFor="amount" textAlign="right">
-              Amount to Mint
+              Amount to Stake <Spacer /> *1111 minimum*
             </FormLabel>
 
-            <NumberInput step={1} min={1} max={10} defaultValue={1} onChange={handleChange} allowMouseWheel>
-              <NumberInputField id="amount" value={amount} bg="gray.200" boxShadow="lg" />
-              <NumberInputStepper bg="teal.300">
+            <NumberInput step={10} min={1111} max={100000000}defaultValue={1111} onChange={handleChange} allowMouseWheel>
+              <NumberInputField id="amount" value={Web3.utils.toWei(String(amount1),"ether")} bg="gray.200" boxShadow="lg" />
+              <NumberInputStepper bg="#FA897B">
                 <NumberIncrementStepper borderLeft="none" />
                 <Spacer />
                 <NumberDecrementStepper borderLeft="none" />
@@ -96,10 +100,15 @@ export default function MBT() {
             </NumberInput>
           </FormControl>
           <Spacer />
-          {/* Mint TaurosDAO */}
+          {/* Mint BCCDAO */}
+
+{/* <Button>Staking Coming Soon</Button> */}
+
           <Button disabled={!write} onClick={() => write?.()}>
-            Mint
+            Stake $TAU
           </Button>
+
+
           {/* <Box>{error && (
             <div>{error.message}</div>
           )}</Box> */}

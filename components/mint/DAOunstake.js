@@ -4,9 +4,11 @@ import { ethers } from "ethers";
 import { useToast, Heading, Center, NumberInputStepper, Box, Spacer, NumberIncrementStepper, Button, Input, NumberDecrementStepper, NumberInputField, Text, FormControl, FormLabel, NumberInput } from "@chakra-ui/react"
 import styles from "@styles/MintButton.module.css"
 import Web3 from "web3";
-export default function MBT() {
-  const [amount, setAmount] = React.useState(1)
+export default function Unstake() {
+  const [amount, setAmount] = React.useState(0)
   const handleChange = (value) => setAmount(value)
+
+  const [tokenId, setTokenId] = React.useState()
   // Fetch user address
   const { address } = useAccount()
   console.log(address)
@@ -17,27 +19,28 @@ export default function MBT() {
 
   // Initialze claimTauros Contract write
   const { config, error } = usePrepareContractWrite({
-    address: '0x5524B7a189545F03214Fbf23ee3D489d8F01EA2F',
+    address: '0x2816e4B49a9d7ae07720a922a7A805F9fA5876c4',
     abi: [
       {
-        name: 'claimTauros',
+        name: 'DAOunstake',
         type: 'function',
-        stateMutability: 'payable',
+        stateMutability: 'nonpayable',
         inputs:
           [
             //Contract Params
-            { internalType: 'uint256', name: '_count', type: 'uint256' },
+            { internalType: 'uint256', name: 'tokenId', type: 'uint256' },
           ],
         outputs: [],
       },
     ],
-    functionName: 'claimTauros',
+    functionName: 'DAOunstake',
     overrides: {
       // Override Price 
-      value: String(price * amount),
+      gasLimit: 270000,
     },
     // Amount to minta
-    args: [amount],
+    args: [tokenId],
+    // enabled: Boolean(tokenId),
   })
   console.log(config)
   console.log(error)
@@ -47,17 +50,17 @@ export default function MBT() {
     ...config,
     onSuccess(data){
       toast({
-        title: 'Mint Successful',
-        description: "Minted TAUROS",
+        title: 'Unstake Successful',
+        description: "staked TAUROS",
         status: 'success',
         duration: 9000,
         isClosable: true,
       })
-      console.log("Mint successful");
+      console.log("removal successful");
     },
     onError(error) {
       toast({
-        title: 'Mint Failed.. User rejected the transaction or not enough Ether To Purchase TAUROS',
+        title: 'Unstake Failed.. User rejected the transaction or not enough Ether To Purchase TAUROS',
         description: console.log(error),
         status: "error",
         duration: '9000',
@@ -69,21 +72,21 @@ export default function MBT() {
       console.log('Mutate', { args })
     },
   })
-  console.log(data)
-  console.log(write)
-  console.log(price * amount)
+  // console.log(data)
+  // console.log(write)
+  // console.log(price * amount)
 
 
   return (
     <>
       <Box fontSize="xl" fontWeight="bold" align="right">
 
-        <form className={styles.btn} onSubmit={async e => {
+         <form className={styles.btn} onSubmit={async e => {
           e.preventDefault()
         }}>
-          <FormControl my="4" maxW="210" minW="210">
+          {/*<FormControl my="4" maxW="210" minW="210">
             <FormLabel htmlFor="amount" textAlign="right">
-              Amount to Mint
+              Stake DAO
             </FormLabel>
 
             <NumberInput step={1} min={1} max={10} defaultValue={1} onChange={handleChange} allowMouseWheel>
@@ -96,14 +99,22 @@ export default function MBT() {
             </NumberInput>
           </FormControl>
           <Spacer />
-          {/* Mint TaurosDAO */}
-          <Button disabled={!write} onClick={() => write?.()}>
-            Mint
-          </Button>
-          {/* <Box>{error && (
-            <div>{error.message}</div>
-          )}</Box> */}
-        </form>
+          <Button onClick={() => write?.()}>
+            Stake DAO
+          </Button> */}
+
+        {/* </form> */}
+
+        {/* <form> */}
+      <label for="tokenId">Token ID</label>
+      <input
+        id="tokenId"
+        onChange={(e) => setTokenId(e.target.value)}
+        placeholder="420"
+        value={tokenId}
+      />
+      <button onClick={() => write?.()}>Unstake</button>
+    </form>
       </Box>
     </>
   )

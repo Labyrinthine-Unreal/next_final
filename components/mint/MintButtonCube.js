@@ -1,215 +1,228 @@
 import React from "react";
-import { Icon, Button, useNotification } from "web3uikit";
-// import AuctionsMap from "../AuctionsMap";
-import { useState, useEffect } from "react";
-import { useMoralis, useWeb3ExecuteFunction } from "react-moralis";
-import { useRouter } from "next/router";
-import { useToast, Heading, Center, NumberInputStepper, Box, Spacer, NumberIncrementStepper, Input, NumberDecrementStepper, NumberInputField, Text, FormControl, FormLabel, NumberInput } from "@chakra-ui/react"
-import galleriesABI from "@components/ABIs/galleriesABI.json";
+import { usePrepareContractWrite, useAccount, useContractWrite } from 'wagmi'
+import { ethers } from "ethers";
+import {
+    useToast, Heading, Center, NumberInputStepper, Box, Spacer, NumberIncrementStepper,
+    Button, Input, NumberDecrementStepper, NumberInputField, Text, FormControl, FormLabel, NumberInput
+} from "@chakra-ui/react"
+import Web3 from "web3";
+import {
+    Badge,
+    Flex,
+    Stack,
+    Image,
+    Link,
+    useColorModeValue, Grid, HStack, SimpleGrid, Collapse, useDisclosure, IconButton
+} from '@chakra-ui/react'
+export default function MBC() {
+    //Set Gallery Auction TokenId
+    const [tokenId, setTokenId] = React.useState(0)
+    // Set Gallery Contract
+    const [contract, setContract] = React.useState('0x7A9b67f2b11440aEDfF6861325e7cC5d5b25675C')
+    // Set Amount to Purchase *User only Purchaseds 1*
+    const [amount, setAmount] = React.useState(1)
+    const toast = useToast()
 
-export default function Galleria0() {
+    // Fetch User Address
+    const { address } = useAccount()
+    console.log(address)
+    const price = Web3.utils.fromWei("800000000000000000", "wei")
 
-  //useRouter() in place of useLocation()
-  const router = useRouter();
-  //query in place of state
-  const { query: searchFilters } = useRouter();
-
-
-
-
-  // highlight location via Google Maps API (refer to @components/AuctionsMap.js)
-  // const [highLight, setHighLight] = useState();
-
-  const { Moralis, account, isAuthenticated, user } = useMoralis();
-
-  // Fetch listing information from MoralisDB / TaurosExchange => Gallery ERC1155 contract
-  const [auctionsList, setAuctionsList] = useState();
-  const [amount, setAmount] = useState(1);
-  const handleChange = (value) => setAmount(value);
-  const toast = useToast()
-
-  const [coOrdinates, setCoOrdinates] = useState([]);
-  const contractProcessor = useWeb3ExecuteFunction();
-  useEffect(() => {
-    if (isAuthenticated) {
-
-    }
-
-  }, [isAuthenticated])
-
-  //   useEffect(() => {
-  //     //Initialize API / fetch Gallery Listings
-  //     async function fetchAuctionsList() {
-  //       await Moralis.start({
-  //         serverUrl: "https://d8tdshnwaepb.usemoralis.com:2053/server",
-  //         appId: "dqkfmKHCu1vl17sLEOFgJ9RnwsJyrMgsqNLKTgQE",
-  //         masterKey: "nCOMVxCN1LDmsbmor74UPEhALoUYG0XrFvvtMQdR"
-  //       });
-
-
-  //       // Refer to @compoents/TaurosList.js
-  //       // TaurosDAO Lists a new Gallery for sale
-  //       //Search API key for the appropriate Dataset from MoralisDB
-  //       const auctions = Moralis.Object.extend("ListingCreated");
-  //       // Query new Gallery Listings Listings
-  //       const state = new Moralis.Query(auctions);
-
-  //       const result = await state.find();
-  //       console.log(state)
-
-  //       // CoOrdinates via Google Maps API
-  //       let cords = [];
-  //       result.forEach((e) => {
-  //         cords.push({ lat: e.attributes.lat, lng: e.attributes.long });
-  //       });
-  //       console.log(cords)
-
-  //       setCoOrdinates(cords);
-
-  //       // Fill Data
-  //       setAuctionsList(result);
-  //     }
-  //     //Fetch New Gallery Listings
-  //     fetchAuctionsList();
-  //   }, [searchFilters]);
-
-
-  //Gallery Contract 
-  //Price (TokenId = 1) => 0.8ETH
-  const PRICE = {
-    contractAddress: "0xE80F06000c4a9f4846D408134a0Fd541BaCD709F",
-    functionName: "price1",
-    abi: galleriesABI,
-  };
-
-  // Purchase Gallery
-  const bookauction = async function (id, dayPrice) {
-
-
-    let options = {
-      //Tauros Exchange Contract
-      contractAddress: "0x1bD8e23b07ED6366BACc3fF42276Be49d4bBA083",
-      functionName: "purchase",
-      abi: [
-        {
-          "inputs": [
+    // Initialize Gallery Purchase 
+    const { config, error } = usePrepareContractWrite({
+        // Set Marketplace Contract
+        address: '0xC9d3C8E9a04df301162980a37b637ab380284976',
+        // Pass Marketplace Contract params
+        abi: [
             {
-              "internalType": "address",
-              "name": "contractAddr",
-              "type": "address"
+                name: 'purchase',
+                type: 'function',
+                stateMutability: 'payable',
+                inputs:
+                    [
+                        { internalType: 'address', name: 'contractAddr', type: 'address' },
+                        { internalType: 'uint256', name: 'tokenId', type: 'uint256' },
+                        { internalType: 'uint256', name: 'amount', type: 'uint256' },
+                    ],
+                outputs: [],
             },
-            {
-              "internalType": "uint256",
-              "name": "tokenId",
-              "type": "uint256"
-            },
-            {
-              "internalType": "uint256",
-              "name": "amount",
-              "type": "uint256"
-            }
-          ],
-          "name": "purchase",
-          "outputs": [],
-          "stateMutability": "payable",
-          "type": "function"
-        }
-      ],
-      params: {
-        //ERC1155 Gallery Contract 
-        contractAddr: "0xa51DD6b83fcda7C3A5b45aF454c9A561893f08dF",
-        // tokenId(Galleria = 0 , The Cube = 1)
-        tokenId: 1,
-        amount: amount // Amount of Galleries to purchase 
-      },
-      msgValue:
-        // ERC1155 Gallery Contract Price
-        await Moralis.executeFunction(PRICE) * amount
+        ],
+        functionName: 'purchase',
+        // Set Value of Gallery
+        overrides: {
+            // Override Price 
+            value: String(price),
+        },
 
-      // Moralis.Units.ETH("0.5")
-    }
-
-    await contractProcessor.fetch({
-      params: options,
-      onSuccess: () => {
-        toast({
-          title: 'Purchase Successful',
-          description: "Purchased Item",
-          status: 'success',
-          duration: 9000,
-          isClosable: true,
-        })
-        console.log("Purchase successful");
-      },
-      onError: (error) => {
-        toast({
-          title: 'Purchase Failed.. User rejected the transaction or not enough Ether To Purchase Gallery',
-          description: console.log(error),
-          status: "error",
-          duration: '9000',
-          isClosable: true
-        })
-        console.log(error);
-      }
+        // Gallery Contract, GalleryID, amount to Purchase
+        args: [contract, tokenId, amount],
     })
+    console.log(config)
+    console.log(error)
 
-    console.log(account)
+    // Write to Marketplace Contract
+    const { write } = useContractWrite({
+        ...config,
+        onSuccess(data) {
+            toast({
+                title: 'Purchased Successful',
+                description: "Purchaseded Gallery",
+                status: 'success',
+                duration: 9000,
+                isClosable: true,
+            })
+            console.log("Purchased successful");
+        },
+        onError(error) {
+            toast({
+                title: 'Purchase Failed.. User rejected the transaction or not enough Ether To Purchase Cube Gallery',
+                description: console.log(error),
+                status: "error",
+                duration: '9000',
+                isClosable: true
+            })
+            console.log(error);
+        },
+        onMutate({ args }) {
+            console.log('Mutate', { args })
+        }
+    })
+    console.log(write)
 
-  }
 
-
-  return (
-
-    <>
-      {/* |Current Galleries For Sale| */}
-      <FormControl my="4" maxW="210" minW="210">
-        {/* Map Queried Listings And fill in data respective to contract */}
-        {/* {auctionsList &&
-          auctionsList.map((e, i) => { */}
-        {/* return ( */}
+    return (
         <>
-          {/* <Spacer /> */}
-          {/* Fetch DLatitude/Longitude of Gallery Location From MoralisDB */}
-          {/* <div>Latitude: {e.attributes.lat}</div>
-                Longitude: {e.attributes.long} */}
-          <Box fontSize="xl" fontWeight="bold" align="right">
-            <form
-              onSubmit={async e => {
-                e.preventDefault()
-              }}>
-              {/* Fetch ImageURL (Galleria/The Box) From MoralisDB */}
-              {/* <img className="auctionImg" src={e.attributes.imgUrl}></img> */}
+            <Center py={6}>
+                <Stack
+                    borderWidth="1px"
+                    borderRadius="lg"
+                    w={{ sm: '100%', md: '1000px' }}
+                    height={{ sm: '476px', md: '550px' }}
+                    direction={{ base: 'column', md: 'row' }}
+                    bg={useColorModeValue('black', 'gray.900')}
+                    boxShadow={'2xl'}
+                    padding={4}>
+                    {/* <Flex flex={1} bg="black"> */}
+                    <div style={{ width: '100%', height: '100%', position: 'relative' }}>
 
-              {/* Fetch Description Gallery Name (Galleria/The Box) From MoralisDB */}
-              {/* <div className="auctionTitle">{e.attributes.name}</div> */}
+                        <Image
+                            objectFit="fill"
+                            boxSize="100%"
+                            // sizes='100vw'
+                            src={
+                                'images/Minotaur.png'
+                            }
+                        />
+                    </div>
+                    {/* </Flex> */}
+                    <Stack
+                        flex={1}
+                        flexDirection="column"
+                        justifyContent="center"
+                        alignItems="center"
+                        p={1}
+                        pt={2}>
+                        {/* <div style={{ width: '100%', height: '100%', position: 'relative' }}>
 
-              {/* Fetch Description One From MoralisDB */}
-              {/* <div> {e.attributes.descriptionOne}</div> */}
+              <Image
+                objectFit="fill"
+                // boxSize="100%"
+                // sizes='100vw'
+                src={
+                  'images/47.jpg'
+                }
+              />
+            </div> */}
+                        <Heading fontSize={'2xl'} color={'white'} fontFamily={'body'}>
+                            Cube Gallery
+                        </Heading>
+                        <Text fontWeight={600} color={'white'} size="sm" mb={4}>
+                            @TaurosDAO
+                        </Text>
+                        <Spacer />
+                        <Text
+                            textAlign={'center'}
+                            color={useColorModeValue('white', 'white.400')}
+                            px={3}>
+                            Purchase the Cube gallery
+                            {/* <Link href={'#'} color={'blue.400'}>
+              
+            </Link> */}
+                            <Spacer /> Cube Galleries Tags
+                        </Text>
+                        <Stack align={'center'} justify={'center'} direction={'row'} mt={6}>
+                            <Badge
+                                px={2}
+                                py={1}
+                                bg={useColorModeValue('white', 'gray.800')}
+                                fontWeight={'400'}>
+                                #ArtGallery
+                            </Badge>
+                            <Badge
+                                px={2}
+                                py={1}
+                                bg={useColorModeValue('white', 'gray.800')}
+                                fontWeight={'400'}>
+                                #TaurosDAO
+                            </Badge>
+                            <Badge
+                                px={2}
+                                py={1}
+                                bg={useColorModeValue('white', 'gray.800')}
+                                fontWeight={'400'}>
+                                #Cube
+                            </Badge>
+                        </Stack>
+                        <Spacer />
+                        <Stack
+                            width={'100%'}
+                            mt={'2rem'}
+                            direction={'row'}
+                            padding={2}
+                            justifyContent={'space-between'}
+                            alignItems={'center'}>
+                            <Button
+                                flex={1}
+                                fontSize={'sm'}
+                                rounded={'full'}
+                                _focus={{
+                                    bg: 'gray.200',
+                                }}>
+                                View on openSea
+                            </Button>
+                            <Button
+                                flex={1}
+                                fontSize={'sm'}
+                                rounded={'full'}
+                                bg={'blue.400'}
+                                color={'white'}
+                                boxShadow={
+                                    '0px 1px 25px -5px rgb(66 153 225 / 48%), 0 10px 10px -5px rgb(66 153 225 / 43%)'
+                                }
+                                _hover={{
+                                    bg: 'blue.500',
+                                }}
+                                _focus={{
+                                    bg: 'blue.500',
+                                }}
+                                disabled={!write} onClick={() => write?.()}>
+                                Purchase Cube Gallery
+                            </Button>
+                            {error && (
+                                <div>{error.message}</div>
+                            )}
+                        </Stack>
+                    </Stack>
+                </Stack>
+            </Center>
 
-              {/* purchase {e.attributes.descriptionOne} for {e.attributes.pricePerDay} 0.5Ξ */}
-
-              {/* <FormLabel htmlFor="amount" textAlign="right"> Purchase Gallery
-                          </FormLabel> */}
-              <FormControl my="4" maxW="210" minW="210">
-                <NumberInput step={1} min={1} max={10} defaultValue={1} onChange={handleChange} allowMouseWheel>
-                  <NumberInputField id="amount" value={amount} bg="gray.200" boxShadow="lg" />
-                  <NumberInputStepper bg="teal.300">
-                    <NumberIncrementStepper borderLeft="none" />
-                    <Spacer />
-                    <NumberDecrementStepper borderLeft="none" />
-                  </NumberInputStepper>
-                </NumberInput>
-              </FormControl>
-              <Button onClick={() => {
-                if (isAuthenticated) { bookauction(); }
-              }} text={"Buy"} theme={"primary"} />
-            </form>
-          </Box>
+            {/* <Button disabled={!write} onClick={() => write?.()}>Buy</Button>
+            {error && (
+                <div>{error.message}</div>
+            )} */}
         </>
-        {/* ); */}
-        {/* })} */}
-      </FormControl>
-    </>
-  );
-};
+
+    )
+}
+
 
