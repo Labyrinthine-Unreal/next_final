@@ -208,9 +208,9 @@ export default function MBC() {
                                 disabled={!write} onClick={() => write?.()}>
                                 Purchase Cube Gallery
                             </Button>
-                            {error && (
+                            {/* {error && (
                                 <div>{error.message}</div>
-                            )}
+                            )} */}
                         </Stack>
                     </Stack>
                 </Stack>

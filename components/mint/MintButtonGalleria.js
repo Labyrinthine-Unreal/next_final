@@ -208,9 +208,9 @@ export default function MBG() {
                                 disabled={!write} onClick={() => write?.()}>
                                 Purchase Blue Moon Gallery
                             </Button>
-                            {error && (
+                            {/* {error && (
                                 <div>{error.message}</div>
-                            )}
+                            )} */}
                         </Stack>
                     </Stack>
                 </Stack>
