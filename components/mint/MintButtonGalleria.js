@@ -144,7 +144,7 @@ export default function MBG() {
                             textAlign={'center'}
                             color={useColorModeValue('white', 'white.400')}
                             px={3}>
-                            Purchase the Cube gallery
+                            Purchase the Blue Moon gallery
                             {/* <Link href={'#'} color={'blue.400'}>
               
             </Link> */}
