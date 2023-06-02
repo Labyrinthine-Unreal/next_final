@@ -27,6 +27,8 @@ import Carousel from "nuka-carousel";
 import MBC from '@components/mint/MintButtonCube'
 import MBG from '@components/mint/MintButtonGalleria'
 import NukaCarousel from "nuka-carousel";
+import Header from '@components/Header';
+
 // import "../styles/styles.css";
 
 const MotionSimpleGrid = motion(SimpleGrid)
@@ -88,7 +90,7 @@ export default function Home() {
           TaurosDAO Marketplace | Dashboard
         </title>
       </Head>
-
+<Header />
 
 
       <NukaCarousel cellAlign="center" slidesToShow={1} slidesToScroll={1} cellSpacing={50}>
