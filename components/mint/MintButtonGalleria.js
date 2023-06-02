@@ -134,7 +134,7 @@ export default function MBG() {
               />
             </div> */}
                         <Heading fontSize={'2xl'} color={'white'} fontFamily={'body'}>
-                            Cube Gallery
+                            Blue Moon Gallery
                         </Heading>
                         <Text fontWeight={600} color={'white'} size="sm" mb={4}>
                             @TaurosDAO
