@@ -10,7 +10,10 @@ import {
   useColorModeValue, Grid, HStack, SimpleGrid, Collapse, useDisclosure, IconButton
 } from '@chakra-ui/react'
 import { Card, CardHeader, CardBody, CardFooter, Image, Stack } from '@chakra-ui/react'
-export default function WTH() {
+import Rewards from "./rewards";
+
+
+export default function CTAU() {
   const [amount1, setAmount] = React.useState(1111)
   const handleChange = (value) => setAmount(value)
   // const [amount2] = Web3.utils.toBN(amount1) 
@@ -27,27 +30,26 @@ export default function WTH() {
   const { config, error } = usePrepareContractWrite({
     address: '0xB9FB937CBFcC42B0587e75a05FCD38f243D6ee1a',
     abi: [
-      {
-        name: 'withdraw',
-        type: 'function',
-        stateMutability: 'nonpayable',
-        inputs:
-          [
-            
-          ],
-        outputs: [
+        {
+          name: 'stakeRewards',
+          type: 'function',
+          stateMutability: 'nonpayable',
+          inputs:
+            [
+            ],
+          outputs: [
 
-        ],
-      },
-    ],
-    functionName: 'withdraw',
-    // overrides: {
-    //   // Override Price 
-    //   gasLimit: 270000,
-    // },
-    // 
-    args: [amount],
-  })
+          ],
+        },
+      ],
+      functionName: 'stakeRewards',
+      // overrides: {
+      //   // Override Price 
+      //   value: String(amount),
+      // },
+      // Amount to minta
+      // args: [amount],
+    })
   console.log(config)
   console.log(error)
   
@@ -56,17 +58,17 @@ export default function WTH() {
     ...config,
     onSuccess(data){
       toast({
-        title: 'Withdraw Successful',
+        title: 'Compound Successful',
         description: "Staked $TAU Withdrawn:)",
         status: 'success',
         duration: 9000,
         isClosable: true,
       })
-      console.log("Withdrawl successful");
+      console.log("Compound successful");
     },
     onError(error) {
       toast({
-        title: 'Withdrawl Failed.. User rejected the transaction or not enough Gas To Stake TAU',
+        title: 'Compound Failed.. User rejected the transaction or not enough Gas To Stake TAU',
         description: console.log(error),
         status: "error",
         duration: '9000',
@@ -131,11 +133,11 @@ export default function WTH() {
         <form className={styles.btn} onSubmit={async e => {
           e.preventDefault()
         }}>
-          <FormControl my="4" maxW="210" minW="210">
+          {/* <FormControl my="4" maxW="210" minW="210"> */}
             <FormLabel htmlFor="amount" textAlign="right">
-              Amount to Withdraw
+              Compound $TAU
             </FormLabel>
-
+{/* 
             <NumberInput step={10} min={1111} defaultValue={1111} onChange={handleChange} allowMouseWheel>
             <NumberInputField id="amount" value={amount} bg="gray.200" boxShadow="lg" />
               <NumberInputStepper bg="#FA897B">
@@ -145,13 +147,13 @@ export default function WTH() {
               </NumberInputStepper>
             </NumberInput>
           </FormControl>
-          <Spacer />
+          <Spacer /> */}
           {/* Mint TAUDAO */}
-          {/* <Button>Withdraw $TAU Not Yet Available</Button> */}
+          {/* <Button>Compound $TAU Not Yet Available</Button> */}
 
 
           <Button disabled={!write} onClick={() => write?.()}>
-            Withdraw $TAU
+            Compound $TAU
           </Button> 
 
 
@@ -194,6 +196,7 @@ export default function WTH() {
                 }}>
                 Follow on Twitter
               </Button> */}
+              <Rewards />
             </Stack>
           </Stack>
         {/* </Stack> */}

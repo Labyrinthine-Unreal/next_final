@@ -6,15 +6,19 @@ import { useAuth } from '@clerk/nextjs';
 // import { ClerkProvider, useUser, SignIn, SignedOut, SignedIn, SignInButton, UserButton } from '@clerk/nextjs'
 import withCategoryStyles from '@root/components/cards/withCategoryStyles';
 import { useRouter } from 'next/router';
+import { Heading,Center } from '@chakra-ui/react';
 import { useAccount, useEnsAvatar, useDisconnect, useConnect, useContractRead} from 'wagmi'
 import Header from '@components/Header';
-import { Center } from '@chakra-ui/react';
 import Stake from '@components/mint/stakeDAO';
 import Unstake from '@components/mint/DAOunstake';
 import STAU from '@components/mint/stake20';
-import WTH from '@components/mint/WithdrawTAU';
+import WTHAll from '@components/mint/withdrawAll';
 import UI from '@components/mint/erc20balance';
 import CR from '@components/mint/claimRewards';
+import { Spacer } from '@chakra-ui/react';
+import depInfo from '@components/mint/depositInfo';
+import CTAU from '@components/mint/compoundTAU';
+import NukaCarousel from "nuka-carousel";
 const Forum = () => {
   // const secret = Clerk.session.getToken({ template: 'fauna' })
   // console.log(secret)
@@ -56,6 +60,35 @@ const Forum = () => {
     functionName: "balanceOf",
     args: [address]
   })
+
+  const {Id}= useContractRead({
+    address: '0xB9FB937CBFcC42B0587e75a05FCD38f243D6ee1a',
+    abi: [
+        {
+          name: 'userStakeInfo',
+          type: 'function',
+          stateMutability: 'view',
+          inputs:
+          [
+            {
+              internalType: "address",
+              name: "_user",
+              type: "address"
+            }
+        ],
+          outputs: [
+            {
+              internalType: "uint256",
+              name: "_tokenIds",
+              type: "uint256"
+            }
+        ],
+        },
+      ],
+    functionName: "userStakeInfo",
+    args: [address]
+  })
+
   console.log(isError)
   console.log(isSuccess)
    console.log(data)
@@ -88,16 +121,35 @@ const Forum = () => {
     
     
     <div>
-      <UI />
+       <Header />
+      <Center>
+      <Heading>TaurosDAO NFT staking</Heading>
+      </Center>
+      <NukaCarousel cellAlign="center" slidesToShow={1} slidesToScroll={1} cellSpacing={50}>
       <Stake />
       <Unstake />
+      <depInfo />
+      </NukaCarousel>
+
+      <UI /> <Spacer />
+      <Heading>DAO Balance: {String(data)}</Heading>
+      {/* <depInfo /> */}
+      <NukaCarousel cellAlign="center" slidesToShow={1} slidesToScroll={1} cellSpacing={50}>
       <STAU />
-      
-      <Header />
-      <Center>
-      DAO Balance: {String(data)}
-      <WTH />
       <CR />
+      <WTHAll />
+      <CTAU />
+      </NukaCarousel>
+      
+      {/* <Header /> */}
+      <Center>
+      {/* <Heading>DAO Balance: {String(data)}</Heading> */}
+      {/* <Spacer/><br /> */}
+      {/* DAO IDs Staked {Id} */}
+      {/* <STAU /> */}
+      {/* <WTHAll /> */}
+      
+      {/* <CR /> */}
       </Center>
       <h1>Proposals</h1>
       <button onClick={handleNewTopic}>Start a New Proposal</button>

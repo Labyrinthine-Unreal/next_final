@@ -4,6 +4,14 @@ import { ethers } from "ethers";
 import { useToast, Heading, Center, NumberInputStepper, Box, Spacer, NumberIncrementStepper, Button, Input, NumberDecrementStepper, NumberInputField, Text, FormControl, FormLabel, NumberInput } from "@chakra-ui/react"
 import styles from "@styles/MintButton.module.css"
 import Web3 from "web3";
+import {
+    Badge,
+    Link,
+    useColorModeValue, Grid, HStack, SimpleGrid, Collapse, useDisclosure, IconButton
+  } from '@chakra-ui/react'
+import { Card, CardHeader, CardBody, CardFooter, Image, Stack } from '@chakra-ui/react'
+import depInfo from '@components/mint/depositInfo';
+import Rewards from "./rewards";
 export default function CR() {
     const [amount, setAmount] = React.useState(1111)
     const handleChange = (value) => setAmount(value)
@@ -17,7 +25,7 @@ export default function CR() {
 
     // Initialze claimTAU Contract write
     const { config, error } = usePrepareContractWrite({
-        address: '0x2816e4B49a9d7ae07720a922a7A805F9fA5876c4',
+        address: '0xB9FB937CBFcC42B0587e75a05FCD38f243D6ee1a',
         abi: [
             {
                 name: 'claimRewards',
@@ -76,8 +84,48 @@ export default function CR() {
 
     return (
         <>
-            <Box fontSize="xl" fontWeight="bold" align="right">
+            {/* <Box fontSize="xl" fontWeight="bold" align="right"> */}
+            <Center py={6}>
+        <Stack
+          borderWidth="1px"
+          borderRadius="lg"
+          w={{ sm: '100%', md: '500px' }}
+          height={{ sm: '476px', md: '550px' }}
+          direction={{ base: 'column', md: 'row' }}
+          bg={useColorModeValue('black', 'gray.900')}
+          boxShadow={'2xl'}
+          padding={4}>
+          {/* <Flex flex={1} bg="black"> */}
+            <div style={{ width: '100%', height: '100%', position: 'relative' }}>
+{/* 
+              <Image
+                objectFit="fill"
+                boxSize="100%"
+                // sizes='100vw'
+                src={
+                  'https://pbs.twimg.com/media/FxSM1ndXsAA5IR2?format=jpg'
+                }
+              /> */}
+            </div>
+          {/* </Flex> */}
+          <Stack
+            flex={1}
+            flexDirection="column"
+            justifyContent="center"
+            alignItems="center"
+            p={1}
+            pt={2}>
+            {/* <div style={{ width: '100%', height: '100%', position: 'relative' }}>
 
+              <Image
+                objectFit="fill"
+                // boxSize="100%"
+                // sizes='100vw'
+                src={
+                  'images/47.jpg'
+                }
+              />
+            </div> */}
                 <form className={styles.btn} onSubmit={async e => {
                     e.preventDefault()
                 }}>
@@ -96,7 +144,52 @@ export default function CR() {
             <div>{error.message}</div>
           )}</Box> */}
                 </form>
-            </Box>
+                <Spacer />
+        </Stack>
+            <Spacer />
+            <Stack
+              width={'100%'}
+              mt={'2rem'}
+              direction={'row'}
+              padding={2}
+              justifyContent={'space-between'}
+              alignItems={'center'}>
+              {/* <Button
+                flex={1}
+                fontSize={'sm'}
+                rounded={'full'}
+                _focus={{
+                  bg: 'gray.200',
+                }}>
+                View art on openSea
+              </Button>
+              <Button
+                flex={1}
+                fontSize={'sm'}
+                rounded={'full'}
+                bg={'blue.400'}
+                color={'white'}
+                boxShadow={
+                  '0px 1px 25px -5px rgb(66 153 225 / 48%), 0 10px 10px -5px rgb(66 153 225 / 43%)'
+                }
+                _hover={{
+                  bg: 'blue.500',
+                }}
+                _focus={{
+                  bg: 'blue.500',
+                }}>
+                Follow on Twitter
+              </Button> */}
+              <depInfo />
+              <Rewards />
+            </Stack>
+            {/* <CR /> */}
+          </Stack>
+        {/* </Stack> */}
+        
+      </Center>
+      {/* </Box> */}
+            {/* </Box> */}
         </>
     )
 }

@@ -10,7 +10,10 @@ import {
   useColorModeValue, Grid, HStack, SimpleGrid, Collapse, useDisclosure, IconButton
 } from '@chakra-ui/react'
 import { Card, CardHeader, CardBody, CardFooter, Image, Stack } from '@chakra-ui/react'
-export default function WTH() {
+import Rewards from "./rewards";
+import CR from "./claimRewards";
+
+export default function WTHAll() {
   const [amount1, setAmount] = React.useState(1111)
   const handleChange = (value) => setAmount(value)
   // const [amount2] = Web3.utils.toBN(amount1) 
@@ -28,7 +31,7 @@ export default function WTH() {
     address: '0xB9FB937CBFcC42B0587e75a05FCD38f243D6ee1a',
     abi: [
       {
-        name: 'withdraw',
+        name: 'withdrawAll',
         type: 'function',
         stateMutability: 'nonpayable',
         inputs:
@@ -40,13 +43,13 @@ export default function WTH() {
         ],
       },
     ],
-    functionName: 'withdraw',
+    functionName: 'withdrawAll',
     // overrides: {
     //   // Override Price 
     //   gasLimit: 270000,
     // },
     // 
-    args: [amount],
+    args: [],
   })
   console.log(config)
   console.log(error)
@@ -131,11 +134,11 @@ export default function WTH() {
         <form className={styles.btn} onSubmit={async e => {
           e.preventDefault()
         }}>
-          <FormControl my="4" maxW="210" minW="210">
+          {/* <FormControl my="4" maxW="210" minW="210"> */}
             <FormLabel htmlFor="amount" textAlign="right">
-              Amount to Withdraw
+              Withdraw $TAU
             </FormLabel>
-
+{/* 
             <NumberInput step={10} min={1111} defaultValue={1111} onChange={handleChange} allowMouseWheel>
             <NumberInputField id="amount" value={amount} bg="gray.200" boxShadow="lg" />
               <NumberInputStepper bg="#FA897B">
@@ -145,7 +148,7 @@ export default function WTH() {
               </NumberInputStepper>
             </NumberInput>
           </FormControl>
-          <Spacer />
+          <Spacer /> */}
           {/* Mint TAUDAO */}
           {/* <Button>Withdraw $TAU Not Yet Available</Button> */}
 
@@ -153,6 +156,7 @@ export default function WTH() {
           <Button disabled={!write} onClick={() => write?.()}>
             Withdraw $TAU
           </Button> 
+          
 
 
           {/* <Box>{error && (
@@ -194,6 +198,8 @@ export default function WTH() {
                 }}>
                 Follow on Twitter
               </Button> */}
+              <Rewards />
+              {/* <CR /> */}
             </Stack>
           </Stack>
         {/* </Stack> */}

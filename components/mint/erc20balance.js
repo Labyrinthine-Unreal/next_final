@@ -18,7 +18,7 @@ export default function UI() {
 
   // Initialze claimBCC Contract write
   const { data, isError, isLoading } = useContractRead({
-    address: '0x2816e4B49a9d7ae07720a922a7A805F9fA5876c4',
+    address: '0xB9FB937CBFcC42B0587e75a05FCD38f243D6ee1a',
     abi: [
       {
         name: 'balanceOf',
@@ -86,7 +86,7 @@ export default function UI() {
     <>
       <Box fontSize="xl" fontWeight="bold" align="right">
 
-      <p> Your $TAU Balance: {data1}</p>
+      <Heading>Your $TAU Balance: {data1}</Heading> 
       </Box>
     </>
   )

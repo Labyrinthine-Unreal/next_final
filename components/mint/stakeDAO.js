@@ -4,6 +4,12 @@ import { ethers } from "ethers";
 import { useToast, Heading, Center, NumberInputStepper, Box, Spacer, NumberIncrementStepper, Button, Input, NumberDecrementStepper, NumberInputField, Text, FormControl, FormLabel, NumberInput } from "@chakra-ui/react"
 import styles from "@styles/MintButton.module.css"
 import Web3 from "web3";
+import {
+  Badge,
+  Link,
+  useColorModeValue, Grid, HStack, SimpleGrid, Collapse, useDisclosure, IconButton
+} from '@chakra-ui/react'
+import { Card, CardHeader, CardBody, CardFooter, Image, Stack } from '@chakra-ui/react'
 export default function Stake() {
   const [amount, setAmount] = React.useState(0)
   const handleChange = (value) => setAmount(value)
@@ -19,7 +25,7 @@ export default function Stake() {
 
   // Initialze claimTauros Contract write
   const { config, error } = usePrepareContractWrite({
-    address: '0x2816e4B49a9d7ae07720a922a7A805F9fA5876c4',
+    address: '0xB9FB937CBFcC42B0587e75a05FCD38f243D6ee1a',
     abi: [
       {
         name: 'DAOstake',
@@ -56,7 +62,7 @@ export default function Stake() {
         duration: 9000,
         isClosable: true,
       })
-      console.log("Mint successful");
+      console.log("Stake successful");
     },
     onError(error) {
       toast({
@@ -79,14 +85,60 @@ export default function Stake() {
 
   return (
     <>
-      <Box fontSize="xl" fontWeight="bold" align="right">
+      <Center py={6}>
+        <Stack
+          borderWidth="1px"
+          borderRadius="lg"
+          w={{ sm: '100%', md: '500px' }}
+          height={{ sm: '476px', md: '550px' }}
+          direction={{ base: 'column', md: 'row' }}
+          bg={useColorModeValue('black', 'gray.900')}
+          boxShadow={'2xl'}
+          padding={4}>
+          {/* <Flex flex={1} bg="black"> */}
+            <div style={{ width: '100%', height: '100%', position: 'relative' }}>
 
+            {/* <video
+              autoPlay
+              muted
+              loop
+              src='../public/videos/TaurosCard.mp4'
+              // alt={imageAlt}
+              objectfit="cover"
+              layout="fill"
+              /> */}
+            </div>
+          {/* </Flex> */}
+          <Stack
+            flex={1}
+            flexDirection="column"
+            justifyContent="center"
+            alignItems="center"
+            p={1}
+            pt={2}>
+            {/* <div style={{ width: '100%', height: '100%', position: 'relative' }}>
+
+              <Image
+                objectFit="fill"
+                // boxSize="100%"
+                // sizes='100vw'
+                src={
+                  'images/47.jpg'
+                }
+              />
+            </div> */}
+            <Heading fontSize={'2xl'} color={'white'}>
+             Stake TaurosDao
+            </Heading>
+            <Text fontWeight={600} color={'white'} size="sm" mb={4}>
+              Stake TaurosDAO
+            </Text>
          {/* <form className={styles.btn} onSubmit={async e => {
           e.preventDefault()
         }}> */}
           <FormControl my="4" maxW="210" minW="210">
             <FormLabel htmlFor="amount" textAlign="right">
-              Stake DAO
+              TokenID
             </FormLabel>
 
             <NumberInput step={1} min={0} max={7110} defaultValue={0} onChange={handleChange} allowMouseWheel>
@@ -102,20 +154,45 @@ export default function Stake() {
           <Button onClick={() => write?.()}>
             Stake DAO
           </Button> 
-
-        {/* </form> */}
-
-        {/* <form> */}
-      {/* <label for="tokenId">Token ID</label>
-      <input
-        id="tokenId"
-        onChange={(e) => setTokenId(e.target.value)}
-        placeholder="420"
-        value={tokenId}
-      />
-      <button onClick={() => write?.()}>Stake</button> */}
-    {/* </form>  */}
-      </Box> 
+          </Stack>
+          <Spacer />
+            <Stack
+              width={'100%'}
+              mt={'2rem'}
+              direction={'row'}
+              padding={2}
+              justifyContent={'space-between'}
+              alignItems={'center'}>
+              {/* <Button
+                flex={1}
+                fontSize={'sm'}
+                rounded={'full'}
+                _focus={{
+                  bg: 'gray.200',
+                }}>
+                View art on openSea
+              </Button>
+              <Button
+                flex={1}
+                fontSize={'sm'}
+                rounded={'full'}
+                bg={'blue.400'}
+                color={'white'}
+                boxShadow={
+                  '0px 1px 25px -5px rgb(66 153 225 / 48%), 0 10px 10px -5px rgb(66 153 225 / 43%)'
+                }
+                _hover={{
+                  bg: 'blue.500',
+                }}
+                _focus={{
+                  bg: 'blue.500',
+                }}>
+                Follow on Twitter
+              </Button> */}
+            </Stack>
+          </Stack>
+        {/* </Stack> */}
+      </Center>
     </>
   )
 }
