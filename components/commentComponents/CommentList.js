@@ -1,106 +1,93 @@
 // src/components/commentComponents/CommentList.js
-import React, { useState, useEffect } from 'react';
+import React from "react";
+import Link from 'next/link';
+import gql from "graphql-tag";
+import { useQuery } from "@apollo/react-hooks";
 import { useRouter } from 'next/router';
-import { useQuery, gql } from '@apollo/client';
-import { useUser } from '@clerk/nextjs';
 import parse from 'html-react-parser';
-// import Header from '@root/components/layout/Header';
-import UpdateTopic from '@root/components/topicComponents/UpdateTopic';
-import faunadb from 'faunadb';
-import { CSSTransition } from 'react-transition-group';
-import ReplyButton from '@root/components/buttons/ReplyButton';
-import styles from './CommentList.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faFile, faPencil } from '@fortawesome/free-solid-svg-icons'
+import styles from '@root/components/topicComponents/TopicList.module.css';
+// import { ClerkProvider, useUser, SignIn, SignedOut, SignedIn, SignInButton, UserButton } from '@clerk/nextjs'
+import faunadb from 'faunadb';
 
 const q = faunadb.query;
-const client = new faunadb.Client({ domain:"db.us.fauna.com", secret: process.env.NEXT_PUBLIC_FAUNA_SECRET_KEY, keepAlive: true });
 
-const GET_TOPIC_BY_SLUG = gql`
-query MyTopicQuery($slug: String!){
-  topics_by_slug(slug: $slug) {
-    _id
-    slug
-    topic
-    content
-    user
-    comment
+const ITEMS_QUERY = gql`
+query MyCommentQuery {
+  comments_by_id{
+    data{
+      _id
+        date
+      forumID
+      comment
+      user
+      slug
+    }
     }
   }
+ 
 `;
 
-const CommentList = () => {
+
+// console.log(ITEMS_QUERY)
+
+export default function CommentList() {
   const router = useRouter();
-  const { slug } = router.query;
-  const { data, loading, error } = useQuery(GET_TOPIC_BY_SLUG, {
-    variables: { slug },
-    skip: !slug,
-  })
-  const { user } = useUser()
-  const [comments, setComments] = useState([]); // <-- store comments in state
-
-  useEffect(() => {
-    if (data?.topics_by_slug.slug) {
-      var createP = client.query(
-        q.Paginate(q.Match(q.Index("getProposalsCommentsBySlug"), data?.topics_by_slug.slug))
-      );
-      createP.then(async function (response) {
-        // Check if response.data is defined and is an array
-        if (Array.isArray(response.data)) {
-          response.data.map(
-            ([item, ref, comment, name, slug, date]) => {
-              console.log(comment)
-              console.log(name)
-              console.log(response.data)
-              console.log(JSON.stringify(response.data))
-              // Check if response.data[0] is defined and is an array with at least 5 elements
-              if (Array.isArray(response.data[0]) && response.data[0].length >= 5) {
-              }
-              // Check if response.data[1] is defined and is an array with at least 5 elements
-              if (Array.isArray(response.data[1]) && response.data[1].length >= 5) {
-              }
-            }
-          )
-          setComments(response.data); // <-- update comments state
-        }
-      })
-    }
-  }, [data]);
-
+  const { data, loading, error } = useQuery(ITEMS_QUERY);
+  console.log(data)
+  // const { user } = useUser()
+  
   if (loading) return 'Loading...';
   if (error) return `Error! ${error.message}`;
 
+  const client = new faunadb.Client({ secret: "fnAFDZGm3pAASZlfCHemrt0fvXUPK1gb0ZqnbR6f", keepAlive: true });
+  // console.log(client)
+
+  const results = client.query(
+    q.Paginate(q.Match(q.Index("comments_by_id"), data.comments_by_id.slug)))
+  console.log(results)
+
+
+  // const isPostID = data?.comments_by_id.forumID === data?.comments_by_id.slug
+  // console.log(isPostID)
+
+
   return (
-    <>
+      <>
         <div className={styles.container}>
-          <table className={styles.commentTable}>
+                    
+          <table className={styles.topicTable}>
             <thead>
               <tr>
                 <th colSpan="5" className={styles.tableHeader}>Comments</th>
               </tr>
             </thead>
             <tbody>
-            {comments.map(([item, slug, name,comment, date, ref], index) => {
+              {data.comments_by_id.data.map((item) => {
                 return (
-                  <tr key={index} className={styles.commentRow}>
-                    <td className={styles.commentColumn}>
+                  <tr key={item.slug} className={styles.topicRow}>
+                    <td className={styles.topicColumn}>
                       <FontAwesomeIcon icon={faFile} />
                     </td>
                     <td>
-                      <div className={styles.commentAuthor}>Posted by {name} at {date}</div>
-                      {comment}
+                        <span className={styles.topicLink}>
+                        {item.forumID}
+                          <div className={styles.topicTitle}>{item.comment}</div>
+                          <div className={styles.topicAuthor}>Posted by {item.user} at {item.date}</div>
+                        </span>
                     </td>
-                    <td className={styles.dateAndTime}>
-                      <div>{date}</div>
-                    </td>
+                  
                   </tr>
-                )
+                );
               })}
             </tbody>
           </table>
+          
+        
         </div>
-    </>
-  )
-}
-
-export default CommentList;
+      </> 
+  );
+  }
+  
+  
