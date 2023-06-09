@@ -4,7 +4,7 @@ import { useRouter } from 'next/router';
 import { useQuery, gql } from '@apollo/client';
 import { useUser } from '@clerk/nextjs';
 import parse from 'html-react-parser';
-import Header from '@root/components/layout/Header';
+// import Header from '@root/components/layout/Header';
 import UpdateTopic from '@root/components/topicComponents/UpdateTopic';
 import faunadb from 'faunadb';
 import { CSSTransition } from 'react-transition-group';
