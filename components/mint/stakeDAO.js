@@ -4,6 +4,7 @@ import { ethers } from "ethers";
 import { useToast, Heading, Center, NumberInputStepper, Box, Spacer, NumberIncrementStepper, Button, Input, NumberDecrementStepper, NumberInputField, Text, FormControl, FormLabel, NumberInput } from "@chakra-ui/react"
 import styles from "@styles/MintButton.module.css"
 import Web3 from "web3";
+import DaoBal from "./DAObalance";
 import {
   Badge,
   Link,
@@ -189,6 +190,7 @@ export default function Stake() {
                 }}>
                 Follow on Twitter
               </Button> */}
+              <DaoBal />
             </Stack>
           </Stack>
         {/* </Stack> */}

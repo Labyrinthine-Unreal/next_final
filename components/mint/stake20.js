@@ -10,7 +10,7 @@ import {
   useColorModeValue, Grid, HStack, SimpleGrid, Collapse, useDisclosure, IconButton
 } from '@chakra-ui/react'
 import { Card, CardHeader, CardBody, CardFooter, Image, Stack } from '@chakra-ui/react'
-import CR from '@components/mint/claimRewards';
+import UI from '@components/mint/erc20balance';
 export default function STAU() {
   const [amount1, setAmount] = React.useState(1111)
   const handleChange = (value) => setAmount(value)
@@ -205,7 +205,7 @@ export default function STAU() {
                 }}>
                 Follow on Twitter
               </Button> */}
-              
+              <UI />
             </Stack>
             {/* <CR /> */}
           </Stack>

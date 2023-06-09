@@ -10,52 +10,71 @@ import {
   useColorModeValue, Grid, HStack, SimpleGrid, Collapse, useDisclosure, IconButton
 } from '@chakra-ui/react'
 import { Card, CardHeader, CardBody, CardFooter, Image, Stack } from '@chakra-ui/react'
-export default function UI() {
+export default function DaoBal() {
   const [amount, setAmount] = React.useState(1111)
   const handleChange = (value) => setAmount(value)
   // Fetch user address
-  const { address } = useAccount()
-  const address1 = address
-  console.log(address1)
-  const toast = useToast()
+  const { address,isConnected } = useAccount()
 
-  //$CIR Price : TODO fetch price from Contract for automatic update
-//   const price = Web3.utils.toWei("0.0005", "ether")
+  const {data, isError, isLoading,isSuccess}= useContractRead({
+    address: '0x9D591b482B162077f44169D6cD1b85bb4f4f80A2',
+    abi: [
+        {
+          name: 'balanceOf',
+          type: 'function',
+          stateMutability: 'view',
+          inputs:
+          [
+            {
+              internalType: "address",
+              name: "owner",
+              type: "address"
+            }
+        ],
+          outputs: [
+            {
+              internalType: "uint256",
+              name: "",
+              type: "uint256"
+            }
+        ],
+        },
+      ],
+    functionName: "balanceOf",
+    args: [address]
+  })
 
-  // Initialze claimBCC Contract write
-  const { data, isError, isLoading } = useContractRead({
+  const {Id}= useContractRead({
     address: '0xB9FB937CBFcC42B0587e75a05FCD38f243D6ee1a',
     abi: [
-      {
-        name: 'balanceOf',
-        type: 'function',
-        stateMutability: 'view',
-        inputs:
+        {
+          name: 'userStakeInfo',
+          type: 'function',
+          stateMutability: 'view',
+          inputs:
           [
-            //Contract Params
-            { internalType: 'address', name: 'account', type: 'address' },
-          ],
-        outputs: [
             {
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
-			}
+              internalType: "address",
+              name: "_user",
+              type: "address"
+            }
         ],
-      },
-    ],
-    functionName: 'balanceOf',
-    // overrides: {
-    //   // Override Price 
-    //   value: String(amount),
-    // },
-    // Amount to minta
-    args: [address1],
+          outputs: [
+            {
+              internalType: "uint256",
+              name: "_tokenIds",
+              type: "uint256"
+            }
+        ],
+        },
+      ],
+    functionName: "userStakeInfo",
+    args: [address]
   })
-//   console.log(config)
+
   console.log(isError)
-  console.log(data)
-  const data1 = String(data/1000000000000000000)
+  console.log(isSuccess)
+   console.log(data)
 //   // Contract Write
 //   const { data, write } = useContractWrite({
 //     ...config,
@@ -132,7 +151,7 @@ export default function UI() {
                 }
               />
             </div> */}
-      <Heading><Text fontWeight={300} color={'white'} size="sm" mb={4}>Your $TAU Balance: {data1}</Text></Heading>
+      <Heading><Text fontWeight={300} color={'white'} size="sm" mb={4}>Your TAUROS Balance: {String(data)}</Text></Heading>
       {/* <Heading>Your $TAU Balance: {data1}</Heading>  */}
       </Stack>
             <Spacer />
