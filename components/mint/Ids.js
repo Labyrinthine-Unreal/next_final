@@ -9,43 +9,14 @@ import {
   Link,
   useColorModeValue, Grid, HStack, SimpleGrid, Collapse, useDisclosure, IconButton
 } from '@chakra-ui/react'
-import tIDs from "./Ids";
 import { Card, CardHeader, CardBody, CardFooter, Image, Stack } from '@chakra-ui/react'
-export default function DaoBal() {
+export default function tIDs() {
   const [amount, setAmount] = React.useState(1111)
   const handleChange = (value) => setAmount(value)
   // Fetch user address
   const { address,isConnected } = useAccount()
 
   const {data, isError, isLoading,isSuccess}= useContractRead({
-    address: '0x9D591b482B162077f44169D6cD1b85bb4f4f80A2',
-    abi: [
-        {
-          name: 'balanceOf',
-          type: 'function',
-          stateMutability: 'view',
-          inputs:
-          [
-            {
-              internalType: "address",
-              name: "owner",
-              type: "address"
-            }
-        ],
-          outputs: [
-            {
-              internalType: "uint256",
-              name: "",
-              type: "uint256"
-            }
-        ],
-        },
-      ],
-    functionName: "balanceOf",
-    args: [address]
-  })
-
-  const {Id}= useContractRead({
     address: '0x9D591b482B162077f44169D6cD1b85bb4f4f80A2',
     abi: [
         {
@@ -122,7 +93,7 @@ export default function DaoBal() {
                 }
               />
             </div> */}
-      <Heading><Text fontWeight={300} color={'white'} size="sm" mb={4}>Your TAUROS Balance: {String(data)}</Text></Heading>
+      <Heading><Text fontWeight={300} color={'white'} size="sm" mb={4}>Your TAUROS IDs: {String(data)}</Text></Heading>
       {/* <Heading>Your $TAU Balance: {data1}</Heading>  */}
       </Stack>
             <Spacer />
@@ -159,7 +130,7 @@ export default function DaoBal() {
                 }}>
                 Follow on Twitter
               </Button> */}
-<tIDs />
+              {/* <Heading><Text fontWeight={300} color={'white'} size="sm" mb={4}>IDs: {String(Id)}</Text></Heading> */}
             </Stack>
           </Stack>
         {/* </Stack> */}
