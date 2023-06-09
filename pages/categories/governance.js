@@ -125,8 +125,10 @@ const Forum = () => {
       <Center>
       <Heading>TaurosDAO NFT staking</Heading>
       <br />
+      <Spacer />
       <UI /> 
       <br />
+      <Spacer />
       <Heading>DAO Balance: {String(data)}</Heading>
       </Center>
       <NukaCarousel cellAlign="center" slidesToShow={1} slidesToScroll={1} cellSpacing={50}>
