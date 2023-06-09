@@ -122,10 +122,10 @@ const Forum = () => {
     
     <div>
        <Header />
-       <UI /> 
-      <Heading>DAO Balance: {String(data)}</Heading>
       <Center>
       <Heading>TaurosDAO NFT staking</Heading>
+      <UI /> 
+      <Heading>DAO Balance: {String(data)}</Heading>
       </Center>
       <NukaCarousel cellAlign="center" slidesToShow={1} slidesToScroll={1} cellSpacing={50}>
       <Stake />
