@@ -122,7 +122,7 @@ const Forum = () => {
     
     <div>
        <Header />
-       <UI /> <Spacer />
+       <UI /> 
       <Heading>DAO Balance: {String(data)}</Heading>
       <Center>
       <Heading>TaurosDAO NFT staking</Heading>
