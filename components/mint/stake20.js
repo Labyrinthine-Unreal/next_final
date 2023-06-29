@@ -138,15 +138,15 @@ export default function STAU() {
             <Text fontWeight={300} color={'white'} size="sm" mb={4}>
               Minimim stake = 1111 $TAU
             </Text>
-            <form className={styles.btn} onSubmit={async e => {
+            {/* <form className={styles.btn} onSubmit={async e => {
           e.preventDefault()
-        }}>
+        }}> */}
           <FormControl my="4" maxW="210" minW="210">
             <FormLabel htmlFor="amount" textAlign="right">
             <Text fontWeight={300} color={'white'} size="sm" mb={4}> Amount to Stake </Text><Spacer /> 
             </FormLabel>
 
-            <NumberInput step={10} min={1111} max={100000000}defaultValue={1111} onChange={handleChange} allowMouseWheel>
+            <NumberInput step={1} min={1111} max={100000000}defaultValue={0} onChange={handleChange} allowMouseWheel>
               <NumberInputField id="amount" value={Web3.utils.toWei(String(amount1),"ether")} bg="gray.200" boxShadow="lg" />
               <NumberInputStepper bg="#FA897B">
                 <NumberIncrementStepper borderLeft="none" />
@@ -156,9 +156,6 @@ export default function STAU() {
             </NumberInput>
           </FormControl>
           <Spacer />
-          {/* Mint BCCDAO */}
-
-{/* <Button>Staking Coming Soon</Button> */}
 
           <Button disabled={!write} onClick={() => write?.()}>
             Stake $TAU
@@ -168,7 +165,7 @@ export default function STAU() {
           {/* <Box>{error && (
             <div>{error.message}</div>
           )}</Box> */}
-        </form>
+        {/* </form> */}
             <Spacer />
         </Stack>
             <Spacer />

@@ -96,7 +96,7 @@ export default function Unstake() {
 
       {/* <NukaCarousel cellAlign="center" slidesToShow={1} slidesToScroll={1} cellSpacing={20}> */}
       <Center py={6}>
-        <Stack
+        {/* <Stack
           borderWidth="1px"
           borderRadius="lg"
           w={{ sm: '100%', md: '500px' }}
@@ -104,7 +104,7 @@ export default function Unstake() {
           direction={{ base: 'column', md: 'row' }}
           bg={useColorModeValue('black', 'gray.900')}
           boxShadow={'2xl'}
-          padding={4}>
+          padding={4}> */}
           {/* <Flex flex={1} bg="black"> */}
             <div style={{ width: '100%', height: '100%', position: 'relative' }}>
 {/* 
@@ -118,13 +118,13 @@ export default function Unstake() {
               /> */}
             </div>
           {/* </Flex> */}
-          <Stack
+          {/* <Stack
             flex={1}
             flexDirection="column"
             justifyContent="center"
             alignItems="center"
             p={1}
-            pt={2}>
+            pt={2}> */}
             {/* <div style={{ width: '100%', height: '100%', position: 'relative' }}>
 
               <Image
@@ -145,7 +145,7 @@ export default function Unstake() {
             <Text fontWeight={300} color={'white'} size="sm" mb={4}>
               Must wait 7 days to remove stake
             </Text>
-            <Spacer />
+            {/* <Spacer /> */}
  
             {/* <Stack align={'center'} justify={'center'} direction={'row'} mt={6}> */}
             {/* <form className={styles.btn} onSubmit={async e => {
@@ -201,15 +201,15 @@ export default function Unstake() {
                 fontWeight={'400'}>
                 #TaurosDAO
               </Badge> */}
-            </Stack>
-            <Spacer />
-            <Stack
+            {/* </Stack> */}
+            {/* <Spacer /> */}
+            {/* <Stack
               width={'100%'}
               mt={'2rem'}
               direction={'row'}
               padding={2}
               justifyContent={'space-between'}
-              alignItems={'center'}>
+              alignItems={'center'}> */}
               {/* <Button
                 flex={1}
                 fontSize={'sm'}
@@ -236,8 +236,8 @@ export default function Unstake() {
                 }}>
                 Follow on Twitter
               </Button> */}
-            </Stack>
-          </Stack>
+            {/* </Stack> */}
+          {/* </Stack> */}
         {/* </Stack> */}
       </Center>
     </>
