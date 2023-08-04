@@ -9,10 +9,10 @@ export default function BlueMoon() {
 
 
     const { unityProvider, isLoaded, requestFullscreen, loadingProgression } = useUnityContext({
-        loaderUrl: "unity/build/WebGL/WebGL/Build/build3.loader.js",
-        dataUrl: "unity/build/WebGL/WebGL/Build/build3.data",
-        frameworkUrl: "/unity/build/WebGL/WebGL/Build/build3.framework.js",
-        codeUrl: "unity/build/WebGL/WebGL/Build/build3.wasm",
+        loaderUrl: "unity/build/WebGL/WebGL/Build/build1.loader.js",
+        dataUrl: "unity/build/WebGL/WebGL/Build/build1.data",
+        frameworkUrl: "/unity/build/WebGL/WebGL/Build/build1.framework.js",
+        codeUrl: "unity/build/WebGL/WebGL/Build/build1.wasm",
     });
 
 
